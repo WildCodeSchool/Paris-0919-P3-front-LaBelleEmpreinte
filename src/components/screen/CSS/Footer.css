@@ -10,16 +10,23 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .logo{
     grid-column: 1/2;
     grid-row: 1;
-    margin-left: 40%;
+    margin-left: 25%;
 }
 .list{
     grid-column: 1/2;
     grid-row: 2;
+    text-align: left;
+    margin-bottom: 6%;
+    margin-top: 10px;
+}
+.list p{
+    margin-bottom: 0px;
 }
 .remerciements{
     grid-column: 2/5;
@@ -27,13 +34,14 @@
     padding-left: 1%;
     padding-right: 1%;
     font-size: 1rem;
+    margin-top: 20px;
 }
 
 .button{
     grid-column: 3/5;
     grid-row: 2;
     width: 50%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 @media screen and (max-width:770px){
