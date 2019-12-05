@@ -18,7 +18,8 @@ export default function Footer() {
                 <p className="remerciements">Un site réalisé par une belle équipe indépendante basée à Paris. Merci beaucoup à tous ceux qui ont aidé à la réalisation de ces outils qui n’existeraient pas sans eux </p>
                 <div className="list">
                     <ul>
-                        <li><b>CONTACT:</b> delphine@labelleempreinte.fr</li>
+                        <li><b>CONTACT:</b></li>
+                        <p> delphine@labelleempreinte.fr</p>
                         <li><b>Mentions légales</b></li>
                     </ul>
                 </div>
