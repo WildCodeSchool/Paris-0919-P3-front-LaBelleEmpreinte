@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-// import banierte from "../../assets/pictures/belleempreinte.png"
- //import logo from "../../assets/icons/labelleempreinte.png"
+import logo from "../assets/icons/labelleempreinte-green.png"
  
 import "./NavBar.css"
 
@@ -11,7 +10,7 @@ class NavBar extends Component {
                 <div>
                     <div className="navbar-logo">
                     <a className="navbar-brand" href="/">
-                        <img src="/img/labelleempreinte-green.png" alt="la_belle_empreinte"  widht="130"/>
+                        <img src={logo} alt="la_belle_empreinte" width='180'/>
                     </a>
                     </div>
                     <ul className="navbar-sidebar">
