@@ -1,54 +1,54 @@
 
 .sidebar li a.active{
     font-weight: bold;
-}
-
-.sidebar a{
-    display: flex;
-    align-items: center;
     justify-content: flex-start;
-   
-    color: #000;
-    font-size: 14px;
-}
-/*.img-logo{
-    float: left;
-}*/
+       }
 
-.nav-link{
+
+.navbar-logo{
+    float: left;
+}
+
+.navbar-link{
     display: block;
     text-decoration: none;
-    text-align: start;
-    list-style-type: none;
-    width: 11%;
-    text-align: left;    
+    text-align: end;
+    width: 15%;
+    text-align: right; 
+    font-size: 14px;   
 }
 
-.btn-green{
+.navbar-item{
+    list-style-type: none;
+}
+
+.navbar-btn-green{
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin: 20px;
-    background-color: green;
+    background-color: #fff;
+    text-align: center;
 }
 
 .nav-item{
     list-style-type: none;
+    
+    
+    
 }
 
 
-.nav-lin{
+/*.navbar-item{
     content: "";
     width: 14px;
     height: 14px;
-    background-color: limegreen;
+    background-color: #25A745;
     border-radius: 14px;
     margin-left: 10px;
     
-}
-.my-1{
-    width: 0;
-}
+}*/
+
 
 
 
