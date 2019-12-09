@@ -24,7 +24,7 @@ class NavBar extends Component {
                          </li>
                     <div className="row">
                      <div className="navbar-col">
-                      <hr className="my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div>
                     <li className="navbar-item">
@@ -35,7 +35,7 @@ class NavBar extends Component {
                     </li> 
                     <div className="row">
                      <div className="navbar-col">
-                      <hr className="my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -46,7 +46,7 @@ class NavBar extends Component {
                      </li> 
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -57,7 +57,7 @@ class NavBar extends Component {
                      </li>  
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -68,7 +68,7 @@ class NavBar extends Component {
                      </li>
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -79,7 +79,7 @@ class NavBar extends Component {
                      </li> 
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="navbar-my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -90,7 +90,7 @@ class NavBar extends Component {
                      </li>  
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="navbar-my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">
@@ -101,7 +101,7 @@ class NavBar extends Component {
                      </li> 
                      <div className="row">
                      <div className="navbar-col">
-                      <hr className="navbar-my-1" />
+                      <hr className="navbar-line" />
                      </div>
                     </div> 
                      <li className="navbar-item">

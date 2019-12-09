@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 15%;
+    width: 18%;
     padding-right: 15px;
     padding-left: 15px;
 }
 .navbar-sidebar{
     list-style-type: none;
 }
-
+/*css pour les ronds verts*/
 .rond{
     background-color: #39967e;
     width: 15px;
@@ -18,15 +18,15 @@
     border-radius: 50%;
     margin-left: 10px;
 }
-/*css pour faire le rond rouge*/
+/*css pour le rond rouge*/
 .rond-red{
     background-color: #96394d;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: 5px;
 }
-/*css pour faire le rond rouge*/
+/*css pour le rond orange*/
 .rond-orange{
     background-color: #fd7e14;
     width: 15px;
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: row;
     align-self: flex-end;
-   
+    padding: 10px 20px;
     
 }
 
@@ -46,7 +46,7 @@
     font-size: 14px;
     text-decoration: none;
     color: black;
-    padding: 10px 20px;
+   text-align: right;
 }
 .navbar-sidebar{
     display: flex;
@@ -65,5 +65,8 @@
     text-align: center;
     margin-left: 10px;
    
+}
+.navbar-line{
+    color: black;
 }
 
