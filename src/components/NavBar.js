@@ -23,7 +23,7 @@ class NavBar extends Component {
                          <div className="rond"></div>
                          </li>
                     <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="my-1" />
                      </div>
                     </div>
@@ -34,7 +34,7 @@ class NavBar extends Component {
                      <div className="rond"></div>
                     </li> 
                     <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="my-1" />
                      </div>
                     </div> 
@@ -45,7 +45,7 @@ class NavBar extends Component {
                       <div className="rond"></div>
                      </li> 
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="my-1" />
                      </div>
                     </div> 
@@ -56,7 +56,7 @@ class NavBar extends Component {
                       <div className="rond-red"></div>
                      </li>  
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="my-1" />
                      </div>
                     </div> 
@@ -67,7 +67,7 @@ class NavBar extends Component {
                       <div className="rond-orange"></div>
                      </li>
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="my-1" />
                      </div>
                     </div> 
@@ -78,7 +78,7 @@ class NavBar extends Component {
                       <div className="rond"></div>
                      </li> 
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="navbar-my-1" />
                      </div>
                     </div> 
@@ -89,7 +89,7 @@ class NavBar extends Component {
                       <div className="rond"></div>
                      </li>  
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="navbar-my-1" />
                      </div>
                     </div> 
@@ -100,7 +100,7 @@ class NavBar extends Component {
                       <div className="rond"></div>
                      </li> 
                      <div className="row">
-                     <div className="col-9 offset-3">
+                     <div className="navbar-col">
                       <hr className="navbar-my-1" />
                      </div>
                     </div> 
@@ -113,10 +113,10 @@ class NavBar extends Component {
                      </li> 
                     </ul>
                     <div className="row my-1 row-newsletter">
-                     <div className="col-9 offset-3 text-center">
+                     <div className="navbar-text">
                       <button className="navbar-btn-green" data-toggle="modal" 
                       data-target="#newsletterModal">
-                       <i className="fa fa-envelope"></i>
+                       <i className="navbar-envelope"></i>
                        La lettre des emplettes responsables
                        </button>
                      </div>
