@@ -53,7 +53,7 @@ class NavBar extends Component {
                       <a className="navbar-link after-red" href="/moteur-de-recherche">
                       MOTEUR DE RECHERCHE
                       </a>
-                      <div className="rond"></div>
+                      <div className="rond-red"></div>
                      </li>  
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -64,7 +64,7 @@ class NavBar extends Component {
                       <a className="navbar-link after-orange" href="/label">
                       LABEL
                       </a>
-                      <div className="rond"></div>
+                      <div className="rond-orange"></div>
                      </li>
                      <div className="row">
                      <div className="col-9 offset-3">

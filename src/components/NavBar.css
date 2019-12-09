@@ -18,6 +18,22 @@
     border-radius: 50%;
     margin-left: 10px;
 }
+
+.rond-red{
+    background-color: #96394d;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.rond-orange{
+    background-color: #fd7e14;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
 .navbar-item{
     display: flex;
     flex-direction: row;
