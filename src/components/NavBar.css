@@ -21,11 +21,16 @@
 .navbar-item{
     display: flex;
     flex-direction: row;
+    align-self: flex-end;
     
 }
 
 .navbar-link{
     font-size: 14px;
 }
-
+.navbar-sidebar{
+    display: flex;
+    flex-direction: column;
+    
+}
 
