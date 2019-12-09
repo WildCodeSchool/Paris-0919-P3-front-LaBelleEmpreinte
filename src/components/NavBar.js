@@ -6,7 +6,7 @@ import "./NavBar.css"
 class NavBar extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="navbar">
                 <div>
                     <div className="navbar-logo">
                     <a className="navbar-brand" href="/">
@@ -15,10 +15,12 @@ class NavBar extends Component {
                     </div>
                     <ul className="navbar-sidebar">
                         <li className="navbar-item">
-                         <a className="navbar-link active" href="/homepage">
+            
+                         <a className="navbar-link " href="/homepage">
                           ACCUEIL
                           
                          </a>
+                         <div className="rond"></div>
                          </li>
                     <div className="row">
                      <div className="col-9 offset-3">
@@ -29,6 +31,7 @@ class NavBar extends Component {
                      <a className="navbar-link" href="/quizz">
                      QUIZZ & GUIDE
                      </a>
+                     <div className="rond"></div>
                     </li> 
                     <div className="row">
                      <div className="col-9 offset-3">
@@ -39,6 +42,7 @@ class NavBar extends Component {
                       <a className="navbar-link" href="/presentation">
                       PRESENTATION
                       </a>
+                      <div className="rond"></div>
                      </li> 
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -49,6 +53,7 @@ class NavBar extends Component {
                       <a className="navbar-link after-red" href="/moteur-de-recherche">
                       MOTEUR DE RECHERCHE
                       </a>
+                      <div className="rond"></div>
                      </li>  
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -59,6 +64,7 @@ class NavBar extends Component {
                       <a className="navbar-link after-orange" href="/label">
                       LABEL
                       </a>
+                      <div className="rond"></div>
                      </li>
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -69,6 +75,7 @@ class NavBar extends Component {
                       <a className="navbar-link" href="/nous rejoindre">
                       NOUS REJOINDRE
                       </a>
+                      <div className="rond"></div>
                      </li> 
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -79,6 +86,7 @@ class NavBar extends Component {
                       <a className="navbar-link" href="/blog">
                       BLOG
                       </a>
+                      <div className="rond"></div>
                      </li>  
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -89,6 +97,7 @@ class NavBar extends Component {
                       <a className="navbar-link" href="/premier pas">
                       PREMIER PAS
                       </a>
+                      <div className="rond"></div>
                      </li> 
                      <div className="row">
                      <div className="col-9 offset-3">
@@ -96,9 +105,11 @@ class NavBar extends Component {
                      </div>
                     </div> 
                      <li className="navbar-item">
-                      <a className="navbar-link green" href="coin-des-pros">
+                      <a className="navbar-link" href="coin-des-pros">
                       LE COIN DES PROS
+                      
                       </a>
+                      <div className="rond"></div>
                      </li> 
                     </ul>
                     <div className="row my-1 row-newsletter">
