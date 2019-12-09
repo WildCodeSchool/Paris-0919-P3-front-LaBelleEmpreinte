@@ -22,11 +22,14 @@
     display: flex;
     flex-direction: row;
     align-self: flex-end;
+   
     
 }
 
 .navbar-link{
     font-size: 14px;
+    text-decoration: none;
+    color: black;
 }
 .navbar-sidebar{
     display: flex;
@@ -34,3 +37,6 @@
     
 }
 
+.navbar-logo{
+    align-self: flex-end;
+}

@@ -10,7 +10,7 @@ class NavBar extends Component {
                 <div>
                     <div className="navbar-logo">
                     <a className="navbar-brand" href="/">
-                        <img src={logo} alt="la_belle_empreinte" width='180'/>
+                        <img src={logo} alt="la_belle_empreinte" width='130'/>
                     </a>
                     </div>
                     <ul className="navbar-sidebar">
