@@ -1,86 +1,89 @@
-
-.navbar{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 18%;
-    padding-right: 15px;
-    padding-left: 15px;
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 18%;
+  padding-right: 15px;
+  padding-left: 15px;
 }
-.navbar-sidebar{
-    list-style-type: none;
+.navbar-sidebar {
+  list-style-type: none;
 }
 /*css pour les ronds verts*/
-.rond{
-    background-color: #39967e;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-left: 10px;
+.rond {
+  background-color: #39967e;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 /*css pour le rond rouge*/
-.rond-red{
-    background-color: #96394d;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-left: 5px;
+.rond-red {
+  background-color: #e3815f;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 5px;
 }
 /*css pour le rond orange*/
-.rond-orange{
-    background-color: #fd7e14;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-left: 10px;
+.rond-orange {
+  background-color: #fd7e14;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
-.navbar-item{
-    display: flex;
-    flex-direction: row;
-    align-self: flex-end;
-    padding: 10px 20px;
-    
-}
-
-.navbar-link{
-    font-size: 14px;
-    text-decoration: none;
-    color: black;
-    width: 167px;
-    height: 37px;
-   text-align: right;
-}
-.navbar-sidebar{
-    display: flex;
-    flex-direction: column;
-    width: 147.75px;
-    
-    
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 10px 20px;
 }
 
-.navbar-logo{
-    align-self: flex-end;
-    margin-top: 90px;
+.navbar-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+  width: 167px;
+  height: 37px;
+  text-align: right;
+}
+.navbar-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 147.75px;
 }
 
-.navbar-button{
-    background-color: #39967e;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    margin-left: 10px;
-   
-}
-.navbar-line{
-    color: black;
+.navbar-logo {
+  align-self: flex-end;
+  margin-top: 80px;
 }
 
-.navbar-link-pros{
-    color: #39967e;
-    font-size: 14px;
-    text-decoration: none;
-    width: 167px;
-    height: 37px;
-   text-align: right
+.navbar-button {
+  background-color: #399967;
+  width: 208px;
+  height: 100px;
+  text-align: center;
+  margin-left: 10px;
+
+  font-weight: 400;
+  padding: 0.375rem 0.75rem;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  color: white;
+}
+.navbar-line {
+  color: black;
 }
 
+.navbar-link-pros {
+  color: #39967;
+  font-size: 14px;
+  text-decoration: none;
+  width: 167px;
+  height: 37px;
+  text-align: right;
+}

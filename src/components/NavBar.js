@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import logo from "../assets/icons/labelleempreinte-green.png"
+import logo1 from "./envelope.svg"
+
  
 import "./NavBar.css"
 
@@ -117,7 +119,8 @@ class NavBar extends Component {
                       <button className="navbar-button" data-toggle="modal" 
                       data-target="#newsletterModal">
                        <i className="navbar-envelope"></i>
-                       La lettre des emplettes responsables
+                       <img src={logo1} alt="" height='16'/> La lettre des emplettes responsables
+                       
                        </button>
                      </div>
                     </div> 
