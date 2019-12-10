@@ -105,7 +105,7 @@ class NavBar extends Component {
                      </div>
                     </div> 
                      <li className="navbar-item">
-                      <a className="navbar-link" href="coin-des-pros">
+                      <a className="navbar-link-pros" href="coin-des-pros">
                       LE COIN DES PROS
                       
                       </a>
@@ -114,7 +114,7 @@ class NavBar extends Component {
                     </ul>
                     <div className="row my-1 row-newsletter">
                      <div className="navbar-text">
-                      <button className="navbar-btn-green" data-toggle="modal" 
+                      <button className="navbar-button" data-toggle="modal" 
                       data-target="#newsletterModal">
                        <i className="navbar-envelope"></i>
                        La lettre des emplettes responsables

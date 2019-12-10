@@ -46,20 +46,25 @@
     font-size: 14px;
     text-decoration: none;
     color: black;
+    width: 167px;
+    height: 37px;
    text-align: right;
 }
 .navbar-sidebar{
     display: flex;
     flex-direction: column;
+    width: 147.75px;
+    
     
 }
 
 .navbar-logo{
     align-self: flex-end;
+    margin-top: 90px;
 }
 
-.navbar-btn-green{
-    background-color: #fff;
+.navbar-button{
+    background-color: #39967e;
     width: 100px;
     height: 100px;
     text-align: center;
@@ -68,5 +73,14 @@
 }
 .navbar-line{
     color: black;
+}
+
+.navbar-link-pros{
+    color: #39967e;
+    font-size: 14px;
+    text-decoration: none;
+    width: 167px;
+    height: 37px;
+   text-align: right
 }
 
