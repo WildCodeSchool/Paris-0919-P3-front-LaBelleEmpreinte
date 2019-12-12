@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import logo from "../assets/icons/labelleempreinte-green.png"
-import logo1 from "./envelope.svg"
+import logo from "../../assets/icons/labelleempreinte-green.png"
+import logo1 from "../../assets/pictures/envelope.svg"
 
  
-import "./NavBar.css"
+import "./CSS/Navbar.css"
 
-class NavBar extends Component {
+class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
@@ -22,99 +22,93 @@ class NavBar extends Component {
                           ACCUEIL
                           
                          </a>
-                         <div className="rond"></div>
+                         <div className="navbar-rond"></div>
                          </li>
-                    <div className="row">
-                     <div className="navbar-col">
+                    
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div>
+                     
+                    
                     <li className="navbar-item">
                      <a className="navbar-link" href="/quizz">
                      QUIZZ & GUIDE
                      </a>
-                     <div className="rond"></div>
+                     <div className="navbar-rond"></div>
                     </li> 
-                    <div className="row">
-                     <div className="navbar-col">
+                    
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
                      <li className="navbar-item">
                       <a className="navbar-link" href="/presentation">
                       PRESENTATION
                       </a>
-                      <div className="rond"></div>
+                      <div className="navbar-rond"></div>
                      </li> 
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
                      <li className="navbar-item">
-                      <a className="navbar-link after-red" href="/moteur-de-recherche">
-                      MOTEUR DE RECHERCHE
+                      <a className="navbar-link navbar-after-red" href="/moteur-de-recherche">
+                      MOTEUR DE <br /> RECHERCHE
                       </a>
-                      <div className="rond-red"></div>
+                      <div className="navbar-rond-red"></div>
                      </li>  
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
+                    
+                    
                      <li className="navbar-item">
                       <a className="navbar-link after-orange" href="/label">
                       LABEL
                       </a>
-                      <div className="rond-orange"></div>
+                      <div className="navbar-rond-orange"></div>
                      </li>
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
+              
+                
                      <li className="navbar-item">
                       <a className="navbar-link" href="/nous rejoindre">
                       NOUS REJOINDRE
                       </a>
-                      <div className="rond"></div>
+                      <div className="navbar-rond"></div>
                      </li> 
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
+                  
+                   
                      <li className="navbar-item">
                       <a className="navbar-link" href="/blog">
                       BLOG
                       </a>
-                      <div className="rond"></div>
+                      <div className="navbar-rond"></div>
                      </li>  
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
+               
                      <li className="navbar-item">
                       <a className="navbar-link" href="/premier pas">
                       PREMIER PAS
                       </a>
-                      <div className="rond"></div>
+                      <div className="navbar-rond"></div>
                      </li> 
-                     <div className="row">
-                     <div className="navbar-col">
+                     
+                     
                       <hr className="navbar-line" />
-                     </div>
-                    </div> 
+                   
                      <li className="navbar-item">
                       <a className="navbar-link-pros" href="coin-des-pros">
                       LE COIN DES PROS
                       
                       </a>
-                      <div className="rond"></div>
+                      <div className="navbar-rond"></div>
                      </li> 
                     </ul>
-                    <div className="row my-1 row-newsletter">
+                    <div className="navbar-row navbar-my-1 navbar-row-newsletter">
                      <div className="navbar-text">
                       <button className="navbar-button" data-toggle="modal" 
                       data-target="#newsletterModal">
@@ -133,4 +127,4 @@ class NavBar extends Component {
         )
     }
 }
-export default  NavBar 
+export default  Navbar 

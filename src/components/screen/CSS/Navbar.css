@@ -1,49 +1,47 @@
 .navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 18%;
-  padding-right: 15px;
-  padding-left: 15px;
+  width: 20%;
+  margin-left: 2%;
 }
 .navbar-sidebar {
   list-style-type: none;
 }
 /*css pour les ronds verts*/
-.rond {
+.navbar-rond {
   background-color: #39967e;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   margin-left: 10px;
+  margin-top: 3px;
 }
 /*css pour le rond rouge*/
-.rond-red {
+.navbar-rond-red {
   background-color: #e3815f;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   margin-left: 5px;
+  margin-top: 13px;
 }
 /*css pour le rond orange*/
-.rond-orange {
+.navbar-rond-orange {
   background-color: #fd7e14;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   margin-left: 10px;
+  margin-top: 3px;
 }
 .navbar-item {
   display: flex;
   flex-direction: row;
   align-self: flex-end;
-  padding: 10px 20px;
 }
 
 .navbar-link {
   font-size: 14px;
   text-decoration: none;
-  color: black;
+  color: #000000;
   width: 167px;
   height: 37px;
   text-align: right;
@@ -52,11 +50,6 @@
   display: flex;
   flex-direction: column;
   width: 147.75px;
-}
-
-.navbar-logo {
-  align-self: flex-end;
-  margin-top: 80px;
 }
 
 .navbar-button {
@@ -76,11 +69,11 @@
   color: white;
 }
 .navbar-line {
-  color: black;
+  color: #000000;
 }
 
 .navbar-link-pros {
-  color: #39967;
+  color: #000000;
   font-size: 14px;
   text-decoration: none;
   width: 167px;
