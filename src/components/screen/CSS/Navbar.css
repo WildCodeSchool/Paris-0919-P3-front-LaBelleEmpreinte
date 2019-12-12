@@ -70,7 +70,9 @@
 }
 .navbar-line {
   color: #000000;
-}
+  width: 110px;
+  margin-top: 8px;
+  margin-bottom: 7px;}
 
 .navbar-link-pros {
   color: #000000;
