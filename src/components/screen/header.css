@@ -1,7 +1,12 @@
+
 .header_titleAndBurger {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+
+.header_titleAndBurger img{
+  margin-left: 1%;
 }
 
 .header_main h1 {
@@ -24,9 +29,8 @@
   font-weight: bold;
   font-size: 32px;
   text-align: center;
-  margin: 28px 0;
-  padding: 5px;
-  margin-top: 2em;
+  margin: 28px 10px;
+  padding: 5px 0;
 }
 
 header.header_main {
@@ -87,4 +91,5 @@ header.header_main {
 /* icone de loupe */
 .loupe {
   margin-top: 3px;
+  padding-left: 4px;
 }

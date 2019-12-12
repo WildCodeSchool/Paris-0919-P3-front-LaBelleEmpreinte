@@ -1,7 +1,8 @@
 import React from "react";
 
 import "./header.css";
-import logo from "./search-13-32.png";
+import icon from "./search-13-32.png";
+import logo from "../../assets/icons/labelleempreinte-green.png"
 
 
 
@@ -10,6 +11,7 @@ function Header() {
   return (
       <header className="header_main">
         <div className="header_titleAndBurger">
+          <img src={logo} alt="logo" width="96px"></img>
           <div className="header_mainTitle">
             <h1>LA BELLE EMPREINTE,</h1>
             <h2>Le guide vers les objets responsables</h2>
@@ -20,7 +22,7 @@ function Header() {
             <div className="header_orangeDot" />
           </div>
         </div>
-        <h3><img className="loupe" src={logo} alt='logo' /> LE MOTEUR DE RECHERCHE des objets responsables</h3>
+        <h3><img className="loupe" src={icon} alt='logo' /> LE MOTEUR DE RECHERCHE des objets responsables</h3>
       </header>
 
   );
