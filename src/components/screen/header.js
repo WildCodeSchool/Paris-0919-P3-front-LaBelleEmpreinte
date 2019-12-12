@@ -8,14 +8,21 @@ import logo from "./search-13-32.png";
 
 function Header() {
   return (
-    <div className="header_main">
-      <header className="header_second">
-        <h1>LA BELLE EMPREINTE,</h1>
-        <h2>Le guide vers les objets responsables</h2>
-        <h3><img src={logo} alt='logo' /> LE MOTEUR DE RECHERCHE des objets responsables</h3>
+      <header className="header_main">
+        <div className="header_titleAndBurger">
+          <div className="header_mainTitle">
+            <h1>LA BELLE EMPREINTE,</h1>
+            <h2>Le guide vers les objets responsables</h2>
+          </div>
+          <div className="header_burger">
+            <div className="header_greenDot" />
+            <div className="header_redDot" />
+            <div className="header_orangeDot" />
+          </div>
+        </div>
+        <h3><img className="loupe" src={logo} alt='logo' /> LE MOTEUR DE RECHERCHE des objets responsables</h3>
       </header>
-    </div>
-    
+
   );
 }
 
