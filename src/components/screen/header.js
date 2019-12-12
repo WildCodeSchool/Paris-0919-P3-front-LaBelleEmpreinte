@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
-import "./CSS/header.css";
-import icon from "./search-13-32.png";
+import "./CSS/Header.css"
+import icon from "../../assets/pictures/search-13-32.png"
 import logo from "../../assets/icons/labelleempreinte-green.png"
 
 

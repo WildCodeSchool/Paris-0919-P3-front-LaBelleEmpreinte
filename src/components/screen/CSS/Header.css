@@ -1,0 +1,36 @@
+.header-h1 {
+  color: #399967;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.header-h2 {
+  color: #e3815f;
+  font-family: "Montserrat", arial;
+  padding-bottom: 0em;
+  margin: 0 0em 17px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-h3 {
+  color: white;
+  background-color: #e3815f;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 37px;
+}
+
+header.header_second {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
