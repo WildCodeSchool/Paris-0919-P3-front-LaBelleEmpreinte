@@ -82,8 +82,7 @@
 }
 
 @media screen and (max-width: 770px){
-  .navbar {
+  div.navbar {
     display: none;
-    width: 100%;
   }
-}
+} 

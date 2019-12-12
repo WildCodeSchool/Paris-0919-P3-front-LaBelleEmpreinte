@@ -25,3 +25,9 @@ margin-right: 5vw;
 .App-link {
   color: #09d3ac;
 }
+
+@media screen and (max-width: 770px) {
+  .app_container {
+    margin: 0vw;
+    }
+}
