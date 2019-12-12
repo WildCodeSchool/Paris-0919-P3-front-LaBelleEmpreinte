@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./header.css";
+import "./CSS/header.css";
 import icon from "./search-13-32.png";
 import logo from "../../assets/icons/labelleempreinte-green.png"
 
