@@ -1,5 +1,11 @@
 @media screen and (min-width: 770px){
 
+.header_main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .header_main h1 {
   color: #399967;
   font-family: "Montserrat", arial;
