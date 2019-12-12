@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+import React from "react"; 
+>>>>>>> 4af660584220c9262a468d36727f7f5d27a39e56
 
 import "./header.css";
 import logo from "./search-13-32.png";
