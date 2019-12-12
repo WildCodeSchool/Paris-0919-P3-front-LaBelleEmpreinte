@@ -1,8 +1,7 @@
 import React from "react"
 
 import "./CSS/Header.css"
-import logo from "../../assets/pictures/search-13-32.png"
-import icon from "./search-13-32.png";
+import icon from "../../assets/pictures/search-13-32.png"
 import logo from "../../assets/icons/labelleempreinte-green.png"
 
 

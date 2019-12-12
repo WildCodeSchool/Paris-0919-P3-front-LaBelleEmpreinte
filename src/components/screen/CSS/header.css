@@ -1,0 +1,95 @@
+
+.header_titleAndBurger {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.header_titleAndBurger img{
+  margin-left: 1%;
+}
+
+.header_main h1 {
+  color: #399967;
+  font-family: "Montserrat", arial;
+  margin-bottom: 20px;
+}
+
+.header_main h2 {
+    color: #e3815f;
+    font-family: "Montserrat", arial;
+    padding-bottom: 0em;
+    margin: -17px 0em;
+    font-size: 32px; }
+
+  .header_main h3 {
+  color: white;
+  background-color: #e3815f;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  margin: 28px 10px;
+  padding: 5px 0;
+}
+
+header.header_main {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+}
+
+/* menu burger */
+
+.header_burger {
+  display: flex;
+  flex-direction: column;
+  width: 10px;
+  right: 0;
+  margin: 3vw 2vw 0 0;
+}
+
+.header_greenDot {
+  background-color: #399967;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 3px;
+}
+
+.header_redDot {
+  background-color: #e3815f;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 3px;
+}
+
+.header_orangeDot {
+  background-color: #faa224;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;  
+
+}
+
+/* deux premiers titres */
+.header_mainTitle {
+  margin: auto;
+}
+
+@media screen and (max-width: 770px){
+  .header_main h1{
+    font-size: 14px;
+  }
+  .header_main h2{
+    font-size: 14px;
+  }
+}
+
+/* icone de loupe */
+.loupe {
+  margin-top: 3px;
+  padding-left: 4px;
+}
