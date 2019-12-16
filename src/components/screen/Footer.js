@@ -3,7 +3,6 @@ import './CSS/Footer.css'
 
 import banniere from '../../assets/pictures/belleempreinte.png'
 import logo from '../../assets/icons/labelleempreinte-green.png'
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -21,7 +20,9 @@ export default function Footer() {
                         <li><b>Mentions légales</b></li>
                     </ul>
                 </div>
-                <Button className="footer-button" variant="success" size="m">La lettre des emplettes responsables</Button>
+                <Button className="footer-button" variant="success" size="m">
+                     <p>La lettre des emplettes responsables</p>
+                </Button>
             </div>
         </div>
     )
