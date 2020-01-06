@@ -6,16 +6,16 @@
   flex-direction: column;
 }
 
-.header_main h1 {
+.header_mainTitle h1 {
   color: #399967;
   font-family: "Montserrat", arial;
   font-weight: bold;
   font-size: 32px;
   margin-top: 30px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
-.header_main h2 {
+.header_mainTitle h2 {
   color: #e3815f;
   font-family: "Montserrat", arial;
   padding-bottom: 0em;
@@ -58,6 +58,7 @@
   font-weight: bold;
   text-align: center;
   line-height: 1.2;
+  margin-top: -80px;
 }
 
 .header_titleAndBurger {
@@ -70,13 +71,14 @@
   margin-left: 1%;
 }
 
-.header_main h1 {
+.header_mainTitle h1 {
   color: #399967;
   font-family: "Montserrat", arial;
   margin-bottom: 20px;
+  margin-top: -15px;
 }
 
-.header_main h2 {
+.header_mainTitle h2 {
     color: #e3815f;
     font-family: "Montserrat", arial;
     padding-bottom: 0em;
@@ -86,12 +88,12 @@
     font-weight: bold; 
 }
 
-  .header_main h3 {
+  .header_mainTitle h3 {
   color: white;
   background-color: #e3815f;
   font-family: "Montserrat", arial;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 30px;
   text-align: center;
   margin: 28px 10px;
   padding: 5px 0;
