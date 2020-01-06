@@ -82,7 +82,9 @@
     padding-bottom: 0em;
     margin: -17px 0em;
     font-size: 14px;
-  text-align: center; }
+    text-align: center;
+    font-weight: bold; 
+}
 
   .header_main h3 {
   color: white;
