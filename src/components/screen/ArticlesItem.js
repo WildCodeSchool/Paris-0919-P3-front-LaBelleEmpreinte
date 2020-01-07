@@ -17,16 +17,3 @@ const ArticlesItem = ({ title, image, date, time }) => (
 )
 
 export default ArticlesItem
-
-    // < div className = 'ArticlesItem-Info' >
-    //     <ul>
-    //         <li className='ArticlesItem-Title'><span class="visually-hidden">{title}</span></li>
-    //         <li className='ArticlesItem-Date'><span class="visually-hidden">{date}</span></li>
-    //         <li className='ArticlesItem-Time'><span class="visually-hidden">{time}</span></li>
-    //     </ul>
-    //     </div >
-
-
-
-    //     background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-

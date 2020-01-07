@@ -7,15 +7,13 @@ import DisplayArticles from './components/screen/DisplayArticles';
 
 function App() {
   return (
-    // <div className="App">
-    //   <Navbar />
-    //   <div className="app_container">
-    //     <Header/>
-    //     <Footer />
-    //   </div>
-    // </div>
-    <div>
-      <DisplayArticles />
+    <div className="">
+      <Navbar />
+      <div className="">
+        <Header/>
+        <DisplayArticles />
+        <Footer />
+      </div>
     </div>
   );
 }
