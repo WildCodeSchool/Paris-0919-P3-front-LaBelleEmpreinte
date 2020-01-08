@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Besoins extends Component {
     state = {
         datas: [
@@ -108,30 +107,34 @@ class Besoins extends Component {
                     }
                 ]
             }
-        ]
+        ],
+        isVisible: false
+    }
+    
+    displayBesoin = () => {
+        this.setState({isVisible: !this.state.isVisible})
     }
     render() {
         return (
             <div>
+                   <p onClick={this.displayBesoin}>{this.state.datas[0].type}</p> 
+                   {this.state.isVisible ? this.state.datas[0].results.map(elt => {
+                       const test = this.state.datas[1].results.filter(elt2 => elt2.besoins_id ===elt.id).map(elt =>elt.types_activites)
+                       return (
+                           <div>
+                           <p> {elt.besoins} </p>
+                       {test.map(elt => <p>{elt}</p>)}
+                            </div>
+                       )
+                      
+                       }):""}
+                   
+                   
+                   
                 
-                {this.state.datas.map(elem=>(
-                    <>
-                   <p>{elem.type}</p> 
-                   <br/>
-                   
-                   {elem.results.map(elt => <p>{elt.besoins} // id : {elt.id}</p> ) }
-                   
-                   
-                   {elem.results.map(elt => <p>{elt.types_activites}</p> ) } 
-                   
-                   
-                   </>
-                   
-                   
-                   ))} 
             </div>
         )
     }
 }
-
 export default Besoins;
+    
