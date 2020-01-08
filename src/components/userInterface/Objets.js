@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-class Besoins extends Component {
+class Objets extends Component {
     state = {
         datas: [
             {
@@ -21,7 +21,7 @@ class Besoins extends Component {
                 "results": [
                     {
                         "id": 1,
-                        "sous objets": "defis",
+                        "sous objets": "Short",
                         "objets_id": 1
                     },
                     {
