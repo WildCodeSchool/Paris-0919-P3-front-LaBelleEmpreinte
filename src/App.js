@@ -6,6 +6,8 @@ import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
 
+
+
 function App() {
   return (
     <div className="">
