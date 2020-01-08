@@ -106,7 +106,7 @@ class Besoins extends Component {
     render() {
         return (
             <div>
-                   <p onClick={this.displayObjet}>{this.state.datas[0].type}</p> 
+                   <p onClick={this.displayOabjet}>{this.state.datas[0].type}</p> 
                    {this.state.isVisible ? this.state.datas[0].results.map(elt => {
                        const test = this.state.datas[1].results.filter(elt2 => elt2.objets_id ===elt.id).map(elt =>elt.types_activites)
                        return (
