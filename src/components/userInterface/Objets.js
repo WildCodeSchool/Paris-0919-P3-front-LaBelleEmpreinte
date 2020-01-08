@@ -17,11 +17,11 @@ class Objets extends Component {
                 ]
             },
             {
-                "type": "sous objets",
+                "type": "sous_objets",
                 "results": [
                     {
                         "id": 1,
-                        "sous objets": "Short",
+                        "sous_objets": "Short",
                         "objets_id": 1
                     },
                     {
@@ -31,67 +31,67 @@ class Objets extends Component {
                     },
                     {
                         "id": 3,
-                        "sous objets": "Jupes",
+                        "sous_objets": "Jupes",
                         "objets_id": 1
                     },
                     {
                         "id": 4,
-                        "sous objets": "Chaussures",
+                        "sous_objets": "Chaussures",
                         "objets_id": 1
                     },
                     {
                         "id": 5,
-                        "sous objets": "Decoration",
+                        "sous_objets": "Decoration",
                         "objets_id": 2
                     },
                     {
                         "id": 6,
-                        "sous objets": "Lave linge",
+                        "sous_objets": "Lave linge",
                         "objets_id": 2
                     },
                     {
                         "id": 7,
-                        "sous objets": "Cuisiniere",
+                        "sous_objets": "Cuisiniere",
                         "objets_id": 2
                     },
                     {
                         "id": 8,
-                        "sous objets": "Télévision",
+                        "sous_objets": "Télévision",
                         "objets_id": 2
                     },
                     {
                         "id": 9,
-                        "sous objets": "réparation",
+                        "sous_objets": "réparation",
                         "objets_id": 1
                     },
                     {
                         "id": 10,
-                        "sous objets": "objets occasion",
+                        "sous_objets": "objets occasion",
                         "objets_id": 2
                     },
                     {
                         "id": 11,
-                        "sous objets": "Chemises",
+                        "sous_objets": "Chemises",
                         "objets_id": 1
                     },
                     {
                         "id": 12,
-                        "sous objets": "Pantalons",
+                        "sous_objets": "Pantalons",
                         "objets_id": 1
                     },
                     {
                         "id": 13,
-                        "sous objets": "Meubles",
+                        "sous_objets": "Meubles",
                         "objets_id": 2
                     },
                     {
                         "id": 14,
-                        "sous objets": "Robes",
+                        "sous_objets": "Robes",
                         "objets_id": 1
                     },
                     {
                         "id": 15,
-                        "sous objets": "Capapé",
+                        "sous_objets": "Capapé",
                         "objets_id": 2
                     }
                 ]
@@ -106,9 +106,9 @@ class Objets extends Component {
     render() {
         return (
             <div>
-                   <p onClick={this.displayOabjet}>{this.state.datas[0].type}</p> 
+                   <p onClick={this.displayObjet}>{this.state.datas[0].type}</p> 
                    {this.state.isVisible ? this.state.datas[0].results.map(elt => {
-                       const test = this.state.datas[1].results.filter(elt2 => elt2.objets_id ===elt.id).map(elt =>elt.types_activites)
+                       const test = this.state.datas[1].results.filter(elt2 => elt2.objets_id ===elt.id).map(elt =>elt.sous_objets)
                        return (
                            <div>
                            <p> {elt.objets} </p>
