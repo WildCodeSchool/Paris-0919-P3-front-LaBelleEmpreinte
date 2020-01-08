@@ -7,11 +7,11 @@ class Besoins extends Component {
                 "results": [
                     {
                         "id": 1,
-                        "besoins": "comprendre_les_enjeux"
+                        "besoins": "comprendre les enjeux"
                     },
                     {
                         "id": 2,
-                        "besoins": "fin_utilisation"
+                        "besoins": "fin utilisation"
                     },
                     {
                         "id": 3,
@@ -19,16 +19,16 @@ class Besoins extends Component {
                     },
                     {
                         "id": 4,
-                        "besoins": "occasion_location_DIY"
+                        "besoins": "occasion location DIY"
                     },
                     {
                         "id": 5,
-                        "besoins": "marques_responsables"
+                        "besoins": "marques responsables"
                     }
                 ]
             },
             {
-                "type": "types_activites",
+                "type": "types activites",
                 "results": [
                     {
                         "id": 1,
@@ -42,7 +42,7 @@ class Besoins extends Component {
                     },
                     {
                         "id": 3,
-                        "types_activites": "5_gestes_simples",
+                        "types_activites": "5 gestes simples",
                         "besoins_id": 1
                     },
                     {
@@ -52,17 +52,17 @@ class Besoins extends Component {
                     },
                     {
                         "id": 5,
-                        "types_activites": "deposer_et_donner",
+                        "types_activites": "deposer et donner",
                         "besoins_id": 2
                     },
                     {
                         "id": 6,
-                        "types_activites": "vente_en_boutique",
+                        "types_activites": "vente en boutique",
                         "besoins_id": 2
                     },
                     {
                         "id": 7,
-                        "types_activites": "vente_en_ligne",
+                        "types_activites": "vente en ligne",
                         "besoins_id": 2
                     },
                     {
@@ -77,7 +77,7 @@ class Besoins extends Component {
                     },
                     {
                         "id": 10,
-                        "types_activites": "objets_occasion",
+                        "types_activites": "objets occasion",
                         "besoins_id": 4
                     },
                     {
@@ -87,17 +87,17 @@ class Besoins extends Component {
                     },
                     {
                         "id": 12,
-                        "types_activites": "creation_diy",
+                        "types_activites": "creation diy",
                         "besoins_id": 4
                     },
                     {
                         "id": 13,
-                        "types_activites": "objets_labellises",
+                        "types_activites": "objets labellises",
                         "besoins_id": 5
                     },
                     {
                         "id": 14,
-                        "types_activites": "marques_recommandes",
+                        "types_activites": "marques recommandes",
                         "besoins_id": 5
                     },
                     {
