@@ -5,6 +5,7 @@ import Navbar from './components/screen/Navbar';
 import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
+import AdminHome from './components/adminInterface/AdminHome';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <DisplayArticles />
         <Footer />
       </div> */}
-      <ArticleContent />
+      {/* <ArticleContent /> */}
+      <AdminHome />
     </div>
   );
 }
