@@ -4,7 +4,6 @@ import './CSS/ListInitiatives.css'
 const ListInitiatives = ({ name, logo, description, url, date, adresses, engagements }) => (
     <div className='listinitiatives'>
         <div className='listinitiatives-containerhead'>
-            <img className='listinitiatives-logo' src={logo} alt={name} />
             <div className='listinitiatives-head'>
                 <p className='listinitiatives-name'>
                     {name}
@@ -13,6 +12,7 @@ const ListInitiatives = ({ name, logo, description, url, date, adresses, engagem
                     Visiter le site
                 </a>
             </div>
+            <img className='listinitiatives-logo' src={logo} alt={name} />
         </div>
         <p className='listinitiatives-description'>
             {description}
@@ -31,10 +31,10 @@ const ListInitiatives = ({ name, logo, description, url, date, adresses, engagem
             <p className='listinitiatives-engagements'>Engagements</p>
             {engagements.map((engagement) => (
                 <a data-popup={engagement.name}>
-                <img className='listinitiatives-logoengagements' src={engagement.logo} alt='engagement' /></a>
+                    <img className='listinitiatives-logoengagements' src={engagement.logo} alt='engagement' /></a>
             ))}
         </div>
-        <hr/>
+        <hr />
     </div >
 )
 

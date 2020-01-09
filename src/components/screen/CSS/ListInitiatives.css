@@ -13,13 +13,13 @@
 }
 
 .listinitiatives-logo {
-    max-height: 5rem;
+    max-width: 5.5rem;
     border-radius: 100px;
-    margin-right: 20px;
 }
 
 .listinitiatives-head {
     margin-bottom: 0;
+    margin-right: 20px;
 }
 
 .listinitiatives-description {
@@ -46,7 +46,7 @@
 }
 
 .listinitiatives-engagements::first-letter {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #399967;
 }
 

@@ -17,13 +17,12 @@ import logoBackMarket from '../../assets/icons/LOGObackmarket.png'
 class ArticleContent extends Component {
     state =
         {
-            title: 'Défis écologiques et sociaux du textile',
-            cover: 'https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/9/1/d/91d619f85c_114490_06-996.jpg',
+            titre: 'Défis écologiques et sociaux du textile',
+            image: 'https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/9/1/d/91d619f85c_114490_06-996.jpg',
             date: '10 Janvier 2019', // à mettre en 10 janvier
-            authorpic: 'https://lafabriqueaviva.imgix.net/uploaded-files/a/4/f/a4f1838cf8ed7892eac579c46eef76a9.jpeg?auto=format%2Ccompression&ixlib=php-2.3.0&s=c164483caaaf545727b71769d09e3952',
-            author: 'Delphine',
-            // intro: "En quelques décennies, l'industrie textile a été très largement délocalisée sur d'autres continents. Avec le grand déménagement des usines, nous avons progressivement perdu de vue les conditions de fabrication de nos vêtements. Souvent risquées, ces dernières nous donnent aujourd'hui beaucoup de fil à retordre !",
-            content: '',
+            photo_auteur: 'https://lafabriqueaviva.imgix.net/uploaded-files/a/4/f/a4f1838cf8ed7892eac579c46eef76a9.jpeg?auto=format%2Ccompression&ixlib=php-2.3.0&s=c164483caaaf545727b71769d09e3952',
+            auteur: 'Delphine',
+            contenu: '',
             associatedIniatives: [
                 {
                     name: 'Vestiaire collective',
@@ -121,11 +120,11 @@ class ArticleContent extends Component {
         return (
             <div className='articlecontent'>
                 <header>
-                    <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${this.state.cover})` }}>
-                        <h1>{(this.state.title).toUpperCase()}</h1>
+                    <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${this.state.image})` }}>
+                        <h1>{(this.state.titre).toUpperCase()}</h1>
                     </div>
                     <nav className={this.state.isTop ? null : 'articlecontent-fixed-header'}>
-                        <div className={this.state.isTop ? 'articlecontent-invisible-title' : 'articlecontent-visible-title'}>{(this.state.title).toUpperCase()}</div>
+                        <div className={this.state.isTop ? 'articlecontent-invisible-title' : 'articlecontent-visible-title'}>{(this.state.titre).toUpperCase()}</div>
                     </nav>
                 </header>
 
@@ -133,9 +132,9 @@ class ArticleContent extends Component {
                     <article>
                         <p>Le {this.state.date}</p>
                         <div className='articlecontent-authorcontainer'>
-                            <img className='articlecontent-authorpic' src={this.state.authorpic} alt={this.state.author} /> <p className='articlecontent-author'>Par {this.state.author}</p>
+                            <img className='articlecontent-authorpic' src={this.state.photo_auteur} alt={this.state.auteur} /> <p className='articlecontent-author'>Par {this.state.auteur}</p>
                         </div>
-                        {/* <p>{this.state.content}</p> */}
+                        {/* <p>{this.state.contenu}</p> */}
                         <h2>
                             Plusieurs grands défis écologiques
                     </h2>
