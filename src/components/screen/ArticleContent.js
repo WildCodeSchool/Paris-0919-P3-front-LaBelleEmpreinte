@@ -67,7 +67,7 @@ class ArticleContent extends Component {
         return (
             <div className='articlecontent'>
                 <span className='articlecontent-title'></span>
-               
+
             </div>
         )
     }
