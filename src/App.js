@@ -10,15 +10,15 @@ import AdminHome from './components/adminInterface/AdminHome';
 function App() {
   return (
     <div>
-      <ArticleContent />
+      {/* <ArticleContent /> */}
       {/* <DisplayArticles /> */}
-      {/* <div className="App">
+      <div className="App">
         <Navbar />
         <div className="app_container">
           <Header />
           <Footer />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
