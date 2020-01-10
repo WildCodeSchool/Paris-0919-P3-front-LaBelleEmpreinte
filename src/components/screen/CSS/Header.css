@@ -34,6 +34,9 @@
   padding: 5px;
   margin-top: 37px;
 }
+.burger-logo{
+  width: 128px;
+}
 
 .header_mainTitle {
   font-weight: bold;
@@ -46,6 +49,7 @@
 .header_titleAndBurger img{
   display: none;
 }
+
 }
 
 
@@ -149,4 +153,33 @@ header.header_main {
 .header_mainTitle {
   margin: auto;
 }
+
+/* //////////////// Le modal ////////////////// */
+.modal {
+  right: 0px;
+  top: 0px;
+  height: 1000px;
+  width: 1000px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.burger-logo{
+  width: 128px;
+}
+
+/* la liste  */
+
+.burger-logo{
+  margin-left: 32vw;
+}
+
+.navbar-sidebar{
+  margin-left: 25vw;
+}
+.navbar-button{
+  margin-left: 20vw;
+}
+
+
 }
