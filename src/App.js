@@ -7,8 +7,6 @@ import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
 import ListInitiatives from './components/screen/ListInitiatives';
 
-
-
 function App() {
   return (
     <div className="">
