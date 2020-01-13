@@ -7,7 +7,7 @@ import "./CSS/Navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar">
+      <div className="Navbar">
         <div>
           <div className="navbar-logo">
             <a className="navbar-brand" href="/">
@@ -26,7 +26,7 @@ class Navbar extends Component {
 
             <li className="navbar-item">
               <a className="navbar-link" href="/quizz">
-                QUIZZ & GUIDE
+                GUIDE
               </a>
               <div className="navbar-rond"></div>
             </li>
@@ -45,7 +45,7 @@ class Navbar extends Component {
                 className="navbar-link navbar-after-red"
                 href="/moteur-de-recherche"
               >
-                MOTEUR DE <br /> RECHERCHE
+                <b>MOTEUR DE <br /> RECHERCHE</b>
               </a>
               <div className="navbar-rond-red"></div>
             </li>

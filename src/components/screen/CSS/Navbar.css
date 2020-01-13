@@ -1,10 +1,10 @@
-.navbar {
+.Navbar {
   width: 20%;
   margin-left: 2%;
-  float:left;
-  position: fixed;
+  position: sticky;
+  font-family: "Montserrat";
+  float: left;
   top: 0;
-  left: 0;
 }
 .navbar-sidebar {
   list-style-type: none;
@@ -81,7 +81,7 @@
   margin-bottom: 7px;}
 
 .navbar-link-pros {
-  color: #000000;
+  color: #399967;
   font-size: 14px;
   text-decoration: none;
   width: 167px;
@@ -94,7 +94,7 @@
 }
 
 @media screen and (max-width: 770px){
-  div.navbar {
+  .Navbar {
     display: none;
   }
 } 
