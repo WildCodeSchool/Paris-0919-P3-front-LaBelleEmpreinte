@@ -1,6 +1,10 @@
 .navbar {
   width: 20%;
   margin-left: 2%;
+  float:left;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .navbar-sidebar {
   list-style-type: none;
