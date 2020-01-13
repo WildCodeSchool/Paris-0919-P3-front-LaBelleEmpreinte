@@ -9,14 +9,14 @@ import ListInitiatives from './components/screen/ListInitiatives';
 
 function App() {
   return (
-    <div className="">
-      {/* <Navbar />
-      <div className="">
-        <Header/>
+    <div className="App">
+      <Navbar />
+      <div className="app_container">
+        <Header />
+        {/* <DisplayArticles /> */}
+        <ArticleContent />
         <Footer />
-      </div> */}
-      <DisplayArticles />
-      {/* <ArticleContent /> */}
+      </div>
     </div>
   );
 }
