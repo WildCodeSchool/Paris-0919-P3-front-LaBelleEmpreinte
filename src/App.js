@@ -12,13 +12,13 @@ function App() {
     <div>
       {/* <ArticleContent /> */}
       {/* <DisplayArticles /> */}
-      <div className="App">
+      {/* <div className="App">
         <Navbar />
         <div className="app_container">
           <Header />
           <Footer />
-        </div>
-      </div>
+        </div> */}
+      <AdminHome />
     </div>
   );
 }
