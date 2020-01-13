@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.ArticlesItem {
+  position: relative;
+  flex: 1 0 22rem;
+  margin: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ArticlesItem:hover .ArticlesItem-Info, .ArticlesItem:focus .ArticlesItem-Info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ArticlesItem-Info {
+  display: none;
+}
+
+.ArticlesItem-Info li {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.ArticlesItem-Date, .ArticlesItem-Time {
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ArticlesItem-Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ArticlesItem-TitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+}
+
+.ArticlesItem-Title {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 550;
+  margin: 2.2rem 2.2rem 1.2rem 2.2rem;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.ArticlesItem-Title::first-letter {
+  color: #e3815f;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.ArticlesItem-Picto {
+  height: 17px;
+  filter: invert(1);
+  margin-right: 0.5rem;
+}
