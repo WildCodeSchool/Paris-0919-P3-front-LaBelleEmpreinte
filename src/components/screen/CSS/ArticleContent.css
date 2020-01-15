@@ -120,6 +120,10 @@
     width: 720px;
 }
 
+.articlecontent-invisibleassociatedinitiatives {
+    display: none;
+}
+
 .articlecontent-sharedlinks {
     align-items: center;
     display: inline-flex;
@@ -135,6 +139,30 @@
 .articlecontent-sharelink {
     max-height: 2rem;
     margin-right: 10px;
+}
+
+.articlecontent-timecontainer {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.articlecontent-time {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}
+
+.articlecontent-pictoclock {
+    height: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.articlecontent-visibleinitiatives {
+    display: block;
+}
+
+.articlecontent-hiddeninitiatives {
+    display: none;
 }
 
 @media only screen and (max-width: 960px) {
