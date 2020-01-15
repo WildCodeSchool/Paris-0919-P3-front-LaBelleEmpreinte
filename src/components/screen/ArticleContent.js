@@ -105,7 +105,7 @@ class ArticleContent extends Component {
 
     componentDidMount() {
         document.addEventListener('scroll', () => {
-            const isTop = window.scrollY < 300
+            const isTop = window.scrollY < 330 + this.props.height.headerHeight
             if (isTop !== this.state.isTop) {
                 this.setState({ isTop })
             }
@@ -117,11 +117,13 @@ class ArticleContent extends Component {
     }
 
     render() {
+        const titleHeight = this.props.height.headerHeight + parseInt(getComputedStyle(document.documentElement).fontSize) * 2
+
         return (
             <div className='articlecontent'>
                 <header>
                     <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${this.state.image})` }}>
-                        <h1>{(this.state.titre).toUpperCase()}</h1>
+                        <h1 style={{ top: `${titleHeight}px` }}>{(this.state.titre).toUpperCase()}</h1>
                     </div>
                     <nav className={this.state.isTop ? null : 'articlecontent-fixed-header'}>
                         <div className={this.state.isTop ? 'articlecontent-invisible-title' : 'articlecontent-visible-title'}>{(this.state.titre).toUpperCase()}</div>
