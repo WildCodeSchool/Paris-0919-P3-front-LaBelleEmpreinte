@@ -44,7 +44,6 @@ class AdminHome extends Component {
     render() {
         return (
             <div className='adminhome'>
-                <h1>Interface administrateur</h1>
                 <nav id="adminhome_nav_wrap">
                     <ul>
                         <li><span>{this.state.action}</span>

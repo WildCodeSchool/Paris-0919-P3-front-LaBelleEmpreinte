@@ -9,7 +9,7 @@
     color: #399967;
     font-family: "Montserrat", arial;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 25px;
     margin-top: 30px;
     margin-bottom: 0px;
 }
@@ -18,7 +18,7 @@
   font-family: "Montserrat", arial;
   padding-bottom: 0em;
   margin: 0 0em 17px;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -28,10 +28,10 @@
   background-color: #e3815f;
   font-family: "Montserrat", arial;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 25px;
   text-align: center;
   padding: 5px;
-  margin-top: 37px;
+  margin-top: 15px;
   margin-left: 10%;
   margin-right: 10%;
 }
