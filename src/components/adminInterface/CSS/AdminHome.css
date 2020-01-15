@@ -1,5 +1,24 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.adminhome {
+    font-family: 'Montserrat'
+}
+
+.adminhome-title {
+    color: white;
+    background-color: #e3815f;
+    font-family: "Montserrat";
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
 #adminhome_nav_wrap {
-    margin-top: 15px
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #adminhome_nav_wrap ul {
@@ -18,7 +37,6 @@
     font-size: 12px;
     line-height: 32px;
     padding: 0 15px;
-    font-family: "Montserrat";
     cursor: pointer
 }
 
@@ -40,7 +58,8 @@
     top: 100%;
     left: 0;
     background: #fff;
-    padding: 0
+    padding: 0;
+    z-index: 10;
 }
 
 #adminhome_nav_wrap ul ul li {

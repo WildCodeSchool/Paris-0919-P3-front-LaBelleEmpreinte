@@ -3,7 +3,7 @@ import './CSS/AdminHome.css'
 
 const AdminHome = ({ action, handleCreer, handleAfficher, handleArticle, handleInitiative, handleEngagement, handleObjet, handleBesoin }) => (
     <div className='adminhome'>
-        <h1>Interface administrateur</h1>
+        <h1 className='adminhome-title'>ESPACE ADMINISTRATEUR</h1>
         <nav id="adminhome_nav_wrap">
             <ul>
                 <li><span>{action.AdminHomeActionReducer}</span>

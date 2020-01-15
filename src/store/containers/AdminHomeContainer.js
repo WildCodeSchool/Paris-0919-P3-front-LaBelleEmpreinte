@@ -5,8 +5,7 @@ import AdminHome from '../../components/adminInterface/AdminHome';
 
 const mapStateToProps = state => {
     return {
-        action: state,
-        table: state
+        action: state
     }
 }
 

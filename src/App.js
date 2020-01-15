@@ -6,6 +6,7 @@ import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
 import AdminHomeContainer from './store/containers/AdminHomeContainer';
+import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Footer />
         </div> */}
         <AdminHomeContainer />
+        <AdminCreateArticle />
     </div>
   );
 }
