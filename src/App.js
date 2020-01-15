@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './components/screen/Header'
+// import Header from './components/screen/Header'
 import './App.css';
-import Navbar from './components/screen/Navbar';
-import Footer from './components/screen/Footer';
-import DisplayArticles from './components/screen/DisplayArticles';
-import ArticleContent from './components/screen/ArticleContent';
-import AdminHome from './components/adminInterface/AdminHome';
+// import Navbar from './components/screen/Navbar';
+// import Footer from './components/screen/Footer';
+// import DisplayArticles from './components/screen/DisplayArticles';
+// import ArticleContent from './components/screen/ArticleContent';
+import Home from './components/adminInterface/Home';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Header />
           <Footer />
         </div> */}
-      <AdminHome />
+      <Home />
     </div>
   );
 }
