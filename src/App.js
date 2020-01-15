@@ -6,22 +6,19 @@ import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
 import AdminHomeContainer from './store/containers/AdminHomeContainer';
-import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
-import ListInitiatives from './components/screen/ListInitiatives';
 
 const App = () => {
   return (
     <div>
         {/* <ArticleContent /> */}
-        <DisplayArticles />
+        {/* <DisplayArticles /> */}
         {/* <div className="App">
         <Navbar />
         <div className="app_container">
           <Header />
           <Footer />
         </div> */}
-        {/* <AdminHomeContainer />
-        <AdminCreateArticle /> */}
+        <AdminHomeContainer />
     </div>
   );
 }
