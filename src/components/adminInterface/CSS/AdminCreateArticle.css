@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.admincreatearticle {
+    font-family: 'Montserrat';
+}
+
+.admincreatearticle h1 {
+    font-weight: bold;
+}

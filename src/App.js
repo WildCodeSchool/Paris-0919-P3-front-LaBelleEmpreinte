@@ -9,7 +9,7 @@ import AdminHomeContainer from './store/containers/AdminHomeContainer';
 import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
 
 
-function App() {
+const App = () => {
   return (
     <div>
         {/* <ArticleContent /> */}
