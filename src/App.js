@@ -5,20 +5,21 @@ import Navbar from './components/screen/Navbar';
 import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
-import AdminHome from './components/adminInterface/AdminHome';
+import AdminHomeContainer from './store/containers/AdminHomeContainer';
+
 
 function App() {
   return (
     <div>
-      {/* <ArticleContent /> */}
-      {/* <DisplayArticles /> */}
-      {/* <div className="App">
+        {/* <ArticleContent /> */}
+        {/* <DisplayArticles /> */}
+        {/* <div className="App">
         <Navbar />
         <div className="app_container">
           <Header />
           <Footer />
         </div> */}
-      <AdminHome />
+        <AdminHomeContainer />
     </div>
   );
 }
