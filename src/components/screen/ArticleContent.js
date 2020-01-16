@@ -13,6 +13,7 @@ import artisanat from '../../assets/icons/LOGOartisanat.png'
 import logoVestiaireCollective from '../../assets/icons/LOGOvestiaire.png'
 import logoImparfaite from '../../assets/icons/LOGOimparfaite.png'
 import logoBackMarket from '../../assets/icons/LOGObackmarket.png'
+import pictoclock from "../../assets/pictures/alarm-clock.png"
 
 class ArticleContent extends Component {
     state =
@@ -20,6 +21,7 @@ class ArticleContent extends Component {
             titre: 'Défis écologiques et sociaux du textile',
             image: 'https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/9/1/d/91d619f85c_114490_06-996.jpg',
             date: '10 Janvier 2019', // à mettre en 10 janvier
+            minutes_lecture: '10',
             photo_auteur: 'https://lafabriqueaviva.imgix.net/uploaded-files/a/4/f/a4f1838cf8ed7892eac579c46eef76a9.jpeg?auto=format%2Ccompression&ixlib=php-2.3.0&s=c164483caaaf545727b71769d09e3952',
             auteur: 'Delphine',
             contenu: '',
@@ -121,6 +123,7 @@ class ArticleContent extends Component {
 
         return (
             <div className='articlecontent'>
+                <span className='articlecontent-title'></span>
                 <header>
                     <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${this.state.image})` }}>
                         <h1 style={{ top: `${titleHeight}px` }}>{(this.state.titre).toUpperCase()}</h1>
@@ -132,9 +135,14 @@ class ArticleContent extends Component {
 
                 <section class="articlecontent-content">
                     <article>
+                        <div className='articlecontent-timecontainer'>
+                            <img className='articlecontent-pictoclock' src={pictoclock} />
+                            <p className='articlecontent-time'>{this.state.minutes_lecture} minutes</p>
+                        </div>
                         <p>Le {this.state.date}</p>
                         <div className='articlecontent-authorcontainer'>
-                            <img className='articlecontent-authorpic' src={this.state.photo_auteur} alt={this.state.auteur} /> <p className='articlecontent-author'>Par {this.state.auteur}</p>
+                            <img className='articlecontent-authorpic' src={this.state.photo_auteur} alt={this.state.auteur} />
+                            <p className='articlecontent-author'>Par {this.state.auteur}</p>
                         </div>
                         {/* <p>{this.state.contenu}</p> */}
                         <h2>
@@ -156,7 +164,7 @@ class ArticleContent extends Component {
                             Les clients, souvent peu conscients de ces défis, se sont habitués à des produits dont le prix bas ne reflète pas les réels coûts environnementaux et sociaux. Ces prix bas, la mauvaise qualité des articles et les phénomènes de mode contribuent à l'augmentation totale de la quantité produite et de leurs effets nocifs.
                     </p>
                     </article>
-                    <article>
+                    <article className={this.state.associatedIniatives.length >= 1 ? 'articlecontent-visibleinitiatives' : 'articlecontent-hiddeninitiatives'}>
                         <div className='articlecontent-associatedinitiatives'>
                             <h2 className='articlecontent-titleinitiatives'>INITIATIVES ASSOCIÉES</h2>
                             {this.state.associatedIniatives
@@ -165,21 +173,21 @@ class ArticleContent extends Component {
                                         <ListInitiatives {...initiative} />
                                     ))}
                         </div>
-                        <div className='articlecontent-sharedlinks'>
-                            <p className='articlecontent-share'>
-                                Partager l'article sur :
-                    </p>
-                            {this.state.shareLinks
-                                .map(
-                                    (shareLink, index) => (
-                                        <div>
-                                            <a href={shareLink.url}>
-                                                <img className='articlecontent-sharelink' src={shareLink.logo} alt={shareLink.name} />
-                                            </a>
-                                        </div>
-                                    ))}
-                        </div>
                     </article>
+                    <div className='articlecontent-sharedlinks'>
+                        <p className='articlecontent-share'>
+                            Partager l'article sur :
+                    </p>
+                        {this.state.shareLinks
+                            .map(
+                                (shareLink, index) => (
+                                    <div>
+                                        <a href={shareLink.url}>
+                                            <img className='articlecontent-sharelink' src={shareLink.logo} alt={shareLink.name} />
+                                        </a>
+                                    </div>
+                                ))}
+                    </div>
                 </section>
             </div>
         )

@@ -24,15 +24,11 @@
 
 .listinitiatives-description {
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .listinitiatives-adresses {
     line-height: 0.5rem;
-}
-
-.listinitiatives-engagementscontainer {
-    align-items: center;
-    display: inline-flex;
 }
 
 .listinitiatives-logoengagements {
@@ -40,18 +36,9 @@
     margin-right: 10px;
 }
 
-.listinitiatives-engagements {
-    margin-bottom: 0;
-    margin-right: 10px;
-}
-
-.listinitiatives-engagements::first-letter {
-    font-size: 1.5rem;
-    color: #399967;
-}
-
 [data-popup] {
     position: relative;
+    font-weight: normal;
 }
 
 [data-popup]:before, [data-popup]:after {
