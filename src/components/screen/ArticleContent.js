@@ -121,6 +121,7 @@ class ArticleContent extends Component {
     render() {
         return (
             <div className='articlecontent'>
+                <span className='articlecontent-title'></span>
                 <header>
                     <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${this.state.image})` }}>
                         <h1>{(this.state.titre).toUpperCase()}</h1>
