@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import CreateArticle from "./CreateArticle"
+import DisplayArticles from "./DisplayArticles"
 
 
 export default function MainFilters() {
 
-    // state that get all tables
+    // state that get all tables from Axios
     const [tables, setTables] = useState()
 
     // state for the actions and type of category
@@ -27,25 +28,32 @@ export default function MainFilters() {
 
     return (
         <>
+         {/* Line of filters */}
             <form>
+                {/* type of action filter */}
+
                 <select onChange={(e) => setAction(e.target.value)}>
                     <option value="">Actions</option>
-                    <option value="créer">Créer</option>
+                    <option value="creer">Créer</option>
                     <option value="afficher">Afficher</option>
                 </select>
+
                 {tables ?
+                // category filter based on the axios call
                     <select onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Catégorie</option>
                         {tables.map((item, index) => (
-                            <option key={index} value={item.table_name}>{item.table_name}</option>))}
+                            <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
                     </select> : console.log("second filter is loading")}
                 <input type="button" value="Valider" onClick={()=> setChosen(true)}/>
             </form>
-            {isChosen ?
-            <>
-                <h1>{action} {category}</h1>
-                <CreateArticle/></> : <p>Veuillez choisir une action et une catégorie</p>
+
+            {/* according to the isChosen state, the next component is displayed */}
+            {isChosen && action === "creer"? 
+                <CreateArticle/> : console.log("action is not creer")
             }
+            {isChosen && action === "afficher"?
+                <DisplayArticles category={category}/> : console.log("action is not afficher")}
         </>
 
     )
