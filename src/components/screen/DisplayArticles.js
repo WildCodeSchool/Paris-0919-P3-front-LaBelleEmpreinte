@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from "axios"
 import ArticlesItem from './ArticlesItem'
 import './CSS/DisplayArticles.css'
 
 const DisplayArticles = () => {
-    
+    const [articles, setArticles] = useState(
+        {
+            id: 0,
+            titre: "",
+            image: "",
+            date: "",
+            minutes_lecture: 0
+        }
+    )
+
+    const [loaded, setLoaded] = useState(false)
+
+    const loadArticles = async () => {
+        const url = 'articles'
+        const result = await axios.get(url)
+        setArticles({ result })
+        setLoaded(true)
+    }
+
+    useEffect(() => {
+        loadArticles()
+    })
+
     // state = {
     //     articles: [
     //         {
@@ -68,15 +91,21 @@ const DisplayArticles = () => {
     //     ]
     // }
     return (
-        <div className='DisplayArticles-Container'>
-            <div className='DisplayArticles-Gallery'>
-                {this.state.articles
-                    .map(
-                        (article, index) => (
-                            <ArticlesItem {...article} />
-                        ))}
-            </div>
-        </div>
+        <>
+            {!loaded ? (
+                <div>Loading articles...</div>
+            ) : (
+                    <div className='DisplayArticles-Container'>
+                        <div className='DisplayArticles-Gallery'>
+                            {articles
+                                .map(
+                                    (article, index) => (
+                                        <ArticlesItem {...article} />
+                                    ))}
+                        </div>
+                    </div>
+                )}
+        </>
     )
 }
 

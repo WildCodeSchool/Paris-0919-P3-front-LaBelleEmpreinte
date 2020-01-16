@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from './components/screen/Header'
 import './App.css';
 import Navbar from './components/screen/Navbar';
@@ -14,7 +14,6 @@ const App = () => {
   const [headerHeight, setHeaderHeight] = useState(0)
 
   const setRealHeaderHeight = (height) => {
-    
     setHeaderHeight({ headerHeight: height })
   }
   return (
@@ -22,20 +21,14 @@ const App = () => {
       {/* <Navbar /> */}
       <div className="app_container">
         {/* <Header /> */}
-        <GetHeaderHeight props={setRealHeaderHeight} />
-        {/* <DisplayArticles /> */}
-        <ArticleContent height={headerHeight} />
-        <Footer />
+        {/* <GetHeaderHeight props={setRealHeaderHeight} /> */}
+        <DisplayArticles />
+        {/* <ArticleContent height={headerHeight} /> */}
+        {/* <Footer /> */}
       </div>
-        {/* <div className="App">
-        <Navbar />
-        <div className="app_container">
-          <Header />
-          <Footer />
-        </div> */}
-        <AdminHomeContainer />
+      {/* <AdminHomeContainer /> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
