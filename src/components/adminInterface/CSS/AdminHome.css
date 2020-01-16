@@ -1,5 +1,27 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.adminhome {
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+.adminhome-title {
+    color: white;
+    background-color: #e3815f;
+    font-family: "Montserrat";
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    padding: 10px;
+}
+
 #adminhome_nav_wrap {
-    margin-top: 15px
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-block;
 }
 
 #adminhome_nav_wrap ul {
@@ -12,13 +34,11 @@
 
 #adminhome_nav_wrap ul span {
     display: block;
-    color: #333;
     text-decoration: none;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 32px;
     padding: 0 15px;
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer
 }
 
@@ -26,15 +46,14 @@
     position: relative;
     float: left;
     margin: 0;
-    padding: 0
-}
-
-#adminhome_nav_wrap ul {
-    background: #ddd
+    padding: 0;
+    background-color: #e3815f;
+    color: white;
 }
 
 #adminhome_nav_wrap ul li:hover {
-    background: #f6f6f6
+    background-color: rgba(191, 170, 143, 0.7);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 #adminhome_nav_wrap ul ul {
@@ -43,7 +62,8 @@
     top: 100%;
     left: 0;
     background: #fff;
-    padding: 0
+    padding: 0;
+    z-index: 10;
 }
 
 #adminhome_nav_wrap ul ul li {
