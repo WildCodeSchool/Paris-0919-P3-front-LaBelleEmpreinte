@@ -17,8 +17,8 @@ function App() {
         <Header/>
         <Footer />
       </div> */}
-      {/* <DisplayArticles /> */}
-      <ArticleContent />
+      <DisplayArticles />
+      {/* <ArticleContent /> */}
     </div>
   );
 }
