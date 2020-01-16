@@ -1,8 +1,8 @@
 import React from 'react'
 import './CSS/Home.css'
-import HomeFilter from './HomeFilter'
+import MainFilters from './MainFilters'
 
-export default function HomeAdmin() {
+export default function TitleAdmin() {
     return (
         <>
             <div className="admin-Header">
@@ -12,7 +12,7 @@ export default function HomeAdmin() {
                 </div>
                 <h3 className="orangeTitle">ESPACE ADMINISTRATEUR</h3>
             </div>
-            <HomeFilter />
+            <MainFilters />
         </>
     )
 }

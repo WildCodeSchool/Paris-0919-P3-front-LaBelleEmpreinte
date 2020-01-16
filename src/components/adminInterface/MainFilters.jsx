@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
-import ArticleInform from "./ArticleInform"
+import CreateArticle from "./CreateArticle"
 
 
-export default function HomeFilter() {
+export default function MainFilters() {
 
     // state that get all tables
     const [tables, setTables] = useState()
@@ -11,6 +11,9 @@ export default function HomeFilter() {
     // state for the actions and type of category
     const [action, setAction] = useState()
     const [category, setCategory] = useState()
+
+    //validation button
+    const [isChosen, setChosen] = useState(false)
 
 
 
@@ -28,19 +31,20 @@ export default function HomeFilter() {
                 <select onChange={(e) => setAction(e.target.value)}>
                     <option value="">Actions</option>
                     <option value="créer">Créer</option>
-                    <option value="modifier">Modifier/Supprimer</option>
                     <option value="afficher">Afficher</option>
                 </select>
                 {tables ?
                     <select onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Catégorie</option>
-                        {tables.map(item => (
-                            <option value={item.table_name}>{item.table_name}</option>))}
-                    </select> : console.log("stop")}
-                <input type="button" value="Valider" />
+                        {tables.map((item, index) => (
+                            <option key={index} value={item.table_name}>{item.table_name}</option>))}
+                    </select> : console.log("second filter is loading")}
+                <input type="button" value="Valider" onClick={()=> setChosen(true)}/>
             </form>
-            {action && tables ?
-                <ArticleInform  action={action} category={category}/> : console.log("nothing has been chosen")
+            {isChosen ?
+            <>
+                <h1>{action} {category}</h1>
+                <CreateArticle/></> : <p>Veuillez choisir une action et une catégorie</p>
             }
         </>
 

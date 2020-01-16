@@ -8,7 +8,7 @@ import './App.css';
 // import AdminHomeContainer from './store/containers/AdminHomeContainer';
 // import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
 // import ListInitiatives from './components/screen/ListInitiatives';
-import Home from './components/adminInterface/Home'
+import TitleAdmin from './components/adminInterface/TitleAdmin';
 
 
 
@@ -17,7 +17,7 @@ import Home from './components/adminInterface/Home'
 const App = () => {
   return (
     <div>
-        <Home/>
+        <TitleAdmin/>
     </div>
   );
 }
