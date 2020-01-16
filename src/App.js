@@ -6,12 +6,6 @@ import Footer from './components/screen/Footer';
 import DisplayArticles from './components/screen/DisplayArticles';
 import ArticleContent from './components/screen/ArticleContent';
 import AdminHomeContainer from './store/containers/AdminHomeContainer';
-import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
-import ListInitiatives from './components/screen/ListInitiatives';
-
-
-
-
 
 const App = () => {
   return (
@@ -25,7 +19,6 @@ const App = () => {
           <Footer />
         </div> */}
         <AdminHomeContainer />
-        <AdminCreateArticle />
     </div>
   );
 }
