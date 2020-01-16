@@ -1,0 +1,33 @@
+.Filtres_container {
+    display: flex;
+    flex-direction: column;
+    border:solid 2px black;
+}
+
+.Filtres_title{
+    color : yellow;
+}
+
+.Filtres_frame {
+    display: flex;
+    border: solid 2px blue;
+}
+
+
+.Filtres_allCategories {
+    
+    border: solid 2px green;
+
+}
+
+.Filtres_sousCat {
+    color:green;
+}
+
+.Filtres_catIntermediaires{
+    color : brown;
+}
+
+.filtres_objets{
+    color:purple;
+}
