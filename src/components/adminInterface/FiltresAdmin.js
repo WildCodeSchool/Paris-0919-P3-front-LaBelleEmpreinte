@@ -3,31 +3,22 @@ import axios from "axios";
 
 import "../userInterface/Filtres.css";
 
+//////// Trouver un moyen de n'ajouter qu'une fois dans le state un même filtre //////
 class FiltresAdmin extends Component {
   state = {
     datasObjets: [""],
 
     isVisibleObjets: false,
 
-    catObjSelected: [''],
+    catObjSelected: [],
 
-    catIntSelected: [''],
-    objSelected: [
-      ''
-    ],
-    besoinsSelected: [
-      ''
-    ],
-    typeActSelected: [
-      ''
-    ],
+    catIntSelected: [],
+    objSelected: [],
+    besoinsSelected: [],
+    typeActSelected: [],
     datasBesoins: [""],
     isVisibleBesoins: false,
-    // besoinsSelected: {
-    //   id: 0,
-    //   name: ""
-    // }
-    // objetsFormCateg: []
+  
   };
 
   componentDidMount() {
@@ -75,9 +66,59 @@ class FiltresAdmin extends Component {
     });
   };
 
+  ///// Fonction pour envoyer à Create Article les différents id (seulement l'id) de chaque filtre pour pouvoir faire la requête au back ensuite /////
+  filtersId = () => {
+    let newA = []
+    let a = 
+      this.state.catObjSelected.map(catObj => {
+        newA.push(catObj.id)
+        console.log(catObj, 'newa')
+        return newA
+      })
+    
+    console.log(newA)
+
+    let newB = []
+    let b = 
+      this.state.catIntSelected.map(catInt => {
+        newB.push(catInt.id)
+        console.log(catInt, 'newa')
+        return newB
+      })
+
+      let newC = []
+    let c = 
+      this.state.objSelected.map(obj => {
+        newC.push(obj.id)
+        console.log(obj, 'newa')
+        return newC
+      })
+
+      let newD = []
+    let d = 
+      this.state.besoinsSelected.map(besoins => {
+        newD.push(besoins.id)
+        console.log(besoins, 'newD')
+        return newD
+      })
+
+      let newE = []
+    let e = 
+      this.state.typeActSelected.map(typeAct => {
+        newE.push(typeAct.id)
+        console.log(typeAct, 'newE')
+        return newE
+      })
+
+      
+
+
+    this.props.filteredItems(newA, newB, newC, newD, newE)
+
+  }
+
+  //////////// render //////////
   render() {
-    console.log("catobj", this.state.catObjSelected);
-    // console.log("besoin selec", this.state.besoinsSelected);
 
     return (
       <div className="Filtres_container">
@@ -98,20 +139,19 @@ class FiltresAdmin extends Component {
                     <p
                       className="Filtres_sousCat"
                       onClick={() => {
-                        
-
+                    
                         this.setState(
                           {
-                            catObjSelected : {
+                            catObjSelected : this.state.catObjSelected.concat({
                               id : categ.id,
                               name : categ.categorie
 
-                            },
+                            }),
                             
 
                             isVisibleObjets: !this.state.isVisibleObjets
                           },
-                          () => this.state
+                          
                         )
                       }}
                     >
@@ -131,14 +171,16 @@ class FiltresAdmin extends Component {
                                 onClick={() =>
                                   this.setState(
                                     {
-                                      objetsSelected: {
-                                        id: sCateg.id,
-                                        name: sCateg.name
-                                      },
-                                      isVisibleObjets: !this.state
-                                        .isVisibleObjets
+                                      catIntSelected : this.state.catIntSelected.concat({
+                                        id : sCateg.id,
+                                        name : sCateg.name,
+                                        
+                                      }),
+                            
+
+                                      isVisibleObjets: !this.state.isVisibleObjets
                                     },
-                                    () => this.state
+                                    
                                   )
                                 }
                               >
@@ -155,14 +197,16 @@ class FiltresAdmin extends Component {
                                     onClick={() =>
                                       this.setState(
                                         {
-                                          objetsSelected: {
-                                            id: objet.id,
-                                            name: objet.name
-                                          },
-                                          isVisibleObjets: !this.state
-                                            .isVisibleObjets
+                                          objSelected : this.state.objSelected.concat({
+                                            id : objet.id,
+                                            name : objet.name,
+                                            
+                                          }),
+                            
+
+                                          isVisibleObjets: !this.state.isVisibleObjets
                                         },
-                                        () => this.state
+                                        
                                       )
                                     }
                                   >
@@ -202,13 +246,15 @@ class FiltresAdmin extends Component {
                       onClick={() =>
                         this.setState(
                           {
-                            besoinsSelected: {
-                              id: categ.id,
-                              name: categ.besoins
-                            },
+                            besoinsSelected : this.state.besoinsSelected.concat({
+                              id : categ.id,
+                              name : categ.besoins,
+                            }),
+                            
+
                             isVisibleBesoins: !this.state.isVisibleBesoins
                           },
-                          () => this.state
+                          
                         )
                       }
                     >
@@ -228,14 +274,13 @@ class FiltresAdmin extends Component {
                               onClick={() =>
                                 this.setState(
                                   {
-                                    besoinsSelected: {
-                                      id: sCateg.id,
-                                      name: sCateg.types_activites
-                                    },
-                                    isVisibleBesoins: !this.state
-                                      .isVisibleBesoins
+                                    typeActSelected : this.state.typeActSelected.concat({
+                                      id : sCateg.id,
+                                      name : sCateg.types_activites,
+                                    }),
+                                    isVisibleBesoins: !this.state.isVisibleBesoins
                                   },
-                                  () => this.state
+                                  
                                 )
                               }
                             >
@@ -252,22 +297,40 @@ class FiltresAdmin extends Component {
           </div>
         </div>
 
-        <div className='Filtres_selectFilters'>
-          {/* <p>
-            {this.state.objetsSelected.id !== 0
-              ? this.state.objetsSelected.name
-              : ""}
-          </p>
-          <p>
-            {this.state.besoinsSelected.id !== 0
-              ? this.state.besoinsSelected.name
-              : ""}
-          </p> */}
+        
+
+        <button onClick={this.filtersId}>
+          Valider
+          </button>
+
+          <div className='Filtres_selectFilters'>
+          <div>
+            {this.state.catObjSelected.map(catObj => {
+              return <p> {catObj.name} </p>
+            })}
+          </div>
+          <div>
+            {this.state.catIntSelected.map(catInt => {
+              return <p> {catInt.name} </p>
+            })}
+          </div>
+          <div>
+            {this.state.objSelected.map(obj => {
+              return <p> {obj.name} </p>
+            })}
+          </div>
+          <div>
+            {this.state.besoinsSelected.map(besoins => {
+              return <p> {besoins.name} </p>
+            })}
+          </div>
+          <div>
+            {this.state.typeActSelected.map(typeAct => {
+              return <p> {typeAct.name} </p>
+            })}
+          </div>
         </div>
 
-        <button onClick={this.getArticlesBySousCategSelected}>
-          Rechercher
-          </button>
       </div>
     );
   }

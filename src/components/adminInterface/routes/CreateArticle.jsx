@@ -22,7 +22,6 @@ export default function CreateArticle(props) {
   const [types_activites, setTypes_activites] = useState([])
   const [categories_objets, setCategories_objets] = useState([])
   const [categories_intermediaires, setCategories_intermediaires] = useState([])
-
   const [objets, setObjets] = useState([])
 
 
@@ -32,7 +31,6 @@ export default function CreateArticle(props) {
   useEffect(() => {
     console.log(text)
   })
-
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
     fetch("admin/articles/create",
@@ -47,53 +45,19 @@ export default function CreateArticle(props) {
     e.preventDefault()
   }
 
-  //// fonctions à faire passer en props au composant enfant Filtres pour récupérer les filtres ////
-
-  const filteredBesoins = (id, besoins) => {
-    setBesoins({
-      id: id,
-      name: besoins
-    })
-  }
-  const filteredTypes_activites = (id, Types_activites) => {
-    setTypes_activites({
-      id: id,
-      name: Types_activites
-    })
+const getFilters = (a, b, c, d, e) => {
+  setCategories_objets(a)
+  setCategories_intermediaires(b)
+  setObjets(c)
+  setBesoins(d)
+  setTypes_activites(e)
   }
 
-  const filteredCategories_objets = (id, Categories_objets) => {
-    console.log('knock knock?', id, Categories_objets);
-    setCategories_objets({
-      id: id,
-      name: Categories_objets
-    })
-    
-  }
-  const filteredCategories_intermediaires = (id, Categories_intermediaires) => {
-    setCategories_intermediaires({
-      id: id,
-      name: Categories_intermediaires
-    })
-  }
-  const filteredObjets = (id, Objets) => {
-    setObjets({
-      id: id,
-      name: Objets
-    })
-  }
-
-  const filteredInitiatives = (id,dInitiatives) => {
-    setInitiatives({
-      id: id,
-      name:dInitiatives
-    })
-  }
-
-
-
-
-
+console.log('besoins',besoins)
+console.log('types_activites',types_activites)
+console.log('categories_objets',categories_objets)
+console.log('categories_intermediaires',categories_intermediaires)
+console.log('objets',objets)
 
   console.log(articleData)
   console.log(categories_objets)
@@ -145,9 +109,7 @@ export default function CreateArticle(props) {
         <label className="listName"> Titre:
           <input type='text' value={titleList} onChange={(e) => setTitleList(e.target.value)} />
         </label>
-        <FiltresAdmin 
-        // Besoin={filteredBesoins} Types_activite={filteredTypes_activites} Categories_objet={filteredCategories_objets} Categories_intermediaires={filteredCategories_intermediaires} Objets={filteredObjets} Initiatives={filteredInitiatives}
-        />
+        <FiltresAdmin filteredItems={getFilters}/>
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives"></div>
         <div className="publication"> Mon article est publié

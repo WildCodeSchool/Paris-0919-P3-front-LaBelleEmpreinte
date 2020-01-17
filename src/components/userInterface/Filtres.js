@@ -18,7 +18,6 @@ class Filtres extends Component {
       id: 0,
       name: ""
     }
-    // objetsFormCateg: []
   };
 
   componentDidMount() {
@@ -85,16 +84,6 @@ class Filtres extends Component {
                       <p
                         className="Filtres_sousCat"
                         onClick={()=>this.props.Categories_objet( categ.id, categ.categorie)
-                          // this.setState(
-                          //   {
-                          //     objetsSelected: {
-                          //       id: categ.id,
-                          //       name: categ.categorie
-                          //     },
-                          //     isVisibleObjets: !this.state.isVisibleObjets
-                          //   },
-                          //   () => this.state
-                          // ),
                         }
                       >
                         {categ.categorie}
