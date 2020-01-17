@@ -37,7 +37,7 @@ export default function DisplayArticles(props) {
 
     return (
         <div>
-            <h1>Je consulte mes {props.category}</h1>
+            <h1>Je consulte mes articles</h1>
 
             {/* premier select pour obtenir le filtre objets */}
             <select>
