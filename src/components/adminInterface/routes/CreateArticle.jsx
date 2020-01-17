@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-
+import Filtres from '../../userInterface/Filtres'
 // import tinyMCE
 import { Editor } from '@tinymce/tinymce-react';
 
@@ -21,6 +21,8 @@ export default function CreateArticle(props) {
   const [besoins, setBesoins] = useState([])
   const [types_activites, setTypes_activites] = useState([])
   const [categories_objets, setCategories_objets] = useState([])
+  const [categories_intermediaires, setCategories_intermediaires] = useState([])
+
   const [objets, setObjets] = useState([])
 
 
@@ -44,7 +46,57 @@ export default function CreateArticle(props) {
       .then(res => res.json())
     e.preventDefault()
   }
+
+  //// fonctions à faire passer en props au composant enfant Filtres pour récupérer les filtres ////
+
+  const filteredBesoins = (id, besoins) => {
+    setBesoins({
+      id: id,
+      name: besoins
+    })
+  }
+  const filteredTypes_activites = (id, Types_activites) => {
+    setTypes_activites({
+      id: id,
+      name: Types_activites
+    })
+  }
+
+  const filteredCategories_objets = (id, Categories_objets) => {
+    console.log('knock knock?', id, Categories_objets);
+    setCategories_objets({
+      id: id,
+      name: Categories_objets
+    })
+    
+  }
+  const filteredCategories_intermediaires = (id, Categories_intermediaires) => {
+    setCategories_intermediaires({
+      id: id,
+      name: Categories_intermediaires
+    })
+  }
+  const filteredObjets = (id, Objets) => {
+    setObjets({
+      id: id,
+      name: Objets
+    })
+  }
+
+  const filteredInitiatives = (id,dInitiatives) => {
+    setInitiatives({
+      id: id,
+      name:dInitiatives
+    })
+  }
+
+
+
+
+
+
   console.log(articleData)
+  console.log(categories_objets)
   return (
     <div>
       <h1>Je crée un article</h1>
@@ -93,6 +145,9 @@ export default function CreateArticle(props) {
         <label className="listName"> Titre:
           <input type='text' value={titleList} onChange={(e) => setTitleList(e.target.value)} />
         </label>
+        <Filtres 
+        Besoin={filteredBesoins} Types_activite={filteredTypes_activites} Categories_objet={filteredCategories_objets} Categories_intermediaires={filteredCategories_intermediaires} Objets={filteredObjets} Initiatives={filteredInitiatives}
+        />
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives"></div>
         <div className="publication"> Mon article est publié
@@ -100,7 +155,7 @@ export default function CreateArticle(props) {
         </div>
       </div>
 
-{/* 1) rajouter les filtres et les stocker dans le state de façon à les faire passer de façon intelligible par le bac
+      {/* 1) rajouter les filtres et les stocker dans le state de façon à les faire passer de façon intelligible par le bac
 
 rajouter la liste des initiatives liées grâce à un axios qd on valide les filtres au dessus*/}
       <input type="button" value="SEND" id="button-blue" onClick={(e) => handlePost(e)} />
