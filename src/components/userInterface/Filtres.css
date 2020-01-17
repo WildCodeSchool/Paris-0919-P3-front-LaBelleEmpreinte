@@ -9,13 +9,16 @@
     padding: 0px;
 }
 
-
-
-
-.Filtres_title{
-    color : yellow;
-   
+.Filtres_container hr {
+    width : 95%;
+    color : black;
+    border : 1px solid grey
 }
+
+/* .Filtres_CatInterFont {
+    text-decoration: underline;
+} */
+
 
 .Filtres_CatObjets {
     border: solid 2px yellow;
@@ -29,6 +32,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     box-shadow: 5px 5px 1px grey; 
+    background-color: rgb(245, 245, 245);
 
 
 }
@@ -42,13 +46,11 @@
 }
 
 .Filtres_sousCat {
-    color:green;
     font-size: 3vw;
     text-align: center;
 }
 
 .Filtres_eachCatIntermediaires{
-    color : brown;
     font-size: 2.5vw;;
     text-align: center;
 
@@ -65,7 +67,6 @@
         } 
 
 .filtres_objets{
-    color:purple;
     font-size: 2vw;;
     text-align: left;
 }

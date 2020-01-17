@@ -108,7 +108,7 @@ class Objets extends Component {
                           return (
                             <div className="Filtres_eachCatIntermediaires">
                               <ul>
-                                <li
+                                <li className="Filtres_CatInterFont"
                                   key={sCateg.id}
                                   onClick={() =>
                                     this.setState(
@@ -127,6 +127,7 @@ class Objets extends Component {
                                   {sCateg.name}
                                 </li>
                               </ul>
+                              <hr/>
                               {filterBySousCateg.map(objet => {
                                 return (
                                   <ul>
