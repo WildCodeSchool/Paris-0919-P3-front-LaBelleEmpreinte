@@ -17,6 +17,7 @@ export default function CreateArticle(props) {
   const [isPublished, setPublished] = useState()
   const [titleList, setTitleList] = useState()
   ///// table intermédiaire ////
+  const [validateFilters, setValidateFilters] = useState(false)
   const [initiatives, setInitiatives] = useState([])
   const [besoins, setBesoins] = useState([])
   const [types_activites, setTypes_activites] = useState([])
@@ -28,9 +29,23 @@ export default function CreateArticle(props) {
   // MEGA STATE!!
   const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
 
+
+  ////////////// REVOIR AVEC MAXENCE COMMENT ON A ECRIT LA ROUTE POUR GET LES INITIATIVES ASSOCIEES //////////
   useEffect(() => {
-    console.log(text)
-  })
+    const urlShip = params.location.pathname.substring(11,params.location.pathname.length)
+    console.log('hello', urlShip)
+    
+    const axiosData = async url => {
+        const res = await axios.get(url);
+        setShip(res.data);
+        setCharacter(res.data.pilots)
+       };
+       axiosData(`${urlShip}`);
+       axios.post('http://localhost:4000/filtre/initiatives/', { objectId: filtre1, besoinId: filtre2 })
+
+       
+   }, [validateFilters]);
+
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
     fetch("admin/articles/create",
@@ -45,12 +60,14 @@ export default function CreateArticle(props) {
     e.preventDefault()
   }
 
+  //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
 const getFilters = (a, b, c, d, e) => {
   setCategories_objets(a)
   setCategories_intermediaires(b)
   setObjets(c)
   setBesoins(d)
   setTypes_activites(e)
+  setValidateFilters(!validateFilters)
   }
 
 console.log('besoins',besoins)

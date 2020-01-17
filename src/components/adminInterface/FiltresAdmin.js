@@ -111,7 +111,7 @@ class FiltresAdmin extends Component {
       })
 
       
-
+    
 
     this.props.filteredItems(newA, newB, newC, newD, newE)
 
