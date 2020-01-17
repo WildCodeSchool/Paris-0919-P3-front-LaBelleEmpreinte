@@ -13,14 +13,17 @@ export default function CreateArticle(props) {
   const [readingTime, setTime] = useState()
   const [place, setPlace] = useState()
   const [text, setText] = useState()
+  const [isPublished, setPublished] = useState()
+  const [titleList, setTitleList] = useState()
 
   // MEGA STATE!!
-  const articleData = { title, author, date, img, readingTime, place }
+  const articleData = { title, author, date, img, readingTime, place, text, isPublished, titleList }
 
   useEffect(() => {
     console.log(text)
   })
 
+  // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
     fetch("admin/articles/create",
       {
@@ -58,7 +61,7 @@ export default function CreateArticle(props) {
         </p>
       </form>
       <Editor
-        initialValue="<p>This is the initial content of the editor</p>"
+        initialValue="<p></p>"
         init={{
           height: 500,
           menubar: false,
@@ -74,6 +77,21 @@ export default function CreateArticle(props) {
         }}
         onChange={(e) => setText(e.target.getContent())}
       />
+       
+      {/* la liste de bidules à associer au à l'article */}
+        <div className="association">
+          <h3>J'associe mon article à des objets et des besoins</h3>
+          <div className="listeAssociation"></div>
+          <label className="listName"> Titre: 
+          <input type='text' value={titleList} onChange={(e) => setTitleList(e.target.value)}/>
+          </label>
+          <h4>Je peux ajouter initiatives à mon article</h4>
+          <div className="initiatives"></div>
+          <div className="publication"> Mon article est publié
+          <input type="checkbox" onChange={() => setPublished(!isPublished)}></input>
+           </div>
+        </div>
+
       <input type="button" value="SEND" id="button-blue" onClick={(e) => handlePost(e)} />
     </div>
   )

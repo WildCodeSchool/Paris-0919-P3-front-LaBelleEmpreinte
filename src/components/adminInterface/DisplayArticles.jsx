@@ -18,7 +18,7 @@ export default function DisplayArticles(props) {
             const res = await axios.get(url)
             setObjets(res.data)
         }
-        axiosData(`http://localhost:4000/admin/objets`)
+        axiosData(`http://localhost:4000/user/objets`)
     }
 
     // GET BESOINS
@@ -27,7 +27,7 @@ export default function DisplayArticles(props) {
             const res = await axios.get(url)
             setBesoins(res.data)
         }
-        axiosData(`http://localhost:4000/admin/besoins`)
+        axiosData(`http://localhost:4000/user/besoins`)
     }
 
     useEffect(() => {
@@ -41,22 +41,20 @@ export default function DisplayArticles(props) {
 
             {/* premier select pour obtenir le filtre objets */}
             <select>
-                <option value="">Objets</option>
                 {listObjets ?
                 listObjets.map((item, index) => 
-                    <option key={index} value={item.name} onChange={(e) => setObjet(e.target.value)}>{item.name}</option>) : 
-                    console.log("")}
+                    <option key={index} value={item.type} onChange={(e) => setObjet(e.target.value)}>{item.type}</option>) : 
+                    null}
             </select>
             {/* second filtre pour obtenir les besoins */}
             <select>
-                <option value="">Besoins</option>
                 {listBesoins? 
                 listBesoins.map((item, index) => 
-                    <option key={index} value={item.besoins} onChange={(e) => setBesoin(e.target.value)}>{item.besoins}</option>
-                ) : console.log("")}
+                    <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
+                ) : null}
             </select>
             <div className="displayList">
-                
+
             </div>
         </div>
     )

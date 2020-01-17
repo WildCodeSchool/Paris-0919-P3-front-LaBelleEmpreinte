@@ -28,7 +28,7 @@ export default function MainFilters() {
 
     return (
         <>
-         {/* Line of filters */}
+            {/* Line of filters */}
             <form>
                 {/* type of action filter */}
 
@@ -39,21 +39,21 @@ export default function MainFilters() {
                 </select>
 
                 {tables ?
-                // category filter based on the axios call
+                    // category filter based on the axios call
                     <select onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Catégorie</option>
                         {tables.map((item, index) => (
                             <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
                     </select> : console.log("second filter is loading")}
-                <input type="button" value="Valider" onClick={()=> setChosen(true)}/>
+                <input type="button" value="Valider" onClick={() => setChosen(true)} />
             </form>
 
             {/* according to the isChosen state, the next component is displayed */}
             {isChosen && action === "creer"? 
-                <CreateArticle/> : console.log("action is not creer")
+                <CreateArticle/> : null
             }
             {isChosen && action === "afficher"?
-                <DisplayArticles category={category}/> : console.log("action is not afficher")}
+                <DisplayArticles category={category}/> : null}
         </>
 
     )
