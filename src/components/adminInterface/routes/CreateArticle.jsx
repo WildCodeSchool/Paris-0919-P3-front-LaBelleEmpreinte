@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import Filtres from '../../userInterface/Filtres'
+import FiltresAdmin from '../../adminInterface/FiltresAdmin'
 // import tinyMCE
 import { Editor } from '@tinymce/tinymce-react';
 
@@ -145,8 +145,8 @@ export default function CreateArticle(props) {
         <label className="listName"> Titre:
           <input type='text' value={titleList} onChange={(e) => setTitleList(e.target.value)} />
         </label>
-        <Filtres 
-        Besoin={filteredBesoins} Types_activite={filteredTypes_activites} Categories_objet={filteredCategories_objets} Categories_intermediaires={filteredCategories_intermediaires} Objets={filteredObjets} Initiatives={filteredInitiatives}
+        <FiltresAdmin 
+        // Besoin={filteredBesoins} Types_activite={filteredTypes_activites} Categories_objet={filteredCategories_objets} Categories_intermediaires={filteredCategories_intermediaires} Objets={filteredObjets} Initiatives={filteredInitiatives}
         />
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives"></div>
