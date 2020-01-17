@@ -26,11 +26,9 @@ export default function CreateBesoin() {
             <h3>J'ajoute un besoin</h3>
             <div>
                 <label>Nom du label: <input type="text" onChange={(e) => setLabelName(e.target.value)} /></label>
-                <label>Pictogramme: <input type="url" onChange={(e) => setPicto(e.target.value)} /></label>
+                <label>Pictogramme: <input type="type" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
-            <input type="button" label="Créer Besoin" onClick={handlePost}/>
-            <h3>J'ajoute un type d'activité: </h3>
-
+            <input type="button" value="Créer Besoin" onClick={handlePost}/>
         </div>
 
     )

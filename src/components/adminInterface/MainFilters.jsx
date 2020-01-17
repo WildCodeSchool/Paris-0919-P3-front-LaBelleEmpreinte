@@ -8,6 +8,7 @@ import CreateBesoin from './routes/CreateBesoin'
 import CreateCategory from './routes/CreateCategory'
 import DisplayArticles from "./routes/DisplayArticles"
 import CreateEngagement from "./routes/CreateEngagement"
+import CreateTypeActivity from "./routes/CreateTypeActivity"
 
 
 export default function MainFilters() {
@@ -67,6 +68,9 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/creer/engagements">
                     <CreateEngagement/>
+                </Route>
+                <Route path="/creer/types_activites">
+                    <CreateTypeActivity/>
                 </Route>
                 {/* route pour afficher du contenu */}
                 <Route path="/afficher/articles">
