@@ -31,20 +31,20 @@ export default function CreateArticle(props) {
 
 
   ////////////// REVOIR AVEC MAXENCE COMMENT ON A ECRIT LA ROUTE POUR GET LES INITIATIVES ASSOCIEES //////////
-  useEffect(() => {
-    const urlShip = params.location.pathname.substring(11,params.location.pathname.length)
-    console.log('hello', urlShip)
+  // useEffect(() => {
+  //   const urlShip = params.location.pathname.substring(11,params.location.pathname.length)
+  //   console.log('hello', urlShip)
     
-    const axiosData = async url => {
-        const res = await axios.get(url);
-        setShip(res.data);
-        setCharacter(res.data.pilots)
-       };
-       axiosData(`${urlShip}`);
-       axios.post('http://localhost:4000/filtre/initiatives/', { objectId: filtre1, besoinId: filtre2 })
+  //   const axiosData = async url => {
+  //       const res = await axios.get(url);
+  //       setShip(res.data);
+  //       setCharacter(res.data.pilots)
+  //      };
+  //      axiosData(`${urlShip}`);
+  //      axios.post('http://localhost:4000/filtre/initiatives/', { objectId: filtre1, besoinId: filtre2 })
 
        
-   }, [validateFilters]);
+  //  }, [validateFilters]);
 
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {

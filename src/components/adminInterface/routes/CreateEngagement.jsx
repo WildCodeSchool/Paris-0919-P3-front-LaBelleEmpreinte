@@ -22,7 +22,7 @@ export default function CreateEngagement() {
 
     return (
         <div className="creation-typeActiv">
-            <h3>J'ajoute un type activité</h3>
+            <h3>J'ajoute un engagement</h3>
             <div>
                 <label>Nom du type d'activité: <input type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
