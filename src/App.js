@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './components/screen/Header';
 import './App.css';
 import Navbar from './components/screen/Navbar';
@@ -25,13 +25,6 @@ const App = () => {
       </div>
       <Footer />
       </div>
-        {/* <div className="App">
-        <Navbar />
-        <div className="app_container">
-          <Header />
-          <Footer />
-        </div> */}
-        <AdminHomeContainer />
     </div>
   );
 }
