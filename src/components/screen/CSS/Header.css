@@ -6,16 +6,16 @@
   flex-direction: column;
 }
 
-.header_main h1 {
+.header_mainTitle h1 {
   color: #399967;
   font-family: "Montserrat", arial;
   font-weight: bold;
   font-size: 32px;
   margin-top: 30px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
-.header_main h2 {
+.header_mainTitle h2 {
   color: #e3815f;
   font-family: "Montserrat", arial;
   padding-bottom: 0em;
@@ -34,7 +34,9 @@
   padding: 5px;
   margin-top: 37px;
 }
-
+.burger-logo{
+  width: 128px;
+}
 
 .header_mainTitle {
   font-weight: bold;
@@ -47,12 +49,21 @@
 .header_titleAndBurger img{
   display: none;
 }
+
 }
 
 
 /* VERSION MOBILE */
 
 @media screen and (max-width: 770px){
+
+.header_mainTitle h1{
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -80px;
+}
 
 .header_titleAndBurger {
   display: flex;
@@ -64,25 +75,29 @@
   margin-left: 1%;
 }
 
-.header_main h1 {
+.header_mainTitle h1 {
   color: #399967;
   font-family: "Montserrat", arial;
   margin-bottom: 20px;
+  margin-top: -15px;
 }
 
-.header_main h2 {
+.header_mainTitle h2 {
     color: #e3815f;
     font-family: "Montserrat", arial;
     padding-bottom: 0em;
     margin: -17px 0em;
-    font-size: 32px; }
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold; 
+}
 
   .header_main h3 {
   color: white;
   background-color: #e3815f;
   font-family: "Montserrat", arial;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 30px;
   text-align: center;
   margin: 28px 10px;
   padding: 5px 0;
@@ -138,4 +153,33 @@ header.header_main {
 .header_mainTitle {
   margin: auto;
 }
+
+/* //////////////// Le modal ////////////////// */
+.modal {
+  right: 0px;
+  top: 0px;
+  height: 1000px;
+  width: 1000px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.burger-logo{
+  width: 128px;
+}
+
+/* la liste  */
+
+.burger-logo{
+  margin-left: 32vw;
+}
+
+.navbar-sidebar{
+  margin-left: 25vw;
+}
+.navbar-button{
+  margin-left: 20vw;
+}
+
+
 }

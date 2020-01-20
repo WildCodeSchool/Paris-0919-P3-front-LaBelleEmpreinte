@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './components/screen/Header';
 import './App.css';
@@ -5,12 +6,18 @@ import Navbar from './components/screen/Navbar';
 import Footer from './components/screen/Footer';
 import Filtres from './components/userInterface/Filtres';
 
-function App() {
+const App = () => {
+  const [headerHeight, setHeaderHeight] = useState(0)
+
+  const setRealHeaderHeight = (height) => {
+    
+    setHeaderHeight({ headerHeight: height })
+  }
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app_container">
-  
+ 
       <Header/>
       <div className="categorie">
       <Filtres />
@@ -18,6 +25,13 @@ function App() {
       </div>
       <Footer />
       </div>
+        {/* <div className="App">
+        <Navbar />
+        <div className="app_container">
+          <Header />
+          <Footer />
+        </div> */}
+        <AdminHomeContainer />
     </div>
   );
 }
