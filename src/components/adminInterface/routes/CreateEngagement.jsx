@@ -27,7 +27,7 @@ export default function CreateEngagement() {
                 <label>Nom du type d'activité: <input type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
-            <input type="button" value="Créer type activité" onClick={handlePost}/>
+            <input type="button" value="Créer engagement" onClick={handlePost}/>
         </div>
 
     )
