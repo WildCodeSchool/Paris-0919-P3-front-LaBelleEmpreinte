@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@tinymce/tinymce-react": "^3.3.2",
+    "axios": "^0.19.1",
+    "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",

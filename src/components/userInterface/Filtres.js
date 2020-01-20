@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import axios from "axios";
 
 import "./Filtres.css";
 
-class Objets extends Component {
+class Filtres extends Component {
   state = {
     datasObjets: [""],
 
@@ -18,7 +18,6 @@ class Objets extends Component {
       id: 0,
       name: ""
     }
-    // objetsFormCateg: []
   };
 
   componentDidMount() {
@@ -84,17 +83,7 @@ class Objets extends Component {
                     <div className="Filtres_allCategories">
                       <p
                         className="Filtres_sousCat"
-                        onClick={() =>
-                          this.setState(
-                            {
-                              objetsSelected: {
-                                id: categ.id,
-                                name: categ.categorie
-                              },
-                              isVisibleObjets: !this.state.isVisibleObjets
-                            },
-                            () => this.state
-                          )
+                        onClick={()=>this.props.Categories_objet( categ.id, categ.categorie)
                         }
                       >
                         {categ.categorie}
@@ -254,4 +243,4 @@ class Objets extends Component {
     );
   }
 }
-export default Objets;
+export default Filtres;

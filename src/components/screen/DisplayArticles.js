@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import ArticlesItem from './ArticlesItem'
@@ -108,6 +109,7 @@ const DisplayArticles = () => {
                 )}
         </>
     )
+
 }
 
 export default DisplayArticles
