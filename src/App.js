@@ -22,8 +22,8 @@ const App = () => {
       <div className="app_container">
         {/* <Header /> */}
         <GetHeaderHeight props={setRealHeaderHeight} />
-        {/* <DisplayArticles /> */}
-        <ArticleContent height={headerHeight} />
+        <DisplayArticles />
+        {/* <ArticleContent height={headerHeight} /> */}
         {/* <Footer /> */}
       </div>
       {/* <AdminHomeContainer /> */}
