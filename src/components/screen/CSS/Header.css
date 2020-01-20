@@ -1,0 +1,185 @@
+@media screen and (min-width: 770px){
+
+.header_main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header_mainTitle h1 {
+  color: #399967;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.header_mainTitle h2 {
+  color: #e3815f;
+  font-family: "Montserrat", arial;
+  padding-bottom: 0em;
+  margin: 0 0em 17px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header_main h3 {
+  color: white;
+  background-color: #e3815f;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 37px;
+}
+.burger-logo{
+  width: 128px;
+}
+
+.header_mainTitle {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.header_titleAndBurger img{
+  display: none;
+}
+
+}
+
+
+/* VERSION MOBILE */
+
+@media screen and (max-width: 770px){
+
+.header_mainTitle h1{
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -80px;
+}
+
+.header_titleAndBurger {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.header_titleAndBurger img{
+  margin-left: 1%;
+}
+
+.header_mainTitle h1 {
+  color: #399967;
+  font-family: "Montserrat", arial;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+.header_mainTitle h2 {
+    color: #e3815f;
+    font-family: "Montserrat", arial;
+    padding-bottom: 0em;
+    margin: -17px 0em;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold; 
+}
+
+  .header_main h3 {
+  color: white;
+  background-color: #e3815f;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin: 28px 10px;
+  padding: 5px 0;
+}
+
+header.header_main {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+}
+
+/* icone de loupe */
+.loupe {
+  margin-top: 3px;
+  padding-left: 4px;
+}
+
+/* menu burger */
+.header_burger {
+  display: flex;
+  flex-direction: column;
+  width: 10px;
+  right: 0;
+  margin: 3vw 2vw 0 0;
+}
+
+.header_greenDot {
+  background-color: #399967;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 3px;
+}
+
+.header_redDot {
+  background-color: #e3815f;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 3px;
+}
+
+.header_orangeDot {
+  background-color: #faa224;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;  
+
+}
+
+/* deux premiers titres */
+.header_mainTitle {
+  margin: auto;
+}
+
+/* //////////////// Le modal ////////////////// */
+.modal {
+  right: 0px;
+  top: 0px;
+  height: 1000px;
+  width: 1000px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.burger-logo{
+  width: 128px;
+}
+
+/* la liste  */
+
+.burger-logo{
+  margin-left: 32vw;
+}
+
+.navbar-sidebar{
+  margin-left: 25vw;
+}
+.navbar-button{
+  margin-left: 20vw;
+}
+
+
+}
