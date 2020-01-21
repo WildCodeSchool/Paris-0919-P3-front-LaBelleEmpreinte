@@ -47,7 +47,7 @@ export default function MainFilters() {
                 {tables ?
                     <select onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
-                            <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
+                            <option key={index} value={item.TABLE_NAME} onChange={(e) => setCategory(e.target.value)}>{item.TABLE_NAME}</option>))}
                     </select> : console.log("second filter is loading")}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
                 <Link to={route}><input type="button" value="Valider" onClick={console.log(category)}/></Link>

@@ -71,7 +71,11 @@ class FiltresAdmin extends Component {
     let newA = []
     let a = 
       this.state.catObjSelected.map(catObj => {
-        newA.push(catObj.id)
+        newA.push(
+          {
+            type: "categories_objets",
+            id: catObj.id
+          })
         console.log(catObj, 'newa')
         return newA
       })
@@ -81,7 +85,11 @@ class FiltresAdmin extends Component {
     let newB = []
     let b = 
       this.state.catIntSelected.map(catInt => {
-        newB.push(catInt.id)
+        newB.push(
+          {
+            type: "categories_intermediaires",
+            id: catInt.id
+          })
         console.log(catInt, 'newa')
         return newB
       })
@@ -89,7 +97,11 @@ class FiltresAdmin extends Component {
       let newC = []
     let c = 
       this.state.objSelected.map(obj => {
-        newC.push(obj.id)
+        newC.push(
+          {
+            type: "objets",
+            id: obj.id
+          })
         console.log(obj, 'newa')
         return newC
       })
@@ -97,7 +109,11 @@ class FiltresAdmin extends Component {
       let newD = []
     let d = 
       this.state.besoinsSelected.map(besoins => {
-        newD.push(besoins.id)
+        newD.push(
+          {
+            type: "besoins",
+            id: besoins.id
+          })
         console.log(besoins, 'newD')
         return newD
       })
@@ -105,7 +121,11 @@ class FiltresAdmin extends Component {
       let newE = []
     let e = 
       this.state.typeActSelected.map(typeAct => {
-        newE.push(typeAct.id)
+        newE.push(
+          {
+            type: "types_activites",
+            id: typeAct.id
+          })
         console.log(typeAct, 'newE')
         return newE
       })
