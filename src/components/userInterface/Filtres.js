@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
-
+import menuBurger from '../../assets/icons/menuBurger.png'
 import "./Filtres.css";
 
 class Filtres extends Component {
@@ -67,12 +67,11 @@ class Filtres extends Component {
 
     return (
       <div className="Filtres_container">
-        <div className="Filtres_CatObjets">
-          <div className="Filtres_title" onClick={this.displayObjet}>
-            Objets
+          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
+            <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
           </div>
 
-          <div className={this.state.isVisibleObjets ? "Filtres_frame" : ""}>
+          <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : ""}>
             {this.state.isVisibleObjets
               ? this.state.datasObjets[0].results.map(categ => {
                   const filterByCategory = this.state.datasObjets[1].results.filter(
@@ -80,7 +79,7 @@ class Filtres extends Component {
                   );
 
                   return (
-                    <div className="Filtres_allCategories">
+                    <div className="Filtres_one-Categorie-objet">
                       <p
                         className="Filtres_sousCat"
                         onClick={()=>this.props.Categories_objet( categ.id, categ.categorie)
@@ -150,16 +149,14 @@ class Filtres extends Component {
                   );
                 })
               : ""}
-          </div>
           </div> 
        
           {/* besoins */}
-          <div className="Filtres_CatObjets">
-            <div className="Filtres_title" onClick={this.displayBesoins}>
-              Besoins
+            <div className="Filtres_Besoins-title" onClick={this.displayBesoins}>
+            <img src={menuBurger} alt='menuBurger'></img><p>Besoins</p>
             </div>
 
-            <div className={this.state.isVisibleBesoins ? "Filtres_frame" : ""}>
+            <div className={this.state.isVisibleBesoins ? "Filtres_frame-besoins" : ""}>
               {this.state.isVisibleBesoins
                 ? this.state.datasBesoins[0].results.map(categ => {
                     const filterByCategory = this.state.datasBesoins[1].results.filter(
@@ -221,9 +218,13 @@ class Filtres extends Component {
                   })
                 : ""}
             </div>
-        </div>
-        
+
+        <div className='Filtres_searchEngine'> Moteur de recherche </div>
+        <button onClick={this.getArticlesBySousCategSelected}>
+            Rechercher
+          </button>
            <div className='Filtres_selectFilters'>
+             blabla
           <p>
             {this.state.objetsSelected.id !== 0
               ? this.state.objetsSelected.name
@@ -236,9 +237,7 @@ class Filtres extends Component {
           </p>
           </div> 
 
-          <button onClick={this.getArticlesBySousCategSelected}>
-            Rechercher
-          </button>
+          
       </div>
     );
   }

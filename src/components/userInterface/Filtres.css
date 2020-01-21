@@ -1,79 +1,172 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../assets/fonts/Montserrat-Regular.ttf")
+  }
+
+
+
+/* Grille du container du composant */
+
 .Filtres_container {
-    display: flex;
-    flex-direction: row;
-    border : 2px solid purple
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 3;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+/* //////////// */
+
+
+/* Grid First Row */
+/* Objet */
+.Filtres_Objets-title {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: lightgrey;
+    border-radius: 1%;
+    display:flex;
 }
 
-.Filtres_container ul{
+.Filtres_Objets-title p {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.Filtres_Objets-title img {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    
+}
+
+/* Besoins */
+.Filtres_Besoins-title {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color:lightgrey;
+    ;
+    display:flex;
+
+}
+
+.Filtres_Besoins-title p {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    
+}
+
+.Filtres_Besoins-title img {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    
+}
+
+.Filtres_searchEngine {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.Filtres_container button {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: green;
+    color: white;
+}
+
+/* Grid Second Row */ 
+
+.Filtres_selectFilters {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+/* Grid Third Row */
+/* Filtre Objets */ 
+.Filtres-frame-objet {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: solid 2px grey;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    box-shadow: 5px 5px 1px grey;        
+}
+
+/* Filtre Besoin */
+.Filtres-frame-besoin {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: solid 2px grey;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    box-shadow: 5px 5px 1px grey;        
+}
+
+.Filtres_container ul {
     list-style: none;
     padding: 0px;
 }
 
 .Filtres_container hr {
-    width : 95%;
-    color : black;
-    border : 1px solid grey
-}
-
-/* .Filtres_CatInterFont {
-    text-decoration: underline;
-} */
-
-
-.Filtres_CatObjets {
-    border: solid 2px yellow;
-
-
-}
-.Filtres_frame {
-    
-    border: solid 2px grey;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    box-shadow: 5px 5px 1px grey; 
-    background-color: rgb(245, 245, 245);
-
-
-}
-
-
-.Filtres_allCategories {
-  
-    border: solid 2px black;
-
-
+    width: 95%;
+    color: black;
+    border: 1px solid grey;
+    margin-top: -15px
 }
 
 .Filtres_sousCat {
-    font-size: 3vw;
+    font-size: 2vw;
+    font-weight: bold;
     text-align: center;
 }
 
-.Filtres_eachCatIntermediaires{
-    font-size: 2.5vw;;
-    text-align: center;
-
-    border: solid 2px yellow;
-
+.Filtres_CatInterFont {
+    font-size: 1.5vw;
+    font-weight: bold;
 }
-    .Filtres_allCatIntermediaires {
-  
-    border: outset 2px red;
+
+.Filtres_eachCatIntermediaires {
+    font-size: 1vw;
+    ;
+    text-align: center;
+    justify-self: center;
+    /* border: solid 2px yellow; */
+}
+
+.Filtres_allCatIntermediaires {
+    /* border: outset 2px red; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+}
 
-        } 
-
-.filtres_objets{
-    font-size: 2vw;;
+.filtres_objets {
+    font-size: 1vw;
+    ;
     text-align: left;
 }
 
-.Filtres_selectFilters {
-    border: solid 1px darkolivegreen;
-    display: flex;
-    /* position : relative;
-    left : 5px; */
-}
