@@ -122,13 +122,13 @@ const ArticleContent = (props) => {
                                 Partager l'article sur :
                             </p>
                             <div>
-                                <a href={'url'}>
-                                    <img className='articlecontent-sharelink' src='logo' alt='Facebook' />
+                                <a href='https://www.facebook.com/share'>
+                                    <img className='articlecontent-sharelink' src={pictoFb}alt='Facebook' />
                                 </a>
                             </div>
                             <div>
-                                <a href={'url'}>
-                                    <img className='articlecontent-sharelink' src='logo' alt='Twitter' />
+                                <a href='http://twitter.com/share'>
+                                    <img className='articlecontent-sharelink' src={pictoTwit} alt='Twitter' />
                                 </a>
                             </div>
                         </div>

@@ -21,7 +21,15 @@ const ListInitiatives = articleId => {
         }
     )
 
+    const [engagements, setEngagements] = useState(
+        [
+
+        ]
+    )
+
     const [loaded, setLoaded] = useState(false)
+
+    const [loaded2, setLoaded2] = useState(false)
 
     useEffect(() => {
         const id = articleId
@@ -33,6 +41,20 @@ const ListInitiatives = articleId => {
         }
         loadInitiatives()
     }, [])
+
+    useEffect(() => {
+        const loadEngagements = async () => {
+            const url = `http://localhost:4000/user/engagements`
+            const result = await axios.get(url)
+            setEngagements(result.data)
+            setLoaded2(true)
+        }
+        loadEngagements()
+    }, [])
+
+    const filteredEngagement = engagements.filter(
+        engagement => engagement.initiatives_id = initiative.id
+    )
 
     return (
         <>
@@ -68,14 +90,16 @@ const ListInitiatives = articleId => {
                     <p className='listinitiatives-date'>
                         {initiative.date_evenement}
                     </p>
-                    {/* <div className='listinitiatives-engagementscontainer'>
-
-                {engagements.map((engagement) => (
-                    <a data-popup={engagement.name}>
-                        <img className='listinitiatives-logoengagements' src={engagement.logo} alt='engagement' /></a>
-
-                ))}
-            </div> */}
+                    {loaded2 ? (
+                        <div className='listinitiatives-engagementscontainer'>
+                            {filteredEngagement
+                                .map((engagement) => (
+                                    <a data-popup={engagement.engagements}>
+                                        <img className='listinitiatives-logoengagements' src={engagement.urlPicto} alt={engagement.engagements} /></a>
+                                )
+                                )}
+                        </div>
+                    ) : null}
                     <hr />
                 </div >)
             }

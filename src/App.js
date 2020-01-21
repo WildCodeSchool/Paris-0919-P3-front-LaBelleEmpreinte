@@ -32,7 +32,7 @@ const App = () => {
       <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/">
-          <div className="categorie">
+          <div className="">
             <Filtres />
           </div>
         </Route>
