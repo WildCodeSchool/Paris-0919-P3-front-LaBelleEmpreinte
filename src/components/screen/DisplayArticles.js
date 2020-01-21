@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import ArticlesItem from './ArticlesItem'
 import './CSS/DisplayArticles.css'
 
-const DisplayArticles = () => {
+const DisplayArticles = (props) => {
     const [articles, setArticles] = useState(
         {
             id: 0,
@@ -16,17 +15,16 @@ const DisplayArticles = () => {
     )
 
     const [loaded, setLoaded] = useState(false)
-
-    const loadArticles = async () => {
-        const url = 'articles'
-        const result = await axios.get(url)
-        setArticles({ result })
-        setLoaded(true)
-    }
-
+ 
     useEffect(() => {
+        const loadArticles = async () => {
+            const url = 'http://localhost:4000/user/filtres/articles'
+            const result = await axios.post(url, { objectName: props.objet, besoinName: props.besoin })
+            setArticles(result.data)
+            setLoaded(true)
+        }
         loadArticles()
-    })
+    }, [props])
 
     // state = {
     //     articles: [
@@ -91,21 +89,21 @@ const DisplayArticles = () => {
     //         },
     //     ]
     // }
-    
+
     return (
         <>
-            {!loaded ? (
-                <div>Loading articles...</div>
-            ) : (
-                    <div className='DisplayArticles-Container'>
-                        <div className='DisplayArticles-Gallery'>
-                            {articles
-                                .map(
-                                    (article, index) => (
-                                        <ArticlesItem {...article} />
-                                    ))}
-                        </div>
+            {!loaded ?
+            (<div>Articles en cours de chargement...</div>)
+                :
+                (<div className='DisplayArticles-Container'>
+                    <div className='DisplayArticles-Gallery'>
+                        {articles
+                            .map(
+                                (article, index) => (
+                                    <ArticlesItem {...article} />
+                                ))}
                     </div>
+                </div>
                 )}
         </>
     )
