@@ -95,6 +95,28 @@
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
+    display:flex;
+    justify-content: space-between;
+}
+
+.Filtres_selectFilters div {
+    border: solid 2px grey;
+    border-radius: 10%;
+    display: flex;
+    margin-right: 10px;
+}
+
+.Filtres_selectFilters img {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.Filtres_selectFilters p {
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px
 }
 
 /* Grid Third Row */
@@ -113,9 +135,9 @@
 }
 
 /* Filtre Besoin */
-.Filtres-frame-besoin {
-    grid-column-start: 1;
-    grid-column-end: 4;
+.Filtres_frame-besoins {
+    grid-column-start: 2;
+    grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 3;
     border: solid 2px grey;
@@ -148,6 +170,12 @@
     font-size: 1.5vw;
     font-weight: bold;
 }
+
+.Filtres_BesoinsFont {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
 
 .Filtres_eachCatIntermediaires {
     font-size: 1vw;
