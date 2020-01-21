@@ -28,9 +28,11 @@ const ListInitiatives = ({ name, logo, description, url, date, adresses, engagem
             {date}
         </p>
         <div className='listinitiatives-engagementscontainer'>
+
                 {engagements.map((engagement) => (
                     <a data-popup={engagement.name}>
                         <img className='listinitiatives-logoengagements' src={engagement.logo} alt='engagement' /></a>
+
                 ))}
             </div>
         <hr />

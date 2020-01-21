@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
@@ -11,11 +12,11 @@ const App = () => {
   const [headerHeight, setHeaderHeight] = useState(0)
 
   const setRealHeaderHeight = (height) => {
-
     setHeaderHeight({ headerHeight: height })
   }
   return (
     <div className="App">
+
       <Switch>
         <Route exact path="/">
           <div className="app_container">
@@ -34,4 +35,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default App
