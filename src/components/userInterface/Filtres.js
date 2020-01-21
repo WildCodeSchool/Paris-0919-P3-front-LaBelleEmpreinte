@@ -84,7 +84,18 @@ class Filtres extends Component {
                 <div className="Filtres_one-Categorie-objet">
                   <p
                     className="Filtres_sousCat"
-                    onClick={() => this.props.Categories_objet(categ.id, categ.categorie)
+                    onClick={() =>
+                                this.setState(
+                                  {
+                                    objetsSelected: {
+                                      id: categ.id,
+                                      name: categ.categorie
+                                    },
+                                    isVisibleObjets: !this.state
+                                      .isVisibleObjets
+                                  },
+                                  () => this.state
+                                )
                     }
                   >
                     {categ.categorie}
@@ -166,7 +177,8 @@ class Filtres extends Component {
               );
 
               return (
-                <div className="Filtres_allCategories">
+                <div className="Filtres_BesoinsColumns">
+                  <div>
                   <p
                     className="Filtres_BesoinsFont"
                     onClick={() =>
@@ -184,6 +196,9 @@ class Filtres extends Component {
                   >
                     {categ.besoins}
                   </p>
+                  <hr />
+                  </div>
+                  
 
                   {filterByCategory.map(sCateg => {
                     const filterBySousCateg = this.state.datasObjets[2].results.filter(
@@ -211,7 +226,10 @@ class Filtres extends Component {
                           >
                             {sCateg.types_activites}
                           </li>
+                          
                         </ul>
+                        
+                        
                       </div>
                     );
                   })}
