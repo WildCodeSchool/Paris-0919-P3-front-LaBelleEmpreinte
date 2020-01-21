@@ -1,7 +1,6 @@
 import React from 'react'
 import './CSS/Home.css'
 import MainFilters from './MainFilters'
-import { BrowserRouter } from 'react-router-dom'
 
 export default function TitleAdmin() {
     return (
@@ -12,9 +11,7 @@ export default function TitleAdmin() {
                 <h2>Le guide vers les objets responsables</h2>
             </div>
             <h3 className="orangeTitle">ESPACE ADMINISTRATEUR</h3>
-            <BrowserRouter>
                 <MainFilters />
-            </BrowserRouter>
         </div>
     )
 }

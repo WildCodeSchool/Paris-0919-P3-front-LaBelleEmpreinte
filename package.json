@@ -8,8 +8,6 @@
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
-    "axios": "^0.19.1",
-    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",

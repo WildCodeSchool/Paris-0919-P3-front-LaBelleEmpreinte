@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Router } from 'react-router-dom'
 import './App.css';
 import Footer from './components/screen/Footer';
 import GetHeaderHeight from './components/screen/GetHeaderHeight';
@@ -16,7 +16,6 @@ const App = () => {
   }
   return (
     <div className="App">
-
       <Switch>
         <Route exact path="/">
           <div className="app_container">
