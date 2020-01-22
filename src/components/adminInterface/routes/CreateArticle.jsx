@@ -20,6 +20,7 @@ export default function CreateArticle(props) {
   ///// table intermédiaire ////
   const [validateFilters, setValidateFilters] = useState(false)
   const [initiatives, setInitiatives] = useState([])
+  const [uniqueInitiatives, setUniqueInitiatives] = useState([])
   const [besoins, setBesoins] = useState([])
   const [types_activites, setTypes_activites] = useState([])
   const [categories_objets, setCategories_objets] = useState([])
@@ -61,24 +62,32 @@ export default function CreateArticle(props) {
       .then(res => res.json())
   }
 
-  useEffect(() => {
+  useEffect( () => {
       const displayInitiatives =  async (filter) => {
         const url = 'http://localhost:4000/admin/filtre/initiatives'
           filter.map( async (item) => {
             return await axios.post(url, { type: item.type, id: item.id })
             .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
+            // .then(res => setInitiatives([...new Set(initiatives.map(i => i.name))]))
           })      
-        console.log("11111111111111111111111111" , initiatives)
-        
-      }
-      displayInitiatives(types_activites)
-      displayInitiatives(besoins)
-      displayInitiatives(categories_objets)
-      displayInitiatives(categories_intermediaires)
-      displayInitiatives(objets)
+          
+        }
+        displayInitiatives(types_activites)
+        displayInitiatives(besoins)
+        displayInitiatives(categories_intermediaires)
+        displayInitiatives(categories_objets)
+        displayInitiatives(objets)
+      //   console.log("11111111111111111111111111" , initiatives)
+      //   const filteredInitiatives = [...new Set(initiatives.map(i => i.name))]
+      // setUniqueInitiatives(filteredInitiatives)
+      // console.log("uniqueInitiatives",uniqueInitiatives)
 
   }, [besoins, types_activites, categories_objets, categories_intermediaires,objets])
 
+  // const displayUniqueInitiatives = () => {
+  //   const UniqueInitiatives = [...new Set(initiatives.map(i => i.name))]
+  //   console.log(UniqueInitiatives)
+  // }
 
   //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
 const getFilters = (a, b, c, d, e) => {
@@ -99,7 +108,7 @@ const getFilters = (a, b, c, d, e) => {
 
   // console.log(articleData)
   // console.log("categories_objets", categories_objets)
-  // console.log("INITIATIVES", initiatives)
+  console.log("INITIATIVES", initiatives)
   return (
     <div>
       <h1>Je crée un article</h1>
@@ -152,9 +161,10 @@ const getFilters = (a, b, c, d, e) => {
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives">
         <div> "ihihi" </div>
-          {initiatives.map(initiative =>
+            {/* {displayUniqueInitiatives()} */}
+          {initiatives.map(init =>
             <p>
-            {initiative.name}
+            {init.name}
             </p>)
             }
           <div> "ihihi" </div>
