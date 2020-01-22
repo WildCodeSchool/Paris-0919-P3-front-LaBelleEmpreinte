@@ -239,10 +239,10 @@ class Filtres extends Component {
             : ""}
         </div>
 
-        <div className='Filtres_searchEngine'> Moteur de recherche </div>
+        {/* <div className='Filtres_searchEngine'> Moteur de recherche </div>
         <button onClick={this.getArticlesBySousCategSelected}>
           Rechercher
-          </button>
+          </button> */}
 
         <div className='Filtres_selectFilters'>
             <p>
