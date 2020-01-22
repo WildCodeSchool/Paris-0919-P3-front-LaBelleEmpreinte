@@ -49,6 +49,7 @@ export default function CreateArticle(props) {
 
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
+    e.preventDefault()
     fetch("admin/articles/create",
       {
         method: 'POST',
@@ -58,24 +59,30 @@ export default function CreateArticle(props) {
         body: JSON.stringify(articleData),
       })
       .then(res => res.json())
-    e.preventDefault()
   }
 
   useEffect(() => {
-    const displayInitiatives = () => {
-      const loadArticles = async () => {
-        const url = 'http://localhost:4000/user/filtres/initiatives'
-        const result = await axios.post(url, { type: types_activites, id: 1 })
-        setInitiatives(result.data)
-        console.log("result de l'axios", result)
-        // setLoaded(true)
+      const displayInitiatives =  async (filter) => {
+        const url = 'http://localhost:4000/admin/filtre/initiatives'
+          filter.map( async (item) => {
+            return await axios.post(url, { type: item.type, id: item.id })
+            .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
+          })      
+        console.log("11111111111111111111111111" , initiatives)
+        
       }
-      
-    }
-  })
+      displayInitiatives(types_activites)
+      displayInitiatives(besoins)
+      displayInitiatives(categories_objets)
+      displayInitiatives(categories_intermediaires)
+      displayInitiatives(objets)
+
+  }, [besoins, types_activites, categories_objets, categories_intermediaires,objets])
+
 
   //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
 const getFilters = (a, b, c, d, e) => {
+  console.log("****---------****-*----**Get Filter ***-------****", b)
   setCategories_objets(a)
   setCategories_intermediaires(b)
   setObjets(c)
@@ -84,15 +91,15 @@ const getFilters = (a, b, c, d, e) => {
   setValidateFilters(!validateFilters)
   }
 
-console.log('besoins',besoins)
-console.log('types_activites',types_activites)
-console.log('categories_objets',categories_objets)
-console.log('categories_intermediaires',categories_intermediaires)
-console.log('objets',objets)
+// console.log('besoins',besoins)
+// console.log('types_activites',types_activites)
+// console.log('categories_objets',categories_objets)
+// console.log('categories_intermediaires',categories_intermediaires)
+// console.log('objets',objets)
 
-  console.log(articleData)
-  console.log("categories_objets", categories_objets)
-  console.log("INITIATIVES", initiatives)
+  // console.log(articleData)
+  // console.log("categories_objets", categories_objets)
+  // console.log("INITIATIVES", initiatives)
   return (
     <div>
       <h1>Je crée un article</h1>
@@ -116,7 +123,7 @@ console.log('objets',objets)
           <input type="text" className="feedback-input" id="lieu" placeholder="Lieu" onChange={(e) => setPlace(e.target.value)} />
         </p>
       </form>
-      <Editor
+      {/* <Editor
         initialValue="<p></p>"
         init={{
           height: 500,
@@ -132,7 +139,7 @@ console.log('objets',objets)
              bullist numlist outdent indent | removeformat | help'
         }}
         onChange={(e) => setText(e.target.getContent())}
-      />
+      /> */}
 
       {/* la liste de bidules à associer au à l'article */}
       <div className="association">
@@ -145,7 +152,11 @@ console.log('objets',objets)
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives">
         <div> "ihihi" </div>
-          {initiatives.name}
+          {initiatives.map(initiative =>
+            <p>
+            {initiative.name}
+            </p>)
+            }
           <div> "ihihi" </div>
         </div>
         <div className="publication"> Mon article est publié

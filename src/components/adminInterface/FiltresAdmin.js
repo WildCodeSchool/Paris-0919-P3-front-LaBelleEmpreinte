@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 import "../userInterface/Filtres.css";
@@ -10,8 +10,8 @@ class FiltresAdmin extends Component {
 
     isVisibleObjets: false,
 
+    
     catObjSelected: [],
-
     catIntSelected: [],
     objSelected: [],
     besoinsSelected: [],
@@ -69,77 +69,108 @@ class FiltresAdmin extends Component {
   ///// Fonction pour envoyer à Create Article les différents id (seulement l'id) de chaque filtre pour pouvoir faire la requête au back ensuite /////
   filtersId = () => {
     let newA = []
-    let a = 
       this.state.catObjSelected.map(catObj => {
         newA.push(
           {
             type: "categories_objets",
             id: catObj.id
           })
-        console.log(catObj, 'newa')
+        // console.log(catObj, 'newa')
         return newA
       })
     
-    console.log(newA)
+    // console.log("--------------------NewA ---------------",newA)
+    // console.log("state catObj 6546469464194489", this.state.catObjSelected)
 
     let newB = []
-    let b = 
       this.state.catIntSelected.map(catInt => {
         newB.push(
           {
             type: "categories_intermediaires",
             id: catInt.id
           })
-        console.log(catInt, 'newa')
+        // console.log(catInt, 'newa')
         return newB
       })
 
       let newC = []
-    let c = 
       this.state.objSelected.map(obj => {
         newC.push(
           {
             type: "objets",
             id: obj.id
           })
-        console.log(obj, 'newa')
+        // console.log(obj, 'newa')
         return newC
       })
 
       let newD = []
-    let d = 
       this.state.besoinsSelected.map(besoins => {
         newD.push(
           {
             type: "besoins",
             id: besoins.id
           })
-        console.log(besoins, 'newD')
+        // console.log(besoins, 'newD')
         return newD
       })
 
       let newE = []
-    let e = 
       this.state.typeActSelected.map(typeAct => {
         newE.push(
           {
             type: "types_activites",
             id: typeAct.id
           })
-        console.log(typeAct, 'newE')
+        // console.log(typeAct, 'newE')
         return newE
       })
 
       
     
 
-    this.props.filteredItems(newA, newB, newC, newD, newE)
+    this.props.filteredItems(newA, newB, newC, newD, newE, true)
 
   }
-
+  handleClickFilter = (id, categorie, filter) => {
+    switch (`${filter}`) {
+      case "catObjSelected":
+        const newFilterA = [...this.state.catObjSelected, {id: id, name: categorie}]
+        this.setState({catObjSelected: newFilterA, isVisibleObjets: !this.state.isVisibleObjets})
+        // console.log('times times times A: ', newFilterA )
+        // console.log('times times times A filter: ', filter )
+        break;
+      case "catIntSelected":
+        const newFilterB = [...this.state.catIntSelected, {id: id, name: categorie}]
+        this.setState({catIntSelected: newFilterB, isVisibleObjets: !this.state.isVisibleObjets})
+        // console.log('times times times B: ', newFilterB )
+        // console.log('times times times B filter: ', filter )
+        break;
+      case "objSelected":
+        const newFilterC = [...this.state.objSelected, {id: id, name: categorie}]
+        this.setState({objSelected: newFilterC, isVisibleObjets: !this.state.isVisibleObjets})
+        // console.log('times times times C: ', newFilterC )
+        break;
+      case "besoinsSelected":
+        const newFilterD = [...this.state.besoinsSelected, {id: id, name: categorie}]
+        this.setState({besoinsSelected: newFilterD, isVisibleBesoins: !this.state.isVisibleBesoins})
+        // console.log('times times times D: ', newFilterD )
+        break;
+      case "typeActSelected":
+        const newFilterE = [...this.state.typeActSelected, {id: id, name: categorie}]
+        this.setState({typeActSelected: newFilterE, isVisibleBesoins: !this.state.isVisibleBesoins})
+        // console.log('times times times E: ', newFilterE )
+        break;
+    }
+  }
   //////////// render //////////
   render() {
-
+    console.log("catObjSelected",this.state.catObjSelected)
+    console.log("catIntSelected",this.state.catIntSelected)
+    console.log("objSelected",this.state.objSelected)
+    console.log("besoinsSelected",this.state.besoinsSelected)
+    console.log("typeActSelected",this.state.typeActSelected)
+    
     return (
       <div className="Filtres_container">
         <div className="Filtres_CatObjets">
@@ -153,26 +184,13 @@ class FiltresAdmin extends Component {
                 const filterByCategory = this.state.datasObjets[1].results.filter(
                   sousCateg => sousCateg.categories_objets_id === categ.id
                 );
-
+                
                 return (
                   <div className="Filtres_allCategories">
                     <p
                       className="Filtres_sousCat"
                       onClick={() => {
-                    
-                        this.setState(
-                          {
-                            catObjSelected : this.state.catObjSelected.concat({
-                              id : categ.id,
-                              name : categ.categorie
-
-                            }),
-                            
-
-                            isVisibleObjets: !this.state.isVisibleObjets
-                          },
-                          
-                        )
+                        this.handleClickFilter(categ.id, categ.categorie, "catObjSelected")
                       }}
                     >
                       {categ.categorie}
@@ -188,21 +206,9 @@ class FiltresAdmin extends Component {
                             <ul>
                               <li className="Filtres_CatInterFont"
                                 key={sCateg.id}
-                                onClick={() =>
-                                  this.setState(
-                                    {
-                                      catIntSelected : this.state.catIntSelected.concat({
-                                        id : sCateg.id,
-                                        name : sCateg.name,
-                                        
-                                      }),
-                            
-
-                                      isVisibleObjets: !this.state.isVisibleObjets
-                                    },
-                                    
-                                  )
-                                }
+                                onClick={() => {
+                                  this.handleClickFilter(sCateg.id, sCateg.name, "catIntSelected")
+                                }}
                               >
                                 {sCateg.name}
                               </li>
@@ -215,20 +221,9 @@ class FiltresAdmin extends Component {
                                     className="filtres_objets"
                                     key={objet.id}
                                     onClick={() =>
-                                      this.setState(
-                                        {
-                                          objSelected : this.state.objSelected.concat({
-                                            id : objet.id,
-                                            name : objet.name,
-                                            
-                                          }),
-                            
-
-                                          isVisibleObjets: !this.state.isVisibleObjets
-                                        },
-                                        
-                                      )
-                                    }
+                                      {
+                                        this.handleClickFilter(objet.id, objet.name, "objSelected")
+                                    }}
                                   >
                                     {objet.name}
                                   </li>
@@ -264,19 +259,9 @@ class FiltresAdmin extends Component {
                     <p
                       className="Filtres_sousCat"
                       onClick={() =>
-                        this.setState(
-                          {
-                            besoinsSelected : this.state.besoinsSelected.concat({
-                              id : categ.id,
-                              name : categ.besoins,
-                            }),
-                            
-
-                            isVisibleBesoins: !this.state.isVisibleBesoins
-                          },
-                          
-                        )
-                      }
+                        {
+                          this.handleClickFilter(categ.id, categ.besoins, "besoinsSelected")
+                        }}
                     >
                       {categ.besoins}
                     </p>
@@ -292,17 +277,9 @@ class FiltresAdmin extends Component {
                               className="filtres_objets"
                               key={sCateg.id}
                               onClick={() =>
-                                this.setState(
-                                  {
-                                    typeActSelected : this.state.typeActSelected.concat({
-                                      id : sCateg.id,
-                                      name : sCateg.types_activites,
-                                    }),
-                                    isVisibleBesoins: !this.state.isVisibleBesoins
-                                  },
-                                  
-                                )
-                              }
+                                {
+                                  this.handleClickFilter(sCateg.id, sCateg.types_activites, "typeActSelected")
+                                }}
                             >
                               {sCateg.types_activites}
                             </li>
