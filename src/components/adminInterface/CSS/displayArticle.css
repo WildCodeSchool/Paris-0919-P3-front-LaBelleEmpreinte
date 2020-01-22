@@ -1,40 +1,62 @@
+/* CSS pour "Jeconsulte mes articles" */
+.title{
+    text-align: center;
+}
+
+/* CSS encadrer générale*/
 .displayArticle_frame{
-    border : solid black 20px;
+    border : solid black 2px;
     margin-left: 7%;
     margin-right: 7%;
 }
 
-.displayArticle_header{
+/* CSS en-tête*/
+.displayArticle_header {
     display: flex;
     align-items: center;
     align-content: stretch;
-    border: solid 20px blue;
+    border-bottom: solid 2px black;
     padding: 0px;
     justify-content: space-between;
-    padding-right: 5%;
-    padding-left:5%;
+    padding-right: 4vh;
+    padding-left:4vh;
+    background-color: gray;
+    text-align: center;
+    height: 6vh;
 
 }
 
+/* CSS les textes de l'encadrer*/
+.displayArticle_header p{
+margin: 0px;
+
+}
+
+/* CSS bloc des acrticles*/
 .displayArticle_items{
     list-style: none;
-    border: 8px solid black;
+    /* border: 8px solid black; */
     padding-left: 0%;
+    margin: 2%;
 }
 
 .displayArticle_content{
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
+/* CSS chaque article*/
 .displayArticle_items li{
-    border: blueviolet solid 2px;
+    border: grey solid 2px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right:6%;
     padding-left: 1%;
-    margin-bottom: 0.5%;
+    margin-top: 0.5%;
 
 }
+
+/* CSS voyant/publication*/
 
 .publication-off,
 .publication-on {

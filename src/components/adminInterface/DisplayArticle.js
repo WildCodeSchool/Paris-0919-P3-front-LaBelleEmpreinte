@@ -39,7 +39,7 @@ class DisplayArticle extends Component {
         return (
             <div>
                 <TitleAdmin/>
-                <h1>Je consulte mes articles</h1>
+                <h1 className="title">Je consulte mes articles</h1>
                 <div><Filtres filtreArticle={this.setFiltreArticle}/></div>
                 <div className="displayArticle_frame">
                     <div className="displayArticle_header">
@@ -52,7 +52,7 @@ class DisplayArticle extends Component {
 
                         { 
                             {console.log("test",elem)}
-                            return <li> <div>{elem.titre} </div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
+                            return <li> <div>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
                         
                         )}
                         
