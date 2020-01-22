@@ -9,6 +9,9 @@ import './App.css';
 // import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
 // import ListInitiatives from './components/screen/ListInitiatives';
 import TitleAdmin from './components/adminInterface/TitleAdmin';
+import AdminCreateArticle from './components/adminInterface/AdminCreateArticle';
+import DisplayArticle from './components/adminInterface/DisplayArticle';
+
 
 
 
@@ -17,8 +20,10 @@ import TitleAdmin from './components/adminInterface/TitleAdmin';
 const App = () => {
   return (
     <div>
-        <TitleAdmin/>
-    </div>
+        {/* <TitleAdmin/>  */}
+        <DisplayArticle/>
+        {/* <AdminCreateArticle/> */}
+    </div>   
   );
 }
 

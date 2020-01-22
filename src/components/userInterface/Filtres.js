@@ -6,7 +6,6 @@ import "./Filtres.css";
 class Filtres extends Component {
   state = {
     datasObjets: [""],
-
     isVisibleObjets: false,
     objetsSelected: {
       id: 0,
@@ -52,19 +51,22 @@ class Filtres extends Component {
       isVisibleObjets: !this.state.isVisibleObjets,
       isVisibleBesoins: false
     });
+    this.props.filtreArticle(this.state.datasObjets);
   };
 
   displayBesoins = () => {
     this.setState({
       isVisibleBesoins: !this.state.isVisibleBesoins,
-      isVisibleObjets: false
+      isVisibleObjets: false,
     });
+    this.props.filtreArticle(this.state.datasBesoins);
   };
 
   render() {
     console.log("datasObjets", this.state.datasObjets);
     console.log("besoin selec", this.state.besoinsSelected);
 
+   
     return (
       <div className="Filtres_container">
         <div className="Filtres_CatObjets">
