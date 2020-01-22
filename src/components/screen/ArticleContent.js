@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import moment from 'moment';
+
 
 import './CSS/ArticleContent.css'
 
@@ -42,34 +44,46 @@ const ArticleContent = (props) => {
         {
             id: 0,
             titre: "",
-            couverture: "",
+            image: "",
             date: "",
             minutes_lecture: 0,
             auteur: "",
             contenu: "",
             geographie: "",
             listes_initiatives: false,
-            lien_partage: []
+            couverture: ""
         }
     )
 
-    const [loaded, setLoaded] = useState(false)
+    const [initiatives, setInitiatives] = useState([])
 
     useEffect(() => {
         const loadArticle = async () => {
             const id = props.match.params.id
             const url = `http://localhost:4000/user/articles/${id}`
             const result = await axios.get(url)
-            setArticle(result.data)
+            setArticle(result.data[0])
             setLoaded(true)
         }
         loadArticle()
     }, [])
 
-    const titleHeight = props.height.headerHeight + parseInt(getComputedStyle(document.documentElement).fontSize) * 2
+    useEffect(() => {
+        const id = props.match.params.id
+        const loadInitiatives = async () => {
+            const url = `http://localhost:4000/user/initiatives/${id}`
+            const result = await axios.get(url)
+            setInitiatives(result.data)
+            setLoaded2(true)
+        }
+        loadInitiatives()
+    }, [])
 
-    console.log(isTop);
-    console.log(props.height.headerHeight)
+    const [loaded, setLoaded] = useState(false)
+
+    const [loaded2, setLoaded2] = useState(false)
+
+    const titleHeight = props.height.headerHeight + parseInt(getComputedStyle(document.documentElement).fontSize) * 2
 
     return (
         <>
@@ -79,12 +93,12 @@ const ArticleContent = (props) => {
                 (<div className='articlecontent'>
                     <span className='articlecontent-title'></span>
                     <header>
-                        <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${article.couverture})` }}>
+                        <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${article.image})` }}>
 
-                            <h1 style={{ top: `${titleHeight}px` }}>Salut{article.titre}</h1>
+                            <h1 style={{ top: `${titleHeight}px` }}>{article.titre}</h1>
                         </div>
                         <nav className={isTop ? null : 'articlecontent-fixed-header'}>
-                            <div className={isTop ? 'articlecontent-invisible-title' : 'articlecontent-visible-title'}>Salut{article.titre}</div>
+                            <div className={isTop ? 'articlecontent-invisible-title' : 'articlecontent-visible-title'}>{article.titre}</div>
                         </nav>
                     </header>
 
@@ -95,9 +109,12 @@ const ArticleContent = (props) => {
                                 <p className='articlecontent-time'>{article.minutes_lecture} minutes</p>
                             </div>
                             <p>Secteur : {article.geographie}</p>
-                            <p>Le {article.date}</p>
+                            <p>
+                                Le {moment(article.date).format('DD-MM-YYYY')}
+                            </p>
+
                             <div className='articlecontent-authorcontainer'>
-                                <img className='articlecontent-authorpic' src={article.photo_auteur} alt={article.auteur} />
+                                {/* <img className='articlecontent-authorpic' src={article.photo_auteur} alt={article.auteur} /> */}
                                 <p className='articlecontent-author'>Par {article.auteur}</p>
                             </div>
                             <p>{article.contenu}</p>
@@ -107,10 +124,10 @@ const ArticleContent = (props) => {
                                 <div className='articlecontent-associatedinitiatives'>
                                     <h2 className='articlecontent-titleinitiatives'>INITIATIVES ASSOCIÉES
                                     </h2>
-                                    {article.liste_initiatives
+                                    {initiatives
                                         .map(
                                             (initiative, index) => (
-                                                <ListInitiatives articleId={article.id} />
+                                                <ListInitiatives articleId={article.id} loaded2={loaded2} initiative={initiative} />
                                             ))}
                                 </div>
                             </article>)
@@ -123,7 +140,7 @@ const ArticleContent = (props) => {
                             </p>
                             <div>
                                 <a href='https://www.facebook.com/share'>
-                                    <img className='articlecontent-sharelink' src={pictoFb}alt='Facebook' />
+                                    <img className='articlecontent-sharelink' src={pictoFb} alt='Facebook' />
                                 </a>
                             </div>
                             <div>

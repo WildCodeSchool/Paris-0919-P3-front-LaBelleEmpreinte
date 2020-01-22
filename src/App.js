@@ -16,7 +16,7 @@ import TitleAdmin from './components/adminInterface/TitleAdmin';
 import { Route, Switch } from 'react-router-dom'
 
 const App = () => {
-  
+
   const [headerHeight, setHeaderHeight] = useState(0)
 
   const setRealHeaderHeight = (height) => {
