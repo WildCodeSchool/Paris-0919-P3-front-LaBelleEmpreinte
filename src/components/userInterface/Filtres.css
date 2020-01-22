@@ -20,7 +20,8 @@
 /* Objet */
 .Filtres_Objets-title {
     grid-column-start: 1;
-    grid-column-end: 2;
+    /* grid-column-end: 2; */
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
     background-color: lightgrey;
@@ -45,8 +46,10 @@
 
 /* Besoins */
 .Filtres_Besoins-title {
-    grid-column-start: 2;
-    grid-column-end: 3;
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+    grid-column-start: 3;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
     background-color:lightgrey;
@@ -222,7 +225,7 @@
 .Filtres_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3em 3em 3em auto;
+    grid-template-rows: 0em 3em 3em auto;
     grid-column-gap: 5px;
     grid-row-gap: 10px;
 }
