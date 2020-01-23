@@ -133,7 +133,7 @@ const getFilters = (a, b, c, d, e) => {
           <input type="text" className="feedback-input" id="lieu" placeholder="Lieu" onChange={(e) => setPlace(e.target.value)} />
         </p>
       </form>
-      {/* <Editor
+      <Editor
         initialValue="<p></p>"
         init={{
           height: 500,
@@ -149,7 +149,7 @@ const getFilters = (a, b, c, d, e) => {
              bullist numlist outdent indent | removeformat | help'
         }}
         onChange={(e) => setText(e.target.getContent())}
-      /> */}
+      />
 
       {/* la liste de bidules à associer au à l'article */}
       <div className="association">
