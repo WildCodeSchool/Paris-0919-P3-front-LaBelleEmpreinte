@@ -1,0 +1,17 @@
+.mainFilters {
+    margin: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainFilter-selector {
+    width: 20vw;
+}
+
+.mainFilter-button {
+    width: 13vw;
+}
+
+.mainFilter-option {
+    text-align: center;
+}
