@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import axios from "axios";
 
 import "./Filtres.css";
+import DisplayArticles from '../screen/DisplayArticles'
 
 class Filtres extends Component {
   state = {
@@ -64,17 +65,20 @@ class Filtres extends Component {
   render() {
     console.log("datasObjets", this.state.datasObjets);
     console.log("besoin selec", this.state.besoinsSelected);
+    console.log('RELOAD');
+    
 
     return (
-      <div className="Filtres_container">
-        <div className="Filtres_CatObjets">
-          <div className="Filtres_title" onClick={this.displayObjet}>
-            Objets
+      <div>
+        <div className="Filtres_container">
+          <div className="Filtres_CatObjets">
+            <div className="Filtres_title" onClick={this.displayObjet}>
+              Objets
           </div>
 
-          <div className={this.state.isVisibleObjets ? "Filtres_frame" : ""}>
-            {this.state.isVisibleObjets
-              ? this.state.datasObjets[0].results.map(categ => {
+            <div className={this.state.isVisibleObjets ? "Filtres_frame" : ""}>
+              {this.state.isVisibleObjets
+                ? this.state.datasObjets[0].results.map(categ => {
                   const filterByCategory = this.state.datasObjets[1].results.filter(
                     sousCateg => sousCateg.categories_objets_id === categ.id
                   );
@@ -83,7 +87,7 @@ class Filtres extends Component {
                     <div className="Filtres_allCategories">
                       <p
                         className="Filtres_sousCat"
-                        onClick={()=>this.props.Categories_objet( categ.id, categ.categorie)
+                        onClick={() => this.props.Categories_objet(categ.id, categ.categorie)
                         }
                       >
                         {categ.categorie}
@@ -116,7 +120,7 @@ class Filtres extends Component {
                                   {sCateg.name}
                                 </li>
                               </ul>
-                              <hr/>
+                              <hr />
                               {filterBySousCateg.map(objet => {
                                 return (
                                   <ul>
@@ -149,10 +153,10 @@ class Filtres extends Component {
                     </div>
                   );
                 })
-              : ""}
+                : ""}
+            </div>
           </div>
-          </div> 
-       
+
           {/* besoins */}
           <div className="Filtres_CatObjets">
             <div className="Filtres_title" onClick={this.displayBesoins}>
@@ -162,83 +166,87 @@ class Filtres extends Component {
             <div className={this.state.isVisibleBesoins ? "Filtres_frame" : ""}>
               {this.state.isVisibleBesoins
                 ? this.state.datasBesoins[0].results.map(categ => {
-                    const filterByCategory = this.state.datasBesoins[1].results.filter(
-                      sousCateg => sousCateg.besoins_id === categ.id
-                    );
+                  const filterByCategory = this.state.datasBesoins[1].results.filter(
+                    sousCateg => sousCateg.besoins_id === categ.id
+                  );
 
-                    return (
-                      <div className="Filtres_allCategories">
-                        <p
-                          className="Filtres_sousCat"
-                          onClick={() =>
-                            this.setState(
-                              {
-                                besoinsSelected: {
-                                  id: categ.id,
-                                  name: categ.besoins
-                                },
-                                isVisibleBesoins: !this.state.isVisibleBesoins
+                  return (
+                    <div className="Filtres_allCategories">
+                      <p
+                        className="Filtres_sousCat"
+                        onClick={() =>
+                          this.setState(
+                            {
+                              besoinsSelected: {
+                                id: categ.id,
+                                name: categ.besoins
                               },
-                              () => this.state
-                            )
-                          }
-                        >
-                          {categ.besoins}
-                        </p>
+                              isVisibleBesoins: !this.state.isVisibleBesoins
+                            },
+                            () => this.state
+                          )
+                        }
+                      >
+                        {categ.besoins}
+                      </p>
 
-                        {filterByCategory.map(sCateg => {
-                          const filterBySousCateg = this.state.datasObjets[2].results.filter(
-                            objet => objet.types_activites_id === sCateg.id
-                          );
-                          return (
-                            <div>
-                              <ul>
-                                <li
-                                  className="filtres_objets"
-                                  key={sCateg.id}
-                                  onClick={() =>
-                                    this.setState(
-                                      {
-                                        besoinsSelected: {
-                                          id: sCateg.id,
-                                          name: sCateg.types_activites
-                                        },
-                                        isVisibleBesoins: !this.state
-                                          .isVisibleBesoins
+                      {filterByCategory.map(sCateg => {
+                        const filterBySousCateg = this.state.datasObjets[2].results.filter(
+                          objet => objet.types_activites_id === sCateg.id
+                        );
+                        return (
+                          <div>
+                            <ul>
+                              <li
+                                className="filtres_objets"
+                                key={sCateg.id}
+                                onClick={() =>
+                                  this.setState(
+                                    {
+                                      besoinsSelected: {
+                                        id: sCateg.id,
+                                        name: sCateg.types_activites
                                       },
-                                      () => this.state
-                                    )
-                                  }
-                                >
-                                  {sCateg.types_activites}
-                                </li>
-                              </ul>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
+                                      isVisibleBesoins: !this.state
+                                        .isVisibleBesoins
+                                    },
+                                    () => this.state
+                                  )
+                                }
+                              >
+                                {sCateg.types_activites}
+                              </li>
+                            </ul>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })
                 : ""}
             </div>
-        </div>
-        
-           <div className='Filtres_selectFilters'>
-          <p>
-            {this.state.objetsSelected.id !== 0
-              ? this.state.objetsSelected.name
-              : ""}
-          </p>
-          <p>
-            {this.state.besoinsSelected.id !== 0
-              ? this.state.besoinsSelected.name
-              : ""}
-          </p>
-          </div> 
+          </div>
+
+          <div className='Filtres_selectFilters'>
+            <p>
+              {this.state.objetsSelected.id !== 0
+                ? this.state.objetsSelected.name
+                : ""}
+            </p>
+            <p>
+              {this.state.besoinsSelected.id !== 0
+                ? this.state.besoinsSelected.name
+                : ""}
+            </p>
+          </div>
 
           <button onClick={this.getArticlesBySousCategSelected}>
             Rechercher
           </button>
+        </div>
+        {this.state.objetsSelected.name || this.state.besoinsSelected.name ? 
+          <DisplayArticles objet={this.state.objetsSelected.name} besoin={this.state.besoinsSelected.name} />
+          : null }
       </div>
     );
   }
