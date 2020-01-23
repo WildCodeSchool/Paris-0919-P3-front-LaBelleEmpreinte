@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import FiltresAdmin from '../../adminInterface/FiltresAdmin'
 // import tinyMCE
 import { Editor } from '@tinymce/tinymce-react';
+import axios from 'axios'
 
 
 export default function CreateArticle(props) {
@@ -19,6 +20,7 @@ export default function CreateArticle(props) {
   ///// table intermédiaire ////
   const [validateFilters, setValidateFilters] = useState(false)
   const [initiatives, setInitiatives] = useState([])
+  const [uniqueInitiatives, setUniqueInitiatives] = useState([])
   const [besoins, setBesoins] = useState([])
   const [types_activites, setTypes_activites] = useState([])
   const [categories_objets, setCategories_objets] = useState([])
@@ -30,24 +32,10 @@ export default function CreateArticle(props) {
   const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
 
 
-  ////////////// REVOIR AVEC MAXENCE COMMENT ON A ECRIT LA ROUTE POUR GET LES INITIATIVES ASSOCIEES //////////
-  // useEffect(() => {
-  //   const urlShip = params.location.pathname.substring(11,params.location.pathname.length)
-  //   console.log('hello', urlShip)
-    
-  //   const axiosData = async url => {
-  //       const res = await axios.get(url);
-  //       setShip(res.data);
-  //       setCharacter(res.data.pilots)
-  //      };
-  //      axiosData(`${urlShip}`);
-  //      axios.post('http://localhost:4000/filtre/initiatives/', { objectId: filtre1, besoinId: filtre2 })
-
-       
-  //  }, [validateFilters]);
 
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
+    e.preventDefault()
     fetch("admin/articles/create",
       {
         method: 'POST',
@@ -57,8 +45,50 @@ export default function CreateArticle(props) {
         body: JSON.stringify(articleData),
       })
       .then(res => res.json())
-    e.preventDefault()
   }
+
+  useEffect( () => {
+      const displayInitiatives =  async (filter) => {
+        const url = 'http://localhost:4000/admin/filtre/initiatives'
+          filter.map( async (item) => {
+            return await axios.post(url, { type: item.type, id: item.id })
+            .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
+          })      
+          
+        }
+        displayInitiatives(types_activites)
+        displayInitiatives(besoins)
+        displayInitiatives(categories_intermediaires)
+        displayInitiatives(categories_objets)
+        displayInitiatives(objets)
+
+  }, [besoins, types_activites, categories_objets, categories_intermediaires,objets])
+
+  useEffect(() => {
+    const displayUniqueInitiatives = () => {
+      const uniqInit = [...uniqueInitiatives]   
+      for(let i = 0; i<initiatives.length; i++){
+        if(uniqInit.length === 0){
+          uniqInit.push({name : initiatives[0].name, id : initiatives[0].id})
+        } else {
+          let initiative = ''
+          for(let j = 0; j<uniqInit.length; j++){
+            if(initiatives[i].id === uniqInit[j].id){
+              initiative = null
+            } else if (initiative != null){                            
+              initiative = ({name : initiatives[i].name, id : initiatives[i].id})
+            }
+          }
+          if(initiative){
+            uniqInit.push(initiative)
+          }
+        }
+      }      
+      setUniqueInitiatives(uniqInit)
+    }
+    displayUniqueInitiatives()
+  }, [initiatives])
+
 
   //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
 const getFilters = (a, b, c, d, e) => {
@@ -70,14 +100,15 @@ const getFilters = (a, b, c, d, e) => {
   setValidateFilters(!validateFilters)
   }
 
-console.log('besoins',besoins)
-console.log('types_activites',types_activites)
-console.log('categories_objets',categories_objets)
-console.log('categories_intermediaires',categories_intermediaires)
-console.log('objets',objets)
+// console.log('besoins',besoins)
+// console.log('types_activites',types_activites)
+// console.log('categories_objets',categories_objets)
+// console.log('categories_intermediaires',categories_intermediaires)
+// console.log('objets',objets)
 
-  console.log(articleData)
-  console.log(categories_objets)
+  // console.log(articleData)
+  // console.log("categories_objets", categories_objets)
+
   return (
     <div>
       <h1>Je crée un article</h1>
@@ -128,7 +159,15 @@ console.log('objets',objets)
         </label>
         <FiltresAdmin filteredItems={getFilters}/>
         <h4>Je peux ajouter initiatives à mon article</h4>
-        <div className="initiatives"></div>
+        <div className="initiatives">
+        <div> "ihihi" </div>
+          {uniqueInitiatives.map(init =>
+            <p>
+            {init.name}
+            </p>)
+            }
+          <div> "ihihi" </div>
+        </div>
         <div className="publication"> Mon article est publié
           <input type="checkbox" onChange={() => setPublished(!isPublished)}></input>
         </div>
