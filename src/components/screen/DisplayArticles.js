@@ -41,8 +41,6 @@ const DisplayArticles = (props) => {
         loadArticles()
     }, [props])
     
-    console.log("'articles", articles)
-    console.log('props', props)
     
     return (
         <>

@@ -27,7 +27,7 @@ class Filtres extends Component {
 
   componentDidMount() {
     this.getObjets();
-    this.getBesoins();
+    this.getBesoins();    
   }
 
   getObjets = () => {
@@ -67,9 +67,11 @@ class Filtres extends Component {
   };
 
   render() {
-    console.log("besoin selec", this.state.besoinsSelected);
+    // console.log("besoin selec", this.state.besoinsSelected);
+console.log("front", this.state.front)
+console.log("front props", this.props.front)
 
-    console.log('objet selec', this.state.objetsSelected)
+    // console.log('objet selec', this.state.objetsSelected)
   
 
     return (
@@ -280,7 +282,12 @@ class Filtres extends Component {
 
       </div>
       
-      <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+      {this.props.front === "user" ? 
+            <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+: 
+''
+////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
+          }
       </>
     );
   }

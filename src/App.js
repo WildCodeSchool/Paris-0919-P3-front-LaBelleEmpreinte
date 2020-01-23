@@ -31,10 +31,8 @@ const App = () => {
       {/* <AdminHomeContainer /> */}
       <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
-        <Route exact path="/">
-          <div className="">
-            <Filtres />
-          </div>
+        <Route exact path="/" >
+            <Filtres front="user" />
         </Route>
         <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
   <Route path="/admin">
