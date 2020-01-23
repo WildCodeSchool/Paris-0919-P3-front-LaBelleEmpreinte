@@ -33,7 +33,6 @@ export default function CreateArticle(props) {
 
 
 
-
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
     e.preventDefault()

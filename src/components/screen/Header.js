@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+import {Link} from 'react-router-dom'
 
 import "./CSS/Header.css"
 import icon from "../../assets/pictures/search-13-32.png"
 import logo from "../../assets/icons/labelleempreinte-green.png"
 import logo1 from "../../assets/pictures/meow.svg";
+import axios from "axios"
 
 
 
@@ -12,15 +14,70 @@ import logo1 from "../../assets/pictures/meow.svg";
 function Header() {
 
   const [visible, setVisible] = useState(false)
+  const [login, setLogin] = useState(false)
+  const [isConnected, setConnection] = useState(false)
+  //message sur le login en cas d'erreur
+  const [message, setMessage] =useState()
+  //state qui recoit la réponse du back
+  const [backRes, setRes] = useState("salut?")
 
-  // function to make the burger menu appear
+  // state pour les inputs de connection
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  // fonction pour faire apparaitre le menu burger
   const handleClick = () => {
     setVisible(!visible)
   }
-  // function to get 
+  // fonction pour faire apparaitre le menu de loggin
+  const handleLogin = () => {
+    setLogin(false)
+  }
+
+  // button pour le login de l'administrateur
+  const submitInfo = () => {
+
+    axios.post('http://localhost:4000/auth/', {'email': email, 'password': password})
+    // .then(res => console.log(res)
+    // )
+    .then(res => setRes(res.data))
+  }
+
+
+  // vérifie si une réponse positive à été récupéré du back 
+  useEffect(() => {
+    if (backRes.auth === true){
+    setConnection(true)
+      setLogin(false)}
+      else{
+        setConnection(false)
+      }
+  })
+
 
   return (
     <header className="header_main">
+      {/* div pour la connection admin */}
+      <div className="login-area">
+        {isConnected ? <div className="connection"><Link to="/admin">Espace administrateur</Link><>/</><div onClick={(e)=> setRes('')}>Déconnection</div></div> : <div className="connection" onClick={(e) => setLogin(true)}>Connexion</div>}
+      </div>
+      <Modal isOpen={login} toggle={handleLogin} className="">
+        <ModalHeader toggle={handleLogin}>La Belle Admin: </ModalHeader>
+        <ModalBody>
+          <form>
+            <label> Adresse mail:
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            </label>
+            <label>Mot de passe:
+            <input type="text" value={password} onChange={(e)=> setPassword(e.target.value)}></input>
+            </label>
+          </form>
+          <div>{message}</div>
+          <input type="button" value="Envoyer" onClick={submitInfo}/>
+        </ModalBody>
+      </Modal>
+
+      {/* les titres principaux de la page */}
       <div className="header_titleAndBurger">
         <img src={logo} alt="logo" width="96px"></img>
         <div className="header_mainTitle">
@@ -46,86 +103,86 @@ function Header() {
 
             {/* liste des liens */}
             <ul className="navbar-sidebar">
-            <li className="navbar-item">
-              <a className="navbar-link " href="/homepage">
-                ACCUEIL
+              <li className="navbar-item">
+                <a className="navbar-link " href="/homepage">
+                  ACCUEIL
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/quizz">
-                QUIZZ & GUIDE
+              <li className="navbar-item">
+                <a className="navbar-link" href="/quizz">
+                  QUIZZ & GUIDE
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
-            <li className="navbar-item">
-              <a className="navbar-link" href="/presentation">
-                PRESENTATION
+              <hr className="navbar-line" />
+              <li className="navbar-item">
+                <a className="navbar-link" href="/presentation">
+                  PRESENTATION
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
-            <li className="navbar-item">
-              <a
-                className="navbar-link navbar-after-red"
-                href="/moteur-de-recherche"
-              >
-                MOTEUR DE <br /> RECHERCHE
+              <hr className="navbar-line" />
+              <li className="navbar-item">
+                <a
+                  className="navbar-link navbar-after-red"
+                  href="/moteur-de-recherche"
+                >
+                  MOTEUR DE <br /> RECHERCHE
               </a>
-              <div className="navbar-rond-red"></div>
-            </li>
+                <div className="navbar-rond-red"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link after-orange" href="/label">
-                LABEL
+              <li className="navbar-item">
+                <a className="navbar-link after-orange" href="/label">
+                  LABEL
               </a>
-              <div className="navbar-rond-orange"></div>
-            </li>
+                <div className="navbar-rond-orange"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/nous rejoindre">
-                NOUS <br/> REJOINDRE
+              <li className="navbar-item">
+                <a className="navbar-link" href="/nous rejoindre">
+                  NOUS <br /> REJOINDRE
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/blog">
-                BLOG
+              <li className="navbar-item">
+                <a className="navbar-link" href="/blog">
+                  BLOG
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/premier pas">
-                PREMIER PAS
+              <li className="navbar-item">
+                <a className="navbar-link" href="/premier pas">
+                  PREMIER PAS
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link-pros" href="coin-des-pros">
-                LE COIN DES <br/>PROS
+              <li className="navbar-item">
+                <a className="navbar-link-pros" href="coin-des-pros">
+                  LE COIN DES <br />PROS
               </a>
-              <div className="navbar-rond"></div>
-            </li>
-          </ul>
+                <div className="navbar-rond"></div>
+              </li>
+            </ul>
 
             {/* bouton */}
             <button

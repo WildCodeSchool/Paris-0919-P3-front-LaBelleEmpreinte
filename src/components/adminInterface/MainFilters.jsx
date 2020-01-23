@@ -8,6 +8,7 @@ import CreateBesoin from './routes/CreateBesoin'
 import CreateCategory from './routes/CreateCategory'
 import DisplayArticles from "./routes/DisplayArticles"
 import CreateEngagement from "./routes/CreateEngagement"
+import CreateTypeActivity from "./routes/CreateTypeActivity"
 
 
 export default function MainFilters() {
@@ -20,7 +21,9 @@ export default function MainFilters() {
     const [category, setCategory] = useState('articles')
 
     // la route qui récupère
-    const route = `/${action}/${category}`
+
+    const route = `/admin/${action}/${category}`
+
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
@@ -56,20 +59,23 @@ export default function MainFilters() {
             {/* Les routes */}
             <Switch>
                 {/* routes pour créer du contenu */}
-                <Route path="/creer/articles">
+                <Route path="/admin/creer/articles">
                     <CreateArticle />
                 </Route>
-                <Route path="/creer/besoins">
+                <Route path="/admin/creer/besoins">
                     <CreateBesoin />
                 </Route>
-                <Route path="/creer/categories_objets">
+                <Route path="/admin/creer/categories_objets">
                     <CreateCategory/>
                 </Route>
-                <Route path="/creer/engagements">
+                <Route path="/admin/creer/engagements">
                     <CreateEngagement/>
                 </Route>
+                <Route path="/admin/creer/types_activites">
+                    <CreateTypeActivity/>
+                </Route>
                 {/* route pour afficher du contenu */}
-                <Route path="/afficher/articles">
+                <Route path="/admin/afficher/articles">
                     <DisplayArticles />
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
