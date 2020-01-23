@@ -25,23 +25,22 @@ const App = () => {
   return (
 
     <div className="App">
-      {/* <Navbar /> */}
-      <div className="app_container">
-      </div>
-      {/* <AdminHomeContainer /> */}
-      <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/" >
-            <Filtres front="user" />
+          <div className="app_container">
+            <GetHeaderHeight props={setRealHeaderHeight} />
+            <div>
+              <Filtres front="user" />
+            </div>
+            <Footer />
+          </div>
         </Route>
         <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
-  <Route path="/admin">
+        <Route path="/admin">
           <Home />
         </Route>
       </Switch>
-      <Footer />
-    </div>
-  )
-}
-
-export default App
+      </div>
+      )
+    }
+      export default App
