@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import FiltresAdmin from '../../adminInterface/FiltresAdmin'
 // import tinyMCE
 import { Editor } from '@tinymce/tinymce-react';

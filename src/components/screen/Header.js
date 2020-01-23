@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+import {Link} from 'react-router-dom'
 
 import "./CSS/Header.css"
 import icon from "../../assets/pictures/search-13-32.png"
 import logo from "../../assets/icons/labelleempreinte-green.png"
 import logo1 from "../../assets/pictures/meow.svg";
+import axios from "axios"
 
 
 
@@ -13,7 +15,15 @@ function Header() {
 
   const [visible, setVisible] = useState(false)
   const [login, setLogin] = useState(false)
-  const [isConnected, setConnection] = useState(true)
+  const [isConnected, setConnection] = useState(false)
+  //message sur le login en cas d'erreur
+  const [message, setMessage] =useState()
+  //state qui recoit la réponse du back
+  const [backRes, setRes] = useState("salut?")
+
+  // state pour les inputs de connection
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
 
   // fonction pour faire apparaitre le menu burger
   const handleClick = () => {
@@ -24,27 +34,46 @@ function Header() {
     setLogin(false)
   }
 
+  // button pour le login de l'administrateur
+  const submitInfo = () => {
 
-  // function to get 
+    axios.post('http://localhost:4000/auth/', {'email': email, 'password': password})
+    // .then(res => console.log(res)
+    // )
+    .then(res => setRes(res.data))
+  }
+
+
+  // vérifie si une réponse positive à été récupéré du back 
+  useEffect(() => {
+    if (backRes.auth === true){
+    setConnection(true)
+      setLogin(false)}
+      else{
+        setConnection(false)
+      }
+  })
+
 
   return (
     <header className="header_main">
       {/* div pour la connection admin */}
       <div className="login-area">
-        {isConnected ? <><div></div></> : <div className="connection" onClick={(e) => setLogin(true)}>Connection</div>}
+        {isConnected ? <div className="connection"><Link to="/admin">Espace administrateur</Link><>/</><div onClick={(e)=> setRes('')}>Déconnection</div></div> : <div className="connection" onClick={(e) => setLogin(true)}>Connexion</div>}
       </div>
       <Modal isOpen={login} toggle={handleLogin} className="">
         <ModalHeader toggle={handleLogin}>La Belle Admin: </ModalHeader>
         <ModalBody>
           <form>
             <label> Adresse mail:
-            <input type="mail"></input>
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
             </label>
             <label>Mot de passe:
-            <input></input>
+            <input type="text" value={password} onChange={(e)=> setPassword(e.target.value)}></input>
             </label>
           </form>
-          <input type="button" value="Envoyer"/>
+          <div>{message}</div>
+          <input type="button" value="Envoyer" onClick={submitInfo}/>
         </ModalBody>
       </Modal>
 

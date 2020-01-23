@@ -21,7 +21,9 @@ export default function MainFilters() {
     const [category, setCategory] = useState('articles')
 
     // la route qui récupère
-    const route = `admin/${action}/${category}`
+
+    const route = `/admin/${action}/${category}`
+
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
@@ -73,7 +75,7 @@ export default function MainFilters() {
                     <CreateTypeActivity/>
                 </Route>
                 {/* route pour afficher du contenu */}
-                <Route path="/afficher/articles">
+                <Route path="/admin/afficher/articles">
                     <DisplayArticles />
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
