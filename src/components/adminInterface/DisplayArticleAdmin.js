@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
-import './CSS/displayArticle.css'
+import './CSS/displayArticleAdmin.css'
 import axios from "axios";
 
 
