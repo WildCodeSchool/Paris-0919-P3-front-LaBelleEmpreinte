@@ -69,27 +69,27 @@ class FiltresAdmin extends Component {
 
   /// remove element from filter CatObj
   removeFilterCatObj = (filtre) => {
-    const filteredCat = this.state.catObjSelected.filter(elem => elem.id != filtre)
+    const filteredCat = this.state.catObjSelected.filter(elem => elem.id !== filtre)
     this.setState({ catObjSelected: filteredCat })
   }
   /// remove element from filter CatInt
   removeFilterCatInt = (filtre) => {
-    const filteredCat = this.state.catIntSelected.filter(elem => elem.id != filtre)
+    const filteredCat = this.state.catIntSelected.filter(elem => elem.id !== filtre)
     this.setState({ catIntSelected: filteredCat })
   }
   /// remove element from filter Obj
   removeFilterObj = (filtre) => {
-    const filteredCat = this.state.objSelected.filter(elem => elem.id != filtre)
+    const filteredCat = this.state.objSelected.filter(elem => elem.id !== filtre)
     this.setState({ objSelected: filteredCat })
   }
   /// remove element from filter Besoin
   removeFilterBesoins = (filtre) => {
-    const filteredCat = this.state.besoinsSelected.filter(elem => elem.id != filtre)
+    const filteredCat = this.state.besoinsSelected.filter(elem => elem.id !== filtre)
     this.setState({ besoinsSelected: filteredCat })
   }
   /// remove element from filter TypeAct
   removeFilterTypAct = (filtre) => {
-    const filteredCat = this.state.typeActSelected.filter(elem => elem.id != filtre)
+    const filteredCat = this.state.typeActSelected.filter(elem => elem.id !== filtre)
     this.setState({ typeActSelected: filteredCat })
   }
 
@@ -192,11 +192,11 @@ class FiltresAdmin extends Component {
   }
   //////////// render //////////
   render() {
-    console.log('catojb', this.state.catObjSelected)
-    console.log('catint', this.state.catIntSelected)
-    console.log('ojb', this.state.objSelected)
-    console.log('besoin', this.state.besoinsSelected)
-    console.log('typeact', this.state.typeActSelected)
+    // console.log('catojb', this.state.catObjSelected)
+    // console.log('catint', this.state.catIntSelected)
+    // console.log('ojb', this.state.objSelected)
+    // console.log('besoin', this.state.besoinsSelected)
+    // console.log('typeact', this.state.typeActSelected)
 
     
     return (

@@ -4,6 +4,8 @@ import FiltresAdmin from '../../adminInterface/FiltresAdmin'
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios'
 
+import "../CSS/CreateArticle.css"
+
 
 export default function CreateArticle(props) {
   // les states
@@ -111,7 +113,7 @@ const getFilters = (a, b, c, d, e) => {
 
   return (
     <div>
-      <h1>Je crée un article</h1>
+      <h1 className="createArticle-h1">Je crée un article</h1>
       <form className="form" id="form1">
         <p>
           <input type="text" className="feedback-input" id="titre" placeholder="titre" onChange={(e) => setTitle(e.target.value)} />
