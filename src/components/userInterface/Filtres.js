@@ -12,13 +12,15 @@ class Filtres extends Component {
     isVisibleObjets: false,
     objetsSelected: {
       id: 0,
-      name: ""
+      name: "",
+      type: ""
     },
     datasBesoins: [""],
     isVisibleBesoins: false,
     besoinsSelected: {
       id: 0,
-      name: ""
+      name: "",
+      type: ""
     }
   };
 
@@ -66,6 +68,8 @@ class Filtres extends Component {
   render() {
     console.log("datasObjets", this.state.datasObjets);
     console.log("besoin selec", this.state.besoinsSelected);
+    console.log('objet selec', this.state.objetsSelected)
+  
 
     return (
       <div className="Filtres_container">
@@ -89,7 +93,8 @@ class Filtres extends Component {
                                   {
                                     objetsSelected: {
                                       id: categ.id,
-                                      name: categ.categorie
+                                      name: categ.categorie,
+                                      type: "categories_objets"
                                     },
                                     isVisibleObjets: !this.state
                                       .isVisibleObjets
@@ -116,7 +121,8 @@ class Filtres extends Component {
                                   {
                                     objetsSelected: {
                                       id: sCateg.id,
-                                      name: sCateg.name
+                                      name: sCateg.name,
+                                      type: "categories_intermediaires"
                                     },
                                     isVisibleObjets: !this.state
                                       .isVisibleObjets
@@ -140,7 +146,8 @@ class Filtres extends Component {
                                       {
                                         objetsSelected: {
                                           id: objet.id,
-                                          name: objet.name
+                                          name: objet.name,
+                                          type: "objets"
                                         },
                                         isVisibleObjets: !this.state
                                           .isVisibleObjets
@@ -186,7 +193,8 @@ class Filtres extends Component {
                         {
                           besoinsSelected: {
                             id: categ.id,
-                            name: categ.besoins
+                            name: categ.besoins,
+                            type: "besoins"
                           },
                           isVisibleBesoins: !this.state.isVisibleBesoins
                         },
@@ -215,7 +223,8 @@ class Filtres extends Component {
                                 {
                                   besoinsSelected: {
                                     id: sCateg.id,
-                                    name: sCateg.types_activites
+                                    name: sCateg.types_activites,
+                                    type: "types_activites"
                                   },
                                   isVisibleBesoins: !this.state
                                     .isVisibleBesoins

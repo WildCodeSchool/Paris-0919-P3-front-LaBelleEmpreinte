@@ -18,7 +18,8 @@ import Filtres from './components/userInterface/Filtres'
 const App = () => {
   return (
     <div>
-        <TitleAdmin/>
+      <Filtres/>
+        {/* <TitleAdmin/> */}
     </div>
   );
 }
