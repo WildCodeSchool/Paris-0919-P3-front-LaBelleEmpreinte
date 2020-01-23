@@ -5,7 +5,7 @@
 
 /* CSS encadrer générale*/
 .displayArticle_frame{
-    border : solid black 2px;
+    border : solid grey 1px;
     margin-left: 7%;
     margin-right: 7%;
 }
@@ -15,12 +15,12 @@
     display: flex;
     align-items: center;
     align-content: stretch;
-    border-bottom: solid 2px black;
+    border-bottom: solid 1px grey;
     padding: 0px;
     justify-content: space-between;
     padding-right: 4vh;
     padding-left:4vh;
-    background-color: gray;
+    background-color: rgb(235, 201, 128);
     text-align: center;
     height: 6vh;
 
@@ -35,29 +35,26 @@ margin: 0px;
 /* CSS bloc des acrticles*/
 .displayArticle_items{
     list-style: none;
-    /* border: 8px solid black; */
+    /* border: 8px solid grey; */
     padding-left: 0%;
     margin: 2%;
 }
 
-.displayArticle_content{
-    /* border: 5px solid red; */
-}
 
 /* CSS chaque article*/
 .displayArticle_items li{
-    border: grey solid 2px;
+    border: grey solid 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right:6%;
     padding-left: 1%;
     margin-top: 0.5%;
+    box-shadow: 2px 0px 3px gray;
 
 }
 
 /* CSS voyant/publication*/
-
 .publication-off,
 .publication-on {
     display: inline-block;
