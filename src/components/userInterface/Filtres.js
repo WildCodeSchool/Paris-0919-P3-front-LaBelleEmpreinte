@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import axios from "axios";
 import menuBurger from '../../assets/icons/menuBurger.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
+import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 
 import "./Filtres.css";
 import DisplayArticles from '../screen/DisplayArticles'
@@ -9,7 +10,6 @@ import DisplayArticles from '../screen/DisplayArticles'
 class Filtres extends Component {
   state = {
     datasObjets: [""],
-
     isVisibleObjets: false,
     objetsSelected: {
       id: 0,
@@ -27,7 +27,7 @@ class Filtres extends Component {
 
   componentDidMount() {
     this.getObjets();
-    this.getBesoins();    
+    this.getBesoins();
   }
 
   getObjets = () => {
@@ -62,7 +62,7 @@ class Filtres extends Component {
   displayBesoins = () => {
     this.setState({
       isVisibleBesoins: !this.state.isVisibleBesoins,
-      isVisibleObjets: false
+      isVisibleObjets: false,
     });
   };
 
@@ -72,7 +72,8 @@ console.log("front", this.state.front)
 console.log("front props", this.props.front)
 
     // console.log('objet selec', this.state.objetsSelected)
-  
+
+
 
     return (
       <>
@@ -210,7 +211,7 @@ console.log("front props", this.props.front)
                   </p>
                   <hr />
                   </div>
-                  
+
 
                   {filterByCategory.map(sCateg => {
                     const filterBySousCateg = this.state.datasObjets[2].results.filter(
@@ -239,10 +240,10 @@ console.log("front props", this.props.front)
                           >
                             {sCateg.types_activites}
                           </li>
-                          
+
                         </ul>
-                        
-                        
+
+
                       </div>
                     );
                   })}
@@ -261,7 +262,7 @@ console.log("front props", this.props.front)
             <p>
               {this.state.objetsSelected.id !== 0
                 ? <div><p>{this.state.objetsSelected.name}</p>
-                  <img src={deleteFilterIcon} alt='deleteFilterIcon' onClick={() => this.setState({objetsSelected : { 
+                  <img src={deleteFilterIcon} alt='deleteFilterIcon' onClick={() => this.setState({objetsSelected : {
                   id: 0,
                   name: ''}})} />
                 </div>
@@ -271,7 +272,7 @@ console.log("front props", this.props.front)
 
           {this.state.besoinsSelected.id !== 0
             ? <div><p>{this.state.besoinsSelected.name}</p>
-              <img src={deleteFilterIcon} alt='deleteFilterIcon'onClick={()=>this.setState({besoinsSelected : { 
+              <img src={deleteFilterIcon} alt='deleteFilterIcon'onClick={()=>this.setState({besoinsSelected : {
               id: 0,
               name: ''}})} />
             </div>
@@ -281,13 +282,14 @@ console.log("front props", this.props.front)
         </div>
 
       </div>
-      
-      {this.props.front === "user" ? 
+
+      {this.props.front === "user" ?
             <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
-: 
+:
 ''
 ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
           }
+          {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
       </>
     );
   }

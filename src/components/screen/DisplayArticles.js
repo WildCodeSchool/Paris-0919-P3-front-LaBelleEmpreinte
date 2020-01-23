@@ -30,11 +30,15 @@ const DisplayArticles = (props) => {
                 setLoaded(true)
             }
             else if (props.objet.id == 0 && props.besoin.id !== 0) {
-                const result = await axios.post(url1, {besoin: props.besoin })
+                const result = await axios.post(url3, {besoin: props.besoin })
                 setArticles(result.data)
                 console.log('results3',result.data)
 
                 setLoaded(true)
+            }
+            else {
+                setArticles([])
+                //// Si on veut afficher les trois derniers articles, mettre le bon axios ici /// 
             }
 
         }
