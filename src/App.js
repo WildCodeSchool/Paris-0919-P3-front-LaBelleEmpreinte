@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { Route, Switch, Router } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Footer from './components/screen/Footer';
 import GetHeaderHeight from './components/screen/GetHeaderHeight';
@@ -9,7 +9,7 @@ import Filtres from './components/userInterface/Filtres';
 import Home from './components/adminInterface/Home'
 
 const App = () => {
-  const [headerHeight, setHeaderHeight] = useState(0)
+  const [headerHeight, setHeaderHeight] = useState()
 
   const setRealHeaderHeight = (height) => {
     setHeaderHeight({ headerHeight: height })
