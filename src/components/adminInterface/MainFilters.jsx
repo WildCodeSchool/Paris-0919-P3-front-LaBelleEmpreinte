@@ -21,7 +21,9 @@ export default function MainFilters() {
     const [category, setCategory] = useState('articles')
 
     // la route qui récupère
+
     const route = `/admin/${action}/${category}`
+
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
