@@ -1,5 +1,17 @@
 @media screen and (min-width: 770px){
 
+/* zone du login administrateur */
+.login-area{
+  text-align: end;
+}
+  
+.connection{
+  cursor: pointer;
+  font-weight: bold;
+  color: #399967;
+}
+
+/* reste du header */
 .header_main {
   width: 100%;
   display: flex;
@@ -140,6 +152,7 @@ header.header_main {
   height: 10px;
   margin-bottom: 3px;
 }
+
 
 .header_orangeDot {
   background-color: #faa224;

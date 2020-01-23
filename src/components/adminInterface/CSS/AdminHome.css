@@ -8,6 +8,18 @@
     text-align: center;
 }
 
+
+.adminhome-title {
+    color: white;
+    background-color: #e3815f;
+    font-family: "Montserrat";
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    padding: 10px;
+}
+
+
 #adminhome_nav_wrap {
     margin-top: 20px;
     margin-left: 20px;
@@ -29,6 +41,8 @@
     font-size: 15px;
     line-height: 32px;
     padding: 0 15px;
+
+    font-family: "Montserrat";
     cursor: pointer
 }
 
