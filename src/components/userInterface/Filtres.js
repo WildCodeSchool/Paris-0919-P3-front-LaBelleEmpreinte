@@ -67,13 +67,13 @@ class Filtres extends Component {
   };
 
   render() {
-    console.log("datasObjets", this.state.datasObjets);
     console.log("besoin selec", this.state.besoinsSelected);
 
     console.log('objet selec', this.state.objetsSelected)
   
 
     return (
+      <>
       <div className="Filtres_container">
         <div className="Filtres_Objets-title" onClick={this.displayObjet}>
           <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
@@ -279,6 +279,9 @@ class Filtres extends Component {
         </div>
 
       </div>
+      
+      <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+      </>
     );
   }
 }

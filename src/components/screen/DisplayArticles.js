@@ -12,14 +12,38 @@ const DisplayArticles = (props) => {
 
     useEffect(() => {
         const loadArticles = async () => {
-            const url = 'http://localhost:4000/user/filtres/articles'
-            const result = await axios.post(url, { objectName: props.objet, besoinName: props.besoin })
-            setArticles([result.data[0]])
-            setLoaded(true)
+            console.log(props)
+            const url1 = 'http://localhost:4000/user/filtres/articles'
+            const url2 = 'http://localhost:4000/user/filtres/objets/articles'
+            const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
+            if (props.objet.id !== 0 && props.besoin.id !== 0) {
+                const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
+                console.log('results',result.data)
+                setArticles(result.data)
+                setLoaded(true)
+            }
+            else if (props.objet.id !== 0 && props.besoin.id == 0) {
+                const result = await axios.post(url2, { object: props.objet })
+                setArticles(result.data)
+                console.log('result2s',result.data)
+
+                setLoaded(true)
+            }
+            else if (props.objet.id == 0 && props.besoin.id !== 0) {
+                const result = await axios.post(url1, {besoin: props.besoin })
+                setArticles(result.data)
+                console.log('results3',result.data)
+
+                setLoaded(true)
+            }
+
         }
         loadArticles()
     }, [props])
-
+    
+    console.log("'articles", articles)
+    console.log('props', props)
+    
     return (
         <>
             {!loaded ?
