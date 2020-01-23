@@ -15,6 +15,7 @@ function Header() {
 
   const [visible, setVisible] = useState(false)
   const [login, setLogin] = useState(false)
+  // l'utilisateur est t'il connecté? le state se réfère au local
   const [isConnected, setConnection] = useState(false)
   //message sur le login en cas d'erreur
   const [message, setMessage] =useState()
@@ -46,20 +47,36 @@ function Header() {
 
   // vérifie si une réponse positive à été récupéré du back 
   useEffect(() => {
-    if (backRes.auth === true){
+    if (localStorage.getItem('myConnection') === 'true'){
+      setConnection(true)
+    }
+
+    console.log("l'état de la connection est: ", isConnected)
+    if (backRes.auth === true && isConnected === false){
     setConnection(true)
-      setLogin(false)}
+      setLogin(false)
+      // on stocke le state en local
+      localStorage.setItem('myConnection', backRes.auth)}
       else{
-        setConnection(false)
+        setMessage('Erreur de saisie du mot de passe ou du mail identifiant')
+
       }
   })
+
+  //petite fonction pour la déconnection
+  const handleDeconnection = () => {
+    setConnection(false)
+    localStorage.removeItem('myConnection')
+    console.log(isConnected)
+
+  }
 
 
   return (
     <header className="header_main">
       {/* div pour la connection admin */}
       <div className="login-area">
-        {isConnected ? <div className="connection"><Link to="/admin">Espace administrateur</Link><>/</><div onClick={(e)=> setRes('')}>Déconnection</div></div> : <div className="connection" onClick={(e) => setLogin(true)}>Connexion</div>}
+        {isConnected ? <div className="connection"><Link to="/admin">Espace administrateur</Link><>/</><div onClick={()=> handleDeconnection()}>Déconnection</div></div> : <div className="connection" onClick={(e) => setLogin(true)}>Connexion</div>}
       </div>
       <Modal isOpen={login} toggle={handleLogin} className="">
         <ModalHeader toggle={handleLogin}>La Belle Admin: </ModalHeader>
