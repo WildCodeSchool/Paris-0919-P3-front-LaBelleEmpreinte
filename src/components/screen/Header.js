@@ -12,16 +12,43 @@ import logo1 from "../../assets/pictures/meow.svg";
 function Header() {
 
   const [visible, setVisible] = useState(false)
+  const [login, setLogin] = useState(false)
+  const [isConnected, setConnection] = useState(true)
 
-  // function to make the burger menu appear
+  // fonction pour faire apparaitre le menu burger
   const handleClick = () => {
     setVisible(!visible)
-    console.log(visible)
   }
+  // fonction pour faire apparaitre le menu de loggin
+  const handleLogin = () => {
+    setLogin(false)
+  }
+
+
   // function to get 
 
   return (
     <header className="header_main">
+      {/* div pour la connection admin */}
+      <div className="login-area">
+        {isConnected ? <><div></div></> : <div className="connection" onClick={(e) => setLogin(true)}>Connection</div>}
+      </div>
+      <Modal isOpen={login} toggle={handleLogin} className="">
+        <ModalHeader toggle={handleLogin}>La Belle Admin: </ModalHeader>
+        <ModalBody>
+          <form>
+            <label> Adresse mail:
+            <input type="mail"></input>
+            </label>
+            <label>Mot de passe:
+            <input></input>
+            </label>
+          </form>
+          <input type="button" value="Envoyer"/>
+        </ModalBody>
+      </Modal>
+
+      {/* les titres principaux de la page */}
       <div className="header_titleAndBurger">
         <img src={logo} alt="logo" width="96px"></img>
         <div className="header_mainTitle">
@@ -47,86 +74,86 @@ function Header() {
 
             {/* liste des liens */}
             <ul className="navbar-sidebar">
-            <li className="navbar-item">
-              <a className="navbar-link " href="/homepage">
-                ACCUEIL
+              <li className="navbar-item">
+                <a className="navbar-link " href="/homepage">
+                  ACCUEIL
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/quizz">
-                QUIZZ & GUIDE
+              <li className="navbar-item">
+                <a className="navbar-link" href="/quizz">
+                  QUIZZ & GUIDE
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
-            <li className="navbar-item">
-              <a className="navbar-link" href="/presentation">
-                PRESENTATION
+              <hr className="navbar-line" />
+              <li className="navbar-item">
+                <a className="navbar-link" href="/presentation">
+                  PRESENTATION
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
-            <li className="navbar-item">
-              <a
-                className="navbar-link navbar-after-red"
-                href="/moteur-de-recherche"
-              >
-                MOTEUR DE <br /> RECHERCHE
+              <hr className="navbar-line" />
+              <li className="navbar-item">
+                <a
+                  className="navbar-link navbar-after-red"
+                  href="/moteur-de-recherche"
+                >
+                  MOTEUR DE <br /> RECHERCHE
               </a>
-              <div className="navbar-rond-red"></div>
-            </li>
+                <div className="navbar-rond-red"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link after-orange" href="/label">
-                LABEL
+              <li className="navbar-item">
+                <a className="navbar-link after-orange" href="/label">
+                  LABEL
               </a>
-              <div className="navbar-rond-orange"></div>
-            </li>
+                <div className="navbar-rond-orange"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/nous rejoindre">
-                NOUS <br/> REJOINDRE
+              <li className="navbar-item">
+                <a className="navbar-link" href="/nous rejoindre">
+                  NOUS <br /> REJOINDRE
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/blog">
-                BLOG
+              <li className="navbar-item">
+                <a className="navbar-link" href="/blog">
+                  BLOG
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link" href="/premier pas">
-                PREMIER PAS
+              <li className="navbar-item">
+                <a className="navbar-link" href="/premier pas">
+                  PREMIER PAS
               </a>
-              <div className="navbar-rond"></div>
-            </li>
+                <div className="navbar-rond"></div>
+              </li>
 
-            <hr className="navbar-line" />
+              <hr className="navbar-line" />
 
-            <li className="navbar-item">
-              <a className="navbar-link-pros" href="coin-des-pros">
-                LE COIN DES <br/>PROS
+              <li className="navbar-item">
+                <a className="navbar-link-pros" href="coin-des-pros">
+                  LE COIN DES <br />PROS
               </a>
-              <div className="navbar-rond"></div>
-            </li>
-          </ul>
+                <div className="navbar-rond"></div>
+              </li>
+            </ul>
 
             {/* bouton */}
             <button

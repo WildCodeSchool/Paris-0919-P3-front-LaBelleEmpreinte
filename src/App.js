@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Header from './components/screen/Header';
 
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import GetHeaderHeight from './components/screen/GetHeaderHeight'
 import Navbar from './components/screen/Navbar';
@@ -12,8 +12,7 @@ import AdminCreateArticle from './components/adminInterface/AdminCreateArticle'
 import ListInitiatives from './components/screen/ListInitiatives';
 import Filtres from './components/userInterface/Filtres'
 import TitleAdmin from './components/adminInterface/TitleAdmin';
-
-import { Route, Switch } from 'react-router-dom'
+import Home from './components/adminInterface/Home'
 
 const App = () => {
 
@@ -37,6 +36,9 @@ const App = () => {
           </div>
         </Route>
         <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
+  <Route path="/admin">
+          <Home />
+        </Route>
       </Switch>
       <Footer />
     </div>
