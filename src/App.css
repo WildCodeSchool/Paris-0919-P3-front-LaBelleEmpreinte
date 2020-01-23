@@ -14,10 +14,7 @@
   color: #09d3ac;
 }
 
-.categorie {
-  display: flex;
 
-}
 
 @media screen and (max-width: 770px) {
   .app_container {
