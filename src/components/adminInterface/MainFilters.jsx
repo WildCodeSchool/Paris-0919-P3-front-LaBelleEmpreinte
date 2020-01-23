@@ -9,6 +9,7 @@ import CreateCategory from './routes/CreateCategory'
 import DisplayArticles from "./routes/DisplayArticles"
 import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
+import CreateCategoryIntermediaire from "./routes/CreateCategoryIntermediaire"
 
 
 export default function MainFilters() {
@@ -50,7 +51,7 @@ export default function MainFilters() {
                 {tables ?
                     <select onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
-                            <option key={index} value={item.TABLE_NAME} onChange={(e) => setCategory(e.target.value)}>{item.TABLE_NAME}</option>))}
+                            <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
                     </select> : console.log("second filter is loading")}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
                 <Link to={route}><input type="button" value="Valider" onClick={console.log(category)}/></Link>
@@ -68,6 +69,9 @@ export default function MainFilters() {
                 <Route path="/admin/creer/categories_objets">
                     <CreateCategory/>
                 </Route>
+                {/* <Route path="/admin/creer/categories_intermediaires">
+                    <CreateCategoryIntermediaire/>
+                </Route> */}
                 <Route path="/admin/creer/engagements">
                     <CreateEngagement/>
                 </Route>

@@ -1,31 +1,25 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 export default function CreateCategory() {
 
-    const [typeCat, setTypeCat] = useState()
+    const [categorie, setCategorie] = useState()
     const [picto, setPicto] = useState()
-    const newCat = { typeCat, picto }
+    const newCat = { categorie, picto }
 
 
     // a checker le chemin ==> nouveau besoin
-    const handlePost = (e) => {
-        fetch("admin/articles/create",
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                }),
-                body: JSON.stringify(newCat),
-            })
-            .then(res => res.json())
-        e.preventDefault()
-    }
+    const handlePost = () => {
+        const url = 'http://localhost:4000/admin/categories_objets/create'
+           axios.post(url, newCat)
+           console.log('yo')
+        }
 
     return (
         <div className="creation-typeCat">
             <h3>J'ajoute une catégorie</h3>
             <div>
-                <label>Nom du type d'activité: <input type="text" onChange={(e) => setTypeCat(e.target.value)} /></label>
+                <label>Nom de la catégorie d'objet: <input type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
             <input type="button" value="Créer catégorie" onClick={handlePost} />
