@@ -23,6 +23,7 @@ const App = () => {
   }
 
   return (
+
     <div className="App">
       {/* <Navbar /> */}
       <div className="app_container">
