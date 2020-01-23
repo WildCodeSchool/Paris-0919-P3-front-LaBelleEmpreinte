@@ -4,6 +4,7 @@ import menuBurger from '../../assets/icons/menuBurger.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
 
 import "./Filtres.css";
+import DisplayArticles from '../screen/DisplayArticles'
 
 class Filtres extends Component {
   state = {
@@ -68,6 +69,7 @@ class Filtres extends Component {
   render() {
     console.log("datasObjets", this.state.datasObjets);
     console.log("besoin selec", this.state.besoinsSelected);
+
     console.log('objet selec', this.state.objetsSelected)
   
 
@@ -271,10 +273,10 @@ class Filtres extends Component {
               id: 0,
               name: ''}})} />
             </div>
+
             : ""}
 
         </div>
-
 
       </div>
     );
