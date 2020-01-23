@@ -16,7 +16,6 @@ function Header() {
   // function to make the burger menu appear
   const handleClick = () => {
     setVisible(!visible)
-    console.log(visible)
   }
   // function to get 
 

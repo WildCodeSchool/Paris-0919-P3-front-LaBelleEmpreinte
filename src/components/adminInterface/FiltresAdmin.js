@@ -165,11 +165,7 @@ class FiltresAdmin extends Component {
   }
   //////////// render //////////
   render() {
-    console.log("catObjSelected",this.state.catObjSelected)
-    console.log("catIntSelected",this.state.catIntSelected)
-    console.log("objSelected",this.state.objSelected)
-    console.log("besoinsSelected",this.state.besoinsSelected)
-    console.log("typeActSelected",this.state.typeActSelected)
+
     
     return (
       <div className="Filtres_container">

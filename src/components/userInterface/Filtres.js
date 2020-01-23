@@ -62,9 +62,6 @@ class Filtres extends Component {
   };
 
   render() {
-    console.log("datasObjets", this.state.datasObjets);
-    console.log("besoin selec", this.state.besoinsSelected);
-
     return (
       <div className="Filtres_container">
         <div className="Filtres_CatObjets">

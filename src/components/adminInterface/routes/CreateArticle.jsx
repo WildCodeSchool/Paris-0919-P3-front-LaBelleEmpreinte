@@ -32,21 +32,7 @@ export default function CreateArticle(props) {
   const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
 
 
-  ////////////// REVOIR AVEC MAXENCE COMMENT ON A ECRIT LA ROUTE POUR GET LES INITIATIVES ASSOCIEES //////////
-  // useEffect(() => {
-  //   const urlShip = params.location.pathname.substring(11,params.location.pathname.length)
-  //   console.log('hello', urlShip)
-    
-  //   const axiosData = async url => {
-  //       const res = await axios.get(url);
-  //       setShip(res.data);
-  //       setCharacter(res.data.pilots)
-  //      };
-  //      axiosData(`${urlShip}`);
-  //      axios.post('http://localhost:4000/filtre/initiatives/', { objectId: filtre1, besoinId: filtre2 })
 
-       
-  //  }, [validateFilters]);
 
   // Est censé envoyer les données à la BDD
   const handlePost = (e) => {
@@ -68,7 +54,6 @@ export default function CreateArticle(props) {
           filter.map( async (item) => {
             return await axios.post(url, { type: item.type, id: item.id })
             .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
-            // .then(res => setInitiatives([...new Set(initiatives.map(i => i.name))]))
           })      
           
         }
@@ -77,21 +62,37 @@ export default function CreateArticle(props) {
         displayInitiatives(categories_intermediaires)
         displayInitiatives(categories_objets)
         displayInitiatives(objets)
-      //   console.log("11111111111111111111111111" , initiatives)
-      //   const filteredInitiatives = [...new Set(initiatives.map(i => i.name))]
-      // setUniqueInitiatives(filteredInitiatives)
-      // console.log("uniqueInitiatives",uniqueInitiatives)
 
   }, [besoins, types_activites, categories_objets, categories_intermediaires,objets])
 
-  // const displayUniqueInitiatives = () => {
-  //   const UniqueInitiatives = [...new Set(initiatives.map(i => i.name))]
-  //   console.log(UniqueInitiatives)
-  // }
+  useEffect(() => {
+    const displayUniqueInitiatives = () => {
+      const uniqInit = [...uniqueInitiatives]   
+      for(let i = 0; i<initiatives.length; i++){
+        if(uniqInit.length === 0){
+          uniqInit.push({name : initiatives[0].name, id : initiatives[0].id})
+        } else {
+          let initiative = ''
+          for(let j = 0; j<uniqInit.length; j++){
+            if(initiatives[i].id === uniqInit[j].id){
+              initiative = null
+            } else if (initiative != null){                            
+              initiative = ({name : initiatives[i].name, id : initiatives[i].id})
+            }
+          }
+          if(initiative){
+            uniqInit.push(initiative)
+          }
+        }
+      }      
+      setUniqueInitiatives(uniqInit)
+    }
+    displayUniqueInitiatives()
+  }, [initiatives])
+
 
   //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
 const getFilters = (a, b, c, d, e) => {
-  console.log("****---------****-*----**Get Filter ***-------****", b)
   setCategories_objets(a)
   setCategories_intermediaires(b)
   setObjets(c)
@@ -108,7 +109,7 @@ const getFilters = (a, b, c, d, e) => {
 
   // console.log(articleData)
   // console.log("categories_objets", categories_objets)
-  console.log("INITIATIVES", initiatives)
+
   return (
     <div>
       <h1>Je crée un article</h1>
@@ -161,8 +162,7 @@ const getFilters = (a, b, c, d, e) => {
         <h4>Je peux ajouter initiatives à mon article</h4>
         <div className="initiatives">
         <div> "ihihi" </div>
-            {/* {displayUniqueInitiatives()} */}
-          {initiatives.map(init =>
+          {uniqueInitiatives.map(init =>
             <p>
             {init.name}
             </p>)
