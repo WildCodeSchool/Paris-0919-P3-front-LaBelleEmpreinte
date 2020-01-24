@@ -15,12 +15,12 @@ const ArticlesItem = props => (
                     :
                     (<img className='ArticlesItem-Image' src={lbealt} alt={props.titre} />)
                 }
-                <div className='ArticlesItem-Info'>
-                    <div className='ArticlesItem-Date'><span><img className='ArticlesItem-Picto' src={pictocalendar} alt='Date :' />{moment(props.date).format('DD-MM-YYYY')}</span></div>
-                    <div className='ArticlesItem-Time'><span><img className='ArticlesItem-Picto' src={pictoclock} alt='Temps de lecture :' />{props.minutes_lecture} minutes</span></div>
-                </div>
                 <div className='ArticlesItem-TitleContainer'>
                     <div className='ArticlesItem-Title'><span>{props.titre}</span></div>
+                    <div className='ArticlesItem-Info'>
+                        <div className='ArticlesItem-Date'><span><img className='ArticlesItem-Picto' src={pictocalendar} alt='Date :' />{moment(props.date).format('DD-MM-YYYY')}</span></div>
+                        <div className='ArticlesItem-Time'><span><img className='ArticlesItem-Picto' src={pictoclock} alt='Temps de lecture :' />{props.minutes_lecture} minutes</span></div>
+                    </div>
                 </div>
             </Link >
         )
