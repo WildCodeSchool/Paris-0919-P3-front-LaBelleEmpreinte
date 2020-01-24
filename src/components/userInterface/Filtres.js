@@ -3,6 +3,8 @@ import axios from "axios";
 import menuBurger from '../../assets/icons/menuBurger.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
 import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
+import DisplayEngagementsAdmin from '../adminInterface/DisplayEngagementsAdmin'
+import DisplayCatObjetsAdmin from '../adminInterface/DisplayCatObjetsAdmin'
 
 import "./Filtres.css";
 import DisplayArticles from '../screen/DisplayArticles'
@@ -289,7 +291,10 @@ console.log("front props", this.props.front)
 ''
 ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
           } */}
-          <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+          {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
+          {/* <DisplayEngagementsAdmin  besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
+          <DisplayCatObjetsAdmin />
+
       </>
     );
   }

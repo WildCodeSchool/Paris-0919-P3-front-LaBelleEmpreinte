@@ -1,27 +1,26 @@
-/* CSS pour la component "displayArticleAdminAdmin */
-.displayArticleAdmin_page{
+/* CSS pour la component "displayCatObjetsAdmin */
+.displayCatObjetsAdmin_page{
     font-family: 'Open Sans';
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* CSS pour "Jeconsulte mes articles" */
+/* CSS pour "Jeconsulte les engagements" */
 .title{
     text-align: center;
     font-family: 'Open Sans';
 }
 
 /* CSS encadrer générale*/
-.displayArticleAdmin_frame{
+.displayCatObjetsAdmin_frame{
     border : solid grey 1px;
     margin-left: 8vh;
     margin-right: 8vh;
     width: 80vw;
-
 }
 
 /* CSS en-tête*/
-.displayArticleAdmin_header {
+.displayCatObjetsAdmin_header {
     display: flex;
     align-items: center;
     align-content: stretch;
@@ -36,17 +35,16 @@
     font-family: 'Open Sans';
     font-weight:bold ;
 
-
 }
 
 /* CSS les textes de l'encadrer*/
-.displayArticleAdmin_header p{
+.displayCatObjetsAdmin_header p{
 margin: 0px;
 
 }
 
 /* CSS bloc des articles*/
-.displayArticleAdmin_items{
+.displayCatObjetsAdmin_items{
     list-style: none;
     /* border: 8px solid grey; */
     padding-left: 0%;
@@ -54,14 +52,14 @@ margin: 0px;
     font-family: 'Open Sans'
 }
 
-.displayArticleAdmin_content{
+.displayCatObjetsAdmin_content{
     height: 40vh;
     overflow: scroll;
 }
 
 
 /* CSS chaque article*/
-.displayArticleAdmin_items li{
+.displayCatObjetsAdmin_items li{
     border: grey solid 1px;
     display: flex;
     justify-content: space-between;
