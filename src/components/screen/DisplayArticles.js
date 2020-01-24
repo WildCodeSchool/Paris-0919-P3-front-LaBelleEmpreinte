@@ -57,9 +57,7 @@ const DisplayArticles = (props) => {
                         {articles
                             .map(
                                 (article, index) => (
-                                    <Link className='ArticlesItem' to={`/article/${article.id}`}>
                                         <ArticlesItem {...article} />
-                                    </Link>
                                 ))}
                     </div>
                 </div>
