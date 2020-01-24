@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
-import './CSS/displayArticleAdmin.css'
+import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 
-const DisplayArticleAdmin = (props) => {
-    const [article, setArticle] = useState([])
+const displayEngagementAdmin = (props) => {
+    const [engagement, setEngagement] = useState([])
 
 
     useEffect(() => {
-        const getArticles = () => {
+        const getEngagements = () => {
             axios
-            .get("http://localhost:4000/user/articles")
+            .get("http://localhost:4000/admin/engagement")
             .then(response => response.data)
             .then(data => {
                 console.log("aaaaaaaa", data)
@@ -19,7 +19,7 @@ const DisplayArticleAdmin = (props) => {
             });
             
         }
-        getArticles()
+        getEngagements()
     }, [])
 
     useEffect(() => {
@@ -46,17 +46,17 @@ const DisplayArticleAdmin = (props) => {
 
             }
             else {
-                const getArticles = () => {
+                const getEngagements = () => {
                     axios
-                    .get("http://localhost:4000/user/articles")
+                    .get("http://localhost:4000/admin/engagements")
                     .then(response => response.data)
                     .then(data => {
                         console.log("aaaaaaaa", data)
-                      setArticle(data);
+                      setEngagement(data);
                     });
                     
                 }
-                getArticles()
+                getEngagements()
             }
 
         }
@@ -67,22 +67,22 @@ const DisplayArticleAdmin = (props) => {
    
 
         return (
-            <div className="displayArticleAdmin_page">
+            <div className="displayEngagementAdmin_page">
                 
                 <h1 className="title">Je consulte mes articles</h1>
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
-                <div className="displayArticleAdmin_frame">
-                    <div className="displayArticleAdmin_header">
+                <div className="displayEngagementAdmin_frame">
+                    <div className="displayEngagementAdmin_header">
                         <p>Nom de l'article</p>
                         <p>Publié</p>
                     </div>
-                    <div className="displayArticleAdmin_content">
-                        <ul className="displayArticleAdmin_items">
-                        {article.map(elem =>
+                    <div className="displayEngagementAdmin_content">
+                        <ul className="displayEngagementAdmin_items">
+                        {engagement.map(elem =>
 
                         { 
                             // {console.log("test",elem)}
-                            return <li> <div>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
+                            return <li> <div>{elem.Engagements}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
                         
                         )}
                         
@@ -96,4 +96,4 @@ const DisplayArticleAdmin = (props) => {
 
 
 
-export default DisplayArticleAdmin 
+export default displayEngagementAdmin
