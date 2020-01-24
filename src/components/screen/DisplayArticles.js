@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import ArticlesItem from './ArticlesItem'
+import { Link } from 'react-router-dom'
 import './CSS/DisplayArticles.css'
 
 const DisplayArticles = (props) => {
@@ -18,21 +19,21 @@ const DisplayArticles = (props) => {
             const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
-                console.log('results',result.data)
+                console.log('results', result.data)
                 setArticles(result.data)
                 setLoaded(true)
             }
             else if (props.objet.id !== 0 && props.besoin.id == 0) {
                 const result = await axios.post(url2, { object: props.objet })
                 setArticles(result.data)
-                console.log('result2s',result.data)
+                console.log('result2s', result.data)
 
                 setLoaded(true)
             }
             else if (props.objet.id == 0 && props.besoin.id !== 0) {
-                const result = await axios.post(url3, {besoin: props.besoin })
+                const result = await axios.post(url3, { besoin: props.besoin })
                 setArticles(result.data)
-                console.log('results3',result.data)
+                console.log('results3', result.data)
 
                 setLoaded(true)
             }
@@ -44,8 +45,8 @@ const DisplayArticles = (props) => {
         }
         loadArticles()
     }, [props])
-    
-    
+
+
     return (
         <>
             {!loaded ?
@@ -56,7 +57,9 @@ const DisplayArticles = (props) => {
                         {articles
                             .map(
                                 (article, index) => (
-                                    <ArticlesItem {...article} />
+                                    <Link className='ArticlesItem' to={`/article/${article.id}`}>
+                                        <ArticlesItem {...article} />
+                                    </Link>
                                 ))}
                     </div>
                 </div>

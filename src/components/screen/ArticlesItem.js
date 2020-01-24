@@ -7,10 +7,9 @@ import lbealt from '../../assets/pictures/lbeimage.jpg'
 import moment from 'moment'
 
 const ArticlesItem = props => (
-    <>
-        {props.id !== undefined ?
-            (<Link to={`/article/${props.id}`}>
-                <div className='ArticlesItem' tabIndex='0'>
+        props.id !== undefined ?
+            (
+                <div tabIndex='0'>
                     {props.image ?
                         (<img className='ArticlesItem-Image' src={props.image} alt={props.titre} />)
                         :
@@ -24,9 +23,9 @@ const ArticlesItem = props => (
                         <div className='ArticlesItem-Title'><span>{props.titre}</span></div>
                     </div>
                 </div >
-            </Link>)
-            : 'Aucun article ne correspond à votre recherche'}
-    </>
+            )
+            : 'Aucun article ne correspond à votre recherche'
+    
 )
 
 export default ArticlesItem

@@ -3,16 +3,7 @@
   src: url("../../../assets/fonts/Montserrat-Regular.ttf")
 }
 
-.ArticlesItem {
-  position: relative;
-  flex: 1 0 22rem;
-  margin: 1rem;
-  color: #fff;
-  cursor: pointer;
-  border-style: solid;
-  border-width: 1.5px;
-  border-color: #F6F1EB;
-}
+
 
 .ArticlesItem:hover .ArticlesItem-Info, .ArticlesItem:focus .ArticlesItem-Info {
   display: flex;
