@@ -1,21 +1,24 @@
 /* CSS pour la component "displayArticleAdminAdmin */
-.displayArticleAdmin_page{
-    font-family: 'Open Sans';
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.displayArticleAdmin_page {
+	font-family: 'Open Sans';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
 /* CSS pour "Jeconsulte mes articles" */
-.title{
-    text-align: center;
-    font-family: 'Open Sans';
+.title {
+	text-align: center;
+	font-family: 'Open Sans';
+	font-size: 1em;
+	margin: 2vw;
+    font-weight: bold;
+    width: 100vw;
 }
 
 /* CSS encadrer générale*/
 .displayArticleAdmin_frame{
     border : solid grey 1px;
-    margin-left: 8vh;
-    margin-right: 8vh;
     width: 80vw;
 
 }
@@ -46,11 +49,11 @@ margin: 0px;
 }
 
 /* CSS bloc des articles*/
-.displayArticleAdmin_items{
+.displayArticleAdmin_items {
     list-style: none;
     /* border: 8px solid grey; */
     padding-left: 0%;
-    margin: 1vh 2vh;
+    margin: 3vh 3.5vw auto;
     font-family: 'Open Sans'
 }
 
@@ -61,16 +64,21 @@ margin: 0px;
 
 
 /* CSS chaque article*/
-.displayArticleAdmin_items li{
+.displayArticleAdmin_items li {
     border: grey solid 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right:2vh;
-    padding-left: 1vh;
+    padding-right:2vw;
+    padding-left: 1vw;
     margin-top: 0.5vh;
     box-shadow: 2px 0px 3px gray;
 
+}
+
+/* CSS titre article*/
+.displayArticleAdmin_title{
+width: 80vw;
 }
 
 /* CSS voyant/publication*/

@@ -4,7 +4,7 @@ import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 
-const DisplayEngagementAdmin = (props) => {
+const DisplayEngagementAdmin = () => {
     const [engagement, setEngagement] = useState([])
 
 
@@ -22,61 +22,17 @@ const DisplayEngagementAdmin = (props) => {
         getEngagements()
     }, [])
 
-    useEffect(() => {
-        const loadEngagements = async () => {
-            console.log(props)
-            const url1 = 'http://localhost:4000/user/filtres/articles'
-            const url2 = 'http://localhost:4000/user/filtres/objets/articles'
-            const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
-            if (props.objet.id !== 0 && props.besoin.id !== 0) {
-                const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
-                console.log('results',result.data)
-                setEngagement(result.data)
-            }
-            else if (props.objet.id !== 0 && props.besoin.id == 0) {
-                const result = await axios.post(url2, { object: props.objet })
-                setEngagement(result.data)
-                console.log('result2s',result.data)
-
-            }
-            else if (props.objet.id == 0 && props.besoin.id !== 0) {
-                const result = await axios.post(url3, {besoin: props.besoin })
-                setEngagement(result.data)
-                console.log('results3',result.data)
-
-            }
-            else {
-                const getEngagements = () => {
-                    axios
-                    .get("http://localhost:4000/admin/engagements")
-                    .then(response => response.data)
-                    .then(data => {
-                        console.log("aaaaaaaa", data)
-                      setEngagement(data);
-                    });
-                    
-                }
-                getEngagements()
-            }
-
-        }
-        loadEngagements()
-    }, [props])
-
-
-   
-
         return (
-            <div className="displayEngagementAdmin_page">
+            <div className="displayEngagementsAdmin_page">
                 
-                <h1 className="title">Je consulte mes articles</h1>
+                <h1 className="title">Je consulte mes engagements</h1>
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
-                <div className="displayEngagementAdmin_frame">
-                    <div className="displayEngagementAdmin_header">
+                <div className="displayEngagementsAdmin_frame">
+                    <div className="displayEngagementsAdmin_header">
                         <p>Les engagements</p>
                     </div>
-                    <div className="displayEngagementAdmin_content">
-                        <ul className="displayEngagementAdmin_items">
+                    <div className="displayEngagementsAdmin_content">
+                        <ul className="displayEngagementsAdmin_items">
                         {engagement.map(elem =>
 
                         { 

@@ -1,33 +1,36 @@
-/* CSS pour la component "displayEngagementAdminAdmin */
-.displayEngagementAdmin_page{
-    font-family: 'Open Sans';
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* CSS pour la component "displayEngagementsAdminAdmin */
+.displayEngagementsAdmin_page {
+	font-family: 'Open Sans';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-/* CSS pour "Jeconsulte les engagements" */
-.title{
-    text-align: center;
-    font-family: 'Open Sans';
+
+/* CSS pour "Jeconsulte mes articles" */
+.title {
+	text-align: center;
+	font-family: 'Open Sans';
+	font-size: 1em;
+	margin: 2vw;
+    font-weight: bold;
+    width: 100vw;
 }
 
 /* CSS encadrer générale*/
-.displayEngagementAdmin_frame{
+.displayEngagementsAdmin_frame{
     border : solid grey 1px;
-    margin-left: 8vh;
-    margin-right: 8vh;
     width: 80vw;
+
 }
 
 /* CSS en-tête*/
-.displayEngagementAdmin_header {
+.displayEngagementsAdmin_header {
     display: flex;
     align-items: center;
     align-content: stretch;
     border-bottom: solid 1px grey;
     padding: 0px;
     justify-content: space-between;
-    padding-right: 2.5vh;
     padding-left:2.5vh;
     background-color:#F6F1EB;
     text-align: center;
@@ -35,42 +38,45 @@
     font-family: 'Open Sans';
     font-weight:bold ;
 
+
 }
 
 /* CSS les textes de l'encadrer*/
-.displayEngagementAdmin_header p{
+.displayEngagementsAdmin_header p{
 margin: 0px;
 
 }
 
 /* CSS bloc des articles*/
-.displayEngagementAdmin_items{
+.displayEngagementsAdmin_items {
     list-style: none;
     /* border: 8px solid grey; */
     padding-left: 0%;
-    margin: 1vh 2vh;
+    margin: 3vh 3.5vw auto;
     font-family: 'Open Sans'
 }
 
-.displayEngagementAdmin_content{
-    overflow: scroll;
-    min-height: auto;
-    max-height: 60vh;
+.displayEngagementsAdmin_content{
+    height: 40vh;
     overflow: scroll;
 }
 
 
 /* CSS chaque article*/
-.displayEngagementAdmin_items li{
+.displayEngagementsAdmin_items li {
     border: grey solid 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right:2vh;
-    padding-left: 1vh;
+    padding-left: 1vw;
     margin-top: 0.5vh;
     box-shadow: 2px 0px 3px gray;
 
+}
+
+/* CSS titre article*/
+.displayEngagementsAdmin_title{
+width: 80vw;
 }
 
 /* CSS voyant/publication*/

@@ -82,7 +82,7 @@ const DisplayArticleAdmin = (props) => {
 
                         { 
                             // {console.log("test",elem)}
-                            return <li> <div>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
+                            return <li> <div className="displayArticleAdmin_title">{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
                         
                         )}
                         
