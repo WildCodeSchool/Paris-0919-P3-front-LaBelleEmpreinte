@@ -4,41 +4,41 @@ import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 
-const DisplayCatObjetsAdmin = () => {
-    const [CatObjets, setCatObjets] = useState([])
+const DisplayObjetsAdmin = () => {
+    const [Objets, setObjets] = useState([])
 
 
     useEffect(() => {
-        const getCatObjets = () => {
+        const getObjets = () => {
             axios
-            .get("http://localhost:4000/admin/categories_objets")
+            .get("http://localhost:4000/admin/objets")
             .then(response => response.data)
             .then(data => {
                 console.log("aaaaaaaa", data)
-              setCatObjets(data);
+              setObjets(data);
             });
             
         }
-        getCatObjets()
+        getObjets()
     }, [])
 
 
         return (
             <div className="displayEngagementsAdmin_page">
                 
-                <h1 className="title">Je consulte mes catégories d'objets</h1>
+                <h1 className="title">Je consulte mes objets</h1>
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayEngagementsAdmin_frame">
                     <div className="displayEngagementsAdmin_header">
-                        <p>Les catégories d'objets</p>
+                        <p>Les objets</p>
                     </div>
                     <div className="displayEngagementsAdmin_content">
                         <ul className="displayEngagementsAdmin_items">
-                        {CatObjets.map(elem =>
+                        {Objets.map(elem =>
 
                         { 
                             // {console.log("test",elem)}
-                            return <li> <div>{elem.categorie}</div> </li>}
+                            return <li> <div>{elem.name}</div> </li>}
                         
                         )}
                         
@@ -52,4 +52,4 @@ const DisplayCatObjetsAdmin = () => {
 
 
 
-export default DisplayCatObjetsAdmin
+export default DisplayObjetsAdmin

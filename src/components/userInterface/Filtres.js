@@ -6,6 +6,9 @@ import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 import DisplayEngagementsAdmin from '../adminInterface/DisplayEngagementsAdmin'
 import DisplayCatObjetsAdmin from '../adminInterface/DisplayCatObjetsAdmin'
 import DisplayBesoinsAdmin from '../adminInterface/DisplayBesoinsAdmin'
+import DisplayObjetsAdmin from '../adminInterface/DisplayObjetsAdmin'
+import DisplayTypesActivitesAdmin from '../adminInterface/DisplayTypesActivitesAdmin'
+
 
 import "./Filtres.css";
 import DisplayArticles from '../screen/DisplayArticles'
@@ -296,7 +299,9 @@ console.log("front props", this.props.front)
           {/* <DisplayEngagementsAdmin /> */}
           {/* <DisplayCatObjetsAdmin /> */}
           {/* <DisplayCatIntermediairesAdmin /> */}
-          <DisplayBesoinsAdmin />
+          {/* <DisplayBesoinsAdmin /> */}
+          {/* <DisplayObjetsAdmin /> */}
+          <DisplayTypesActivitesAdmin />
 
       </>
     );

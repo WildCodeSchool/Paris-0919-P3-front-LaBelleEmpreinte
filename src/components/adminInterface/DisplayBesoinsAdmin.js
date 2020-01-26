@@ -26,11 +26,11 @@ const DisplayBesoinsAdmin = () => {
         return (
             <div className="displayEngagementsAdmin_page">
                 
-                <h1 className="title">Je consulte mes catégories intermédiaires</h1>
+                <h1 className="title">Je consulte mes besoins</h1>
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayEngagementsAdmin_frame">
                     <div className="displayEngagementsAdmin_header">
-                        <p>Les catégories intermédiaires</p>
+                        <p>Les besoins</p>
                     </div>
                     <div className="displayEngagementsAdmin_content">
                         <ul className="displayEngagementsAdmin_items">
