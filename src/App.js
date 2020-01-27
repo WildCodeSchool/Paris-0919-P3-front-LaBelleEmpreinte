@@ -26,12 +26,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="App-navbar">
-        <Navbar />
-      </div>
       <Switch>
-        <div className="page_content">
-          <Route exact path="/" >
+        <Route exact path="/" >
+          <div className="App-navbar">
+            <Navbar />
+          </div>
+          <div className="page_content">
             <div className="app_container">
               <GetHeaderHeight props={setRealHeaderHeight} />
               <div>
@@ -39,9 +39,9 @@ const App = () => {
               </div>
               <Footer />
             </div>
-          </Route>
-          <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
-        </div>
+          </div>
+        </Route>
+        <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
         <Route path="/admin">
           <Home />
         </Route>
