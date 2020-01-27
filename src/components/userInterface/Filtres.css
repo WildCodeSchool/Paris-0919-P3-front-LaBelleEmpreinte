@@ -26,9 +26,10 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-    background-color: lightgrey;
+    background-color: #F6F1EB;
     border-radius: 1%;
     display: flex;
+    cursor: pointer;
 }
 
 .Filtres_Objets-title p {
@@ -54,9 +55,10 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
-    background-color: lightgrey;
+    background-color: #F6F1EB;
     ;
     display: flex;
+    cursor: pointer;
 }
 
 .Filtres_Besoins-title p {
@@ -133,16 +135,23 @@
     grid-column-gap: 10px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    box-shadow: 5px 5px 1px grey;
+    box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1.25s;
+    transition: ease 1s;
     overflow-x: hidden;
     z-index: 100;
+
+    background-color: #fff;
+    /* top: 269px;
+    position: absolute; */
+
 }
 
 .Filtres-frame-objet2 {
     max-height: 0px;
     height: auto;
+    background-color: #fff;
+    /* top: 269px; */
 }
 
 /* Filtre Besoin */
@@ -157,16 +166,24 @@
     grid-column-gap: 10px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    box-shadow: 5px 5px 1px grey;
+    box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1.25s;
+    transition: ease 1s;
     overflow-x: hidden;
     z-index: 100;
+
+    background-color: #fff;
+    /* top: 269px;
+    position: absolute;
+    right: 130px; */
 }
 
 .Filtres_frame-besoins2 {
     max-height: 0px;
     height: auto;
+    background-color: #fff;
+    /* top: 269px;
+    right: 130px; */
 }
 
 .Filtres_container ul {
@@ -346,4 +363,10 @@
         margin: auto;
         display: flex;
     }
+}
+
+.Filtres-frame-objet p:hover, .Filtres-frame-objet li:hover, .Filtres_frame-besoins p:hover, .Filtres_frame-besoins li:hover {
+    cursor: pointer;
+    color: #e3815f;
+    font-weight: bolder;
 }

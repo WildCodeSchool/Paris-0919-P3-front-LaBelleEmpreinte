@@ -56,6 +56,20 @@ const DisplayArticles = (props) => {
         loadArticlesStart()
     }, [])
 
+    useEffect(() => {
+        const loadArticlesRecherche = async () => {
+            setLoaded(false)
+            const url = 'http://localhost:4000/user/recherche'
+            const result = await axios.get(url, { recherche: props.recherche })
+            setLastArticles(true)
+            setArticles(result.data)
+            setLoaded(true)
+        }
+        loadArticlesRecherche()
+        console.log('PROPS RECHERCHe',props.recherche);
+        
+    }, [props.recherche])
+
     return (
         <>
             {!loaded ?

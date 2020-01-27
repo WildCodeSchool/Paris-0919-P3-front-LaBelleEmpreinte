@@ -22,7 +22,7 @@
     padding: 0 1rem;
     position: absolute;
 
-    left: 2rem;
+    left: 19rem;
     margin-right: 2rem;
     font-weight: bold;
     margin-top: 50px;
@@ -48,7 +48,7 @@
 .articlecontent-fixed-header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 242;
     width: 100%;
 }
 
@@ -176,3 +176,12 @@
         margin-bottom: 3rem;
     }
 }
+
+@media screen and (max-width: 770px){
+    .articlecontent header h1 {
+        left: 2rem;
+    }
+    .articlecontent-fixed-header {
+        left: 0;
+    }
+  } 

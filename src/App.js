@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" >
+        <Route exact path="/recherche" >
           <div className="App-navbar">
             <Navbar />
           </div>
@@ -39,11 +39,24 @@ const App = () => {
                 <Filtres front="user" />
               </div>
               <Footer />
-
             </div>
           </div>
         </Route>
-        <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
+        <Route path="/article/:id" render={(props) =>
+        <>
+          <div className="App-navbar">
+            <Navbar />
+          </div>
+          <div className="page_content">
+            <div className="app_container">
+              <GetHeaderHeight props={setRealHeaderHeight} />
+              <div>
+                <ArticleContent {...props} height={headerHeight} />          </div>
+              <Footer />
+
+            </div>
+          </div>
+          </> } />
         <Route path="/admin">
           <Home />
         </Route>
