@@ -64,6 +64,9 @@
 
 .articlecontent-visible-title {
     visibility: visible;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .articlecontent-invisible-title {
