@@ -27,7 +27,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/" >
           <div className="App-navbar">
