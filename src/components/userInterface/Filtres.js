@@ -74,7 +74,7 @@ class Filtres extends Component {
           <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
         </div>
 
-        <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : ""}>
+        <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : "Filtres-frame-objet2"}>
           {this.state.isVisibleObjets
             ? this.state.datasObjets[0].results.map(categ => {
               const filterByCategory = this.state.datasObjets[1].results.filter(
@@ -173,7 +173,7 @@ class Filtres extends Component {
           <img src={menuBurger} alt='menuBurger'></img><p>Besoins</p>
         </div>
 
-        <div className={this.state.isVisibleBesoins ? "Filtres_frame-besoins" : ""}>
+        <div className={this.state.isVisibleBesoins ? "Filtres_frame-besoins" : "Filtres_frame-besoins2"}>
           {this.state.isVisibleBesoins
             ? this.state.datasBesoins[0].results.map(categ => {
               const filterByCategory = this.state.datasBesoins[1].results.filter(
