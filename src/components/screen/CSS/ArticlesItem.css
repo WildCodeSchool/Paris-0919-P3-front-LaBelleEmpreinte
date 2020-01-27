@@ -9,22 +9,24 @@
   margin: 1rem;
   color: #fff;
   cursor: pointer;
+  margin-bottom: 7rem;
+  margin-top: 2rem;
+  max-width: 100vh;
 }
 
-.ArticlesItem:hover .ArticlesItem-Info, .ArticlesItem:focus .ArticlesItem-Info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.ArticlesItem:hover, .ArticlesItem:focus {
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .ArticlesItem-Info {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: black;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #399967;
 }
 
 .ArticlesItem-Info li {
@@ -33,9 +35,12 @@
   font-weight: 600;
 }
 
+.ArticlesItem:hover .ArticlesItem-Info, .ArticlesItem:hover:active .ArticlesItem-Info {
+  border-bottom: 1px solid #e3815f;
+}
+
 .ArticlesItem-Date, .ArticlesItem-Time {
   margin-bottom: 0.7rem;
-  font-weight: 600;
   font-family: "Montserrat-regular", sans-serif;
 }
 
@@ -48,31 +53,37 @@
 .ArticlesItem-TitleContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   position: absolute;
-  top: 0;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+  padding: 0.5rem;
 }
 
 .ArticlesItem-Title {
+  color: black;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 550;
-  margin: 2.2rem 2.2rem 1.2rem 2.2rem;
   font-family: "Montserrat", sans-serif;
   text-align: center;
+  background-color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ArticlesItem:active .ArticlesItem-Title, .ArticlesItem:hover .ArticlesItem-Title {
+  overflow: auto;
+  text-overflow: unset;
+  white-space: unset;
 }
 
 .ArticlesItem-Title::first-letter {
-  color: #e3815f;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .ArticlesItem-Picto {
   height: 17px;
-  filter: invert(1);
+  filter: invert(0);
   margin-right: 0.5rem;
 }

@@ -13,6 +13,7 @@ import Filtres from './components/userInterface/Filtres'
 import TitleAdmin from './components/adminInterface/TitleAdmin';
 import AdminCreateArticle from './components/adminInterface/AdminCreateArticle';
 import DisplayArticleAdmin from './components/adminInterface/DisplayArticleAdmin';
+import AdminHome from './components/adminInterface/AdminHome'
 
 import Home from './components/adminInterface/Home'
 
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/" >
           <div className="App-navbar">
@@ -38,6 +40,7 @@ const App = () => {
                 <Filtres front="user" />
               </div>
               <Footer />
+
             </div>
           </div>
         </Route>
