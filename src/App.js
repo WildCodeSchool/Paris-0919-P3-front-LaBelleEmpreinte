@@ -30,9 +30,17 @@ const App = () => {
       <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/" >
-          <div className="app_container">
-            <div>
-              <Filtres front="user" />
+          <div className="App-navbar">
+            <Navbar />
+          </div>
+          <div className="page_content">
+            <div className="app_container">
+              <GetHeaderHeight props={setRealHeaderHeight} />
+              <div>
+                <Filtres front="user" />
+              </div>
+              <Footer />
+
             </div>
           </div>
         </Route>
@@ -41,7 +49,6 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-      <Footer />
     </div>
   )
 }
