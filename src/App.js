@@ -13,6 +13,7 @@ import Filtres from './components/userInterface/Filtres'
 import TitleAdmin from './components/adminInterface/TitleAdmin';
 import AdminCreateArticle from './components/adminInterface/AdminCreateArticle';
 import DisplayArticleAdmin from './components/adminInterface/DisplayArticleAdmin';
+import AdminHome from './components/adminInterface/AdminHome'
 
 import Home from './components/adminInterface/Home'
 
@@ -26,14 +27,13 @@ const App = () => {
 
   return (
     <div className="App">
+      <GetHeaderHeight props={setRealHeaderHeight} />
       <Switch>
         <Route exact path="/" >
           <div className="app_container">
-            <GetHeaderHeight props={setRealHeaderHeight} />
             <div>
               <Filtres front="user" />
             </div>
-            <Footer />
           </div>
         </Route>
         <Route path="/article/:id" render={(props) => <ArticleContent {...props} height={headerHeight} />} />
@@ -41,7 +41,8 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-      </div>
-      )
-    }
-      export default App
+      <Footer />
+    </div>
+  )
+}
+export default App
