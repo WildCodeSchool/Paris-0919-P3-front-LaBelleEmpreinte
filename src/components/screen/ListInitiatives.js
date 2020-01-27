@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment';
 
+import './CSS/Loader.css'
 import './CSS/ListInitiatives.css'
 
 const ListInitiatives = props => {
@@ -26,7 +27,9 @@ const ListInitiatives = props => {
     return (
         <>
             {!props.loaded2 ?
-                (<div>Initiatives en cours de chargement...</div>)
+                (<div className='Articles-loader-container'>
+                    <div className='Articles-loader'></div>
+                </div>)
                 :
                 (<div className='listinitiatives'>
                     <div className='listinitiatives-containerhead'>
