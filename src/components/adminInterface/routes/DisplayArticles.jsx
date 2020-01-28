@@ -54,7 +54,7 @@ export default function DisplayArticles(props) {
                     <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
                 ) : null}
             </select>
-            <DisplayArticleAdmin besoin={besoins} object={objet}/>
+            {/* <DisplayArticleAdmin besoin={besoins} object={objet}/> */}
         </div>
     )
 }
