@@ -25,10 +25,7 @@ export default function HomeAdmin() {
             // on stocke le state en local
             localStorage.setItem('myConnection', backRes.auth)
         }
-        else {
-            setMessage('Erreur de saisie du mot de passe ou du mail identifiant')
-
-        }
+        
     })
 
     // state pour le login
@@ -39,6 +36,11 @@ export default function HomeAdmin() {
 
         axios.post('http://localhost:4000/auth/', { 'email': email, 'password': password })
             .then(res => setRes(res.data))
+
+            if (isAdmin === false) {
+                setMessage('Erreur de saisie du mot de passe ou du mail identifiant')
+    
+            }
     }
 
 
@@ -46,7 +48,6 @@ export default function HomeAdmin() {
     useEffect(() => {
         if (localStorage.getItem('myConnection') === 'true') {
             setAdmin(true)
-            console.log(isAdmin)
         }
         // si jamais les données locales sont absentes ou fausses, ferme le state admin
         else {
