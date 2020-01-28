@@ -23,12 +23,11 @@ class Filtres extends Component {
       name: "",
       type: ""
     },
-    recherche: ''
+    recherche: '',
   };
 
   setRecherche = (submitRecherche) => {
     this.setState({ recherche: submitRecherche })
-    console.log('SUBMITRECHERCHE', submitRecherche);
   }
 
   componentDidMount() {

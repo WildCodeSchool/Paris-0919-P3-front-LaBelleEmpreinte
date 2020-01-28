@@ -15,7 +15,6 @@ const DisplayArticles = (props) => {
 
     useEffect(() => {
         const loadArticles = async () => {
-            console.log(props)
             const url1 = 'http://localhost:4000/user/filtres/articles'
             const url2 = 'http://localhost:4000/user/filtres/objets/articles'
             const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
@@ -60,15 +59,17 @@ const DisplayArticles = (props) => {
         const loadArticlesRecherche = async () => {
             setLoaded(false)
             const url = 'http://localhost:4000/user/recherche'
-            const result = await axios.get(url, { recherche: props.recherche })
-            setLastArticles(true)
+            const keyword = props.recherche.submitRecherche            
+            const result = await axios.post(url, { keyword: keyword })
+            setLastArticles(false)
             setArticles(result.data)
             setLoaded(true)
+            console.log(result.data);
+            
         }
         loadArticlesRecherche()
-        console.log('PROPS RECHERCHe',props.recherche);
         
-    }, [props.recherche])
+    }, [props])
 
     return (
         <>
