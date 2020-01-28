@@ -4,6 +4,13 @@
 .mainTitle{
     text-align: center;
 }
+.denial-Title{
+  text-align: center;
+  background-color: #399967;
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 50px;
+}
 
 .mainTitle h1{
     color: #399967;
@@ -34,4 +41,33 @@
   margin-top: 15px;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+/* le form  */
+.home_Login{
+  display: flex;
+  flex-direction: column;
+}
+/* form + boutton  */
+.login_button{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  background-color: #f6f1eb;
+}
+/* les deux inputs afin de les mettre en ligne */
+.Home_input{
+  display: flex;
+  flex-direction: row;
+}
+/* le bouton déconnection */
+.déco{
+  color: #399967;
+  cursor: pointer;
+}
+.please_connect{
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 30px;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
+import DisplayArticleAdmin from "../DisplayArticleAdmin"
 
 export default function DisplayArticles(props) {
 
@@ -53,9 +54,7 @@ export default function DisplayArticles(props) {
                     <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
                 ) : null}
             </select>
-            <div className="displayList">
-
-            </div>
+            <DisplayArticleAdmin besoin={besoins} object={objet}/>
         </div>
     )
 }

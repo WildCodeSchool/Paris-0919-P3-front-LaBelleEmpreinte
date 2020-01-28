@@ -14,7 +14,6 @@ const DisplayArticleAdmin = (props) => {
             .get("http://localhost:4000/user/articles")
             .then(response => response.data)
             .then(data => {
-                console.log("aaaaaaaa", data)
               setArticle(data);
             });
             

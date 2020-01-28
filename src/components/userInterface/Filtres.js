@@ -3,6 +3,7 @@ import axios from "axios";
 import menuBurger from '../../assets/icons/menuBurger.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
 import MoteurRecherche from '../screen/MoteurRecherche'
+import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 
 import "./Filtres.css";
 import DisplayArticles from '../screen/DisplayArticles'
@@ -286,14 +287,28 @@ class Filtres extends Component {
 
           </div>
 
-        </div>
+      </div>
 
-        {this.props.front === "user" ?
+      {/* {this.props.front === "user" ?
+            <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+:
+''
+////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
+          } */}
+          {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
+          {/* <DisplayEngagementsAdmin /> */}
+          {/* <DisplayCatObjetsAdmin /> */}
+          {/* <DisplayCatIntermediairesAdmin /> */}
+          {/* <DisplayBesoinsAdmin /> */}
+          {/* <DisplayObjetsAdmin /> */}
+          {/* <DisplayTypesActivitesAdmin /> */}
+
+        {/* {this.props.front === "user" ? */}
           <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} recherche={this.state.recherche} />
           :
           ''
-          ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
-        }
+          {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} */}
+        } 
         {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
       </>
     );
