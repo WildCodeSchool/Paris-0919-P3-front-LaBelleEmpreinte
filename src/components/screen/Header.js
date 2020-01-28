@@ -14,86 +14,15 @@ import axios from "axios"
 function Header() {
 
   const [visible, setVisible] = useState(false)
-  const [login, setLogin] = useState(false)
-  // l'utilisateur est t'il connecté? le state se réfère au local
-  const [isConnected, setConnection] = useState(false)
-  //message sur le login en cas d'erreur
-  const [message, setMessage] =useState()
-  //state qui recoit la réponse du back
-  const [backRes, setRes] = useState("salut?")
-
-  // state pour les inputs de connection
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  
 
   // fonction pour faire apparaitre le menu burger
   const handleClick = () => {
     setVisible(!visible)
   }
-  // fonction pour faire apparaitre le menu de loggin
-  const handleLogin = () => {
-    setLogin(false)
-  }
-
-  // button pour le login de l'administrateur
-  const submitInfo = () => {
-
-    axios.post('http://localhost:4000/auth/', {'email': email, 'password': password})
-    // .then(res => console.log(res)
-    // )
-    .then(res => setRes(res.data))
-  }
-
-
-  // vérifie si une réponse positive à été récupéré du back 
-  useEffect(() => {
-    if (localStorage.getItem('myConnection') === 'true'){
-      setConnection(true)
-    }
-
-    console.log("l'état de la connection est: ", isConnected)
-    if (backRes.auth === true && isConnected === false){
-    setConnection(true)
-      setLogin(false)
-      // on stocke le state en local
-      localStorage.setItem('myConnection', backRes.auth)}
-      else{
-        setMessage('Erreur de saisie du mot de passe ou du mail identifiant')
-
-      }
-  })
-
-  //petite fonction pour la déconnection
-  const handleDeconnection = () => {
-    setConnection(false)
-    localStorage.removeItem('myConnection')
-    console.log(isConnected)
-
-  }
-
 
   return (
     <header className="header_main">
-      {/* div pour la connection admin */}
-      <div className="login-area">
-        {isConnected ? <div className="connection"><Link to="/admin">Espace administrateur</Link><>/</><div onClick={()=> handleDeconnection()}>Déconnection</div></div> : <div className="connection" onClick={(e) => setLogin(true)}>Connexion</div>}
-      </div>
-      <Modal isOpen={login} toggle={handleLogin} className="">
-        <ModalHeader toggle={handleLogin}>La Belle Admin: </ModalHeader>
-        <ModalBody>
-          <form>
-            <label> Adresse mail:
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            </label>
-            <label>Mot de passe:
-            <input type="text" value={password} onChange={(e)=> setPassword(e.target.value)}></input>
-            </label>
-          </form>
-          <div>{message}</div>
-          <input type="button" value="Envoyer" onClick={submitInfo}/>
-        </ModalBody>
-      </Modal>
-
       {/* les titres principaux de la page */}
       <div className="header_titleAndBurger">
         <img src={logo} alt="logo" width="96px"></img>

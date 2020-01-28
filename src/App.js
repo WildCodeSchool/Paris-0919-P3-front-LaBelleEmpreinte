@@ -39,7 +39,6 @@ const App = () => {
                 <Filtres front="user" />
               </div>
               <Footer />
-
             </div>
           </div>
         </Route>
