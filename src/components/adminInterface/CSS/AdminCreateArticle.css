@@ -125,10 +125,6 @@
     background-color: white;
 }
 
-.createArticle-initButton {
-    display: flex;
-}
-
 @media only screen and (max-width: 580px) {
     .admincreatearticle #form-div {
         left: 3%;
