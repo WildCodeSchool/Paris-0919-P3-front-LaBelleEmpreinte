@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 import lbealt from '../../assets/pictures/lbeimage.jpg'
 import moment from 'moment'
 
-
-
 const ArticlesItem = props => (
-    props.id !== undefined ?
+    props.id ?
         (
+            console.log('PROPS ID', props),
+            
             <Link className='ArticlesItem' to={`/article/${props.id}`} tabIndex='0'>
                 {props.image ?
                     (<img className='ArticlesItem-Image' src={props.image} alt={props.titre} />)
@@ -27,7 +27,6 @@ const ArticlesItem = props => (
             </Link >
         )
         : 'Aucun article ne correspond à votre recherche'
-
 )
 
 export default ArticlesItem
