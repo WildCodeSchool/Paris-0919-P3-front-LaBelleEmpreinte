@@ -6,20 +6,20 @@ import MainFilters from './MainFilters'
 export default function HomeAdmin() {
 
     //state Admin
-    const [isAdmin, setAdmin] = useState(false)
+    const [isAdmin, setAdmin] = useState(true)
 
 
     // vérifie le state stocké sur l'appareil
-    useEffect(() => {
-        if (localStorage.getItem('myConnection') === 'true') {
-            setAdmin(true)
-            console.log(isAdmin)
-        }
-        // si jamais les données locales sont absentes ou fausses, ferme le state admin
-        else {
-            setAdmin(false)
-        }
-    })
+    // useEffect(() => {
+    //     if (localStorage.getItem('myConnection') === 'true') {
+    //         setAdmin(true)
+    //         console.log(isAdmin)
+    //     }
+    //     // si jamais les données locales sont absentes ou fausses, ferme le state admin
+    //     else {
+    //         setAdmin(false)
+    //     }
+    // })
 
     // si l'utilisateur à les droits admin il peut accéder au contenu
     if (isAdmin){
