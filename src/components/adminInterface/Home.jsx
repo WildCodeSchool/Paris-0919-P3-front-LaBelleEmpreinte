@@ -57,15 +57,16 @@ export default function HomeAdmin() {
 
     // se charge de la déconnection
     const handleDeconnection = () => {
-        setAdmin(false)
-        localStorage.removeItem('myConnection')}
+        localStorage.removeItem('myConnection')
+        if (isAdmin){
+        setAdmin(false)}}
 
     // si l'utilisateur à les droits admin il peut accéder au contenu
     if (isAdmin) {
         return (
             <>
                 <div className="retour"><Link to='/'>Retour vers le site</Link></div>
-                <div className="déco" onClick={(e) => handleDeconnection()}>Déconnection</div>
+                <Link to="/admin"><div className="déco" onClick={(e) => handleDeconnection()}>Déconnection</div></Link>
 
                 <div className="admin-Header">
                     <div className="mainTitle">
@@ -82,7 +83,7 @@ export default function HomeAdmin() {
     else {
         return (
             <>
-                <div className="retour"><Link to='/'>Retour vers le site</Link></div>
+                <div className="retour"><Link to='/recherche'>Retour vers le site</Link></div>
 
                 <h1 className="denial-Title">Vous n'avez les droits administrateurs pour accéder à cette page</h1>
                 <div className="login_button">
