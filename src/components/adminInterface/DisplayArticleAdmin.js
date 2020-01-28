@@ -23,7 +23,6 @@ const DisplayArticleAdmin = (props) => {
 
     useEffect(() => {
         const loadArticles = async () => {
-            console.log(props)
             const url1 = 'http://localhost:4000/user/filtres/articles'
             const url2 = 'http://localhost:4000/user/filtres/objets/articles'
             const url3 = 'http://localhost:4000/user/filtres/besoins/articles'

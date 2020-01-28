@@ -1,0 +1,7 @@
+.display_content{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10%;
+    padding: 10px 0;
+    background-color: #f6f1eb;
+}

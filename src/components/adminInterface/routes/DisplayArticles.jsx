@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import DisplayArticleAdmin from "../DisplayArticleAdmin"
+import "../CSS/DisplayArticles.css"
 
 export default function DisplayArticles(props) {
 
@@ -36,9 +37,11 @@ export default function DisplayArticles(props) {
         getBesoins()
     }, [])
 
+
+
     return (
-        <div>
-            <h1>Je consulte mes articles</h1>
+        <div className="display_content">
+            <h3><b>Je consulte mes articles :</b></h3>
 
             {/* premier select pour obtenir le filtre objets */}
             <select>
@@ -54,7 +57,7 @@ export default function DisplayArticles(props) {
                     <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
                 ) : null}
             </select>
-            {/* <DisplayArticleAdmin besoin={besoins} object={objet}/> */}
+            <DisplayArticleAdmin besoin={besoins} object={objet}/>
         </div>
     )
 }
