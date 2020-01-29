@@ -3,13 +3,15 @@ import axios from 'axios'
 import { Route, Switch, Link } from 'react-router-dom'
 
 // On importe les routes
+import DisplayArticles from "./routes/DisplayArticles"
 import CreateArticle from "./routes/CreateArticle"
 import CreateBesoin from './routes/CreateBesoin'
-import CreateCategory from './routes/CreateCategory'
-import DisplayArticles from "./routes/DisplayArticles"
-import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
+import CreateEngagement from "./routes/CreateEngagement"
+import CreateCategory from './routes/CreateCategory'
 import CreateCategoryIntermediaire from "./routes/CreateCategoryIntermediaire"
+import CreateObjets from './routes/CreateObjets'
+
 
 
 export default function MainFilters() {
@@ -66,18 +68,22 @@ export default function MainFilters() {
                 <Route path="/admin/creer/besoins">
                     <CreateBesoin />
                 </Route>
-                <Route path="/admin/creer/categories_objets">
-                    <CreateCategory/>
-                </Route>
-                {/* <Route path="/admin/creer/categories_intermediaires">
-                    <CreateCategoryIntermediaire/>
-                </Route> */}
-                <Route path="/admin/creer/engagements">
-                    <CreateEngagement/>
-                </Route>
                 <Route path="/admin/creer/types_activites">
                     <CreateTypeActivity/>
                 </Route>
+                <Route path="/admin/creer/categories_objets">
+                    <CreateCategory/>
+                </Route>
+                <Route path="/admin/creer/categories_intermediaires">
+                    <CreateCategoryIntermediaire/>
+                </Route>
+                <Route path="/admin/creer/objets">
+                    <CreateObjets/>
+                </Route>
+                <Route path="/admin/creer/engagements">
+                    <CreateEngagement/>
+                </Route>
+                
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
                     <DisplayArticles />
