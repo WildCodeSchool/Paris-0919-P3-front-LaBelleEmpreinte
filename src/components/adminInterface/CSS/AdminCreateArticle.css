@@ -6,6 +6,7 @@
 .admincreatearticle {
     font-family: 'Montserrat';
     margin-top: 25px;
+    position: relative;
 }
 
 .admincreatearticle h1 {
@@ -13,6 +14,15 @@
     font-size: 32px;
     text-align: center;
     color: #e3815f;
+}
+
+.admincreatearticle h2 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    color: #e3815f;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .admincreatearticle #feedback-page {
@@ -34,7 +44,7 @@
     width: 525px;
     float: left;
     left: 50%;
-    position: absolute;
+    position: relative;
     margin-top: 30px;
     margin-left: -260px;
 }
