@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Route, Switch, Link } from 'react-router-dom'
 
 // On importe les routes
-import DisplayArticles from "./routes/DisplayArticles"
 import CreateArticle from "./routes/CreateArticle"
 import CreateBesoin from './routes/CreateBesoin'
 import CreateTypeActivity from "./routes/CreateTypeActivity"
@@ -15,9 +14,8 @@ import Filtres from '../userInterface/Filtres'
 import DisplayObjetsAdmin from "./DisplayObjetsAdmin"
 import DisplayBesoinsAdmin from "./DisplayBesoinsAdmin"
 import DisplayEngagementsAdmin from "./DisplayEngagementsAdmin"
-import DisplayInitiativesAdmin from "./DisplayInitiativesAdmin"
 import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
-import DisplayCatIntermediairesAdmin from "./DisplayInitiativesAdmin"
+import DisplayCatIntermediairesAdmin from "./DisplayCatIntermediairesAdmin"
 import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
 
 
