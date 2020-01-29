@@ -24,7 +24,7 @@ class Filtres extends Component {
       name: "",
       type: ""
     },
-    recherche: ''
+    recherche: '',
   };
 
   setRecherche = (submitRecherche) => {
