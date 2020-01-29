@@ -7,7 +7,6 @@ import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 
 import "./Filtres.css";
 import DisplayArticles from '../screen/DisplayArticles'
-import { ListGroupItemHeading } from "reactstrap";
 
 class Filtres extends Component {
   state = {
@@ -79,7 +78,7 @@ class Filtres extends Component {
       <>
         {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
         <div className="Filtres_container">
-          <div ref={this.selector1} id='firstFilter' className="Filtres_Objets-title" onClick={this.displayObjet}>
+          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
             <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
           </div>
           <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : "Filtres-frame-objet2"}>

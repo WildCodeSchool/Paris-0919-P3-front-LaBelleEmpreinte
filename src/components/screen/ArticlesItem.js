@@ -7,10 +7,8 @@ import lbealt from '../../assets/pictures/lbeimage.jpg'
 import moment from 'moment'
 
 const ArticlesItem = props => (
-    props.id ?
+    props.id !== 0 ?
         (
-            console.log('PROPS ID', props),
-            
             <Link className='ArticlesItem' to={`/article/${props.id}`} tabIndex='0'>
                 {props.image ?
                     (<img className='ArticlesItem-Image' src={props.image} alt={props.titre} />)
