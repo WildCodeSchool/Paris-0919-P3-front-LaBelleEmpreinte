@@ -6,7 +6,8 @@ import MoteurRecherche from '../screen/MoteurRecherche'
 import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 
 import "./Filtres.css";
-// import DisplayArticles from '../screen/DisplayArticles'
+import DisplayArticles from '../screen/DisplayArticles'
+import { ListGroupItemHeading } from "reactstrap";
 
 class Filtres extends Component {
   state = {
@@ -24,7 +25,7 @@ class Filtres extends Component {
       name: "",
       type: ""
     },
-    recherche: '',
+    recherche: ''
   };
 
   setRecherche = (submitRecherche) => {
@@ -73,14 +74,14 @@ class Filtres extends Component {
   };
 
   render() {
+
     return (
       <>
-        {this.props.front==="user"? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
+        {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
         <div className="Filtres_container">
-          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
+          <div ref={this.selector1} id='firstFilter' className="Filtres_Objets-title" onClick={this.displayObjet}>
             <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
           </div>
-
           <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : "Filtres-frame-objet2"}>
             {this.state.isVisibleObjets
               ? this.state.datasObjets[0].results.map(categ => {
@@ -176,7 +177,7 @@ class Filtres extends Component {
           </div>
 
           {/* besoins */}
-          <div className="Filtres_Besoins-title" onClick={this.displayBesoins}>
+          <div ref={this.selector2} className="Filtres_Besoins-title" onClick={this.displayBesoins}>
             <img src={menuBurger} alt='menuBurger'></img><p>Besoins</p>
           </div>
 
@@ -286,28 +287,28 @@ class Filtres extends Component {
 
           </div>
 
-      </div>
+        </div>
 
-      {/* {this.props.front === "user" ?
+        {/* {this.props.front === "user" ?
             <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
 :
 ''
 ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres /////
           } */}
-          {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
-          {/* <DisplayEngagementsAdmin /> */}
-          {/* <DisplayCatObjetsAdmin /> */}
-          {/* <DisplayCatIntermediairesAdmin /> */}
-          {/* <DisplayBesoinsAdmin /> */}
-          {/* <DisplayObjetsAdmin /> */}
-          {/* <DisplayTypesActivitesAdmin /> */}
+        {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
+        {/* <DisplayEngagementsAdmin /> */}
+        {/* <DisplayCatObjetsAdmin /> */}
+        {/* <DisplayCatIntermediairesAdmin /> */}
+        {/* <DisplayBesoinsAdmin /> */}
+        {/* <DisplayObjetsAdmin /> */}
+        {/* <DisplayTypesActivitesAdmin /> */}
 
         {/* {this.props.front === "user" ? */}
-          <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} recherche={this.state.recherche} />
-          
-          {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} 
-    
-        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> 
+        <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} recherche={this.state.recherche} />
+
+        {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */}
+
+        {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>  */}
       </>
     )
   }
