@@ -17,7 +17,7 @@ export default function CreateArticle(props) {
   const [readingTime, setTime] = useState()
   const [place, setPlace] = useState()
   const [text, setText] = useState()
-  const [isPublished, setPublished] = useState()
+  const [isPublished, setPublished] = useState(false)
   const [titleList, setTitleList] = useState()
   ///// table intermédiaire ////
   const [validateFilters, setValidateFilters] = useState(false)
@@ -28,31 +28,33 @@ export default function CreateArticle(props) {
   const [categories_objets, setCategories_objets] = useState([])
   const [categories_intermediaires, setCategories_intermediaires] = useState([])
   const [objets, setObjets] = useState([])
-  const [uniqInitIds, setUniqInitIds] = useState([])
+  const [hasInit, setHasInit] = useState(false)
 
   // MEGA STATE!!
-  const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
+  const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: hasInit }
 
-  const articleDataForBack = []
-
+  const articleDataForBack = { article: articleData, initiatives: uniqueInitiatives, besoins: besoins, types_activites: types_activites, categories_objets: categories_objets, categories_intermediaires: categories_intermediaires, objets: objets }
+  
   // Est censé envoyer les données à la BDD
   const handlePost = async (e) => {
     e.preventDefault()
     await getUniqInitIds()
-    fetch("admin/articles/create",
+    console.log("ce que reçoit le back", articleDataForBack)
+    fetch("http://localhost:4000/admin/articles/create",
       {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(articleData),
-      })
+        })
+      }, 
+      {body: articleDataForBack}
+      )
       .then(res => res.json())
   }
 
   const getUniqInitIds = () => {
     const initsWithoutName = uniqueInitiatives.map( a => a.id)
-    console.log("carbistouilles de la plage", initsWithoutName)
+    console.log("carabistouilles de la plage", initsWithoutName)
   }
 
   useEffect( () => {
@@ -62,6 +64,7 @@ export default function CreateArticle(props) {
           filter.map( async (item) => {
             return await axios.post(url, { type: item.type, id: item.id })
             .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
+            .then(setHasInit(true))
           })      
           
         }
@@ -133,9 +136,14 @@ const getFilters = (a, b, c, d, e) => {
 // console.log('objets',objets)
 
   console.log("ce qu'on envoie au back", articleData)
+
+  console.log("ce que reçoit le back", articleDataForBack)
   // console.log("categories_objets", categories_objets)
 console.log("initiatitvessssssssskkkkkkkkkkkkkk", initiatives)
 console.log("initiatitvesssssssssuniqqqqqqqqqqqqqqq", uniqueInitiatives)
+console.log("HasInit", hasInit);
+
+
 
   return (
     <div>
