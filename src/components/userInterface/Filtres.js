@@ -6,9 +6,7 @@ import DisplayArticlesAdmin from "../adminInterface/DisplayArticleAdmin";
 import DisplayArticles from "../screen/DisplayArticles";
 import DisplayInitiativesAdmin from "../adminInterface/DisplayInitiativesAdmin";
 import MoteurRecherche from '../screen/MoteurRecherche'
-
 import "./Filtres.css"
-
 
 class Filtres extends Component {
   state = {
@@ -107,7 +105,6 @@ class Filtres extends Component {
                                   type: "categories_objets"
                                 },
                                 isVisibleObjets: !this.state.isVisibleObjets
-
                               },
                               () => this.state
                             )
