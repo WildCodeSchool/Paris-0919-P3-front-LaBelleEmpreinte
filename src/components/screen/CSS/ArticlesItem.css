@@ -11,7 +11,7 @@
   cursor: pointer;
   margin-bottom: 7rem;
   margin-top: 2rem;
-  max-width: 100vh;
+  max-width: 400px;
 }
 
 .ArticlesItem:hover, .ArticlesItem:focus {
