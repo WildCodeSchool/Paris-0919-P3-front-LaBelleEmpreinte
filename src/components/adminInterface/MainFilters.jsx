@@ -16,6 +16,7 @@ import DisplayInitiativesAdmin from "./DisplayInitiativesAdmin"
 import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
 import DisplayCatIntermediairesAdmin from "./DisplayInitiativesAdmin"
 import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
+import Filtres from "../userInterface/Filtres"
 
 
 
@@ -84,13 +85,13 @@ export default function MainFilters() {
                 </Route>
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
-                    <DisplayArticles />
+                    <Filtres front="admin_articles"/>
                 </Route>
                 <Route path="/admin/afficher/objets">
                     <DisplayObjetsAdmin/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
-                    <DisplayInitiativesAdmin/>
+                    <Filtres front="admin_initiaves"/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
                     <DisplayCatObjetsAdmin/>
