@@ -11,11 +11,15 @@ import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
 
 import "./CSS/MainFilters.css"
+import ModifyArticles from "./routes/ModifyArticles"
 
 export default function MainFilters() {
 
     // state that get all tables from Axios
     const [tables, setTables] = useState()
+
+    // state pour modification
+    const [articleModify, setArticleModify]=useState()
 
     // state for the actions and type of category
     const [action, setAction] = useState('creer')
@@ -28,12 +32,18 @@ export default function MainFilters() {
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
+        console.log(articleModify)
         const axiosData = async url => {
             const res = await axios.get(url)
             setTables(res.data)
         }
         axiosData('http://localhost:4000/admin/')
     }, [])
+
+    const handleModify =(e) => {
+        
+        setArticleModify(e)
+    }
 
 
     return (
@@ -51,7 +61,7 @@ export default function MainFilters() {
                 {tables ?
                     <select className="mainFilter-selector" onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
-                            <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
+                            <option key={index} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
                     </select> : null}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
                 <Link to={route}><input className="mainFilter-button" type="button" value="Valider" /></Link>
@@ -77,9 +87,12 @@ export default function MainFilters() {
                 </Route>
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
-                    <Filtres front="admin"/>
+                    <Filtres front="admin" modify={(e)=>handleModify(e)}/>
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
+                <Route path="/admin/modifier/articles">
+                    <ModifyArticles elem={articleModify}/>
+                </Route>
             </Switch>
         </>
 

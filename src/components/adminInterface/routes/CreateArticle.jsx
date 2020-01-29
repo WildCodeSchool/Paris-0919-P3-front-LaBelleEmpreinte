@@ -33,7 +33,7 @@ export default function CreateArticle(props) {
   // MEGA STATE!!
   const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
 
-  const articleDataForBack = []
+  // const articleDataForBack = []
 
   // Est censé envoyer les données à la BDD
   const handlePost = async (e) => {
@@ -120,16 +120,6 @@ const getFilters = (a, b, c, d, e) => {
     }
     setUniqueInitiatives(remainingInit)
   }
-// console.log('besoins',besoins)
-// console.log('types_activites',types_activites)
-// console.log('categories_objets',categories_objets)
-// console.log('categories_intermediaires',categories_intermediaires)
-// console.log('objets',objets)
-
-  console.log("ce qu'on envoie au back", articleData)
-  // console.log("categories_objets", categories_objets)
-console.log("initiatitvessssssssskkkkkkkkkkkkkk", initiatives)
-console.log("initiatitvesssssssssuniqqqqqqqqqqqqqqq", uniqueInitiatives)
 
   return (
     <div>

@@ -36,6 +36,13 @@ class Filtres extends Component {
     this.getBesoins();
   }
 
+  handleModify =(e) => {
+    
+    this.props.modify(e)
+}
+
+
+
   getObjets = () => {
     axios
       .get("http://localhost:4000/user/objets")
@@ -73,6 +80,7 @@ class Filtres extends Component {
   };
 
   render() {
+    
     return (
       <>
         {this.props.front==="user"? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
@@ -307,7 +315,7 @@ class Filtres extends Component {
           
           {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} 
     
-        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> 
+        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} modify={(e)=>this.handleModify(e)}/> 
       </>
     )
   }
