@@ -1,0 +1,29 @@
+
+.App{
+}
+
+.App-navbar{
+ position: fixed;
+ top: 0;
+ width: auto;
+}
+
+.page_content{
+  margin-left: 16em; 
+  top:0; 
+  width: auto;
+}
+
+
+
+@media screen and (max-width: 770px) {
+  .app_container {
+    margin: 0vw;
+    }
+    .page_content{
+      margin-left: 0em; 
+      top:0; 
+      width: auto;
+    }
+
+}
