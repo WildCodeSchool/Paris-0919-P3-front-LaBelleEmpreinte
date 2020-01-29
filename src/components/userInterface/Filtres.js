@@ -6,7 +6,9 @@ import DisplayArticlesAdmin from "../adminInterface/DisplayArticleAdmin";
 import DisplayArticles from "../screen/DisplayArticles";
 import DisplayInitiativesAdmin from "../adminInterface/DisplayInitiativesAdmin";
 import MoteurRecherche from '../screen/MoteurRecherche'
+
 import "./Filtres.css"
+
 
 class Filtres extends Component {
   state = {
@@ -24,7 +26,7 @@ class Filtres extends Component {
       name: "",
       type: ""
     },
-    recherche: '',
+    recherche: ''
   };
 
   setRecherche = (submitRecherche) => {
@@ -75,6 +77,7 @@ class Filtres extends Component {
   render() {
 
     return (
+
       <div>
         {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
         <div className="Filtres_container">
@@ -104,6 +107,7 @@ class Filtres extends Component {
                                   type: "categories_objets"
                                 },
                                 isVisibleObjets: !this.state.isVisibleObjets
+
                               },
                               () => this.state
                             )
@@ -300,6 +304,7 @@ class Filtres extends Component {
 
           
 
+
           {this.props.front === "admin_articles" ?
             <DisplayArticlesAdmin
               besoin={this.state.besoinsSelected}
@@ -318,6 +323,7 @@ class Filtres extends Component {
           }
       </div>
     );
+
   }
 }
 export default Filtres;

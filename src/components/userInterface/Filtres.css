@@ -11,7 +11,8 @@
     grid-template-rows: 3;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    width: 100%
+    width: 100%;
+    position: relative
 }
 
 /* //////////// */
@@ -56,7 +57,6 @@
     grid-row-start: 1;
     grid-row-end: 1;
     background-color: #F6F1EB;
-    ;
     display: flex;
     cursor: pointer;
 }
@@ -137,13 +137,12 @@
     grid-template-rows: auto;
     box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1s;
+    transition: ease 0.5s;
     overflow-x: hidden;
     z-index: 100;
 
     background-color: #fff;
-    /* top: 269px;
-    position: absolute; */
+    position: absolute;
 
 }
 
@@ -151,13 +150,12 @@
     max-height: 0px;
     height: auto;
     background-color: #fff;
-    /* top: 269px; */
 }
 
 /* Filtre Besoin */
 
 .Filtres_frame-besoins {
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 3;
@@ -168,22 +166,20 @@
     grid-template-rows: auto;
     box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1s;
+    transition: ease 0.5s;
     overflow-x: hidden;
     z-index: 100;
 
     background-color: #fff;
-    /* top: 269px;
     position: absolute;
-    right: 130px; */
+
 }
 
 .Filtres_frame-besoins2 {
     max-height: 0px;
     height: auto;
     background-color: #fff;
-    /* top: 269px;
-    right: 130px; */
+
 }
 
 .Filtres_container ul {
@@ -200,7 +196,7 @@
 
 .Filtres_sousCat {
     font-size: 2vw;
-    font-style: 'Montserrat';
+    font-family: 'Montserrat';
     font-weight: bold;
     text-align: center;
 }
@@ -212,7 +208,7 @@
 
 .Filtres_BesoinsFont {
     font-size: 1.5vw;
-    font-style: 'Montserrat';
+    font-family: 'Montserrat';
     font-weight: bold;
     margin-top: 10px;
 }
@@ -307,8 +303,8 @@
     .Filtres-frame-objet {
         grid-column-start: 1;
         grid-column-end: 7;
-        grid-row-start: 4;
-        grid-row-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 3;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
@@ -320,10 +316,10 @@
     }
     /* Filtre Besoin */
     .Filtres_frame-besoins {
-        grid-column-start: 1;
+        grid-column-start: 3;
         grid-column-end: 7;
-        grid-row-start: 4;
-        grid-row-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 3;
         grid-template-columns: 1fr;
     }
     .Filtres_sousCat {
