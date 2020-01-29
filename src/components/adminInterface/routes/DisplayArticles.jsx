@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import DisplayArticleAdmin from "../DisplayArticleAdmin"
+import "../CSS/DisplayArticles.css"
 
 export default function DisplayArticles(props) {
 
     // on récupère les objets de la BDD
     const [listObjets, setObjets] = useState()
     // on récupère les besoins de la BDD
-    const [listBesoins, setBesoins]=useState()
+    const [listBesoins, setBesoins] = useState()
 
     // state des filtres
     const [objet, setObjet] = useState()
@@ -36,25 +37,28 @@ export default function DisplayArticles(props) {
         getBesoins()
     }, [])
 
-    return (
-        <div>
-            <h1>Je consulte mes articles</h1>
 
-            {/* premier select pour obtenir le filtre objets */}
-            <select>
-                {listObjets ?
-                listObjets.map((item, index) => 
-                    <option key={index} value={item.type} onChange={(e) => setObjet(e.target.value)}>{item.type}</option>) : 
-                    null}
-            </select>
-            {/* second filtre pour obtenir les besoins */}
-            <select>
-                {listBesoins? 
-                listBesoins.map((item, index) => 
-                    <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
-                ) : null}
-            </select>
-            {/* <DisplayArticleAdmin besoin={besoins} object={objet}/> */}
-        </div>
-    )
+
+    return (
+        <>
+            <div className="display_content">
+                <h3><b>Je consulte mes articles :</b></h3>
+
+                {/* premier select pour obtenir le filtre objets */}
+                <select>
+                    {listObjets ?
+                        listObjets.map((item, index) =>
+                            <option key={index} value={item.type} onChange={(e) => setObjet(e.target.value)}>{item.type}</option>) :
+                        null}
+                </select>
+                {/* second filtre pour obtenir les besoins */}
+                <select>
+                    {listBesoins ?
+                        listBesoins.map((item, index) =>
+                            <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
+                        ) : null}
+                </select>
+            </div>
+            {/* <DisplayArticleAdmin besoin={besoins} object={objet} /> */}
+        </>)
 }
