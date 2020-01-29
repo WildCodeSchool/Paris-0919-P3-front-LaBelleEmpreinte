@@ -307,7 +307,7 @@ class Filtres extends Component {
           
           {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} 
     
-        {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
+        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
       </>
     )
   }
