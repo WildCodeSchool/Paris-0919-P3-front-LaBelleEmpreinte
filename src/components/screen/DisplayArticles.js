@@ -57,15 +57,14 @@ const DisplayArticles = (props) => {
 
     useEffect(() => {
         const loadArticlesRecherche = async () => {
+            const keyword = props.recherche.submitRecherche            
+            if (keyword !== undefined && keyword.length > 0) {
             setLoaded(false)
             const url = 'http://localhost:4000/user/recherche'
-            const keyword = props.recherche.submitRecherche            
             const result = await axios.post(url, { keyword: keyword })
             setLastArticles(false)
             setArticles(result.data)
-            setLoaded(true)
-            console.log(result.data);
-            
+            setLoaded(true)}
         }
         loadArticlesRecherche()
         
