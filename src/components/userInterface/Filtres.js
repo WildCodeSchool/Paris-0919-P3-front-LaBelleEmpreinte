@@ -310,7 +310,7 @@ class Filtres extends Component {
               besoin={this.state.besoinsSelected}
               objet={this.state.objetsSelected}
             />
-          : this.props.front === "admin-initiatives" ?
+          : this.props.front === "admin_initiatives" ?
                 <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
