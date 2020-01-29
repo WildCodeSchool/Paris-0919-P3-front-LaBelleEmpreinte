@@ -1,5 +1,5 @@
-/* CSS pour la component "displayArticleAdminAdmin */
-.displayArticleAdmin_page {
+/* CSS pour la component "displayEngagementsAdminAdmin */
+.displayEngagementsAdmin_page {
 	font-family: 'Open Sans';
 	display: flex;
 	flex-direction: column;
@@ -17,21 +17,20 @@
 }
 
 /* CSS encadrer générale*/
-.displayArticleAdmin_frame{
+.displayEngagementsAdmin_frame{
     border : solid grey 1px;
     width: 80vw;
 
 }
 
 /* CSS en-tête*/
-.displayArticleAdmin_header {
+.displayEngagementsAdmin_header {
     display: flex;
     align-items: center;
     align-content: stretch;
     border-bottom: solid 1px grey;
     padding: 0px;
     justify-content: space-between;
-    padding-right: 2.5vh;
     padding-left:2.5vh;
     background-color:#F6F1EB;
     text-align: center;
@@ -43,13 +42,13 @@
 }
 
 /* CSS les textes de l'encadrer*/
-.displayArticleAdmin_header p{
+.displayEngagementsAdmin_header p{
 margin: 0px;
 
 }
 
 /* CSS bloc des articles*/
-.displayArticleAdmin_items {
+.displayEngagementsAdmin_items {
     list-style: none;
     /* border: 8px solid grey; */
     padding-left: 0%;
@@ -57,19 +56,18 @@ margin: 0px;
     font-family: 'Open Sans'
 }
 
-.displayArticleAdmin_content{
+.displayEngagementsAdmin_content{
     height: 40vh;
     overflow: scroll;
 }
 
 
 /* CSS chaque article*/
-.displayArticleAdmin_items li {
+.displayEngagementsAdmin_items li {
     border: grey solid 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right:2vw;
     padding-left: 1vw;
     margin-top: 0.5vh;
     box-shadow: 2px 0px 3px gray;
@@ -77,7 +75,7 @@ margin: 0px;
 }
 
 /* CSS titre article*/
-.displayArticleAdmin_title{
+.displayEngagementsAdmin_title{
 width: 80vw;
 }
 
