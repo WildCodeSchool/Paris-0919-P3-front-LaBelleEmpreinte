@@ -1,34 +1,26 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 export default function CreateBesoin() {
 
-    const [labelName, setLabelName] = useState()
+    const [besoins, setBesoins] = useState()
     const [picto, setPicto] = useState()
-    const newBesoin = { labelName, picto }
+    const newBesoin = { besoins, picto }
 
-
-    // a checker le chemin ==> nouveau besoin
-    const handlePost = (e) => {
-        fetch("admin/articles/create",
-          {
-            method: 'POST',
-            headers: new Headers({
-              'Content-Type': 'application/json'
-            }),
-            body: JSON.stringify(newBesoin),
-          })
-          .then(res => res.json())
-        e.preventDefault()
-      }
+      const handlePost = () => {
+        const url = 'http://localhost:4000/admin/besoins/create'
+           axios.post(url, newBesoin)
+           console.log('yo')
+        }
 
     return (
         <div className="creation-besoin">
             <h3>J'ajoute un besoin</h3>
             <div>
-                <label>Nom du label: <input type="text" onChange={(e) => setLabelName(e.target.value)} /></label>
+                <label>Nom du label: <input type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
-            <input type="button" value="Créer Besoin" onClick={handlePost}/>
+            <input type="button" value="Créer Besoin" onClick={(e) => handlePost(e)}/>
         </div>
 
     )

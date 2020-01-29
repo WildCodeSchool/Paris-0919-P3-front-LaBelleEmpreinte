@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function CreateTypeActivity() {
+export default function CreateObjets() {
 
-    const [types_activites, setTypes_activites] = useState()
+    const [name, setName] = useState()
     const [picto, setPicto] = useState()
     const [filtres, setFiltres] = useState([])
-    const [besoins_id, setBesoins_id] = useState()
-    const newCat = { types_activites, picto, besoins_id }
+    const [categories_intermediaires_id, setCategories_intermediaires_id] = useState()
+    const newCat = { name, picto, categories_intermediaires_id }
 
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/types_activites/create'
+        const url = 'http://localhost:4000/admin/objets/create'
            axios.post(url, newCat)
         }
 
         useEffect(() => {
             const getFilters = () => {
                 axios
-                .get("http://localhost:4000/user/besoins")
+                .get("http://localhost:4000/user/objets")
                 .then(response => response.data)
                 .then(data => {
-                  setFiltres(data[0].results);
+                    console.log("aaaaaaaa", data)
+                  setFiltres(data[1].results);
                 });
                 
             }
@@ -30,19 +31,19 @@ export default function CreateTypeActivity() {
         }, [])
 
         console.log(filtres)
-        console.log('catinter', besoins_id)
+        console.log('catinter', categories_intermediaires_id)
 
     return (
         <div className="creation-typeCat">
-            <h3>J'ajoute un type d'activité</h3>
+            <h3>J'ajoute un objet</h3>
             <div>
-                <label>Nom du type d'activité : <input type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
+                <label>Nom de l'objet : <input type="text" onChange={(e) => setName(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
 
 
-               <label> Catégorie intermédiaire associée <select onChange={(e) => setBesoins_id(e.target.value)}> 
+               <label> Catégorie intermédiaire associée <select onChange={(e) => setCategories_intermediaires_id(e.target.value)}> 
                     {filtres.map(filtre => {
-                       return <option value={filtre.id}> {filtre.besoins}</option>
+                       return <option value={filtre.id}> {filtre.name}</option>
                     })
                 }
                 </select></label>
