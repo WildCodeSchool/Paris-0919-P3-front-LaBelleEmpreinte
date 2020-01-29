@@ -6,7 +6,7 @@ import { Route, Switch, Link } from 'react-router-dom'
 import CreateArticle from "./routes/CreateArticle"
 import CreateBesoin from './routes/CreateBesoin'
 import CreateCategory from './routes/CreateCategory'
-import DisplayArticles from "./routes/DisplayArticles"
+import Filtres from '../userInterface/Filtres'
 import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
 import DisplayObjetsAdmin from "./DisplayObjetsAdmin"
@@ -19,6 +19,7 @@ import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
 import Filtres from "../userInterface/Filtres"
 
 
+import "./CSS/MainFilters.css"
 
 export default function MainFilters() {
 
@@ -47,22 +48,22 @@ export default function MainFilters() {
     return (
         <>
             {/* filtres principaux */}
-            <form>
+            <form className="mainFilters">
 
                 {/* filtre pour le type d'action */}
-                <select onChange={(e) => setAction(e.target.value)}>
-                    <option value="creer">Créer</option>
+                <select className="mainFilter-selector" onChange={(e) => setAction(e.target.value)}>
+                    <option className="mainFilter-option" value="creer">Créer</option>
                     <option value="afficher">Afficher</option>
                 </select>
 
                  {/* category filter based on the axios call */}
                 {tables ?
-                    <select onChange={(e) => setCategory(e.target.value)}>
+                    <select className="mainFilter-selector" onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
                             <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
-                    </select> : console.log("second filter is loading")}
+                    </select> : null}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
-                <Link to={route}><input type="button" value="Valider" onClick={console.log(category)}/></Link>
+                <Link to={route}><input className="mainFilter-button" type="button" value="Valider" /></Link>
             </form>
 
             {/* Les routes */}
@@ -91,7 +92,7 @@ export default function MainFilters() {
                     <DisplayObjetsAdmin/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
-                    <Filtres front="admin_initiaves"/>
+                    <Filtres front="admin_initiatives"/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
                     <DisplayCatObjetsAdmin/>
@@ -107,6 +108,7 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/admin/afficher/besoins">
                     <DisplayBesoinsAdmin/>
+
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
             </Switch>

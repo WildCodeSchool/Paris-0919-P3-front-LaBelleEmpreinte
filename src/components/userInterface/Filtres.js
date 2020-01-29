@@ -6,8 +6,7 @@ import deleteFilterIcon from "../../assets/icons/deleteFilterIcon.png";
 import DisplayArticlesAdmin from "../adminInterface/DisplayArticleAdmin";
 import DisplayArticles from "../screen/DisplayArticles";
 import DisplayInitiativesAdmin from "../adminInterface/DisplayInitiativesAdmin";
-
-import "./Filtres.css";
+import MoteurRecherche from '../screen/MoteurRecherche'
 
 class Filtres extends Component {
   state = {
@@ -24,8 +23,13 @@ class Filtres extends Component {
       id: 0,
       name: "",
       type: ""
-    }
+    },
+    recherche: '',
   };
+
+  setRecherche = (submitRecherche) => {
+    this.setState({ recherche: submitRecherche })
+  }
 
   componentDidMount() {
     this.getObjets();
@@ -69,11 +73,21 @@ class Filtres extends Component {
   };
 
   render() {
-    // console.log("besoin selec", this.state.besoinsSelected);
-    console.log("front", this.state.front);
-    console.log("front props", this.props.front);
 
-    // console.log('objet selec', this.state.objetsSelected)
+    return (
+      <>
+        {this.props.front==="user"? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
+        <div className="Filtres_container">
+          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
+            <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
+          </div>
+
+          <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : "Filtres-frame-objet2"}>
+            {this.state.isVisibleObjets
+              ? this.state.datasObjets[0].results.map(categ => {
+                const filterByCategory = this.state.datasObjets[1].results.filter(
+                  sousCateg => sousCateg.categories_objets_id === categ.id
+                );
 
     return (
       <div>
@@ -264,10 +278,6 @@ class Filtres extends Component {
                 : ""}
             </div>
 
-            {/* <div className='Filtres_searchEngine'> Moteur de recherche </div>
-        <button onClick={this.getArticlesBySousCategSelected}>
-          Rechercher
-          </button> */}
 
             <div className="Filtres_selectFilters">
               <p>
@@ -332,6 +342,7 @@ class Filtres extends Component {
         </div>
       </div>
     );
+
   }
 }
 export default Filtres;

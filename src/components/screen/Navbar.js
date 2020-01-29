@@ -10,13 +10,13 @@ class Navbar extends Component {
       <div className="navbar">
         <div>
           <div className="navbar-logo">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/" >
               <img src={logo} alt="la_belle_empreinte" width="130" />
             </a>
           </div>
           <ul className="navbar-sidebar">
             <li className="navbar-item">
-              <a className="navbar-link " href="/homepage">
+              <a className="navbar-link " href="https://labelleempreinte.fr/" style={{ textDecoration: 'none', color: '#000000' }}>
                 ACCUEIL
               </a>
               <div className="navbar-rond"></div>
@@ -25,15 +25,15 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link" href="/quizz">
-                QUIZZ & GUIDE
+              <a className="navbar-link" href="https://labelleempreinte.fr/quizz" style={{ textDecoration: 'none', color: '#000000' }}>
+                GUIDE
               </a>
               <div className="navbar-rond"></div>
             </li>
 
             <hr className="navbar-line" />
             <li className="navbar-item">
-              <a className="navbar-link" href="/presentation">
+              <a className="navbar-link" href="https://labelleempreinte.fr/presentation" style={{ textDecoration: 'none', color: '#000000' }}>
                 PRESENTATION
               </a>
               <div className="navbar-rond"></div>
@@ -43,9 +43,10 @@ class Navbar extends Component {
             <li className="navbar-item">
               <a
                 className="navbar-link navbar-after-red"
-                href="/moteur-de-recherche"
+                href="/recherche"
+                style={{ textDecoration: 'none', color: '#000000' }}
               >
-                MOTEUR DE <br /> RECHERCHE
+                <b>MOTEUR DE <br /> RECHERCHE</b>
               </a>
               <div className="navbar-rond-red"></div>
             </li>
@@ -53,7 +54,7 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link after-orange" href="/label">
+              <a className="navbar-link after-orange" href="https://labelleempreinte.fr/label" style={{ textDecoration: 'none', color: '#000000' }}>
                 LABEL
               </a>
               <div className="navbar-rond-orange"></div>
@@ -62,8 +63,8 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link" href="/nous rejoindre">
-                NOUS <br/> REJOINDRE
+              <a className="navbar-link" href="https://labelleempreinte.fr/nous-rejoindre" style={{ textDecoration: 'none', color: '#000000' }}>
+                NOUS <br /> REJOINDRE
               </a>
               <div className="navbar-rond"></div>
             </li>
@@ -71,7 +72,7 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link" href="/blog">
+              <a className="navbar-link" href="https://labelleempreinte.fr/blog" style={{ textDecoration: 'none', color: '#000000' }}>
                 BLOG
               </a>
               <div className="navbar-rond"></div>
@@ -80,7 +81,7 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link" href="/premier pas">
+              <a className="navbar-link" href="https://labelleempreinte.fr/premiers-pas" style={{ textDecoration: 'none', color: '#000000' }}>
                 PREMIER PAS
               </a>
               <div className="navbar-rond"></div>
@@ -89,8 +90,8 @@ class Navbar extends Component {
             <hr className="navbar-line" />
 
             <li className="navbar-item">
-              <a className="navbar-link-pros" href="coin-des-pros">
-                LE COIN DES <br/>PROS
+              <a className="navbar-link-pros" href="https://labelleempreinte.fr/coin-des-pros" style={{ textDecoration: 'none', color: '#000000' }}>
+                LE COIN DES <br />PROS
               </a>
               <div className="navbar-rond"></div>
             </li>
@@ -103,7 +104,7 @@ class Navbar extends Component {
                 data-target="#newsletterModal"
               >
                 <i className="navbar-envelope"></i>
-                <img className="navbar-logo" src={logo1} alt="" height="16" /> La lettre des <br/>emplettes
+                <img className="navbar-logo" src={logo1} alt="" height="16" /> La lettre des <br />emplettes
                 responsables
               </button>
             </div>
