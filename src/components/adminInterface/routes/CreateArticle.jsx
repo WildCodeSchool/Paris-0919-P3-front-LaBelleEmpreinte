@@ -40,16 +40,8 @@ export default function CreateArticle(props) {
     e.preventDefault()
     await getUniqInitIds()
     console.log("ce que reçoit le back", articleDataForBack)
-    fetch("http://localhost:4000/admin/articles/create",
-      {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
-      }, 
-      {body: articleDataForBack}
-      )
-      .then(res => res.json())
+    const url = 'http://localhost:4000/admin/articles/create'
+      axios.post(url, articleDataForBack)
   }
 
   const getUniqInitIds = () => {
