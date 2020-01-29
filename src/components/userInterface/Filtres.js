@@ -1,12 +1,12 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
 import menuBurger from "../../assets/icons/menuBurger.png";
-import arrow from "../../assets/icons/arrow.png";
 import deleteFilterIcon from "../../assets/icons/deleteFilterIcon.png";
 import DisplayArticlesAdmin from "../adminInterface/DisplayArticleAdmin";
 import DisplayArticles from "../screen/DisplayArticles";
 import DisplayInitiativesAdmin from "../adminInterface/DisplayInitiativesAdmin";
 import MoteurRecherche from '../screen/MoteurRecherche'
+import "./Filtres.css"
 
 class Filtres extends Component {
   state = {
@@ -75,25 +75,10 @@ class Filtres extends Component {
   render() {
 
     return (
-      <>
-        {this.props.front==="user"? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
-        <div className="Filtres_container">
-          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
-            <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
-          </div>
-
-          <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : "Filtres-frame-objet2"}>
-            {this.state.isVisibleObjets
-              ? this.state.datasObjets[0].results.map(categ => {
-                const filterByCategory = this.state.datasObjets[1].results.filter(
-                  sousCateg => sousCateg.categories_objets_id === categ.id
-                );
-
-    return (
       <div>
+        {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
         <div className="Filtres_container">
           <div className="Filtres_Objets-title" onClick={this.displayObjet}>
-            <div className="Filtres_menuBurger">
               <img src={menuBurger} alt="menuBurger"></img>
               <p>Objets</p>
             </div>
@@ -106,9 +91,7 @@ class Filtres extends Component {
                 ? this.state.datasObjets[0].results.map(categ => {
                     const filterByCategory = this.state.datasObjets[1].results.filter(
                       sousCateg => sousCateg.categories_objets_id === categ.id
-                    );
-
-                    return (
+                    );                    return (
                       <div className="Filtres_one-Categorie-objet">
                         <p
                           className="Filtres_sousCat"
@@ -195,18 +178,14 @@ class Filtres extends Component {
                     );
                   })
                 : ""}
-            </div>
-
-            {/* besoins */}
+            </div>            {/* besoins */}
             <div
               className="Filtres_Besoins-title"
               onClick={this.displayBesoins}
             >
               <img src={menuBurger} alt="menuBurger"></img>
               <p>Besoins</p>
-            </div>
-
-            <div
+            </div>            <div
               className={
                 this.state.isVisibleBesoins ? "Filtres_frame-besoins" : ""
               }
@@ -215,9 +194,7 @@ class Filtres extends Component {
                 ? this.state.datasBesoins[0].results.map(categ => {
                     const filterByCategory = this.state.datasBesoins[1].results.filter(
                       sousCateg => sousCateg.besoins_id === categ.id
-                    );
-
-                    return (
+                    );                    return (
                       <div className="Filtres_BesoinsColumns">
                         <div>
                           <p
@@ -239,9 +216,7 @@ class Filtres extends Component {
                             {categ.besoins}
                           </p>
                           <hr />
-                        </div>
-
-                        {filterByCategory.map(sCateg => {
+                        </div>                        {filterByCategory.map(sCateg => {
                           const filterBySousCateg = this.state.datasObjets[2].results.filter(
                             objet => objet.types_activites_id === sCateg.id
                           );
@@ -276,10 +251,10 @@ class Filtres extends Component {
                     );
                   })
                 : ""}
-            </div>
-
-
-            <div className="Filtres_selectFilters">
+            </div>            {/* <div className='Filtres_searchEngine'> Moteur de recherche </div>
+        <button onClick={this.getArticlesBySousCategSelected}>
+          Rechercher
+          </button> */}            <div className="Filtres_selectFilters">
               <p>
                 {this.state.objetsSelected.id !== 0 ? (
                   <div>
@@ -300,9 +275,7 @@ class Filtres extends Component {
                 ) : (
                   ""
                 )}
-              </p>
-
-              {this.state.besoinsSelected.id !== 0 ? (
+              </p>              {this.state.besoinsSelected.id !== 0 ? (
                 <div>
                   <p>{this.state.besoinsSelected.name}</p>
                   <img
@@ -322,9 +295,12 @@ class Filtres extends Component {
                 ""
               )}
             </div>
-          </div>
+          </div>   
 
-          {this.props.front === "admin_articles" ? 
+
+          
+
+          {this.props.front === "admin_articles" ?
             <DisplayArticlesAdmin
               besoin={this.state.besoinsSelected}
               objet={this.state.objetsSelected}
@@ -333,16 +309,15 @@ class Filtres extends Component {
                 <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
-            /> 
+            />
           : <DisplayArticles
             besoin={this.state.besoinsSelected}
             objet={this.state.objetsSelected}
+            recherche={this.state.recherche}
             />
           }
-        </div>
       </div>
     );
-
   }
 }
 export default Filtres;

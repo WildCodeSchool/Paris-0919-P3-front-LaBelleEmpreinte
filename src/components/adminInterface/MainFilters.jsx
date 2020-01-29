@@ -16,7 +16,7 @@ import DisplayInitiativesAdmin from "./DisplayInitiativesAdmin"
 import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
 import DisplayCatIntermediairesAdmin from "./DisplayInitiativesAdmin"
 import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
-import Filtres from "../userInterface/Filtres"
+
 
 
 import "./CSS/MainFilters.css"
