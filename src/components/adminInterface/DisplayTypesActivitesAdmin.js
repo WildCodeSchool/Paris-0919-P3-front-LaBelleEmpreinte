@@ -5,7 +5,7 @@ import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 
 const DisplayTypesActivitesAdmin = () => {
-    const [TypesActivites, setTypesActivites] = useState([])
+    const [typesActivites, setTypesActivites] = useState([])
 
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const DisplayTypesActivitesAdmin = () => {
                     </div>
                     <div className="displayEngagementsAdmin_content">
                         <ul className="displayEngagementsAdmin_items">
-                        {TypesActivites.map(elem =>
+                        {typesActivites.map(elem =>
 
                         { 
                             // {console.log("test",elem)}

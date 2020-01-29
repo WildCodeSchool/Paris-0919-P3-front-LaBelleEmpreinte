@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
 import menuBurger from '../../assets/icons/menuBurger.png'
+import arrow from '../../assets/icons/arrow.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
 import DisplayArticlesAdmin from '../adminInterface/DisplayArticleAdmin'
 import DisplayEngagementsAdmin from '../adminInterface/DisplayEngagementsAdmin'
@@ -8,6 +9,7 @@ import DisplayCatObjetsAdmin from '../adminInterface/DisplayCatObjetsAdmin'
 import DisplayBesoinsAdmin from '../adminInterface/DisplayBesoinsAdmin'
 import DisplayObjetsAdmin from '../adminInterface/DisplayObjetsAdmin'
 import DisplayTypesActivitesAdmin from '../adminInterface/DisplayTypesActivitesAdmin'
+import DisplayInitiativesAdmin from '../adminInterface/DisplayInitiativesAdmin'
 
 
 import "./Filtres.css";
@@ -85,7 +87,8 @@ console.log("front props", this.props.front)
       <>
       <div className="Filtres_container">
         <div className="Filtres_Objets-title" onClick={this.displayObjet}>
-          <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
+          <div className="Filtres_menuBurger"><img src={menuBurger} alt='menuBurger'></img><p>Objets</p></div>
+          <div className="Filtres_arrow"><img src={arrow} alt='arrow'></img></div>
         </div>
 
         <div className={this.state.isVisibleObjets ? 'Filtres-frame-objet' : ""}>
@@ -124,6 +127,7 @@ console.log("front props", this.props.front)
                       );
                       return (
                         <div className="Filtres_eachCatIntermediaires">
+                          <nav>
                           <ul>
                             <li className="Filtres_CatInterFont"
                               key={sCateg.id}
@@ -172,6 +176,7 @@ console.log("front props", this.props.front)
                               </ul>
                             );
                           })}
+                          </nav>
                         </div>
                       );
                     })}
@@ -301,7 +306,9 @@ console.log("front props", this.props.front)
           {/* <DisplayCatIntermediairesAdmin /> */}
           {/* <DisplayBesoinsAdmin /> */}
           {/* <DisplayObjetsAdmin /> */}
-          <DisplayTypesActivitesAdmin />
+          {/* <DisplayTypesActivitesAdmin /> */}
+          <DisplayInitiativesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/>
+
 
       </>
     );

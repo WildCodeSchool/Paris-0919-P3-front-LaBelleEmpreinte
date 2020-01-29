@@ -27,21 +27,30 @@
     background-color: lightgrey;
     border-radius: 1%;
     display:flex;
+    justify-content:stretch ;
+    width: 20vw;
+}
+
+.Filtres_menuBurger {
+    display: flex;
+    justify-content: flex-start;
+    width: 80vw;
+}
+
+.Filtres_arrow {
+    display: flex;
+    width: 20vw;
+    justify-content: flex-end;
 }
 
 .Filtres_Objets-title p {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto 0px;
     align-items: center;
 }
 
 .Filtres_Objets-title img {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-    align-items: center;
-    
+    /*! align-items: center; */
+    margin: auto 0.5vw auto;
 }
 
 /* Besoins */
