@@ -4,6 +4,8 @@ import FiltresAdmin from '../../adminInterface/FiltresAdmin'
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios'
 
+import deleteFilterIcon from './../../../assets/icons/deleteFilterIcon.png'
+
 
 export default function CreateArticle(props) {
   // les states
@@ -15,7 +17,7 @@ export default function CreateArticle(props) {
   const [readingTime, setTime] = useState()
   const [place, setPlace] = useState()
   const [text, setText] = useState()
-  const [isPublished, setPublished] = useState()
+  const [isPublished, setPublished] = useState(false)
   const [titleList, setTitleList] = useState()
   ///// table intermédiaire ////
   const [validateFilters, setValidateFilters] = useState(false)
@@ -26,33 +28,35 @@ export default function CreateArticle(props) {
   const [categories_objets, setCategories_objets] = useState([])
   const [categories_intermediaires, setCategories_intermediaires] = useState([])
   const [objets, setObjets] = useState([])
-
+  const [hasInit, setHasInit] = useState(false)
 
   // MEGA STATE!!
-  const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: titleList }
+  const articleData = { titre: title, auteur: author, date: date, image: img, minutes_lecture: readingTime, geographie: place, contenu: text, publication: isPublished, listes_initiatives: hasInit }
 
-
-
+  const articleDataForBack = { article: articleData, initiatives: uniqueInitiatives, besoins: besoins, types_activites: types_activites, categories_objets: categories_objets, categories_intermediaires: categories_intermediaires, objets: objets }
+  
   // Est censé envoyer les données à la BDD
-  const handlePost = (e) => {
+  const handlePost = async (e) => {
     e.preventDefault()
-    fetch("admin/articles/create",
-      {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(articleData),
-      })
-      .then(res => res.json())
+    await getUniqInitIds()
+    console.log("ce que reçoit le back", articleDataForBack)
+    const url = 'http://localhost:4000/admin/articles/create'
+      axios.post(url, articleDataForBack)
+  }
+
+  const getUniqInitIds = () => {
+    const initsWithoutName = uniqueInitiatives.map( a => a.id)
+    console.log("carabistouilles de la plage", initsWithoutName)
   }
 
   useEffect( () => {
+      setInitiatives([])
       const displayInitiatives =  async (filter) => {
         const url = 'http://localhost:4000/admin/filtre/initiatives'
           filter.map( async (item) => {
             return await axios.post(url, { type: item.type, id: item.id })
             .then(res => setInitiatives((prevState)=> [...prevState, ...res.data] ))
+            .then(setHasInit(true))
           })      
           
         }
@@ -66,7 +70,7 @@ export default function CreateArticle(props) {
 
   useEffect(() => {
     const displayUniqueInitiatives = () => {
-      const uniqInit = [...uniqueInitiatives]   
+      const uniqInit = []   
       for(let i = 0; i<initiatives.length; i++){
         if(uniqInit.length === 0){
           uniqInit.push({name : initiatives[0].name, id : initiatives[0].id})
@@ -85,6 +89,7 @@ export default function CreateArticle(props) {
         }
       }      
       setUniqueInitiatives(uniqInit)
+      // console.log("uniqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", uniqInit)
     }
     displayUniqueInitiatives()
   }, [initiatives])
@@ -100,14 +105,37 @@ const getFilters = (a, b, c, d, e) => {
   setValidateFilters(!validateFilters)
   }
 
+  // const unBind = (initName) => {
+  //   console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
+  //   const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
+  //   for (let i = 0; i < remainingInit.length; i++) {
+  //     if (remainingInit[i].name === initName) {
+  //       remainingInit.splice(i)
+  //     }
+  //   }
+  //   setUniqueInitiatives(remainingInit)
+  // }
+
+  const unBind = (initName) => {
+    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
+    const remainingInit = [...uniqueInitiatives].filter(elem => elem.name != initName)
+    setUniqueInitiatives(remainingInit)
+  }
 // console.log('besoins',besoins)
 // console.log('types_activites',types_activites)
 // console.log('categories_objets',categories_objets)
 // console.log('categories_intermediaires',categories_intermediaires)
 // console.log('objets',objets)
 
-  // console.log(articleData)
+  console.log("ce qu'on envoie au back", articleData)
+
+  console.log("ce que reçoit le back", articleDataForBack)
   // console.log("categories_objets", categories_objets)
+console.log("initiatitvessssssssskkkkkkkkkkkkkk", initiatives)
+console.log("initiatitvesssssssssuniqqqqqqqqqqqqqqq", uniqueInitiatives)
+console.log("HasInit", hasInit);
+
+
 
   return (
     <div>
@@ -162,10 +190,14 @@ const getFilters = (a, b, c, d, e) => {
         <div className="initiatives">
         <div> "ihihi" </div>
           {uniqueInitiatives.map(init =>
-            <p>
-            {init.name}
-            </p>)
-            }
+            <div className="createArticle-initButton">
+              <p>
+              {init.name}
+              </p>
+              <img src={deleteFilterIcon} alt="deleteFilterIcon" onClick={() => unBind(init.name)}></img>
+            </div>
+          )
+          }
           <div> "ihihi" </div>
         </div>
         <div className="publication"> Mon article est publié

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment';
 
-
+import './CSS/Loader.css'
 import './CSS/ArticleContent.css'
 
 import ListInitiatives from './ListInitiatives.js'
@@ -88,7 +88,9 @@ const ArticleContent = (props) => {
     return (
         <>
             {!loaded ?
-                (<div>Article en cours de chargement...</div>)
+                (<div className='Articles-loader-container'>
+                    <div className='Articles-loader'></div>
+                </div>)
                 :
                 (<div className='articlecontent'>
                     <span className='articlecontent-title'></span>
