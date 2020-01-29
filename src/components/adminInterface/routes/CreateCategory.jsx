@@ -17,7 +17,7 @@ export default function CreateCategory() {
 
     return (
         <div className="creation-typeCat">
-            <h3>J'ajoute une catégorie</h3>
+            <h3>J'ajoute une catégorie d'objet</h3>
             <div>
                 <label>Nom de la catégorie d'objet: <input type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
