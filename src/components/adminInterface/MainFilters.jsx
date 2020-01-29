@@ -6,7 +6,7 @@ import { Route, Switch, Link } from 'react-router-dom'
 import CreateArticle from "./routes/CreateArticle"
 import CreateBesoin from './routes/CreateBesoin'
 import CreateCategory from './routes/CreateCategory'
-import DisplayArticles from "./routes/DisplayArticles"
+import Filtres from '../userInterface/Filtres'
 import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
 
@@ -77,7 +77,7 @@ export default function MainFilters() {
                 </Route>
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
-                    <DisplayArticles />
+                    <Filtres front="admin"/>
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
             </Switch>

@@ -8,7 +8,7 @@ export default function DisplayArticles(props) {
     // on récupère les objets de la BDD
     const [listObjets, setObjets] = useState()
     // on récupère les besoins de la BDD
-    const [listBesoins, setBesoins]=useState()
+    const [listBesoins, setBesoins] = useState()
 
     // state des filtres
     const [objet, setObjet] = useState()
@@ -40,24 +40,25 @@ export default function DisplayArticles(props) {
 
 
     return (
-        <div className="display_content">
-            <h3><b>Je consulte mes articles :</b></h3>
+        <>
+            <div className="display_content">
+                <h3><b>Je consulte mes articles :</b></h3>
 
-            {/* premier select pour obtenir le filtre objets */}
-            <select>
-                {listObjets ?
-                listObjets.map((item, index) => 
-                    <option key={index} value={item.type} onChange={(e) => setObjet(e.target.value)}>{item.type}</option>) : 
-                    null}
-            </select>
-            {/* second filtre pour obtenir les besoins */}
-            <select>
-                {listBesoins? 
-                listBesoins.map((item, index) => 
-                    <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
-                ) : null}
-            </select>
-            <DisplayArticleAdmin besoin={besoins} object={objet}/>
-        </div>
-    )
+                {/* premier select pour obtenir le filtre objets */}
+                <select>
+                    {listObjets ?
+                        listObjets.map((item, index) =>
+                            <option key={index} value={item.type} onChange={(e) => setObjet(e.target.value)}>{item.type}</option>) :
+                        null}
+                </select>
+                {/* second filtre pour obtenir les besoins */}
+                <select>
+                    {listBesoins ?
+                        listBesoins.map((item, index) =>
+                            <option key={index} value={item.type} onChange={(e) => setBesoin(e.target.value)}>{item.type}</option>
+                        ) : null}
+                </select>
+            </div>
+            {/* <DisplayArticleAdmin besoin={besoins} object={objet} /> */}
+        </>)
 }

@@ -29,7 +29,6 @@ class Filtres extends Component {
 
   setRecherche = (submitRecherche) => {
     this.setState({ recherche: submitRecherche })
-    console.log('SUBMITRECHERCHE', submitRecherche);
   }
 
   componentDidMount() {
@@ -76,7 +75,7 @@ class Filtres extends Component {
   render() {
     return (
       <>
-        <MoteurRecherche setRechercheParent={this.setRecherche} />
+        {this.props.front==="user"? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
         <div className="Filtres_container">
           <div className="Filtres_Objets-title" onClick={this.displayObjet}>
             <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
@@ -304,14 +303,13 @@ class Filtres extends Component {
           {/* <DisplayTypesActivitesAdmin /> */}
 
         {/* {this.props.front === "user" ? */}
-          <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} recherche={this.state.recherche} />
-          :
-          ''
-          {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} */}
-        } 
+          {/* <DisplayArticles besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} recherche={this.state.recherche} /> */}
+          
+          {/* ////////// Pour les get articles et initiatives dans admin, il faut faire passer en props depuis le composant parent de Filtre(dans admin) la props "front = "admin", et appeler ici le composant qui va afficher les articles en fonction des filtres ///// */} 
+    
         {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected}/> */}
       </>
-    );
+    )
   }
 }
 export default Filtres;
