@@ -9,6 +9,15 @@ import CreateCategory from './routes/CreateCategory'
 import Filtres from '../userInterface/Filtres'
 import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
+import DisplayObjetsAdmin from "./DisplayObjetsAdmin"
+import DisplayBesoinsAdmin from "./DisplayBesoinsAdmin"
+import DisplayEngagementsAdmin from "./DisplayEngagementsAdmin"
+import DisplayInitiativesAdmin from "./DisplayInitiativesAdmin"
+import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
+import DisplayCatIntermediairesAdmin from "./DisplayInitiativesAdmin"
+import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
+
+
 
 import "./CSS/MainFilters.css"
 
@@ -77,7 +86,29 @@ export default function MainFilters() {
                 </Route>
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
-                    <Filtres front="admin"/>
+                    <Filtres front="admin_articles"/>
+                </Route>
+                <Route path="/admin/afficher/objets">
+                    <DisplayObjetsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/initiatives">
+                    <Filtres front="admin_initiatives"/>
+                </Route>
+                <Route path="/admin/afficher/categories_objets">
+                    <DisplayCatObjetsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/categories_intermediaires">
+                    <DisplayCatIntermediairesAdmin/>
+                </Route>
+                <Route path="/admin/afficher/types_activites">
+                    <DisplayTypesActivitesAdmin/>
+                </Route>
+                <Route path="/admin/afficher/engagements">
+                    <DisplayEngagementsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/besoins">
+                    <DisplayBesoinsAdmin/>
+
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
             </Switch>

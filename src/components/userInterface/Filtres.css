@@ -29,18 +29,18 @@
     grid-row-end: 1;
     background-color: #F6F1EB;
     border-radius: 1%;
+
     display: flex;
     cursor: pointer;
 }
 
 .Filtres_Objets-title p {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto 0px;
     align-items: center;
 }
 
 .Filtres_Objets-title img {
+
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
