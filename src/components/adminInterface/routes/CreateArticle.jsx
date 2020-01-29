@@ -110,14 +110,20 @@ const getFilters = (a, b, c, d, e) => {
   setValidateFilters(!validateFilters)
   }
 
+  // const unBind = (initName) => {
+  //   console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
+  //   const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
+  //   for (let i = 0; i < remainingInit.length; i++) {
+  //     if (remainingInit[i].name === initName) {
+  //       remainingInit.splice(i)
+  //     }
+  //   }
+  //   setUniqueInitiatives(remainingInit)
+  // }
+
   const unBind = (initName) => {
     console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
-    const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
-    for (let i = 0; i < remainingInit.length; i++) {
-      if (remainingInit[i].name === initName) {
-        remainingInit.splice(i)
-      }
-    }
+    const remainingInit = [...uniqueInitiatives].filter(elem => elem.name != initName)
     setUniqueInitiatives(remainingInit)
   }
 // console.log('besoins',besoins)
