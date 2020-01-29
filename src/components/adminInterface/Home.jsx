@@ -51,7 +51,7 @@ export default function HomeAdmin() {
         }
         // si jamais les données locales sont absentes ou fausses, ferme le state admin
         else {
-            setAdmin(false)
+            setAdmin(true)
         }
     })
 
