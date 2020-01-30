@@ -10,7 +10,7 @@ class Navbar extends Component {
       <div className="navbar">
         <div>
           <div className="navbar-logo">
-            <a className="navbar-brand" href="/" >
+            <a className="navbar-brand" href="https://labelleempreinte.fr/" >
               <img src={logo} alt="la_belle_empreinte" width="130" />
             </a>
           </div>
