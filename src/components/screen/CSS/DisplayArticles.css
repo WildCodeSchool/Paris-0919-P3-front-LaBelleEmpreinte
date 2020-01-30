@@ -29,8 +29,20 @@
   display: none;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 770px){
   .DisplayArticles-Gallery {
     justify-content: center;
   }
 } 
+=======
+@media screen and (max-width: 770px) {
+  .DisplayArticles-Gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+    justify-content: center;
+  }
+}
+>>>>>>> e32d1466dafb4ca3d4ce4fc742a4225ef69bd66a

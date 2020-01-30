@@ -5,10 +5,20 @@ import { Route, Switch, Link } from 'react-router-dom'
 // On importe les routes
 import CreateArticle from "./routes/CreateArticle"
 import CreateBesoin from './routes/CreateBesoin'
-import CreateCategory from './routes/CreateCategory'
-import Filtres from '../userInterface/Filtres'
-import CreateEngagement from "./routes/CreateEngagement"
 import CreateTypeActivity from "./routes/CreateTypeActivity"
+import CreateEngagement from "./routes/CreateEngagement"
+import CreateCategory from './routes/CreateCategory'
+import CreateCategoryIntermediaire from "./routes/CreateCategoryIntermediaire"
+import CreateObjets from './routes/CreateObjets'
+import Filtres from '../userInterface/Filtres'
+import DisplayObjetsAdmin from "./DisplayObjetsAdmin"
+import DisplayBesoinsAdmin from "./DisplayBesoinsAdmin"
+import DisplayEngagementsAdmin from "./DisplayEngagementsAdmin"
+import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
+import DisplayCatIntermediairesAdmin from "./DisplayCatIntermediairesAdmin"
+import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
+
+
 
 import "./CSS/MainFilters.css"
 
@@ -52,6 +62,7 @@ export default function MainFilters() {
                     <select className="mainFilter-selector" onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
                             <option key={index} value={item.TABLE_NAME} onChange={(e) => setCategory(e.target.value)}>{item.TABLE_NAME}</option>))}
+
                     </select> : null}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
                 <Link to={route}><input className="mainFilter-button" type="button" value="Valider" /></Link>
@@ -66,18 +77,47 @@ export default function MainFilters() {
                 <Route path="/admin/creer/besoins">
                     <CreateBesoin />
                 </Route>
+                <Route path="/admin/creer/types_activites">
+                    <CreateTypeActivity/>
+                </Route>
                 <Route path="/admin/creer/categories_objets">
                     <CreateCategory/>
+                </Route>
+                <Route path="/admin/creer/categories_intermediaires">
+                    <CreateCategoryIntermediaire/>
+                </Route>
+                <Route path="/admin/creer/objets">
+                    <CreateObjets/>
                 </Route>
                 <Route path="/admin/creer/engagements">
                     <CreateEngagement/>
                 </Route>
-                <Route path="/admin/creer/types_activites">
-                    <CreateTypeActivity/>
-                </Route>
+                
                 {/* route pour afficher du contenu */}
                 <Route path="/admin/afficher/articles">
-                    <Filtres front="admin"/>
+                    <Filtres front="admin_articles"/>
+                </Route>
+                <Route path="/admin/afficher/objets">
+                    <DisplayObjetsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/initiatives">
+                    <Filtres front="admin_initiatives"/>
+                </Route>
+                <Route path="/admin/afficher/categories_objets">
+                    <DisplayCatObjetsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/categories_intermediaires">
+                    <DisplayCatIntermediairesAdmin/>
+                </Route>
+                <Route path="/admin/afficher/types_activites">
+                    <DisplayTypesActivitesAdmin/>
+                </Route>
+                <Route path="/admin/afficher/engagements">
+                    <DisplayEngagementsAdmin/>
+                </Route>
+                <Route path="/admin/afficher/besoins">
+                    <DisplayBesoinsAdmin/>
+
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
             </Switch>
