@@ -42,7 +42,6 @@ export default function MainFilters() {
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
-        console.log(articleModify)
         const axiosData = async url => {
             const res = await axios.get(url)
             setTables(res.data)
@@ -129,7 +128,6 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/admin/afficher/besoins">
                     <DisplayBesoinsAdmin/>
-
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
                 <Route path="/admin/modifier/articles/:id">

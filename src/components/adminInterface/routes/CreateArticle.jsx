@@ -188,7 +188,7 @@ export default function CreateArticle(props) {
               </p>
               <p>Vignette (400x300)
                 <input
-                  type="file"
+                  type="text"
                   className="feedback-input"
                   id="image"
                   placeholder="Image"

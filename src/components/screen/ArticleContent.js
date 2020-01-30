@@ -111,7 +111,9 @@ const ArticleContent = (props) => {
                             <div className='articlecontent-authorcontainer'>
                                 <p className='articlecontent-author'>Par {article.auteur}</p>
                             </div>
+
                             <div dangerouslySetInnerHTML={createMarkup()} />
+
                         </article>
                         {article.listes_initiatives ?
                             (<article className='articlecontent-visibleinitiatives'>
