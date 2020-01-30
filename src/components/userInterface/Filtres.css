@@ -1,0 +1,411 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+/* Grille du container du composant */
+
+.Filtres_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 3;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    width: 100%;
+    position: relative
+}
+
+/* //////////// */
+
+/* Grid First Row */
+
+/* Objet */
+
+.Filtres_Objets-title {
+    grid-column-start: 1;
+    /* grid-column-end: 2; */
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: #F6F1EB;
+    border-radius: 1%;
+
+    display: flex;
+    cursor: pointer;
+}
+
+.Filtres_Objets-title p {
+    margin: auto 0px;
+    align-items: center;
+}
+
+.Filtres_Objets-title img {
+
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+/* Besoins */
+
+.Filtres_Besoins-title {
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: #F6F1EB;
+    display: flex;
+    cursor: pointer;
+}
+
+.Filtres_Besoins-title p {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.Filtres_Besoins-title img {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.Filtres_searchEngine {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.Filtres_container button {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: green;
+    color: white;
+}
+
+/* Grid Second Row */
+
+.Filtres_selectFilters {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    display: flex;
+}
+
+.Filtres_selectFilters div {
+    background:#e3815f ;
+    border-radius: 3px 0 0 3px;
+    color: white;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px 0 23px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+    display: flex;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.Filtres_selectFilters div::before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+}
+
+.Filtres_selectFilters div::after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #e3815f;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.Filtres_selectFilters div:hover {
+    background-color: #F6F1EB;
+    color: black;
+}
+
+.Filtres_selectFilters div:hover::after {
+    border-left-color: #F6F1EB;
+}
+
+.Filtres_selectFilters img {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    margin-right: 10px;
+    filter: invert(1);
+}
+
+.Filtres_selectFilters div:hover img {
+    filter: invert(0);
+}
+
+.Filtres_selectFilters p {
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+/* Grid Third Row */
+
+/* Filtre Objets */
+
+.Filtres-frame-objet {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: solid 2px grey;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    box-shadow: 5px 5px 1px #F6F1EB;
+    max-height: 500px;
+    transition: ease 0.5s;
+    overflow-x: hidden;
+    z-index: 100;
+    background-color: #fff;
+    position: absolute;
+    padding-right: 12px;
+}
+
+.Filtres-frame-objet2 {
+    max-height: 0px;
+    height: auto;
+    background-color: #fff;
+}
+
+/* Filtre Besoin */
+
+.Filtres_frame-besoins {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: solid 2px grey;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    box-shadow: 5px 5px 1px #F6F1EB;
+    max-height: 500px;
+    transition: ease 0.5s;
+    overflow-x: hidden;
+    z-index: 100;
+    background-color: #fff;
+    position: absolute;
+    padding-right: 12px;
+}
+
+.Filtres_frame-besoins2 {
+    max-height: 0px;
+    height: auto;
+    background-color: #fff;
+}
+
+.Filtres_container ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.Filtres_container hr {
+    width: 95%;
+    color: black;
+    border: 1px solid grey;
+    margin-top: -15px
+}
+
+.Filtres_sousCat {
+    font-size: 2vw;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-align: center;
+}
+
+.Filtres_CatInterFont {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.Filtres_BesoinsFont {
+    font-size: 1.5vw;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Grille du container du composant */
+
+.Filtres_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 3;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+/* //////////// */
+
+.Filtres_BesoinsColumns {
+    justify-self: start;
+    margin-left: 15%
+}
+
+.Filtres_eachCatIntermediaires {
+    font-size: 1vw;
+    ;
+    text-align: center;
+    justify-self: center;
+    /* border: solid 2px yellow; */
+}
+
+.Filtres_allCatIntermediaires {
+    /* border: outset 2px red; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.filtres_objets {
+    font-size: 1vw;
+    ;
+    text-align: left;
+}
+
+/* ///////////////// MEDIA QUERY //////////////// */
+
+/* Mobile */
+
+@media screen and (max-width: 770px) {
+    /* Grille du container du composant */
+    .Filtres_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0em 3em 3em auto;
+        grid-column-gap: 5px;
+        grid-row-gap: 10px;
+    }
+    /* //////////// */
+    /* Grid First Row */
+    /* Search Engine */
+    .Filtres_searchEngine {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    /* Button */
+    .Filtres_container button {
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+    /* Grid Second Row */
+    /* Objet */
+    .Filtres_Objets-title {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    /* Besoins */
+    .Filtres_Besoins-title {
+        grid-column-start: 3;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    /* Grid Third Row */
+    .Filtres_selectFilters {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+    /* Grid Fourth Row */
+    /* Filtre Objets */
+    .Filtres-frame-objet {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .Filtres_allCatIntermediaires {
+        /* border: outset 2px red; */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    /* Filtre Besoin */
+    .Filtres_frame-besoins {
+        grid-column-start: 3;
+        grid-column-end: 7;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-template-columns: 1fr;
+    }
+    .Filtres_sousCat {
+        font-size: 23px;
+    }
+    .Filtres_CatInterFont {
+        font-size: 20px;
+    }
+    .Filtres_BesoinsFont {
+        font-size: 20px;
+    }
+    .filtres_objets {
+        font-size: 20px;
+        ;
+        text-align: left;
+        line-height: 1em;
+    }
+    .Filtres_eachCatIntermediaires {
+        font-size: 1vw;
+        ;
+        text-align: left;
+        justify-self: left;
+        margin-left: 10%
+        /* border: solid 2px yellow; */
+    }
+    .Filtres_BesoinsColumns {
+        justify-self: start;
+        margin-left: 10%
+    }
+    .Filtres_selectFilters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+    }
+    .Filtres_selectFilters div {
+        margin: auto;
+        display: flex;
+    }
+}
+
+.Filtres-frame-objet p:hover, .Filtres-frame-objet li:hover, .Filtres_frame-besoins p:hover, .Filtres_frame-besoins li:hover {
+    cursor: pointer;
+    color: #e3815f;
+    font-weight: bolder;
+}

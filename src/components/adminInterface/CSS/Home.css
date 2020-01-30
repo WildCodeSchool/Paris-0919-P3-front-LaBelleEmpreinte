@@ -1,0 +1,73 @@
+
+
+/* titres principaux */
+.mainTitle{
+    text-align: center;
+}
+.denial-Title{
+  text-align: center;
+  background-color: #399967;
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 50px;
+}
+
+.mainTitle h1{
+    color: #399967;
+    font-family: "Montserrat", arial;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+.mainTitle h2{
+    color: #e3815f;
+  font-family: "Montserrat", arial;
+  padding-bottom: 0em;
+  margin: 0 0em 17px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* titre orange */
+.orangeTitle{
+  color: white;
+  background-color: #e3815f;
+  font-family: "Montserrat", arial;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 15px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* le form  */
+.home_Login{
+  display: flex;
+  flex-direction: column;
+}
+/* form + boutton  */
+.login_button{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  background-color: #f6f1eb;
+}
+/* les deux inputs afin de les mettre en ligne */
+.Home_input{
+  display: flex;
+  flex-direction: row;
+}
+/* le bouton déconnection */
+.déco{
+  color: #399967;
+  cursor: pointer;
+}
+.please_connect{
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 30px;
+}

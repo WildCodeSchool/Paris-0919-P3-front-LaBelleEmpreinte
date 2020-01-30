@@ -1,0 +1,74 @@
+.footer-banniere {
+  width: 100%;
+}
+
+.footer-encadre {
+  background: #f5e6da;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.footer-logo {
+  grid-column: 1/2;
+  grid-row: 1;
+  margin-left: 25%;
+}
+.footer-list {
+  grid-column: 1/2;
+  grid-row: 2;
+  text-align: left;
+  margin-bottom: 6%;
+  margin-top: 10px;
+}
+
+.footer-remerciements {
+  grid-column: 2/5;
+  grid-row: 1;
+  padding-left: 1%;
+  padding-right: 2%;
+  font-size: 1rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-encadre .navbar-button {
+  grid-column: 3/5;
+  grid-row: 2;
+  width: 70%;
+  margin-bottom: 2%;
+}
+
+@media screen and (max-width: 770px) {
+  .footer-encadre {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-remerciements {
+    margin-top: 0px;
+  }
+  .footer-logo {
+    margin-left: 0%;
+  }
+  .navbar-button {
+    width: 75%;
+    margin-bottom: 10px;
+    transition: 0.5s;
+  }
+  .navbar-button:hover {
+    color: black;
+  }
+  .footer-list {
+    text-align: left;
+    margin-bottom: 0%;
+    margin-top: 0px;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+  .footer-list p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+}

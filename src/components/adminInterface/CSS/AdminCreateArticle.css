@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.admincreatearticle {
+    font-family: 'Montserrat';
+    margin-top: 25px;
+    position: relative;
+}
+
+.admincreatearticle h1 {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    color: #e3815f;
+}
+
+.admincreatearticle h2 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    color: #e3815f;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.admincreatearticle #feedback-page {
+    text-align: center;
+}
+
+.admincreatearticle #form-main {
+    width: 100%;
+    float: left;
+    padding-top: 0px;
+}
+
+.admincreatearticle #form-div {
+    background-color: rgba(191, 170, 143, 0.7);
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    width: 525px;
+    float: left;
+    left: 50%;
+    position: relative;
+    margin-top: 30px;
+    margin-left: -260px;
+}
+
+.admincreatearticle .feedback-input {
+    color: #3c3c3c;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.admincreatearticle .feedback-input:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid  #e3815f;
+    color:  #e3815f;
+    outline: none;
+    padding: 13px;
+}
+
+.admincreatearticle .focused {
+    color: #e3815f;
+    border: #e3815f solid 3px;
+}
+
+.admincreatearticle textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+.admincreatearticle input:hover, .admincreatearticle textarea:hover, .admincreatearticle input:focus, .admincreatearticle textarea:focus {
+    background-color: white;
+}
+
+.admincreatearticle #button-blue {
+    font-family: 'Montserrat';
+    float: left;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    cursor: pointer;
+    background-color:  #e3815f;
+    color: white;
+    font-size: 24px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+.admincreatearticle #button-blue:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #e3815f;
+}
+
+.admincreatearticle .submit:hover {
+    color:  #e3815f;
+}
+
+.admincreatearticle .ease {
+    width: 0px;
+    height: 74px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.admincreatearticle .submit:hover .ease {
+    width: 100%;
+    background-color: white;
+}
+
+@media only screen and (max-width: 580px) {
+    .admincreatearticle #form-div {
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
