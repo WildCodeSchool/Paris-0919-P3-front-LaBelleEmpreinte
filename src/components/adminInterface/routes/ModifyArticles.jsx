@@ -7,6 +7,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 export default function ModifyArticles(props) {
 
+  console.log(props)
   // setProps
   const [Elem, setElem] = useState('')
   // récupère une meilleure version de l'objet envoyé
