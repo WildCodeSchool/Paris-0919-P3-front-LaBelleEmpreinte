@@ -44,6 +44,7 @@ export default function CreateArticle(props) {
     listes_initiatives: hasInit
   };
 
+
   const articleDataForBack = {
     article: articleData,
     initiatives: uniqueInitiatives,
@@ -119,6 +120,7 @@ export default function CreateArticle(props) {
   }, [initiatives]);
 
   //// Fonction passée en props pour récupérer depuis FiltresAdmin tous les id de chaque filtre sélectionné (rangé par type de filtre catob/catint/ob/bes/typdact) + signaler que le bouton valider a été actionné pour pouvoir ensuite faire le axios à la liste d'initiatives dans CreateArticle  ////
+
   const getFilters = (a, b, c, d, e) => {
     setCategories_objets(a);
     setCategories_intermediaires(b);
@@ -146,19 +148,7 @@ export default function CreateArticle(props) {
     );
     setUniqueInitiatives(remainingInit);
   };
-  // console.log('besoins',besoins)
-  // console.log('types_activites',types_activites)
-  // console.log('categories_objets',categories_objets)
-  // console.log('categories_intermediaires',categories_intermediaires)
-  // console.log('objets',objets)
-
-  console.log("ce qu'on envoie au back", articleData);
-
-  console.log("ce que reçoit le back", articleDataForBack);
-  // console.log("categories_objets", categories_objets)
-  console.log("initiatitvessssssssskkkkkkkkkkkkkk", initiatives);
-  console.log("initiatitvesssssssssuniqqqqqqqqqqqqqqq", uniqueInitiatives);
-  console.log("HasInit", hasInit);
+  
 
   return (
     <>
