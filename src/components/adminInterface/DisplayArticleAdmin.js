@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 // import Filtres from '../userInterface/Filtres'
 import './CSS/displayArticleAdmin.css'
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 const DisplayArticleAdmin = (props) => {
     const [article, setArticle] = useState([])
@@ -58,6 +59,9 @@ const DisplayArticleAdmin = (props) => {
     }, [props])
 
 
+    const handleModify = (e) => {
+        props.modify(e)
+    }
    
 
         return (
@@ -75,8 +79,8 @@ const DisplayArticleAdmin = (props) => {
                         {article.map(elem =>
 
                         { 
-                            // {console.log("test",elem)}
-                            return <li> <div className="displayArticleAdmin_title">{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li>}
+                            return <Link to={`/admin/modifier/articles/${elem.id}`}><li> <div key={elem.id} onClick={()=>handleModify(elem)}>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li></Link>}
+
                         
                         )}
                         
