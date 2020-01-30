@@ -98,7 +98,9 @@ export default function CreateArticle(props) {
 
   useEffect(() => {
     const displayUniqueInitiatives = () => {
-      const uniqInit = [];
+      console.log("les initiaves uniques sont priées de s'afficer ici !", uniqueInitiatives)
+      console.log("Maxence t'es le best")
+      const uniqInit = [...uniqueInitiatives];
       for (let i = 0; i < initiatives.length; i++) {
         if (uniqInit.length === 0) {
           uniqInit.push({ name: initiatives[0].name, id: initiatives[0].id });
@@ -133,19 +135,7 @@ export default function CreateArticle(props) {
     setValidateFilters(!validateFilters);
   };
 
-  // const unBind = (initName) => {
-  //   console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
-  //   const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
-  //   for (let i = 0; i < remainingInit.length; i++) {
-  //     if (remainingInit[i].name === initName) {
-  //       remainingInit.splice(i)
-  //     }
-  //   }
-  //   setUniqueInitiatives(remainingInit)
-  // }
-
   const unBind = init => {
-    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", init);
     const removedInit = [...removedInitiative, init]
     const remainingInit = [...uniqueInitiatives].filter(
       elem => elem.name != init.name
