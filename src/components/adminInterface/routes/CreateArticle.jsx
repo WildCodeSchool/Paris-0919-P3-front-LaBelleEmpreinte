@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import FiltresAdmin from "../../adminInterface/FiltresAdmin";
 import "../CSS/AdminCreateArticle.css";
+
+import { Link } from 'react-router-dom'
 // import tinyMCE
 import { Editor } from "@tinymce/tinymce-react";
+// on importe le menu modal
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import axios from "axios";
 
 import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
@@ -31,6 +35,11 @@ export default function CreateArticle(props) {
   );
   const [objets, setObjets] = useState([]);
   const [hasInit, setHasInit] = useState(false);
+
+  // rend visible/invisible le menu modal
+  const [visible, setVisible] = useState(false)
+  // reçoit la réponse depuis le back
+  const [theRes, setRes] = useState()
 
   // MEGA STATE!!
   const articleData = {
@@ -61,14 +70,13 @@ export default function CreateArticle(props) {
   const handlePost = async e => {
     e.preventDefault();
     await getUniqInitIds();
-    console.log("ce que reçoit le back", articleDataForBack);
     const url = "http://localhost:4000/admin/articles/create";
-    axios.post(url, articleDataForBack);
+    axios.post(url, articleDataForBack)
+      .then(res => setRes(res))
   };
 
   const getUniqInitIds = () => {
     const initsWithoutName = uniqueInitiatives.map(a => a.id);
-    console.log("carabistouilles de la plage", initsWithoutName);
   };
 
   useEffect(() => {
@@ -82,6 +90,7 @@ export default function CreateArticle(props) {
           .then(setHasInit(true));
       });
     };
+
     displayInitiatives(types_activites);
     displayInitiatives(besoins);
     displayInitiatives(categories_intermediaires);
@@ -94,6 +103,18 @@ export default function CreateArticle(props) {
     categories_intermediaires,
     objets
   ]);
+
+  //affiche la confirmation de modification
+  useEffect(() => {
+    if (theRes) {
+      if (theRes.statusText === "OK") {
+        setVisible(true)
+      }
+      else if (theRes.status === 500) {
+        console.log('ouch')
+      }
+    }
+  })
 
   useEffect(() => {
     const displayUniqueInitiatives = () => {
@@ -116,7 +137,6 @@ export default function CreateArticle(props) {
         }
       }
       setUniqueInitiatives(uniqInit);
-      // console.log("uniqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", uniqInit)
     };
     displayUniqueInitiatives();
   }, [initiatives]);
@@ -132,28 +152,27 @@ export default function CreateArticle(props) {
     setValidateFilters(!validateFilters);
   };
 
-  // const unBind = (initName) => {
-  //   console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
-  //   const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
-  //   for (let i = 0; i < remainingInit.length; i++) {
-  //     if (remainingInit[i].name === initName) {
-  //       remainingInit.splice(i)
-  //     }
-  //   }
-  //   setUniqueInitiatives(remainingInit)
-  // }
-
   const unBind = initName => {
-    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName);
     const remainingInit = [...uniqueInitiatives].filter(
       elem => elem.name != initName
     );
     setUniqueInitiatives(remainingInit);
   };
-  
+  const handleClick = () => {
+    setVisible(!visible)
+  }
+
 
   return (
     <>
+      < Modal isOpen={visible} toggle={handleClick} className="" >
+        <ModalHeader toggle={handleClick}>Article créé!</ModalHeader>
+        <ModalBody>
+          <div className="menu-modal">
+            <Link to="/admin/afficher/articles"><input type="button" value="OK" /></Link>
+          </div>
+        </ModalBody>
+      </Modal >
       <div className="admincreatearticle">
         <h1>Je crée un article informatif</h1>
         <div id="form-main">
@@ -197,7 +216,7 @@ export default function CreateArticle(props) {
               </p>
               <p>Couverture (1184x300)
                 <input
-                  type="file"
+                  type="text"
                   className="feedback-input"
                   id="image"
                   placeholder="Image"
@@ -246,19 +265,19 @@ export default function CreateArticle(props) {
         </div>
 
 
-      {/* la liste de bidules à associer au à l'article */}
-      <div className="association">
-        <h2>J'associe mon article à des objets et des besoins</h2>
-        
+        {/* la liste de bidules à associer au à l'article */}
+        <div className="association">
+          <h2>J'associe mon article à des objets et des besoins</h2>
+
         </div>
-        
+
 
 
 
 
         <div>
-        <FiltresAdmin filteredItems={getFilters} />
-        <h2>Je peux ajouter initiatives à mon article</h2>
+          <FiltresAdmin filteredItems={getFilters} />
+          <h2>Je peux ajouter initiatives à mon article</h2>
         </div>
         <div className="initiatives">
           {uniqueInitiatives.map(init => (
