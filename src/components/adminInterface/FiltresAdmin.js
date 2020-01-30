@@ -192,11 +192,11 @@ class FiltresAdmin extends Component {
   }
   //////////// render //////////
   render() {
-    console.log('catojb', this.state.catObjSelected)
-    console.log('catint', this.state.catIntSelected)
-    console.log('ojb', this.state.objSelected)
-    console.log('besoin', this.state.besoinsSelected)
-    console.log('typeact', this.state.typeActSelected)
+    // console.log('catojb', this.state.catObjSelected)
+    // console.log('catint', this.state.catIntSelected)
+    // console.log('ojb', this.state.objSelected)
+    // console.log('besoin', this.state.besoinsSelected)
+    // console.log('typeact', this.state.typeActSelected)
 
     
     return (

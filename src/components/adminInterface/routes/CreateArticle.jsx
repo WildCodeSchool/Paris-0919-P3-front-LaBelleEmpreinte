@@ -186,7 +186,7 @@ export default function CreateArticle(props) {
               </p>
               <p>
                 <input
-                  type="file"
+                  type="text"
                   className="feedback-input"
                   id="image"
                   placeholder="Image"

@@ -85,6 +85,7 @@ const ArticleContent = (props) => {
 
     const titleHeight = props.height.headerHeight + parseInt(getComputedStyle(document.documentElement).fontSize) * 2
 
+
     return (
         <>
             {!loaded ?
@@ -119,7 +120,7 @@ const ArticleContent = (props) => {
                                 {/* <img className='articlecontent-authorpic' src={article.photo_auteur} alt={article.auteur} /> */}
                                 <p className='articlecontent-author'>Par {article.auteur}</p>
                             </div>
-                            <p>{article.contenu}</p>
+                            <div>{article.contenu}</div>
                         </article>
                         {article.listes_initiatives ?
                             (<article className='articlecontent-visibleinitiatives'>
