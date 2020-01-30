@@ -14,6 +14,7 @@ export default function CreateArticle(props) {
   const [author, setAuthor] = useState();
   const [date, setDate] = useState();
   const [img, setImg] = useState();
+  const [img2, setImg2] = useState();
   const [readingTime, setTime] = useState();
   const [place, setPlace] = useState();
   const [text, setText] = useState();
@@ -41,7 +42,8 @@ export default function CreateArticle(props) {
     geographie: place,
     contenu: text,
     publication: isPublished,
-    listes_initiatives: hasInit
+    listes_initiatives: hasInit,
+    image2: img2
   };
 
 
@@ -184,13 +186,22 @@ export default function CreateArticle(props) {
                   onChange={e => setDate(e.target.value)}
                 />
               </p>
-              <p>
+              <p>Vignette (400x300)
                 <input
                   type="file"
                   className="feedback-input"
                   id="image"
                   placeholder="Image"
                   onChange={e => setImg(e.target.value)}
+                />
+              </p>
+              <p>Couverture (1184x300)
+                <input
+                  type="file"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image"
+                  onChange={e => setImg2(e.target.value)}
                 />
               </p>
               <p>
