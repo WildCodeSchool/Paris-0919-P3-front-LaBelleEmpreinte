@@ -6,6 +6,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 
 import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
+import addFilterIcon from "./../../../assets/icons/addFilterIcon.png"
 
 export default function CreateArticle(props) {
   // les states
@@ -26,11 +27,10 @@ export default function CreateArticle(props) {
   const [besoins, setBesoins] = useState([]);
   const [types_activites, setTypes_activites] = useState([]);
   const [categories_objets, setCategories_objets] = useState([]);
-  const [categories_intermediaires, setCategories_intermediaires] = useState(
-    []
-  );
+  const [categories_intermediaires, setCategories_intermediaires] = useState([]);
   const [objets, setObjets] = useState([]);
   const [hasInit, setHasInit] = useState(false);
+  const [removedInitiative, setRemovedInitiative] = useState([])
 
   // MEGA STATE!!
   const articleData = {
@@ -73,6 +73,7 @@ export default function CreateArticle(props) {
 
   useEffect(() => {
     setInitiatives([]);
+    setRemovedInitiative([]);
     const displayInitiatives = async filter => {
       const url = "http://localhost:4000/admin/filtre/initiatives";
       filter.map(async item => {
@@ -143,13 +144,24 @@ export default function CreateArticle(props) {
   //   setUniqueInitiatives(remainingInit)
   // }
 
-  const unBind = initName => {
-    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName);
+  const unBind = init => {
+    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", init);
+    const removedInit = [...removedInitiative, init]
     const remainingInit = [...uniqueInitiatives].filter(
-      elem => elem.name != initName
+      elem => elem.name != init.name
     );
     setUniqueInitiatives(remainingInit);
+    setRemovedInitiative(removedInit)
   };
+
+  const reBind = init => {
+    const addInit = [...uniqueInitiatives, init]
+    const removedInit = [...removedInitiative].filter(
+      elem => elem.name != init.name
+    );
+    setUniqueInitiatives(addInit);
+    setRemovedInitiative(removedInit)
+  }
   
 
   return (
@@ -253,24 +265,35 @@ export default function CreateArticle(props) {
         </div>
         
 
-
+        
 
 
         <div>
         <FiltresAdmin filteredItems={getFilters} />
         <h2>Je peux ajouter initiatives à mon article</h2>
         </div>
-        <div className="initiatives">
+        <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
             <div className="createArticle-initButton">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
                 alt="deleteFilterIcon"
-                onClick={() => unBind(init.name)}
+                onClick={() => unBind(init)}
               ></img>
             </div>
           ))}
+          {removedInitiative.map(init => (
+            <div className="createArticle-initButton">
+              <p>{init.name}</p>
+              <img
+                src={addFilterIcon}
+                alt="addFilterIcon"
+                onClick={() => reBind(init)}
+              ></img>
+            </div>
+          ))}
+
         </div>
         <div className="publication">
           {" "}
