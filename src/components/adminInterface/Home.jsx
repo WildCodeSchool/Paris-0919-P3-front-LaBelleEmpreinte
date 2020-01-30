@@ -8,7 +8,7 @@ export default function HomeAdmin() {
 
 
     // state Admin
-    const [isAdmin, setAdmin] = useState(false)
+    const [isAdmin, setAdmin] = useState(true)
     //state qui recoit la réponse du back
     const [backRes, setRes] = useState(false)
     //message sur le login en cas d'erreur
@@ -51,7 +51,7 @@ export default function HomeAdmin() {
         }
         // si jamais les données locales sont absentes ou fausses, ferme le state admin
         else {
-            setAdmin(false)
+            setAdmin(true)
         }
     })
 

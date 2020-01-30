@@ -14,6 +14,7 @@
   flex-wrap: wrap;
   margin: -1rem -1rem;
   padding-bottom: 3rem;
+  justify-content: flex-start;
 }
 
 .DisplayArticles-visiblehead {
@@ -26,4 +27,14 @@
 
 .DisplayArticles-invisiblehead {
   display: none;
+}
+
+@media screen and (max-width: 770px) {
+  .DisplayArticles-Gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+    justify-content: center;
+  }
 }

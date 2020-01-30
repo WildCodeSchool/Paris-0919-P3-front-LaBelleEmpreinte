@@ -11,7 +11,8 @@
     grid-template-rows: 3;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    width: 100%
+    width: 100%;
+    position: relative
 }
 
 /* //////////// */
@@ -28,18 +29,18 @@
     grid-row-end: 1;
     background-color: #F6F1EB;
     border-radius: 1%;
+
     display: flex;
     cursor: pointer;
 }
 
 .Filtres_Objets-title p {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto 0px;
     align-items: center;
 }
 
 .Filtres_Objets-title img {
+
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
@@ -56,7 +57,6 @@
     grid-row-start: 1;
     grid-row-end: 1;
     background-color: #F6F1EB;
-    ;
     display: flex;
     cursor: pointer;
 }
@@ -102,10 +102,51 @@
 }
 
 .Filtres_selectFilters div {
-    border: solid 2px grey;
-    border-radius: 10%;
+    background:#e3815f ;
+    border-radius: 3px 0 0 3px;
+    color: white;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px 0 23px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
     display: flex;
     margin-right: 10px;
+    cursor: pointer;
+}
+
+.Filtres_selectFilters div::before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+}
+
+.Filtres_selectFilters div::after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #e3815f;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.Filtres_selectFilters div:hover {
+    background-color: #F6F1EB;
+    color: black;
+}
+
+.Filtres_selectFilters div:hover::after {
+    border-left-color: #F6F1EB;
 }
 
 .Filtres_selectFilters img {
@@ -113,6 +154,11 @@
     height: 16px;
     margin: auto;
     margin-right: 10px;
+    filter: invert(1);
+}
+
+.Filtres_selectFilters div:hover img {
+    filter: invert(0);
 }
 
 .Filtres_selectFilters p {
@@ -137,27 +183,23 @@
     grid-template-rows: auto;
     box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1s;
+    transition: ease 0.5s;
     overflow-x: hidden;
     z-index: 100;
-
     background-color: #fff;
-    /* top: 269px;
-    position: absolute; */
-
+    position: absolute;
 }
 
 .Filtres-frame-objet2 {
     max-height: 0px;
     height: auto;
     background-color: #fff;
-    /* top: 269px; */
 }
 
 /* Filtre Besoin */
 
 .Filtres_frame-besoins {
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 3;
@@ -168,22 +210,17 @@
     grid-template-rows: auto;
     box-shadow: 5px 5px 1px #F6F1EB;
     max-height: 500px;
-    transition: ease 1s;
+    transition: ease 0.5s;
     overflow-x: hidden;
     z-index: 100;
-
     background-color: #fff;
-    /* top: 269px;
     position: absolute;
-    right: 130px; */
 }
 
 .Filtres_frame-besoins2 {
     max-height: 0px;
     height: auto;
     background-color: #fff;
-    /* top: 269px;
-    right: 130px; */
 }
 
 .Filtres_container ul {
@@ -200,7 +237,7 @@
 
 .Filtres_sousCat {
     font-size: 2vw;
-    font-style: 'Montserrat';
+    font-family: 'Montserrat';
     font-weight: bold;
     text-align: center;
 }
@@ -212,7 +249,7 @@
 
 .Filtres_BesoinsFont {
     font-size: 1.5vw;
-    font-style: 'Montserrat';
+    font-family: 'Montserrat';
     font-weight: bold;
     margin-top: 10px;
 }
@@ -307,8 +344,8 @@
     .Filtres-frame-objet {
         grid-column-start: 1;
         grid-column-end: 7;
-        grid-row-start: 4;
-        grid-row-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 3;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
@@ -320,10 +357,10 @@
     }
     /* Filtre Besoin */
     .Filtres_frame-besoins {
-        grid-column-start: 1;
+        grid-column-start: 3;
         grid-column-end: 7;
-        grid-row-start: 4;
-        grid-row-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 3;
         grid-template-columns: 1fr;
     }
     .Filtres_sousCat {

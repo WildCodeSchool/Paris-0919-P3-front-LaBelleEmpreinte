@@ -68,7 +68,7 @@ const DisplayArticles = (props) => {
         }
         loadArticlesRecherche()
         
-    }, [props])
+    }, [props.recherche])
 
     return (
         <>
