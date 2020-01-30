@@ -36,6 +36,13 @@ class Filtres extends Component {
     this.getBesoins();
   }
 
+  handleModify = (e) => {
+
+    this.props.modify(e)
+  }
+
+
+
   getObjets = () => {
     axios
       .get("http://localhost:4000/user/objets")
@@ -75,11 +82,11 @@ class Filtres extends Component {
   render() {
 
     return (
-
-      <div>
-        {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
-        <div className="Filtres_container">
-          <div className="Filtres_Objets-title" onClick={this.displayObjet}>
+      <>
+        <div>
+          {this.props.front === "user" ? <MoteurRecherche setRechercheParent={this.setRecherche} /> : null}
+          <div className="Filtres_container">
+            <div className="Filtres_Objets-title" onClick={this.displayObjet}>
               <img src={menuBurger} alt="menuBurger"></img>
               <p>Objets</p>
             </div>
@@ -90,94 +97,94 @@ class Filtres extends Component {
             >
               {this.state.isVisibleObjets
                 ? this.state.datasObjets[0].results.map(categ => {
-                    const filterByCategory = this.state.datasObjets[1].results.filter(
-                      sousCateg => sousCateg.categories_objets_id === categ.id
-                    );                    return (
-                      <div className="Filtres_one-Categorie-objet">
-                        <p
-                          className="Filtres_sousCat"
-                          onClick={() =>
-                            this.setState(
-                              {
-                                objetsSelected: {
-                                  id: categ.id,
-                                  name: categ.categorie,
-                                  type: "categories_objets"
-                                },
-                                isVisibleObjets: !this.state.isVisibleObjets
+                  const filterByCategory = this.state.datasObjets[1].results.filter(
+                    sousCateg => sousCateg.categories_objets_id === categ.id
+                  ); return (
+                    <div className="Filtres_one-Categorie-objet">
+                      <p
+                        className="Filtres_sousCat"
+                        onClick={() =>
+                          this.setState(
+                            {
+                              objetsSelected: {
+                                id: categ.id,
+                                name: categ.categorie,
+                                type: "categories_objets"
                               },
-                              () => this.state
-                            )
-                          }
-                        >
-                          {categ.categorie}
-                        </p>
-                        <div className="Filtres_allCatIntermediaires">
-                          {filterByCategory.map(sCateg => {
-                            const filterBySousCateg = this.state.datasObjets[2].results.filter(
-                              objet =>
-                                objet.categories_intermediaires_id === sCateg.id
-                            );
-                            return (
-                              <div className="Filtres_eachCatIntermediaires">
-                                <nav>
-                                  <ul>
-                                    <li
-                                      className="Filtres_CatInterFont"
-                                      key={sCateg.id}
-                                      onClick={() =>
-                                        this.setState(
-                                          {
-                                            objetsSelected: {
-                                              id: sCateg.id,
-                                              name: sCateg.name,
-                                              type: "categories_intermediaires"
-                                            },
-                                            isVisibleObjets: !this.state
-                                              .isVisibleObjets
+                              isVisibleObjets: !this.state.isVisibleObjets
+                            },
+                            () => this.state
+                          )
+                        }
+                      >
+                        {categ.categorie}
+                      </p>
+                      <div className="Filtres_allCatIntermediaires">
+                        {filterByCategory.map(sCateg => {
+                          const filterBySousCateg = this.state.datasObjets[2].results.filter(
+                            objet =>
+                              objet.categories_intermediaires_id === sCateg.id
+                          );
+                          return (
+                            <div className="Filtres_eachCatIntermediaires">
+                              <nav>
+                                <ul>
+                                  <li
+                                    className="Filtres_CatInterFont"
+                                    key={sCateg.id}
+                                    onClick={() =>
+                                      this.setState(
+                                        {
+                                          objetsSelected: {
+                                            id: sCateg.id,
+                                            name: sCateg.name,
+                                            type: "categories_intermediaires"
                                           },
-                                          () => this.state
-                                        )
-                                      }
-                                    >
-                                      {sCateg.name}
-                                    </li>
-                                  </ul>
-                                  <hr />
-                                  {filterBySousCateg.map(objet => {
-                                    return (
-                                      <ul>
-                                        <li
-                                          className="filtres_objets"
-                                          key={objet.id}
-                                          onClick={() =>
-                                            this.setState(
-                                              {
-                                                objetsSelected: {
-                                                  id: objet.id,
-                                                  name: objet.name,
-                                                  type: "objets"
-                                                },
-                                                isVisibleObjets: !this.state
-                                                  .isVisibleObjets
+                                          isVisibleObjets: !this.state
+                                            .isVisibleObjets
+                                        },
+                                        () => this.state
+                                      )
+                                    }
+                                  >
+                                    {sCateg.name}
+                                  </li>
+                                </ul>
+                                <hr />
+                                {filterBySousCateg.map(objet => {
+                                  return (
+                                    <ul>
+                                      <li
+                                        className="filtres_objets"
+                                        key={objet.id}
+                                        onClick={() =>
+                                          this.setState(
+                                            {
+                                              objetsSelected: {
+                                                id: objet.id,
+                                                name: objet.name,
+                                                type: "objets"
                                               },
-                                              () => this.state
-                                            )
-                                          }
-                                        >
-                                          {objet.name}
-                                        </li>
-                                      </ul>
-                                    );
-                                  })}
-                                </nav>
-                              </div>
-                            );
-                          })}
-                        </div>
+                                              isVisibleObjets: !this.state
+                                                .isVisibleObjets
+                                            },
+                                            () => this.state
+                                          )
+                                        }
+                                      >
+                                        {objet.name}
+                                      </li>
+                                    </ul>
+                                  );
+                                })}
+                              </nav>
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })
+                    </div>
+                  );
+                })
                 : ""}
             </div>            {/* besoins */}
             <div
@@ -193,64 +200,64 @@ class Filtres extends Component {
             >
               {this.state.isVisibleBesoins
                 ? this.state.datasBesoins[0].results.map(categ => {
-                    const filterByCategory = this.state.datasBesoins[1].results.filter(
-                      sousCateg => sousCateg.besoins_id === categ.id
-                    );                    return (
-                      <div className="Filtres_BesoinsColumns">
-                        <div>
-                          <p
-                            className="Filtres_BesoinsFont"
-                            onClick={() =>
-                              this.setState(
-                                {
-                                  besoinsSelected: {
-                                    id: categ.id,
-                                    name: categ.besoins,
-                                    type: "besoins"
-                                  },
-                                  isVisibleBesoins: !this.state.isVisibleBesoins
+                  const filterByCategory = this.state.datasBesoins[1].results.filter(
+                    sousCateg => sousCateg.besoins_id === categ.id
+                  ); return (
+                    <div className="Filtres_BesoinsColumns">
+                      <div>
+                        <p
+                          className="Filtres_BesoinsFont"
+                          onClick={() =>
+                            this.setState(
+                              {
+                                besoinsSelected: {
+                                  id: categ.id,
+                                  name: categ.besoins,
+                                  type: "besoins"
                                 },
-                                () => this.state
-                              )
-                            }
-                          >
-                            {categ.besoins}
-                          </p>
-                          <hr />
-                        </div>                        {filterByCategory.map(sCateg => {
-                          const filterBySousCateg = this.state.datasObjets[2].results.filter(
-                            objet => objet.types_activites_id === sCateg.id
-                          );
-                          return (
-                            <div>
-                              <ul>
-                                <li
-                                  className="filtres_objets"
-                                  key={sCateg.id}
-                                  onClick={() =>
-                                    this.setState(
-                                      {
-                                        besoinsSelected: {
-                                          id: sCateg.id,
-                                          name: sCateg.types_activites,
-                                          type: "types_activites"
-                                        },
-                                        isVisibleBesoins: !this.state
-                                          .isVisibleBesoins
+                                isVisibleBesoins: !this.state.isVisibleBesoins
+                              },
+                              () => this.state
+                            )
+                          }
+                        >
+                          {categ.besoins}
+                        </p>
+                        <hr />
+                      </div>                        {filterByCategory.map(sCateg => {
+                        const filterBySousCateg = this.state.datasObjets[2].results.filter(
+                          objet => objet.types_activites_id === sCateg.id
+                        );
+                        return (
+                          <div>
+                            <ul>
+                              <li
+                                className="filtres_objets"
+                                key={sCateg.id}
+                                onClick={() =>
+                                  this.setState(
+                                    {
+                                      besoinsSelected: {
+                                        id: sCateg.id,
+                                        name: sCateg.types_activites,
+                                        type: "types_activites"
                                       },
-                                      () => this.state
-                                    )
-                                  }
-                                >
-                                  {sCateg.types_activites}
-                                </li>
-                              </ul>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    );
-                  })
+                                      isVisibleBesoins: !this.state
+                                        .isVisibleBesoins
+                                    },
+                                    () => this.state
+                                  )
+                                }
+                              >
+                                {sCateg.types_activites}
+                              </li>
+                            </ul>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })
                 : ""}
             </div>            {/* <div className='Filtres_searchEngine'> Moteur de recherche </div>
         <button onClick={this.getArticlesBySousCategSelected}>
@@ -274,8 +281,8 @@ class Filtres extends Component {
                     />
                   </div>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </p>              {this.state.besoinsSelected.id !== 0 ? (
                 <div>
                   <p>{this.state.besoinsSelected.name}</p>
@@ -293,13 +300,13 @@ class Filtres extends Component {
                   />
                 </div>
               ) : (
-                ""
-              )}
+                  ""
+                )}
             </div>
-          </div>   
+          </div>
 
 
-          
+
 
 
           {this.props.front === "admin_articles" ?
@@ -307,20 +314,24 @@ class Filtres extends Component {
               besoin={this.state.besoinsSelected}
               objet={this.state.objetsSelected}
             />
-          : this.props.front === "admin_initiatives" ?
-                <DisplayInitiativesAdmin
+            : this.props.front === "admin_initiatives" ?
+              <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
-            />
-          : <DisplayArticles
-            besoin={this.state.besoinsSelected}
-            objet={this.state.objetsSelected}
-            recherche={this.state.recherche}
-            />
+              />
+              : <DisplayArticles
+                besoin={this.state.besoinsSelected}
+                objet={this.state.objetsSelected}
+                recherche={this.state.recherche}
+              />
           }
-      </div>
-    );
+        </div>
 
+
+
+        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} modify={(e) => this.handleModify(e)} />
+      </>
+    );
   }
 }
 export default Filtres;
