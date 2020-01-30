@@ -10,7 +10,6 @@ export default function TitleAdmin() {
     useEffect(() => {
         if (localStorage.getItem('myConnection') === true){
             setAdmin("hello?")
-            console.log(isAdmin)
         }
     })
 

@@ -79,7 +79,7 @@ const DisplayArticleAdmin = (props) => {
                         {article.map(elem =>
 
                         { 
-                            return <Link to="/admin/modifier/articles"><li> <div key={elem.id} onClick={()=>handleModify(elem)}>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li></Link>}
+                            return <Link to={`/admin/modifier/articles/${elem.id}`}><li> <div key={elem.id} onClick={()=>handleModify(elem)}>{elem.titre}</div> <div className={elem.publication ? "publication-on" : "publication-off" }/> </li></Link>}
                         
                         )}
                         

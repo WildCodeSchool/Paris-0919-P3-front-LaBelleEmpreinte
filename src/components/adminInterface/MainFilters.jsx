@@ -90,7 +90,7 @@ export default function MainFilters() {
                     <Filtres front="admin" modify={(e)=>handleModify(e)}/>
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
-                <Route path="/admin/modifier/articles">
+                <Route path="/admin/modifier/articles/:id">
                     <ModifyArticles elem={articleModify}/>
                 </Route>
             </Switch>
