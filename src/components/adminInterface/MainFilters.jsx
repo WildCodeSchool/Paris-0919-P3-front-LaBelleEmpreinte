@@ -71,11 +71,7 @@ export default function MainFilters() {
                 {tables ?
                     <select className="mainFilter-selector" onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
-<<<<<<< HEAD
                             <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
-=======
-                            <option key={index} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
->>>>>>> 81f73da6dbe39cbaf5290c7d5e058fc7b17ee6de
 
                     </select> : null}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
