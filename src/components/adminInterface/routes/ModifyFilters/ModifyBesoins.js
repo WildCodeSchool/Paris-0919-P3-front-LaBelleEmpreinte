@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 export default function ModifyBesoin(props) {
 
@@ -10,14 +12,15 @@ export default function ModifyBesoin(props) {
     //state pour empecher la modification par loadstates (FAUT PAS TOUCHER #ZAMBLA)
     const [justChange, setChange] = useState(true)
 
-    const [besoins, setBesoins] = useState(props.besoins)
+    const [besoins, setBesoins] = useState()
     const [picto, setPicto] = useState()
-    const newBesoin = { besoins, picto }
+    const [id, setId] = useState ()
+    const newBesoin = { besoins, picto, id}
 
     const loadStates = () => {
         setBesoins(newElem.besoins)
         setPicto(newElem.picto)
-        
+        setId(newElem.id)
         setChange(false)
       }
 
@@ -30,9 +33,13 @@ export default function ModifyBesoin(props) {
       })
 
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/besoins/create'
-        axios.post(url, newBesoin)
-        console.log('yo')
+        const url = 'http://localhost:4000/admin/besoins/modify'
+        axios.put(url, newBesoin)
+    }
+
+    const deletePost = () => {
+        const url = `http://localhost:4000/admin/besoins/${id}`
+        axios.delete(url)
     }
 
     console.log('hello', Elem)
@@ -46,7 +53,11 @@ export default function ModifyBesoin(props) {
                 <label>Nom du label: <input value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
-            <input type="button" value="Créer Besoin" onClick={(e) => handlePost(e)} />
+            <input type="button" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
+            <Link to="/admin/afficher/besoins">
+            <input type="button" value="Supprimer Besoin" onClick={() => deletePost()} />
+            </Link>
+
         </div>
 
     )
