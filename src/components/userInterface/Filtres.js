@@ -92,7 +92,7 @@ class Filtres extends Component {
             </div>
             <div
               className={
-                this.state.isVisibleObjets ? "Filtres-frame-objet" : ""
+                this.state.isVisibleObjets ? "Filtres-frame-objet" : "Filtres-frame-objet2"
               }
             >
               {this.state.isVisibleObjets
@@ -195,7 +195,7 @@ class Filtres extends Component {
               <p>Besoins</p>
             </div>            <div
               className={
-                this.state.isVisibleBesoins ? "Filtres_frame-besoins" : ""
+                this.state.isVisibleBesoins ? "Filtres_frame-besoins" : "Filtres_frame-besoins2"
               }
             >
               {this.state.isVisibleBesoins
