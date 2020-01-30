@@ -6,21 +6,10 @@ import './CSS/Loader.css'
 import './CSS/ArticleContent.css'
 
 import ListInitiatives from './ListInitiatives.js'
-import economieCirculaire from '../../assets/icons/LOGOeconomiecirculaire.png'
-
 import pictoFb from "../../assets/icons/facebook.png"
-import pictoIns from "../../assets/icons/instagram.png"
 import pictoTwit from "../../assets/icons/twitter.png"
-import fabricationFrancaise from '../../assets/icons/LOGOfabricationfrancaise.png'
-import insertionSociale from '../../assets/icons/LOGOinsertionsociale.png'
-import fabricationEuropeenne from '../../assets/icons/LOGOfabricationeuropeenne.png'
-import matieresEcologiques from '../../assets/icons/LOGOmatieresecologiques.png'
-import artisanat from '../../assets/icons/LOGOartisanat.png'
-import logoVestiaireCollective from '../../assets/icons/LOGOvestiaire.png'
-import logoImparfaite from '../../assets/icons/LOGOimparfaite.png'
-import logoBackMarket from '../../assets/icons/LOGObackmarket.png'
+
 import pictoclock from "../../assets/pictures/alarm-clock.png"
-import GetHeaderHeight from './GetHeaderHeight'
 
 const ArticleContent = (props) => {
 
@@ -51,7 +40,7 @@ const ArticleContent = (props) => {
             contenu: "",
             geographie: "",
             listes_initiatives: false,
-            couverture: ""
+            image2: ""
         }
     )
 
@@ -85,6 +74,10 @@ const ArticleContent = (props) => {
 
     const titleHeight = props.height.headerHeight + parseInt(getComputedStyle(document.documentElement).fontSize) * 2
 
+    const createMarkup = () => {
+        return {__html: `${article.contenu}`}
+      }
+
     return (
         <>
             {!loaded ?
@@ -95,7 +88,7 @@ const ArticleContent = (props) => {
                 (<div className='articlecontent'>
                     <span className='articlecontent-title'></span>
                     <header>
-                        <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${article.image})` }}>
+                        <div className="articlecontent-header-banner" style={{ backgroundImage: `url(${article.image2})` }}>
 
                             <h1 style={{ top: `${titleHeight}px` }}>{article.titre}</h1>
                         </div>
@@ -116,10 +109,9 @@ const ArticleContent = (props) => {
                             </p>
 
                             <div className='articlecontent-authorcontainer'>
-                                {/* <img className='articlecontent-authorpic' src={article.photo_auteur} alt={article.auteur} /> */}
                                 <p className='articlecontent-author'>Par {article.auteur}</p>
                             </div>
-                            <div>{article.contenu}</div>
+                            <div dangerouslySetInnerHTML={createMarkup()} />
                         </article>
                         {article.listes_initiatives ?
                             (<article className='articlecontent-visibleinitiatives'>
