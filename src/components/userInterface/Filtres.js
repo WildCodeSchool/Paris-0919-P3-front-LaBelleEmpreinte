@@ -313,6 +313,7 @@ class Filtres extends Component {
             <DisplayArticlesAdmin
               besoin={this.state.besoinsSelected}
               objet={this.state.objetsSelected}
+              modify={(e) => this.handleModify(e)}
             />
             : this.props.front === "admin_initiatives" ?
               <DisplayInitiativesAdmin
@@ -329,7 +330,7 @@ class Filtres extends Component {
 
 
 
-        <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} modify={(e) => this.handleModify(e)} />
+        {/* <DisplayArticlesAdmin besoin={this.state.besoinsSelected} objet={this.state.objetsSelected} modify={(e) => this.handleModify(e)} /> */}
       </>
     );
   }

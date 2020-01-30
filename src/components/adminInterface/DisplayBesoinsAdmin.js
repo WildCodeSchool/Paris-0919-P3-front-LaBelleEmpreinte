@@ -3,8 +3,10 @@ import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
-const DisplayBesoinsAdmin = () => {
+
+const DisplayBesoinsAdmin = (props) => {
     const [Besoins, setBesoins] = useState([])
 
 
@@ -22,6 +24,10 @@ const DisplayBesoinsAdmin = () => {
         getBesoins()
     }, [])
 
+    const handleModify = (e) => {
+        props.modify(e)
+        console.log('modifyyyyyyy', e)
+    }
 
         return (
             <div className="displayEngagementsAdmin_page">
@@ -38,9 +44,9 @@ const DisplayBesoinsAdmin = () => {
 
                         { 
                             // {console.log("test",elem)}
-                            return <li> <div>{elem.besoins}</div> </li>}
-                        
-                        )}
+                            return <Link to={`/admin/modifier/besoins/${elem.id}`}>
+                            <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.besoins}</div> </li></Link>
+                        })}
                         
                         </ul>
                     </div>
