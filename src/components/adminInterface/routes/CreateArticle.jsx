@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import FiltresAdmin from "../../adminInterface/FiltresAdmin";
 import "../CSS/AdminCreateArticle.css";
+
+import { Link } from "react-router-dom";
 // import tinyMCE
 import { Editor } from "@tinymce/tinymce-react";
+// on importe le menu modal
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import axios from "axios";
 
 import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
+import addFilterIcon from "./../../../assets/icons/addFilterIcon.png";
 
 export default function CreateArticle(props) {
   // les states
@@ -14,6 +19,7 @@ export default function CreateArticle(props) {
   const [author, setAuthor] = useState();
   const [date, setDate] = useState();
   const [img, setImg] = useState();
+  const [img2, setImg2] = useState();
   const [readingTime, setTime] = useState();
   const [place, setPlace] = useState();
   const [text, setText] = useState();
@@ -30,6 +36,12 @@ export default function CreateArticle(props) {
   );
   const [objets, setObjets] = useState([]);
   const [hasInit, setHasInit] = useState(false);
+  const [removedInitiative, setRemovedInitiative] = useState([]);
+
+  // rend visible/invisible le menu modal
+  const [visible, setVisible] = useState(false);
+  // reçoit la réponse depuis le back
+  const [theRes, setRes] = useState();
 
   // MEGA STATE!!
   const articleData = {
@@ -41,9 +53,9 @@ export default function CreateArticle(props) {
     geographie: place,
     contenu: text,
     publication: isPublished,
-    listes_initiatives: hasInit
+    listes_initiatives: hasInit,
+    image2: img2
   };
-
 
   const articleDataForBack = {
     article: articleData,
@@ -59,18 +71,17 @@ export default function CreateArticle(props) {
   const handlePost = async e => {
     e.preventDefault();
     await getUniqInitIds();
-    console.log("ce que reçoit le back", articleDataForBack);
     const url = "http://localhost:4000/admin/articles/create";
-    axios.post(url, articleDataForBack);
+    axios.post(url, articleDataForBack).then(res => setRes(res));
   };
 
   const getUniqInitIds = () => {
     const initsWithoutName = uniqueInitiatives.map(a => a.id);
-    console.log("carabistouilles de la plage", initsWithoutName);
   };
 
   useEffect(() => {
     setInitiatives([]);
+    setRemovedInitiative([]);
     const displayInitiatives = async filter => {
       const url = "http://localhost:4000/admin/filtre/initiatives";
       filter.map(async item => {
@@ -80,6 +91,7 @@ export default function CreateArticle(props) {
           .then(setHasInit(true));
       });
     };
+
     displayInitiatives(types_activites);
     displayInitiatives(besoins);
     displayInitiatives(categories_intermediaires);
@@ -93,9 +105,25 @@ export default function CreateArticle(props) {
     objets
   ]);
 
+  //affiche la confirmation de modification
+  useEffect(() => {
+    if (theRes) {
+      if (theRes.statusText === "OK") {
+        setVisible(true);
+      } else if (theRes.status === 500) {
+        console.log("ouch");
+      }
+    }
+  });
+
   useEffect(() => {
     const displayUniqueInitiatives = () => {
-      const uniqInit = [];
+      console.log(
+        "les initiaves uniques sont priées de s'afficer ici !",
+        uniqueInitiatives
+      );
+      console.log("Maxence t'es le best");
+      const uniqInit = [...uniqueInitiatives];
       for (let i = 0; i < initiatives.length; i++) {
         if (uniqInit.length === 0) {
           uniqInit.push({ name: initiatives[0].name, id: initiatives[0].id });
@@ -114,7 +142,6 @@ export default function CreateArticle(props) {
         }
       }
       setUniqueInitiatives(uniqInit);
-      // console.log("uniqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", uniqInit)
     };
     displayUniqueInitiatives();
   }, [initiatives]);
@@ -130,28 +157,40 @@ export default function CreateArticle(props) {
     setValidateFilters(!validateFilters);
   };
 
-  // const unBind = (initName) => {
-  //   console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName)
-  //   const remainingInit = [...uniqueInitiatives]  // si on fait const remainingInit = uniqueInitiative le code considère que remainingInit est un lien vers uniqueInitiatives et ça render pas derrière alors qu'avec le ... remainingInit est bien une nouvelle constante
-  //   for (let i = 0; i < remainingInit.length; i++) {
-  //     if (remainingInit[i].name === initName) {
-  //       remainingInit.splice(i)
-  //     }
-  //   }
-  //   setUniqueInitiatives(remainingInit)
-  // }
-
-  const unBind = initName => {
-    console.log("wazaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", initName);
+  const unBind = init => {
+    const removedInit = [...removedInitiative, init];
     const remainingInit = [...uniqueInitiatives].filter(
-      elem => elem.name != initName
+      elem => elem.name != init.name
     );
     setUniqueInitiatives(remainingInit);
+    setRemovedInitiative(removedInit);
   };
-  
+
+  const handleClick = () => {
+    setVisible(!visible);
+  };
+
+  const reBind = init => {
+    const addInit = [...uniqueInitiatives, init];
+    const removedInit = [...removedInitiative].filter(
+      elem => elem.name != init.name
+    );
+    setUniqueInitiatives(addInit);
+    setRemovedInitiative(removedInit);
+  };
 
   return (
     <>
+      <Modal isOpen={visible} toggle={handleClick} className="">
+        <ModalHeader toggle={handleClick}>Article créé!</ModalHeader>
+        <ModalBody>
+          <div className="menu-modal">
+            <Link to="/admin/afficher/articles">
+              <input type="button" value="OK" />
+            </Link>
+          </div>
+        </ModalBody>
+      </Modal>
       <div className="admincreatearticle">
         <h1>Je crée un article informatif</h1>
         <div id="form-main">
@@ -185,12 +224,23 @@ export default function CreateArticle(props) {
                 />
               </p>
               <p>
+                Vignette (400x300)
                 <input
-                  type="file"
+                  type="text"
                   className="feedback-input"
                   id="image"
                   placeholder="Image"
                   onChange={e => setImg(e.target.value)}
+                />
+              </p>
+              <p>
+                Couverture (1184x300)
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image"
+                  onChange={e => setImg2(e.target.value)}
                 />
               </p>
               <p>
@@ -234,52 +284,62 @@ export default function CreateArticle(props) {
           </div>
         </div>
 
-
-      {/* la liste de bidules à associer au à l'article */}
-      <div className="association">
-        <h2>J'associe mon article à des objets et des besoins</h2>
-        
+        {/* la liste de bidules à associer au à l'article */}
+        <div className="association">
+          <h2>J'associe mon article à des objets et des besoins</h2>
         </div>
-        
-
-
-
 
         <div>
-        <FiltresAdmin filteredItems={getFilters} />
-        <h2>Je peux ajouter initiatives à mon article</h2>
+          <FiltresAdmin filteredItems={getFilters} />
+          <h2>Je peux ajouter des initiatives à mon article</h2>
         </div>
-        <div className="initiatives">
+        <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
             <div className="createArticle-initButton">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
                 alt="deleteFilterIcon"
-                onClick={() => unBind(init.name)}
+                onClick={() => unBind(init)}
+              ></img>
+            </div>
+          ))}
+          {removedInitiative.map(init => (
+            <div className="createArticle-initButton">
+              <p>{init.name}</p>
+              <img
+                src={addFilterIcon}
+                alt="addFilterIcon"
+                onClick={() => reBind(init)}
               ></img>
             </div>
           ))}
         </div>
-        <div className="publication">
-          {" "}
-          Mon article est publié
-          <input
-            type="checkbox"
-            onChange={() => setPublished(!isPublished)}
-          ></input>
+        <div id="form-main">
+          <div id="form-div">
+            <form className="form" id="form1">
+              <p className="publication">
+                {" "}
+                Je veux que mon article soit publié
+                <input
+                  type="checkbox"
+                  onChange={() => setPublished(!isPublished)}
+                ></input>
+              </p>
+              <input
+                type="button"
+                value="ENREGISTRER"
+                id="button-blue"
+                onClick={e => handlePost(e)}
+              />
+            </form>
+          </div>
         </div>
       </div>
 
       {/* 1) rajouter les filtres et les stocker dans le state de façon à les faire passer de façon intelligible par le bac
 
 rajouter la liste des initiatives liées grâce à un axios qd on valide les filtres au dessus*/}
-      <input
-        type="button"
-        value="SEND"
-        id="button-blue"
-        onClick={e => handlePost(e)}
-      />
     </>
   );
 }

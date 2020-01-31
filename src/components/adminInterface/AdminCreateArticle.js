@@ -19,7 +19,7 @@ const AdminCreateArticle = () => (
                         <input type="date" className="feedback-input" id="date" placeholder="Date" />
                     </p>
                     <p>
-                        <input type="file" className="feedback-input" id="image" placeholder="Image" />
+                        <input type="text" className="feedback-input" id="image" placeholder="Image" />
                     </p>
                     <p>
                         <input type="number" className="feedback-input" id="temps_lecture" placeholder="Temps de lecture" />

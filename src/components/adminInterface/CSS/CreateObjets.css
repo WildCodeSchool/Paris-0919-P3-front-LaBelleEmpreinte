@@ -16,24 +16,10 @@
     color: #e3815f;
 }
 
-.admincreatearticle h2 {
-    font-weight: bold;
-    font-size: 24px;
-    text-align: center;
-    color: #e3815f;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.admincreatearticle #feedback-page {
-    text-align: center;
-}
-
 .admincreatearticle #form-main {
     width: 100%;
     float: left;
     padding-top: 0px;
-    margin-bottom: 40px;
 }
 
 .admincreatearticle #form-div {
@@ -49,7 +35,6 @@
     margin-top: 30px;
     margin-left: -260px;
 }
-
 .admincreatearticle .feedback-input {
     color: #3c3c3c;
     font-family: "Montserrat";
@@ -77,6 +62,7 @@
     padding: 13px;
 }
 
+
 .admincreatearticle .focused {
     color: #e3815f;
     border: #e3815f solid 3px;
@@ -93,68 +79,15 @@
     background-color: white;
 }
 
-.admincreatearticle #button-blue {
-    font-family: 'Montserrat';
-    float: left;
-    width: 100%;
-    border: #fbfbfb solid 4px;
-    cursor: pointer;
-    background-color:  #e3815f;
-    color: white;
-    font-size: 24px;
-    padding-top: 22px;
-    padding-bottom: 22px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    margin-top: -4px;
-    font-weight: 700;
+.admincreatearticle .button:hover {
+    color:  #e3815f;
+}
+
+.button{
+    color:  #e3815f;
 }
 
 .admincreatearticle #button-blue:hover {
     background-color: rgba(0, 0, 0, 0);
     color: #e3815f;
-}
-
-.admincreatearticle .submit:hover {
-    color:  #e3815f;
-}
-
-.admincreatearticle .ease {
-    width: 0px;
-    height: 74px;
-    background-color: #fbfbfb;
-    -webkit-transition: .3s ease;
-    -moz-transition: .3s ease;
-    -o-transition: .3s ease;
-    -ms-transition: .3s ease;
-    transition: .3s ease;
-}
-
-.admincreatearticle .submit:hover .ease {
-    width: 100%;
-    background-color: white;
-}
-
-.admincreatearticle .publication {
-    color: black;
-    text-align: center;
-    font-size: 20px;
-}
-
-.admincreatearticle .publication input[type="checkbox"] {
-    margin-left: 20px;
-    transform: scale(2);
-    cursor: pointer;
-}
-
-@media only screen and (max-width: 580px) {
-    .admincreatearticle #form-div {
-        left: 3%;
-        margin-right: 3%;
-        width: 88%;
-        margin-left: 0;
-        padding-left: 3%;
-        padding-right: 3%;
-    }
 }

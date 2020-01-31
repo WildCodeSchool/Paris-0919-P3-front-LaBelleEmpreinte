@@ -192,11 +192,11 @@ class FiltresAdmin extends Component {
   }
   //////////// render //////////
   render() {
-    console.log('catojb', this.state.catObjSelected)
-    console.log('catint', this.state.catIntSelected)
-    console.log('ojb', this.state.objSelected)
-    console.log('besoin', this.state.besoinsSelected)
-    console.log('typeact', this.state.typeActSelected)
+    // console.log('catojb', this.state.catObjSelected)
+    // console.log('catint', this.state.catIntSelected)
+    // console.log('ojb', this.state.objSelected)
+    // console.log('besoin', this.state.besoinsSelected)
+    // console.log('typeact', this.state.typeActSelected)
 
     
     return (
@@ -205,7 +205,7 @@ class FiltresAdmin extends Component {
           <img src={menuBurger} alt='menuBurger'></img><p>Objets</p>
         </div>
 
-        <div className={this.state.isVisibleObjets ? "Filtres-frame-objet" : ""}>
+        <div className={this.state.isVisibleObjets ? "Filtres-frame-objet" : "Filtres-frame-objet2"}>
           {this.state.isVisibleObjets
             ? this.state.datasObjets[0].results.map(categ => {
               const filterByCategory = this.state.datasObjets[1].results.filter(
@@ -272,7 +272,7 @@ class FiltresAdmin extends Component {
           <img src={menuBurger} alt='menuBurger'></img><p>Besoins</p>
         </div>
 
-        <div className={this.state.isVisibleBesoins ? "Filtres_frame-besoins" : ""}>
+        <div className={this.state.isVisibleBesoins ? "Filtres_frame-besoins" : "Filtres_frame-besoins2"}>
           {this.state.isVisibleBesoins
             ? this.state.datasBesoins[0].results.map(categ => {
               const filterByCategory = this.state.datasBesoins[1].results.filter(
@@ -321,12 +321,12 @@ class FiltresAdmin extends Component {
 
 
         <button onClick={this.filtersId}>
-          Valider
+          Rechercher
           </button>
 
         <div className='Filtres_selectFilters'>
-
-          <div>
+            
+          <p>
 
             {this.state.catObjSelected.map((catObj, index) => {
               return <div><p>{catObj.name}</p>
@@ -334,39 +334,39 @@ class FiltresAdmin extends Component {
 
               </div>
             })}
-          </div>
-          <div>
+          </p>
+          <p>
             {this.state.catIntSelected.map((catInt, index) => {
               return <div><p>{catInt.name}</p>
                 <img src={deleteFilterIcon} key={index} alt='deleteFilterIcon' onClick={() => this.removeFilterCatInt(catInt.id)} />
 
               </div>
             })}
-          </div>
-          <div>
+          </p>
+          <p>
             {this.state.objSelected.map((obj, index) => {
               return <div><p>{obj.name}</p>
                 <img src={deleteFilterIcon} key={index} alt='deleteFilterIcon' onClick={() => this.removeFilterObj(obj.id)} />
 
               </div>
             })}
-          </div>
-          <div>
+          </p>
+          <p>
             {this.state.besoinsSelected.map((besoins, index) => {
               return <div><p>{besoins.name}</p>
               <img src={deleteFilterIcon} key={index} alt='deleteFilterIcon' onClick={() => this.removeFilterBesoins(besoins.id)} />
 
             </div>
             })}
-          </div>
-          <div>
+          </p>
+          <p>
             {this.state.typeActSelected.map((typeAct, index) => {
               return <div><p>{typeAct.name}</p>
               <img src={deleteFilterIcon} key={index} alt='deleteFilterIcon' onClick={() => this.removeFilterTypAct(typeAct.id)} />
 
             </div>
             })}
-          </div>
+          </p>
         </div>
       </div>
 

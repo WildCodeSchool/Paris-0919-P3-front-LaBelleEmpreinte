@@ -49,7 +49,6 @@ export default function MainFilters() {
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
-        console.log(articleModify)
         const axiosData = async url => {
             const res = await axios.get(url)
             setTables(res.data)
@@ -117,7 +116,7 @@ export default function MainFilters() {
 
                 </Route>
                 <Route path="/admin/afficher/objets">
-                    <DisplayObjetsAdmin/>
+                    <DisplayObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
                     <Filtres front="admin_initiatives"/>
@@ -126,13 +125,13 @@ export default function MainFilters() {
                     <DisplayCatObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/categories_intermediaires">
-                    <DisplayCatIntermediairesAdmin/>
+                    <DisplayCatIntermediairesAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/types_activites">
                     <DisplayTypesActivitesAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/engagements">
-                    <DisplayEngagementsAdmin/>
+                    <DisplayEngagementsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/besoins">
                     <DisplayBesoinsAdmin modify={(e)=>handleModify(e)}/>
