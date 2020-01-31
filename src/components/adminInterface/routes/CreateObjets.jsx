@@ -52,7 +52,7 @@ export default function CreateObjets() {
                 </select></label>
                 {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
             
-            <input className="feedback-input" id="button-blue" type="button" value="Créer catégorie" onClick={handlePost} />
+            <input className="feedback-input" id="button-blue" type="button" value="Créer cobjet" onClick={handlePost} />
             </form>
             </div>
             </div>
