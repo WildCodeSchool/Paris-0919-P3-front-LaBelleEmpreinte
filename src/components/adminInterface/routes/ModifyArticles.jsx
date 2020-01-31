@@ -145,7 +145,7 @@ return (
               <input type="text" value={author} className="feedback-input" id="auteur" placeholder="Auteur" onChange={(e) => setAuthor(e.target.value)} />
             </p>
             <p>
-              <input type="text" value={moment(date).format('DD-MM-YYYY')} className="feedback-input" id="date" placeholder="Date" onChange={(e) => setDate(e.target.value)} />
+              <input type="text" value={date} className="feedback-input" id="date" placeholder="Date" onChange={(e) => setDate(e.target.value)} />
             </p>
             <p>
               <input type="text" value={img} className="feedback-input" id="image" placeholder="Image" onChange={(e) => setImg(e.target.value)} />
