@@ -10,6 +10,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import axios from "axios";
 
 import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
+import addFilterIcon from "./../../../assets/icons/addFilterIcon.png"
 
 export default function CreateArticle(props) {
   // les states
@@ -30,11 +31,10 @@ export default function CreateArticle(props) {
   const [besoins, setBesoins] = useState([]);
   const [types_activites, setTypes_activites] = useState([]);
   const [categories_objets, setCategories_objets] = useState([]);
-  const [categories_intermediaires, setCategories_intermediaires] = useState(
-    []
-  );
+  const [categories_intermediaires, setCategories_intermediaires] = useState([]);
   const [objets, setObjets] = useState([]);
   const [hasInit, setHasInit] = useState(false);
+  const [removedInitiative, setRemovedInitiative] = useState([])
 
   // rend visible/invisible le menu modal
   const [visible, setVisible] = useState(false)
@@ -81,6 +81,7 @@ export default function CreateArticle(props) {
 
   useEffect(() => {
     setInitiatives([]);
+    setRemovedInitiative([]);
     const displayInitiatives = async filter => {
       const url = "http://localhost:4000/admin/filtre/initiatives";
       filter.map(async item => {
@@ -118,7 +119,9 @@ export default function CreateArticle(props) {
 
   useEffect(() => {
     const displayUniqueInitiatives = () => {
-      const uniqInit = [];
+      console.log("les initiaves uniques sont priées de s'afficer ici !", uniqueInitiatives)
+      console.log("Maxence t'es le best")
+      const uniqInit = [...uniqueInitiatives];
       for (let i = 0; i < initiatives.length; i++) {
         if (uniqInit.length === 0) {
           uniqInit.push({ name: initiatives[0].name, id: initiatives[0].id });
@@ -152,15 +155,30 @@ export default function CreateArticle(props) {
     setValidateFilters(!validateFilters);
   };
 
-  const unBind = initName => {
+
+  const unBind = init => {
+    const removedInit = [...removedInitiative, init]
     const remainingInit = [...uniqueInitiatives].filter(
-      elem => elem.name != initName
+      elem => elem.name != init.name
     );
     setUniqueInitiatives(remainingInit);
+    setRemovedInitiative(removedInit)
   };
+
   const handleClick = () => {
     setVisible(!visible)
   }
+
+
+  const reBind = init => {
+    const addInit = [...uniqueInitiatives, init]
+    const removedInit = [...removedInitiative].filter(
+      elem => elem.name != init.name
+    );
+    setUniqueInitiatives(addInit);
+    setRemovedInitiative(removedInit)
+  }
+  
 
 
   return (
@@ -272,24 +290,35 @@ export default function CreateArticle(props) {
         </div>
 
 
-
+        
 
 
         <div>
           <FiltresAdmin filteredItems={getFilters} />
           <h2>Je peux ajouter initiatives à mon article</h2>
         </div>
-        <div className="initiatives">
+        <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
             <div className="createArticle-initButton">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
                 alt="deleteFilterIcon"
-                onClick={() => unBind(init.name)}
+                onClick={() => unBind(init)}
               ></img>
             </div>
           ))}
+          {removedInitiative.map(init => (
+            <div className="createArticle-initButton">
+              <p>{init.name}</p>
+              <img
+                src={addFilterIcon}
+                alt="addFilterIcon"
+                onClick={() => reBind(init)}
+              ></img>
+            </div>
+          ))}
+
         </div>
         <div className="publication">
           {" "}

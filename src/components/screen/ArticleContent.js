@@ -68,6 +68,10 @@ const ArticleContent = (props) => {
         loadInitiatives()
     }, [])
 
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
+
     const [loaded, setLoaded] = useState(false)
 
     const [loaded2, setLoaded2] = useState(false)
