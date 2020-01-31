@@ -79,6 +79,10 @@ class Filtres extends Component {
     });
   };
 
+  jsUcfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   render() {
 
     return (
@@ -108,7 +112,7 @@ class Filtres extends Component {
                             {
                               objetsSelected: {
                                 id: categ.id,
-                                name: categ.categorie,
+                                name: categ.categorie.replace,
                                 type: "categories_objets"
                               },
                               isVisibleObjets: !this.state.isVisibleObjets
@@ -117,7 +121,7 @@ class Filtres extends Component {
                           )
                         }
                       >
-                        {categ.categorie}
+                        {this.jsUcfirst(categ.categorie.replace(/_/g, " "))}
                       </p>
                       <div className="Filtres_allCatIntermediaires">
                         {filterByCategory.map(sCateg => {
@@ -147,7 +151,7 @@ class Filtres extends Component {
                                       )
                                     }
                                   >
-                                    {sCateg.name}
+                                    {this.jsUcfirst(sCateg.name.replace(/_/g, " "))}
                                   </li>
                                 </ul>
                                 <hr />
@@ -172,7 +176,7 @@ class Filtres extends Component {
                                           )
                                         }
                                       >
-                                        {objet.name}
+                                        {this.jsUcfirst(objet.name.replace(/_/g, " "))}
                                       </li>
                                     </ul>
                                   );
@@ -221,7 +225,7 @@ class Filtres extends Component {
                             )
                           }
                         >
-                          {categ.besoins}
+                          {this.jsUcfirst(categ.besoins.replace(/_/g, " "))}
                         </p>
                         <hr />
                       </div>                        {filterByCategory.map(sCateg => {
@@ -249,7 +253,7 @@ class Filtres extends Component {
                                   )
                                 }
                               >
-                                {sCateg.types_activites}
+                                {this.jsUcfirst(sCateg.types_activites.replace(/_/g, " "))}
                               </li>
                             </ul>
                           </div>
@@ -319,7 +323,7 @@ class Filtres extends Component {
               <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
-                
+
               />
               : <DisplayArticles
                 besoin={this.state.besoinsSelected}
