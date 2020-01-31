@@ -87,8 +87,26 @@
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
-    background-color: green;
+    font-family: 'Montserrat';
+    float: left;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    cursor: pointer;
+    background-color:  #e3815f;
     color: white;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+.Filtres_container button:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #e3815f;
 }
 
 /* Grid Second Row */
@@ -188,6 +206,7 @@
     z-index: 100;
     background-color: #fff;
     position: absolute;
+    padding-right: 12px;
 }
 
 .Filtres-frame-objet2 {
@@ -215,6 +234,7 @@
     z-index: 100;
     background-color: #fff;
     position: absolute;
+    padding-right: 12px;
 }
 
 .Filtres_frame-besoins2 {

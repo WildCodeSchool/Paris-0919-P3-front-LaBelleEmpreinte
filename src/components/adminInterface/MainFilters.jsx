@@ -49,7 +49,6 @@ export default function MainFilters() {
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre
     useEffect(() => {
-        console.log(articleModify)
         const axiosData = async url => {
             const res = await axios.get(url)
             setTables(res.data)

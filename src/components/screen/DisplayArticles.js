@@ -70,6 +70,9 @@ const DisplayArticles = (props) => {
         
     }, [props.recherche])
 
+    const filteredArticles = articles.filter(
+        article => article.publication == true)
+
     return (
         <>
             {!loaded ?
@@ -85,7 +88,7 @@ const DisplayArticles = (props) => {
                         </p>
                         <div className='DisplayArticles-Gallery'>
 
-                            {articles
+                            {filteredArticles
                                 .map(
                                     (article, index) => (
                                         <ArticlesItem {...article} />
