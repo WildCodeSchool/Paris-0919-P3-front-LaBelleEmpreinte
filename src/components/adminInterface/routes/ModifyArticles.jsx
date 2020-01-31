@@ -50,7 +50,6 @@ export default function ModifyArticles(props) {
     setPublished(newElem.publication)
     setImg2(newElem.image2)
     setChange(false)
-    loaded = true
   }
 
   const handleClickModif = () => {
@@ -66,13 +65,15 @@ export default function ModifyArticles(props) {
     setNewElem(Elem.elem)
     if (newElem && justChange) {
       loadStates()
+
+    loaded = true
     }
   })
 
   
   // LES FONCTIONS QUI GERENT LES MENUS MODAL
   const handleModification = () => {
-    axios.put(`http://localhost:4000/admin/articles_maj/${newElem.id}`, { titre: title, date: date, auteur: author, contenu: text, publication: isPublished, image: img, minutes_lecture: readingTime, geographie: place })
+    axios.put(`http://localhost:4000/admin/articles_maj/${newElem.id}`, { titre: title, date: date, auteur: author, contenu: text, publication: isPublished, image: img, image2: img2, minutes_lecture: readingTime, geographie: place })
     .then(res => setRes(res))
     // .then(error())
   }
@@ -182,8 +183,7 @@ return (
           {/* <button onClick={handleCancel}>Handle Cancel</button> */}
 
           <div className="publication"> Mon article est publié
-          {isPublished === true?
-          <input value={isPublished} defaultChecked={true} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : loaded? <input value={false} defaultChecked={false} type="checkbox" onChange={() => setPublished(!isPublished)}></input>: null}
+          {isPublished === true? <input value={true} defaultChecked={true} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : <input value={isPublished} defaultChecked={false} type="checkbox" onChange={() => setPublished(!isPublished)}></input> }
           </div>
         </div>
       </div>
