@@ -50,12 +50,12 @@ export default function ModifyBesoin(props) {
         <div className="creation-besoin">
             <h3>Je modifie un besoin</h3>
             <div>
-                <label>Nom du label: <input value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
+                <label>Nom du besoin: <input value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
             </div>
             <input type="button" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
             <Link to="/admin/afficher/besoins">
-            <input type="button" value="Supprimer Besoin" onClick={() => deletePost()} />
+            <input type="button" value="Supprimer Besoin" onClick={(e) => deletePost(e)} />
             </Link>
 
         </div>
