@@ -189,13 +189,14 @@ return (
           {isLoaded?
           isPublished? <input value={true} defaultChecked={true} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : <input value={isPublished} defaultChecked={false} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : null}
           </div>
+          <input type="button" value="MODIFIER" id="button-blue" onClick={handleModification} />
+      {/* <Link to="/admin/afficher/articles"> */}
+      <input type="button" value="SUPPRIMER" id="button-blue" onClick={() => handleClick()} />
         </div>
       </div>
       {/* 1) rajouter les filtres et les stocker dans le state de façon à les faire passer de façon intelligible par le bac
 rajouter la liste des initiatives liées grâce à un axios qd on valide les filtres au dessus*/}
-      <input type="button" value="MODIFIER" id="button-blue" onClick={handleModification} />
-      {/* <Link to="/admin/afficher/articles"> */}
-      <input type="button" value="SUPPRIMER" id="button-blue" onClick={() => handleClick()} />
+      
     </div>
   </div>
 )
