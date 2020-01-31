@@ -1,19 +1,50 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-export default function ModifyTypeActivity() {
+
+export default function ModifyTypeActivity(props) {
+
+    // setProps
+    const [Elem, setElem] = useState('')
+    // récupère une meilleure version de l'objet envoyé
+    const [newElem, setNewElem] = useState('')
+    //state pour empecher la modification par loadstates (FAUT PAS TOUCHER #ZAMBLA)
+    const [justChange, setChange] = useState(true)
 
     const [types_activites, setTypes_activites] = useState()
     const [picto, setPicto] = useState()
     const [filtres, setFiltres] = useState([])
     const [besoins_id, setBesoins_id] = useState()
-    const newCat = { types_activites, picto, besoins_id }
+    const [id, setId] = useState ()
 
+    const newCat = { types_activites, picto, besoins_id, id }
+
+    const loadStates = () => {
+        setTypes_activites(newElem.types_activites)
+        setPicto(newElem.picto)
+        setId(newElem.id)
+        setBesoins_id(newElem.besoins_id)
+        setChange(false)
+      }
+
+    useEffect(() => {
+        setElem(props)
+        setNewElem(Elem.elem)
+        if (newElem &&justChange){
+          loadStates()
+        }
+      })
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/types_activites/create'
-           axios.post(url, newCat)
+        const url = 'http://localhost:4000/admin/types_activites/modify'
+           axios.put(url, newCat)
+        }
+
+        const deletePost = () => {
+            const url = `http://localhost:4000/admin/types_activites/${id}`
+            axios.delete(url)
         }
 
         useEffect(() => {
@@ -29,14 +60,14 @@ export default function ModifyTypeActivity() {
             getFilters()
         }, [])
 
-        console.log(filtres)
+        console.log(Elem)
         console.log('catinter', besoins_id)
 
     return (
         <div className="creation-typeCat">
-            <h3>J'ajoute un type d'activité</h3>
+            <h3>Je modifie un type d'activité</h3>
             <div>
-                <label>Nom du type d'activité : <input type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
+                <label>Nom du type d'activité : <input type="text" value={types_activites} onChange={(e) => setTypes_activites(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
 
 
@@ -48,9 +79,20 @@ export default function ModifyTypeActivity() {
                 </select></label>
                 {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
             </div>
-            <input type="button" value="Créer catégorie" onClick={handlePost} />
+            <input type="button" value="Modifier la Catégorie Intermédiaire" onClick={handlePost} />
+            <Link to="/admin/afficher/types_activites">
+            <input type="button" value="Supprimer la Catégorie Intermédiaire" onClick={() => deletePost()} />
+            </Link>
         </div>
         
 
     )
 }
+
+
+
+
+
+
+
+
