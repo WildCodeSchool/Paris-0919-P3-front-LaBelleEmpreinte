@@ -18,6 +18,13 @@ import DisplayCatObjetsAdmin from "./DisplayCatObjetsAdmin"
 import DisplayCatIntermediairesAdmin from "./DisplayCatIntermediairesAdmin"
 import DisplayTypesActivitesAdmin from "./DisplayTypesActivitesAdmin"
 
+////import fichiers de modification /////
+import ModifyBesoins from "./routes/ModifyFilters/ModifyBesoins"
+import ModifyTypeActivity from "./routes/ModifyFilters/ModifyTypeActivity"
+import ModifyCategoriesObjets from "./routes/ModifyFilters/ModifyCategoriesObjets"
+import ModifyCategoriesIntermediaires from "./routes/ModifyFilters/ModifyCategoriesIntermediaires"
+import ModifyObjets from "./routes/ModifyFilters/ModifyObjets"
+import ModifyEngagements from "./routes/ModifyFilters/ModifyEngagements"
 
 
 import "./CSS/MainFilters.css"
@@ -109,29 +116,48 @@ export default function MainFilters() {
 
                 </Route>
                 <Route path="/admin/afficher/objets">
-                    <DisplayObjetsAdmin/>
+                    <DisplayObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
                     <Filtres front="admin_initiatives"/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
-                    <DisplayCatObjetsAdmin/>
+                    <DisplayCatObjetsAdmin />
                 </Route>
                 <Route path="/admin/afficher/categories_intermediaires">
-                    <DisplayCatIntermediairesAdmin/>
+                    <DisplayCatIntermediairesAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/types_activites">
                     <DisplayTypesActivitesAdmin/>
                 </Route>
                 <Route path="/admin/afficher/engagements">
-                    <DisplayEngagementsAdmin/>
+                    <DisplayEngagementsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/besoins">
-                    <DisplayBesoinsAdmin/>
+                    <DisplayBesoinsAdmin modify={(e)=>handleModify(e)}/>
+
                 </Route>
                 {/* ci-dessous vont les routes pour les pages de modification */}
                 <Route path="/admin/modifier/articles/:id">
                     <ModifyArticles elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/categories_objets/:id">
+                    <ModifyCategoriesObjets elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/categories_intermediaires/:id">
+                    <ModifyCategoriesIntermediaires elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/objets/:id">
+                    <ModifyObjets elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/besoins/:id">
+                    <ModifyBesoins elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/types_activites/:id">
+                    <ModifyTypeActivity elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/engagements/:id">
+                    <ModifyEngagements elem={articleModify}/>
                 </Route>
             </Switch>
         </>

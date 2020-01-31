@@ -3,8 +3,10 @@ import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
-const DisplayCatIntermediairesAdmin = () => {
+
+const DisplayCatIntermediairesAdmin = (props) => {
     const [CatIntermediaires, setCatIntermediaires] = useState([])
 
 
@@ -22,6 +24,11 @@ const DisplayCatIntermediairesAdmin = () => {
         getCatIntermediaires()
     }, [])
 
+    const handleModify = (e) => {
+        props.modify(e)
+        console.log('modifyyyyyyy', e)
+    }
+
 
         return (
             <div className="displayEngagementsAdmin_page">
@@ -38,7 +45,7 @@ const DisplayCatIntermediairesAdmin = () => {
 
                         { 
                             // {console.log("test",elem)}
-                            return <li> <div>{elem.name}</div> </li>}
+                            return <Link to={`/admin/modifier/categories_intermediaires/${elem.id}`}> <li> <div key={elem.id} onclick={() => handleModify(elem)}>{elem.name}</div> </li></Link>}
                         
                         )}
                         

@@ -9,8 +9,10 @@
 }
 
 .mainFilter-button {
-    width: 13vw;
-}
+    background: #399967;
+    color: black;
+   }
+   
 
 .mainFilter-option {
     text-align: center;

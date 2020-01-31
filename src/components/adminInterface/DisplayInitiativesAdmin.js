@@ -48,7 +48,7 @@ const DisplayInitiativesAdmin = (props) => {
             else {
                 const getInitiatives = () => {
                     axios
-                    .get("http://localhost:4000/admin/initiaves")
+                    .get("http://localhost:4000/admin/initiatives")
                     .then(response => response.data)
                     .then(data => {
                         console.log("aaaaaaaa", data)
