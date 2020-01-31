@@ -38,6 +38,7 @@ export default function ModifyArticles(props) {
   // reçoit la réponse depuis le back
   const [theRes, setRes] = useState()
 
+  let loaded = true
   const loadStates = () => {
     setTitle(newElem.titre)
     setAuthor(newElem.auteur)
@@ -49,6 +50,7 @@ export default function ModifyArticles(props) {
     setPublished(newElem.publication)
     setImg2(newElem.image2)
     setChange(false)
+    loaded = true
   }
 
   const handleClickModif = () => {
@@ -90,7 +92,7 @@ export default function ModifyArticles(props) {
       if (theRes.statusText === "OK") {
         setModifVisible(true)
       }
-      else if (theRes.statusText !== "OK") {
+      else {
         handleCancel()
       }
     }
@@ -176,9 +178,12 @@ return (
             onChange={(e) => setText(e.target.getContent())}
           />
 
+          {/* pour tester la fenêtre cancel */}
+          {/* <button onClick={handleCancel}>Handle Cancel</button> */}
+
           <div className="publication"> Mon article est publié
-          {isPublished?
-          <input value={isPublished} defaultChecked={isPublished} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : null}
+          {isPublished === true?
+          <input value={isPublished} defaultChecked={true} type="checkbox" onChange={() => setPublished(!isPublished)}></input> : loaded? <input value={false} defaultChecked={false} type="checkbox" onChange={() => setPublished(!isPublished)}></input>: null}
           </div>
         </div>
       </div>
