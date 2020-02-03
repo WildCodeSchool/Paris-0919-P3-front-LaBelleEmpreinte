@@ -48,9 +48,13 @@ class Filtres extends Component {
       .get("http://localhost:4000/user/objets")
       .then(response => response.data)
       .then(data => {
+       console.log('blala', data)
+
         this.setState({
           datasObjets: data
         });
+        console.log('bnojour', this.state.datasObjets)
+
       });
   };
 
@@ -84,6 +88,7 @@ class Filtres extends Component {
   }
 
   render() {
+    console.log('dataobjets',this.state.datasObjet)
 
     return (
       <>
@@ -101,6 +106,7 @@ class Filtres extends Component {
             >
               {this.state.isVisibleObjets
                 ? this.state.datasObjets[0].results.map(categ => {
+                  console.log('categ', categ)
                   const filterByCategory = this.state.datasObjets[1].results.filter(
                     sousCateg => sousCateg.categories_objets_id === categ.id
                   ); return (
@@ -125,6 +131,8 @@ class Filtres extends Component {
                       </p>
                       <div className="Filtres_allCatIntermediaires">
                         {filterByCategory.map(sCateg => {
+                                            console.log('Scateg', sCateg)
+
                           const filterBySousCateg = this.state.datasObjets[2].results.filter(
                             objet =>
                               objet.categories_intermediaires_id === sCateg.id
