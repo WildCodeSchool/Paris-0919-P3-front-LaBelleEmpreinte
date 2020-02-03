@@ -3,51 +3,52 @@ import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
-const DisplayCatObjetsAdmin = () => {
+const DisplayCatObjetsAdmin = (props) => {
     const [CatObjets, setCatObjets] = useState([])
 
 
     useEffect(() => {
         const getCatObjets = () => {
             axios
-            .get("http://localhost:4000/admin/categories_objets")
-            .then(response => response.data)
-            .then(data => {
-                console.log("aaaaaaaa", data)
-              setCatObjets(data);
-            });
-            
+                .get("http://localhost:4000/admin/categories_objets")
+                .then(response => response.data)
+                .then(data => {
+                    console.log("aaaaaaaa", data)
+                    setCatObjets(data);
+                });
+
         }
         getCatObjets()
     }, [])
 
+    const handleModify = (e) => {
+        props.modify(e)
+    }
 
-        return (
-            <div className="displayEngagementsAdmin_page">
-                
-                <h1 className="title">Je consulte mes catégories d'objets</h1>
-                {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
-                <div className="displayEngagementsAdmin_frame">
-                    <div className="displayEngagementsAdmin_header">
-                        <p>Les catégories d'objets</p>
-                    </div>
-                    <div className="displayEngagementsAdmin_content">
-                        <ul className="displayEngagementsAdmin_items">
-                        {CatObjets.map(elem =>
+    return (
+        <div className="displayEngagementsAdmin_page">
 
-                        { 
-                            // {console.log("test",elem)}
-                            return <li> <div>{elem.categorie}</div> </li>}
-                        
-                        )}
-                        
-                        </ul>
-                    </div>
+            <h1 className="title">Je consulte mes catégories d'objets</h1>
+            {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
+            <div className="displayEngagementsAdmin_frame">
+                <div className="displayEngagementsAdmin_header">
+                    <p>Les catégories d'objets</p>
+                </div>
+                <div className="displayEngagementsAdmin_content">
+                    <ul className="displayEngagementsAdmin_items">
+                        {CatObjets.map(elem => {
+                            return <Link to={`/admin/modifier/categories_objets/${elem.id}`}>
+                                <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.categorie}</div> </li></Link>
+                        })}
+
+                    </ul>
                 </div>
             </div>
-        );
-    
+        </div>
+    );
+
 }
 
 
