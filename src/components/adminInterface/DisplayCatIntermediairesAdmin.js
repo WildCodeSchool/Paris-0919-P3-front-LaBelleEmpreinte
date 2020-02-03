@@ -16,7 +16,6 @@ const DisplayCatIntermediairesAdmin = (props) => {
             .get("http://localhost:4000/admin/categories_intermediaires")
             .then(response => response.data)
             .then(data => {
-                console.log("aaaaaaaa", data)
               setCatIntermediaires(data);
             });
             
@@ -26,7 +25,6 @@ const DisplayCatIntermediairesAdmin = (props) => {
 
     const handleModify = (e) => {
         props.modify(e)
-        console.log('modifyyyyyyy', e)
     }
 
 
@@ -44,7 +42,6 @@ const DisplayCatIntermediairesAdmin = (props) => {
                         {CatIntermediaires.map(elem =>
 
                         { 
-                            // {console.log("test",elem)}
                             return <Link to={`/admin/modifier/categories_intermediaires/${elem.id}`}> <li> <div key={elem.id} onclick={() => handleModify(elem)}>{elem.name}</div> </li></Link>}
                         
                         )}

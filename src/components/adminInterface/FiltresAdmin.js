@@ -102,13 +102,9 @@ class FiltresAdmin extends Component {
             type: "categories_objets",
             id: catObj.id
           })
-        // console.log(catObj, 'newa')
         return newA
       })
     
-    // console.log("--------------------NewA ---------------",newA)
-    // console.log("state catObj 6546469464194489", this.state.catObjSelected)
-
     let newB = []
       this.state.catIntSelected.map(catInt => {
         newB.push(
@@ -116,7 +112,6 @@ class FiltresAdmin extends Component {
             type: "categories_intermediaires",
             id: catInt.id
           })
-        // console.log(catInt, 'newa')
         return newB
       })
 
@@ -127,7 +122,6 @@ class FiltresAdmin extends Component {
             type: "objets",
             id: obj.id
           })
-        // console.log(obj, 'newa')
         return newC
       })
 
@@ -138,7 +132,6 @@ class FiltresAdmin extends Component {
             type: "besoins",
             id: besoins.id
           })
-        // console.log(besoins, 'newD')
         return newD
       })
 
@@ -149,7 +142,6 @@ class FiltresAdmin extends Component {
             type: "types_activites",
             id: typeAct.id
           })
-        // console.log(typeAct, 'newE')
         return newE
       })
 
@@ -164,41 +156,28 @@ class FiltresAdmin extends Component {
       case "catObjSelected":
         const newFilterA = [...this.state.catObjSelected, {id: id, name: categorie}]
         this.setState({catObjSelected: newFilterA, isVisibleObjets: !this.state.isVisibleObjets})
-        // console.log('times times times A: ', newFilterA )
-        // console.log('times times times A filter: ', filter )
         break;
       case "catIntSelected":
         const newFilterB = [...this.state.catIntSelected, {id: id, name: categorie}]
         this.setState({catIntSelected: newFilterB, isVisibleObjets: !this.state.isVisibleObjets})
-        // console.log('times times times B: ', newFilterB )
-        // console.log('times times times B filter: ', filter )
         break;
       case "objSelected":
         const newFilterC = [...this.state.objSelected, {id: id, name: categorie}]
         this.setState({objSelected: newFilterC, isVisibleObjets: !this.state.isVisibleObjets})
-        // console.log('times times times C: ', newFilterC )
         break;
       case "besoinsSelected":
         const newFilterD = [...this.state.besoinsSelected, {id: id, name: categorie}]
         this.setState({besoinsSelected: newFilterD, isVisibleBesoins: !this.state.isVisibleBesoins})
-        // console.log('times times times D: ', newFilterD )
         break;
       case "typeActSelected":
         const newFilterE = [...this.state.typeActSelected, {id: id, name: categorie}]
         this.setState({typeActSelected: newFilterE, isVisibleBesoins: !this.state.isVisibleBesoins})
-        // console.log('times times times E: ', newFilterE )
         break;
     }
   }
   //////////// render //////////
   render() {
-    // console.log('catojb', this.state.catObjSelected)
-    // console.log('catint', this.state.catIntSelected)
-    // console.log('ojb', this.state.objSelected)
-    // console.log('besoin', this.state.besoinsSelected)
-    // console.log('typeact', this.state.typeActSelected)
-
-    
+ 
     return (
       <div className="Filtres_container">
         <div className="Filtres_Objets-title" onClick={this.displayObjet}>

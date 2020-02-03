@@ -16,7 +16,6 @@ const DisplayObjetsAdmin = (props) => {
             .get("http://localhost:4000/admin/objets")
             .then(response => response.data)
             .then(data => {
-                console.log("aaaaaaaa", data)
               setObjets(data);
             });
             

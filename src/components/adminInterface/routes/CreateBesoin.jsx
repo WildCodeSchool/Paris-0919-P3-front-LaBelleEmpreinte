@@ -10,7 +10,6 @@ export default function CreateBesoin() {
       const handlePost = () => {
         const url = 'http://localhost:4000/admin/besoins/create'
            axios.post(url, newBesoin)
-           console.log('yo')
         }
 
     return (

@@ -23,7 +23,6 @@ const DisplayEngagementAdmin = (props) => {
 
     const handleModify = (e) => {
         props.modify(e)
-        console.log('modifyyyyyyy', e)
     }
 
         return (

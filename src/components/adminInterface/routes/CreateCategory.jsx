@@ -13,7 +13,6 @@ export default function CreateCategory() {
     const handlePost = () => {
         const url = 'http://localhost:4000/admin/categories_objets/create'
            axios.post(url, newCat)
-           console.log('yo')
         }
 
     return (

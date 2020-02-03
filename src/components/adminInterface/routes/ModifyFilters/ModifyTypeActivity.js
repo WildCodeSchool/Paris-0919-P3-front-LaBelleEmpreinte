@@ -63,9 +63,6 @@ export default function ModifyTypeActivity(props) {
             getFilters()
         }, [])
 
-        console.log(Elem)
-        console.log('catinter', besoins_id)
-
     return (
 
         <div className="admincreatearticle">
