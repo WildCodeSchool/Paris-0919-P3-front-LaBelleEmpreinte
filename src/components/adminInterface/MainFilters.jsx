@@ -122,13 +122,13 @@ export default function MainFilters() {
                     <Filtres front="admin_initiatives"/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
-                    <DisplayCatObjetsAdmin />
+                    <DisplayCatObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/categories_intermediaires">
                     <DisplayCatIntermediairesAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/types_activites">
-                    <DisplayTypesActivitesAdmin/>
+                    <DisplayTypesActivitesAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/engagements">
                     <DisplayEngagementsAdmin modify={(e)=>handleModify(e)}/>
