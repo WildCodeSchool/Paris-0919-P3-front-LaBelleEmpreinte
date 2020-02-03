@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import '../../CSS/CreateObjets.css'
 
 export default function ModifyBesoin(props) {
 
@@ -47,17 +47,21 @@ export default function ModifyBesoin(props) {
     console.log('besoins', besoins)
 
     return (
-        <div className="creation-besoin">
-            <h3>Je modifie un besoin</h3>
-            <div>
-                <label>Nom du besoin: <input value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            </div>
-            <input type="button" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
+        <div className="admincreatearticle">
+            <h1>Je modifie un besoin</h1>
+            <div id="form-main">
+            <div id="form-div">
+            <form className="form" id="form1">
+                <label>Nom du besoin: <input className="feedback-input" value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
+                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+            
+            <input className="feedback-input" type="button" id="button-blue" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
             <Link to="/admin/afficher/besoins">
-            <input type="button" value="Supprimer Besoin" onClick={(e) => deletePost(e)} />
+            <input className="feedback-input" id="button-blue" type="button" value="Supprimer Besoin" onClick={(e) => deletePost(e)} />
             </Link>
-
+            </form>
+            </div>
+            </div>
         </div>
 
     )

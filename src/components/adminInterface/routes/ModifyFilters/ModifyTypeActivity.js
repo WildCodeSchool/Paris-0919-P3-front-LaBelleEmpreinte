@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import '../../CSS/CreateObjets.css'
+
 import { Link } from 'react-router-dom'
 
 
@@ -64,11 +67,15 @@ export default function ModifyTypeActivity(props) {
         console.log('catinter', besoins_id)
 
     return (
-        <div className="creation-typeCat">
-            <h3>Je modifie un type d'activité</h3>
-            <div>
-                <label>Nom du type d'activité : <input type="text" value={types_activites} onChange={(e) => setTypes_activites(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+
+        <div className="admincreatearticle">
+            <h1>J'ajoute un type d'activité</h1>
+            <div id="form-main">
+                <div id="form-div">
+                <form className="form" id="form1"> 
+                <label>Nom du type d'activité : <input className="feedback-input" type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
+                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+
 
 
                <label> Catégorie intermédiaire associée <select onChange={(e) => setBesoins_id(e.target.value)}> 
@@ -78,11 +85,17 @@ export default function ModifyTypeActivity(props) {
                 }
                 </select></label>
                 {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
+            
+            <input type="button" id="button-blue" className="feedback-input" value="Créer catégorie" onClick={handlePost} />
+            </form>
             </div>
+            </div>
+
             <input type="button" value="Modifier la Catégorie Intermédiaire" onClick={handlePost} />
             <Link to="/admin/afficher/types_activites">
             <input type="button" value="Supprimer la Catégorie Intermédiaire" onClick={() => deletePost()} />
             </Link>
+
         </div>
         
 

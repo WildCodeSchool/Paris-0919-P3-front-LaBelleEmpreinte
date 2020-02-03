@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import '../CSS/CreateObjets.css'
 
 export default function CreateCategory() {
 
@@ -16,13 +17,18 @@ export default function CreateCategory() {
         }
 
     return (
-        <div className="creation-typeCat">
-            <h3>J'ajoute une catégorie d'objet</h3>
-            <div>
-                <label>Nom de la catégorie d'objet: <input type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            </div>
-            <input type="button" value="Créer catégorie" onClick={handlePost} />
+        <div className="admincreatearticle">
+            <h1>J'ajoute une catégorie d'objet</h1>
+            <div id="form-main">
+                <div id="form-div">
+                <form className="form" id="form1"> 
+                <label>Nom de la catégorie d'objet: <input className="feedback-input"  type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
+                <label>Pictogramme: <input v type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+            
+            <input type="button" id="button-blue" className="feedback-input" value="Créer catégorie" onClick={handlePost} />
+        </form>
+        </div>
+        </div>
         </div>
 
     )
