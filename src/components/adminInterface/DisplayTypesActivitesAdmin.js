@@ -30,7 +30,6 @@ const DisplayTypesActivitesAdmin = (props) => {
         <div className="displayEngagementsAdmin_page">
 
             <h1 className="title">Je consulte mes types activites</h1>
-            {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
             <div className="displayEngagementsAdmin_frame">
                 <div className="displayEngagementsAdmin_header">
                     <p>Les types activites</p>
@@ -38,7 +37,6 @@ const DisplayTypesActivitesAdmin = (props) => {
                 <div className="displayEngagementsAdmin_content">
                     <ul className="displayEngagementsAdmin_items">
                         {typesActivites.map(elem => {
-                            // {console.log("test",elem)}
                             return <Link to={`/admin/modifier/types_activites/${elem.id}`}>
                                 <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.types_activites}</div> </li></Link>
                         })}

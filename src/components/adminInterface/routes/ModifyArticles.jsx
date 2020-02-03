@@ -103,7 +103,6 @@ export default function ModifyArticles(props) {
   }
   )
 
-  console.log(theRes)
 return (
   <div>
 

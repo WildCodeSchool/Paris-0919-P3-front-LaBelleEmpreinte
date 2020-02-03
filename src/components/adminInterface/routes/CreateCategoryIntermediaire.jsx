@@ -29,9 +29,6 @@ export default function CreateCategoryIntermediaire() {
             getFilters()
         }, [])
 
-        console.log(categories_objets_id)
-        console.log(filtres)
-
     return (
         <div className="admincreatearticle">
             <h1>J'ajoute une catégorie intermédiaire</h1>

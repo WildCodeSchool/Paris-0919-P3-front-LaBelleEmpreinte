@@ -55,14 +55,11 @@ export default function ModifyObjets(props) {
         .get("http://localhost:4000/user/objets")
         .then(response => response.data)
         .then(data => {
-          console.log("aaaaaaaa", data);
           setFiltres(data[1].results);
         });
     };
     getFilters();
   }, []);
-  console.log(newElem);
-  console.log("name", name);
   return (
     <div className="admincreatearticle">
       <h1>je modifie un objet</h1>
@@ -79,15 +76,15 @@ export default function ModifyObjets(props) {
               />
             </label>
             <p>
-                Pictogramme
+              Pictogramme
                 <input
-                  type="text"
-                  className="feedback-input"
-                  id="image"
-                  value={picto}
-                  placeholder="Image(url)"
-                  onChange={(e) => setPicto(e.target.value)}/>
-              </p> 
+                type="text"
+                className="feedback-input"
+                id="image"
+                value={picto}
+                placeholder="Image(url)"
+                onChange={(e) => setPicto(e.target.value)} />
+            </p>
             <label>
               {" "}
               Catégorie intermédiaire associée{" "}
@@ -99,15 +96,14 @@ export default function ModifyObjets(props) {
                 })}
               </select>
             </label>
-            {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
             <div classname="button">
-              <input
-                className="feedback-input"
-                type="button"
-                value="Modifier objet" id="button-blue"
-                onClick={e => handlePost(e)}
-              />
               <Link to="/admin/afficher/objets">
+                <input
+                  className="feedback-input"
+                  type="button"
+                  value="Modifier objet" id="button-blue"
+                  onClick={e => handlePost(e)}
+                />
                 <input
                   className="feedback-input"
                   type="button"

@@ -111,18 +111,12 @@ export default function CreateArticle(props) {
       if (theRes.statusText === "OK") {
         setVisible(true);
       } else if (theRes.status === 500) {
-        console.log("ouch");
       }
     }
   });
 
   useEffect(() => {
     const displayUniqueInitiatives = () => {
-      console.log(
-        "les initiaves uniques sont priées de s'afficer ici !",
-        uniqueInitiatives
-      );
-      console.log("Maxence t'es le best");
       const uniqInit = [...uniqueInitiatives];
       for (let i = 0; i < initiatives.length; i++) {
         if (uniqInit.length === 0) {
@@ -279,7 +273,6 @@ export default function CreateArticle(props) {
                 }}
                 onChange={e => setText(e.target.getContent())}
               />
-              <input type="button" value="VALIDER" id="button-blue" />
             </form>
           </div>
         </div>
@@ -326,6 +319,7 @@ export default function CreateArticle(props) {
                   onChange={() => setPublished(!isPublished)}
                 ></input>
               </p>
+              
               <input
                 type="button"
                 value="ENREGISTRER"

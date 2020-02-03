@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import menuBurger from "../../assets/icons/menuBurger.png";
 import deleteFilterIcon from "../../assets/icons/deleteFilterIcon.png";

@@ -51,7 +51,6 @@ const DisplayInitiativesAdmin = (props) => {
                     .get("http://localhost:4000/admin/initiatives")
                     .then(response => response.data)
                     .then(data => {
-                        console.log("aaaaaaaa", data)
                       setInitiative(data);
                     });
                     

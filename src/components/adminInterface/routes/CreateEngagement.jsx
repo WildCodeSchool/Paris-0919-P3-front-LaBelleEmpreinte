@@ -11,7 +11,6 @@ export default function CreateEngagements() {
       const handlePost = () => {
         const url = 'http://localhost:4000/admin/engagements/create'
            axios.post(url, newEngagements)
-           console.log('yo')
         }
 
     return (

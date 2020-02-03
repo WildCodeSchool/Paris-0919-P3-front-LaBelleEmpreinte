@@ -22,7 +22,7 @@ const ListInitiatives = props => {
     }, [])
 
     const filteredEngagement = engagements.filter(
-        engagement => engagement.initiatives_id == props.initiative.id)
+        engagement => engagement.initiatives_id === props.initiative.id)
 
     return (
         <>

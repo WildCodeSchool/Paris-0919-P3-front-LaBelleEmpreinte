@@ -33,14 +33,12 @@ export default function ModifyBesoin(props) {
       const handlePost = () => {
         const url = 'http://localhost:4000/admin/engagements/modify'
            axios.put(url, newEngagements)
-           console.log('yo')
         }
 
         const deletePost = () => {
         const url = `http://localhost:4000/admin/engagements/${id}`
             axios.delete(url)
         }
-            console.log ('engagements' , engagements)
 
     return (
         <div className="admincreatearticle">
@@ -59,8 +57,8 @@ export default function ModifyBesoin(props) {
                   placeholder="Image(url)"
                   onChange={(e) => setUrlPicto(e.target.value)}/>
               </p>              
-            <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <Link to="/admin/afficher/engagements">
+            <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <input type="button" id="button-blue" className="feedback-input" value="Supprimer engagement" onClick={() => deletePost()} />
             </Link>
             </form>

@@ -16,7 +16,6 @@ const DisplayBesoinsAdmin = (props) => {
             .get("http://localhost:4000/admin/besoins")
             .then(response => response.data)
             .then(data => {
-                console.log("aaaaaaaa", data)
               setBesoins(data);
 
             });
@@ -43,7 +42,6 @@ const DisplayBesoinsAdmin = (props) => {
                         {Besoins.map(elem =>
 
                         { 
-                            // {console.log("test",elem)}
                             return <Link to={`/admin/modifier/besoins/${elem.id}`}>
                             <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.besoins}</div> </li></Link>
                         })}

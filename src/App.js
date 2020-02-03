@@ -7,14 +7,7 @@ import Navbar from './components/screen/Navbar';
 import Footer from './components/screen/Footer';
 
 import ArticleContent from './components/screen/ArticleContent';
-import AdminHomeContainer from './store/containers/AdminHomeContainer';
-import ListInitiatives from './components/screen/ListInitiatives';
 import Filtres from './components/userInterface/Filtres';
-import TitleAdmin from './components/adminInterface/TitleAdmin';
-import AdminCreateArticle from './components/adminInterface/AdminCreateArticle';
-import DisplayArticleAdmin from './components/adminInterface/DisplayArticleAdmin';
-import AdminHome from './components/adminInterface/AdminHome'
-
 import Home from './components/adminInterface/Home'
 
 const App = () => {

@@ -68,7 +68,6 @@ const DisplayArticleAdmin = (props) => {
             <div className="displayArticleAdmin_page">
                 
                 <h1 className="title">Je consulte mes articles</h1>
-                {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayArticleAdmin_frame">
                     <div className="displayArticleAdmin_header">
                         <p>Nom de l'article</p>

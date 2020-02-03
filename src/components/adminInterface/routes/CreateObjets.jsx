@@ -23,7 +23,6 @@ export default function CreateObjets() {
                 .get("http://localhost:4000/user/objets")
                 .then(response => response.data)
                 .then(data => {
-                    console.log("aaaaaaaa", data)
                   setFiltres(data[1].results);
                 });
                 
@@ -31,9 +30,7 @@ export default function CreateObjets() {
             getFilters()
         }, [])
 
-        console.log(filtres)
-        console.log('catinter', categories_intermediaires_id)
-
+      
     return (
         <div className="admincreatearticle">
             <h1>J'ajoute un objet</h1>

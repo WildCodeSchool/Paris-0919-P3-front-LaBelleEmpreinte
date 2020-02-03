@@ -41,7 +41,6 @@ export default function ModifyBesoin(props) {
         const url = `http://localhost:4000/admin/besoins/${id}`
         axios.delete(url)
     }
-    console.log(Elem, 'el')
     return (
         <div className="admincreatearticle">
             <h1>Je modifie un besoin</h1>

@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
-import {Link} from 'react-router-dom'
-
 import "./CSS/Header.css"
 import icon from "../../assets/pictures/search-13-32.png"
 import logo from "../../assets/icons/labelleempreinte-green.png"
 import logo1 from "../../assets/pictures/meow.svg";
-import axios from "axios"
-
-
-
 
 function Header() {
 
