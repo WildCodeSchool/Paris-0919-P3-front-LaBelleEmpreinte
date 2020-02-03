@@ -12,13 +12,13 @@ export default function ModifyBesoin(props) {
     const [justChange, setChange] = useState(true)
 
     const [engagements, setEngagements] = useState()
-    const [picto, setPicto] = useState()
+    const [urlPicto, setUrlPicto] = useState()
     const [id, setId] = useState()
-    const newEngagements = { engagements, picto, id}
+    const newEngagements = { engagements, urlPicto, id}
 
     const loadStates = () => {
         setEngagements(newElem.engagements)
-        setPicto(newElem.picto)
+        setUrlPicto(newElem.urlPicto)
         setId(newElem.id)
         setChange(false)
       }
@@ -55,9 +55,9 @@ export default function ModifyBesoin(props) {
                   type="text"
                   className="feedback-input"
                   id="image"
-                  value={picto}
+                  value={urlPicto}
                   placeholder="Image(url)"
-                  onChange={(e) => setPicto(e.target.value)}/>
+                  onChange={(e) => setUrlPicto(e.target.value)}/>
               </p>              
             <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <Link to="/admin/afficher/engagements">

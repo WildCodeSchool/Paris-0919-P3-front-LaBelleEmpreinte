@@ -5,11 +5,11 @@ import '../CSS/CreateObjets.css'
 export default function CreateEngagements() {
 
     const [engagements, setEngagements] = useState()
-    const [picto, setPicto] = useState()
-    const newEngagements = { engagements, picto }
+    const [urlPicto, setUrlPicto] = useState()
+    const newEngagements = { engagements, urlPicto }
 
       const handlePost = () => {
-        const url = 'http://localhost:4000/admin/besoins/create'
+        const url = 'http://localhost:4000/admin/engagements/create'
            axios.post(url, newEngagements)
            console.log('yo')
         }
@@ -27,7 +27,7 @@ export default function CreateEngagements() {
                   className="feedback-input"
                   id="image"
                   placeholder="Image(url)"
-                  onChange={(e) => setPicto(e.target.value)}/>
+                  onChange={(e) => setUrlPicto(e.target.value)}/>
               </p>            
             <input type="button" id="button-blue" className="feedback-input" value="Créer un engagement" onClick={(e) => handlePost(e)}/>
         </div>

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import TitleAdmin from './TitleAdmin'
-import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 import { Link } from 'react-router-dom'
@@ -16,7 +14,6 @@ const DisplayEngagementAdmin = (props) => {
             .get("http://localhost:4000/admin/engagements")
             .then(response => response.data)
             .then(data => {
-                console.log("aaaaaaaa", data)
               setEngagement(data);
             });
             
@@ -33,7 +30,6 @@ const DisplayEngagementAdmin = (props) => {
             <div className="displayEngagementsAdmin_page">
                 
                 <h1 className="title">Je consulte mes engagements</h1>
-                {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayEngagementsAdmin_frame">
                     <div className="displayEngagementsAdmin_header">
                         <p>Les engagements</p>
@@ -43,7 +39,6 @@ const DisplayEngagementAdmin = (props) => {
                         {engagement.map(elem =>
 
                         { 
-                            // {console.log("test",elem)}
                             return <Link to={`/admin/modifier/engagements/${elem.id}`}> <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.engagements}</div> </li></Link>}
                         
                         )}

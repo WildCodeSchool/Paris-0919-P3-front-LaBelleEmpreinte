@@ -50,10 +50,10 @@ export default function ModifyCategory(props) {
     return (
 
         <div className="admincreatearticle">
-            <h1>J'ajoute une catégorie d'objet</h1>
+            <h1>Je modifie une catégorie d'objet</h1>
             <div id="form-main">
                 <div id="form-div">
-                <label>Nom de la catégorie d'objet: <input className="feedback-input" type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
+                <label>Nom de la catégorie d'objet: <input className="feedback-input" type="text" value={categorie} onChange={(e) => setCategorie(e.target.value)} /></label>
                 <p>
                 Pictogramme
                 <input
