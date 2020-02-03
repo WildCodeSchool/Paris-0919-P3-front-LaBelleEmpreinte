@@ -12,13 +12,13 @@ export default function ModifyBesoin(props) {
     const [justChange, setChange] = useState(true)
 
     const [engagements, setEngagements] = useState()
-    const [picto, setPicto] = useState()
+    const [urlPicto, setUrlPicto] = useState()
     const [id, setId] = useState()
-    const newEngagements = { engagements, picto, id}
+    const newEngagements = { engagements, urlPicto, id}
 
     const loadStates = () => {
         setEngagements(newElem.engagements)
-        setPicto(newElem.picto)
+        setUrlPicto(newElem.urlPicto)
         setId(newElem.id)
         setChange(false)
       }
@@ -49,8 +49,16 @@ export default function ModifyBesoin(props) {
                 <div id="form-div">
                 <form className="form" id="form1"> 
                 <label>Nom du label: <input className="feedback-input" value={engagements} type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input"  type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  value={urlPicto}
+                  placeholder="Image(url)"
+                  onChange={(e) => setUrlPicto(e.target.value)}/>
+              </p>              
             <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <Link to="/admin/afficher/engagements">
             <input type="button" id="button-blue" className="feedback-input" value="Supprimer engagement" onClick={() => deletePost()} />

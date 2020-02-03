@@ -78,14 +78,16 @@ export default function ModifyObjets(props) {
                 onChange={e => setName(e.target.value)}
               />
             </label>
-            <label>
-              Pictogramme:{" "}
-              <input
-                className="feedback-input"
-                type="file"
-                onChange={e => setPicto(e.target.value)}
-              />
-            </label>
+            <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  value={picto}
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p> 
             <label>
               {" "}
               Catégorie intermédiaire associée{" "}

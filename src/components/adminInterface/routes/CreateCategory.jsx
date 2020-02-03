@@ -23,9 +23,16 @@ export default function CreateCategory() {
                 <div id="form-div">
                 <form className="form" id="form1"> 
                 <label>Nom de la catégorie d'objet: <input className="feedback-input"  type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
-                <label>Pictogramme: <input v type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            
-            <input type="button" id="button-blue" className="feedback-input" value="Créer catégorie" onClick={handlePost} />
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>            
+            <input type="button" id="button-blue" className="feedback-input" value="Créer une catégorie d'objet" onClick={handlePost} />
         </form>
         </div>
         </div>

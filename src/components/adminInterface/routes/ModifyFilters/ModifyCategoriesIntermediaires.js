@@ -62,10 +62,6 @@ export default function ModifyCategoryIntermediaire(props) {
             axios.delete(url)
         }
 
-        console.log(categories_objets_id)
-        console.log(newElem)
-        console.log(name)
-
     return (
         <div className="admincreatearticle">
             <h1>Je modifie une catégorie intermédiaire</h1>
@@ -73,8 +69,16 @@ export default function ModifyCategoryIntermediaire(props) {
                 <div id="form-div">
             <div>
                 <label>Nom de la catégorie intermédiaire: <input value={name} type="text" onChange={(e) => setName(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  value={picto}
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>  
                 <label> Catégorie d'objet associée 
                     <select onChange={(e) => setCategories_objets_id(e.target.value)}> 
                     {filtres.map(filtre => {
