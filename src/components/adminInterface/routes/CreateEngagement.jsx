@@ -19,10 +19,17 @@ export default function CreateEngagements() {
             <h1>J'ajoute un Engagement</h1>
             <div id="form-main">
                 <div id="form-div">
-                <label>Nom de l'engagements: <input type="text" className="feedback-input" onChange={(e) => setEngagements(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            
-            <input type="button" id="button-blue" className="feedback-input" value="Créer Besoin" onClick={(e) => handlePost(e)}/>
+                <label>Nom de l'engagement: <input type="text" className="feedback-input" onChange={(e) => setEngagements(e.target.value)} /></label>
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>            
+            <input type="button" id="button-blue" className="feedback-input" value="Créer un engagement" onClick={(e) => handlePost(e)}/>
         </div>
         </div>
         </div>

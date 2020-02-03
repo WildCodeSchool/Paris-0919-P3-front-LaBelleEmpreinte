@@ -41,11 +41,7 @@ export default function ModifyBesoin(props) {
         const url = `http://localhost:4000/admin/besoins/${id}`
         axios.delete(url)
     }
-
-    console.log('hello', Elem)
-    console.log("truc", newElem)
-    console.log('besoins', besoins)
-
+    console.log(Elem, 'el')
     return (
         <div className="admincreatearticle">
             <h1>Je modifie un besoin</h1>
@@ -53,8 +49,16 @@ export default function ModifyBesoin(props) {
             <div id="form-div">
             <form className="form" id="form1">
                 <label>Nom du besoin: <input className="feedback-input" value={besoins} type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  value={picto}
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>            
             <input className="feedback-input" type="button" id="button-blue" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
             <Link to="/admin/afficher/besoins">
             <input className="feedback-input" id="button-blue" type="button" value="Supprimer Besoin" onClick={(e) => deletePost(e)} />

@@ -20,9 +20,17 @@ export default function CreateBesoin() {
                 <div id="form-div">
             <div>
                 <label>Nom du label: <input className="feedback-input" type="text" onChange={(e) => setBesoins(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>
             </div>
-            <input type="button" className="feedback-input" id="button-blue" value="Créer Besoin" onClick={(e) => handlePost(e)}/>
+            <input type="button" className="feedback-input" id="button-blue" value="Créer un besoin" onClick={(e) => handlePost(e)}/>
         </div>
         </div>
         </div>

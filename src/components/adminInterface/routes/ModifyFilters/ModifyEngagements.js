@@ -49,8 +49,16 @@ export default function ModifyBesoin(props) {
                 <div id="form-div">
                 <form className="form" id="form1"> 
                 <label>Nom du label: <input className="feedback-input" value={engagements} type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input"  type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  value={picto}
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>              
             <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <Link to="/admin/afficher/engagements">
             <input type="button" id="button-blue" className="feedback-input" value="Supprimer engagement" onClick={() => deletePost()} />

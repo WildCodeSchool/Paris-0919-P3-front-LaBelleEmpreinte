@@ -30,9 +30,6 @@ export default function CreateTypeActivity() {
             getFilters()
         }, [])
 
-        console.log(filtres)
-        console.log('catinter', besoins_id)
-
     return (
         <div className="admincreatearticle">
             <h1>J'ajoute un type d'activité</h1>
@@ -40,18 +37,23 @@ export default function CreateTypeActivity() {
             <div id="form-div">
                 <form className="form" id="form1"> 
                 <label>Nom du type d'activité : <input type="text" className="feedback-input" onChange={(e) => setTypes_activites(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-
+                <p>
+                Pictogramme
+                <input
+                  type="text"
+                  className="feedback-input"
+                  id="image"
+                  placeholder="Image(url)"
+                  onChange={(e) => setPicto(e.target.value)}/>
+              </p>
 
                <label> Catégorie intermédiaire associée <select onChange={(e) => setBesoins_id(e.target.value)}> 
                     {filtres.map(filtre => {
                        return <option value={filtre.id}> {filtre.besoins}</option>
                     })
                 }
-                </select></label>
-                {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
-            
-            <input type="button" id="button-blue" className="feedback-input" value="Créer catégorie" onClick={handlePost} />
+                </select></label>            
+            <input type="button" id="button-blue" className="feedback-input" value="Créer un type d'activité" onClick={handlePost} />
         </form>
         </div>
         </div>
