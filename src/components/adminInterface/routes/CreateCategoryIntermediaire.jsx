@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import '../CSS/CreateObjets.css'
 export default function CreateCategoryIntermediaire() {
 
     const [name, setName] = useState()
@@ -33,11 +33,13 @@ export default function CreateCategoryIntermediaire() {
         console.log(filtres)
 
     return (
-        <div className="creation-typeCat">
-            <h3>J'ajoute une catégorie intermédiaire</h3>
-            <div>
-                <label>Nom de la catégorie intermédiaire: <input type="text" onChange={(e) => setName(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+        <div className="admincreatearticle">
+            <h1>J'ajoute une catégorie intermédiaire</h1>
+            <div id="form-main">
+                <div id="form-div">
+                <form className="form" id="form1"> 
+                <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onChange={(e) => setName(e.target.value)} /></label>
+                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
 
                 <label> Catégorie d'objet associée 
                     <select onChange={(e) => setCategories_objets_id(e.target.value)}> 
@@ -46,9 +48,13 @@ export default function CreateCategoryIntermediaire() {
                     })
                 }
                 </select></label>
-            </div>
-            <input type="button" value="Créer catégorie" onClick={handlePost} />
+            
+        <input type="button" className="feedback-input" id="button-blue"value="Créer catégorie" onClick={handlePost} />
+        </form>
         </div>
+        </div>
+        </div>
+        
         
 
     )

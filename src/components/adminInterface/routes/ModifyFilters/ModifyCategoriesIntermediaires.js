@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import '../../CSS/CreateObjets.css'
 
 export default function ModifyCategoryIntermediaire(props) {
 
@@ -67,8 +67,10 @@ export default function ModifyCategoryIntermediaire(props) {
         console.log(name)
 
     return (
-        <div className="creation-typeCat">
-            <h3>Je modifie une catégorie intermédiaire</h3>
+        <div className="admincreatearticle">
+            <h1>Je modifie une catégorie intermédiaire</h1>
+            <div id="form-main">
+                <div id="form-div">
             <div>
                 <label>Nom de la catégorie intermédiaire: <input value={name} type="text" onChange={(e) => setName(e.target.value)} /></label>
                 <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
@@ -81,12 +83,15 @@ export default function ModifyCategoryIntermediaire(props) {
                 }
                 </select></label>
             </div>
-            <input type="button" value="Modifier catégorie" onClick={(e)=> handlePost(e)} />
+            <input type="button" className="feedback-input" id="button-blue" value="Modifier catégorie" onClick={(e)=> handlePost(e)} />
             <Link to="/admin/afficher/categories_intermediaires">
-            <input type="button" value="Supprimer categories intermédiares" onClick={() => deletePost()} />
+            <input type="button" className="feedback-input" id="button-blue" value="Supprimer categories intermédiares" onClick={() => deletePost()} />
             </Link>
+            </div>
+            </div>
         </div>
         
 
     )
+
 }

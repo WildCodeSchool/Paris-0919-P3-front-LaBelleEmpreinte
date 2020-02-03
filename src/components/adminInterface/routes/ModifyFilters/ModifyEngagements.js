@@ -43,16 +43,21 @@ export default function ModifyBesoin(props) {
             console.log ('engagements' , engagements)
 
     return (
-        <div className="creation-besoin">
-            <h3>Je modifie un engagement</h3>
-            <div>
-                <label>Nom du label: <input value={engagements} type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            </div>
-            <input type="button" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
+        <div className="admincreatearticle">
+            <h1>Je modifie un engagement</h1>
+            <div id="form-main">
+                <div id="form-div">
+                <form className="form" id="form1"> 
+                <label>Nom du label: <input className="feedback-input" value={engagements} type="text" onChange={(e) => setEngagements(e.target.value)} /></label>
+                <label>Pictogramme: <input className="feedback-input"  type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+            
+            <input type="button" id="button-blue" className="feedback-input" value="modifier un engagement" onClick={(e) => handlePost(e)}/>
             <Link to="/admin/afficher/engagements">
-            <input type="button" value="Supprimer engagement" onClick={() => deletePost()} />
+            <input type="button" id="button-blue" className="feedback-input" value="Supprimer engagement" onClick={() => deletePost()} />
             </Link>
+            </form>
+        </div>
+        </div>
         </div>
 
     )

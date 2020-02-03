@@ -41,7 +41,7 @@ export default function CreateObjets() {
                 <div id="form-div">
                 <form className="form" id="form1">   
                 <label>Nom de l'objet : <input className="feedback-input" type="text" onChange={(e) => setName(e.target.value)} /></label>
-                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+                <label>Pictogramme : <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
 
 
                <label> Catégorie intermédiaire associée <select onChange={(e) => setCategories_intermediaires_id(e.target.value)}> 

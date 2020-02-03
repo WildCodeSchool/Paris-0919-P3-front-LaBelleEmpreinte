@@ -16,13 +16,16 @@ export default function ModifyCategory() {
         }
 
     return (
-        <div className="creation-typeCat">
-            <h3>J'ajoute une catégorie d'objet</h3>
-            <div>
-                <label>Nom de la catégorie d'objet: <input type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
-                <label>Pictogramme: <input type="file" onChange={(e) => setPicto(e.target.value)} /></label>
-            </div>
-            <input type="button" value="Créer catégorie" onClick={handlePost} />
+        <div className="admincreatearticle">
+            <h1>J'ajoute une catégorie d'objet</h1>
+            <div id="form-main">
+                <div id="form-div">
+                <label>Nom de la catégorie d'objet: <input className="feedback-input" type="text" onChange={(e) => setCategorie(e.target.value)} /></label>
+                <label>Pictogramme: <input className="feedback-input" type="file" onChange={(e) => setPicto(e.target.value)} /></label>
+            
+            <input className="feedback-input" id="button-blue" type="button" value="Créer catégorie" onClick={handlePost} />
+        </div>
+        </div>
         </div>
 
     )
