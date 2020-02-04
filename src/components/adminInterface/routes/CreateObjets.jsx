@@ -24,6 +24,7 @@ export default function CreateObjets() {
                 .then(response => response.data)
                 .then(data => {
                   setFiltres(data[1].results);
+                  setCategories_intermediaires_id(data[1].results[0].id)
                 });
                 
             }

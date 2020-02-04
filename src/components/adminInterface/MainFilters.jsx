@@ -61,8 +61,6 @@ export default function MainFilters() {
         setArticleModify(e)
     }
 
-    console.log('mainfilters', setArticleModify)
-
     return (
         <>
             {/* filtres principaux */}

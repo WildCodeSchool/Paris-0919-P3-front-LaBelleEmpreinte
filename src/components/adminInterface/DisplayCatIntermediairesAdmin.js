@@ -23,7 +23,6 @@ const DisplayCatIntermediairesAdmin = (props) => {
 
     const handleModify = (e) => {
         props.modify(e)
-        console.log("dans displaycatinter",e)
     }
 
 

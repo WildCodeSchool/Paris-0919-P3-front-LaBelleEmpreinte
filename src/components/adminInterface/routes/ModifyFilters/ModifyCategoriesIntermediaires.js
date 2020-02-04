@@ -54,6 +54,7 @@ export default function ModifyCategoryIntermediaire(props) {
 
         const handlePost = () => {
             const url = 'http://localhost:4000/admin/categories_intermediaires/modify'
+            console.log('modify')
             axios.put(url, newCat)
         }
     
@@ -62,6 +63,7 @@ export default function ModifyCategoryIntermediaire(props) {
             axios.delete(url)
         }
  console.log(Elem)
+ console.log('catparent', categories_objets_id)
     return (
         <div className="admincreatearticle">
             <h1>Je modifie une catégorie intermédiaire</h1>
