@@ -45,7 +45,7 @@ export default function CreateInitiatives() {
     const [categories_intermediaires, setCategories_intermediaires] = useState([]);
 
     //MEGA STATE POUR L'ENVOI
-    const [initiatives, setInitiatives] = useState({
+    const initiatives = {
         name: name,
         url: url,
         adresse1: adress,
@@ -67,7 +67,7 @@ export default function CreateInitiatives() {
         date_dernier_echange: lastExchange,
         objets_labellises: isLabelised,
         date_evenement: dateEvent
-    })
+    }
 
     const articleDataForBack = {
         engagements: engagements,
@@ -78,6 +78,7 @@ export default function CreateInitiatives() {
         categories_intermediaires: categories_intermediaires,
         objets: objets
     };
+
 
 
     // soumet les données à la base de donnée
@@ -140,8 +141,12 @@ export default function CreateInitiatives() {
                         <input type="text" placeholder="Nom du contact 2" value={contactNameTwo} onChange={(e) => setcontactNameTwo(e.target.value)} />
                         <input type="text" placeholder="Mail du contact 2" value={contactMailTwo} onChange={(e) => setContactMailTwo(e.target.value)} />
                         <input type="text" placeholder="Téléphone du contact 2" value={contactPhoneTwo} onChange={(e) => setContactPhoneTwo(e.target.value)} />
+                        <label>Date du dernier échange: 
                         <input type="date" placeholder="Date du dernier échange" value={lastExchange} onChange={(e) => setLastExchange(e.target.value)} />
+                        </label>
+                        <label>Date des événements: 
                         <input type="date" placeholder="Date des événements" value={dateEvent} onChange={(e) => setDateEvent(e.target.value)} />
+                        </label>
                         <label>Est labelisé
                         <input type="checkbox" placeholder="Est labélisé" value={isLabelised} onChange={(e) => setIsLabelised(!isLabelised)} />
                         </label>
@@ -158,7 +163,7 @@ export default function CreateInitiatives() {
                     <ModalHeader toggle={handleClickModif}>L'article a bien été modifié</ModalHeader>
                     <ModalBody>
                         <div className="menu-modal">
-                            <input type="button" value="OK" />
+                            <input type="button" value="OK" onClick={handleClickModif}/>
                         </div>
                     </ModalBody>
                 </Modal >
