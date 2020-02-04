@@ -62,7 +62,6 @@ export default function MainFilters() {
         setArticleModify(e)
     }
 
-
     return (
         <>
             {/* filtres principaux */}

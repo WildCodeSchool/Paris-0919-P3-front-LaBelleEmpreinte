@@ -53,7 +53,8 @@ export default function ModifyCategoryIntermediaire(props) {
         }, [])
 
         const handlePost = () => {
-            const url = 'http://localhost:4000/admin/categories_intermediaires//modify'
+            const url = 'http://localhost:4000/admin/categories_intermediaires/modify'
+            console.log('modify')
             axios.put(url, newCat)
         }
     
@@ -61,7 +62,8 @@ export default function ModifyCategoryIntermediaire(props) {
             const url = `http://localhost:4000/admin/categories_intermediaires/${id}`
             axios.delete(url)
         }
-
+ console.log(Elem)
+ console.log('catparent', categories_objets_id)
     return (
         <div className="admincreatearticle">
             <h1>Je modifie une catégorie intermédiaire</h1>
@@ -87,9 +89,9 @@ export default function ModifyCategoryIntermediaire(props) {
                 }
                 </select></label>
             </div>
-            <input type="button" className="feedback-input" id="button-blue" value="Modifier catégorie" onClick={(e)=> handlePost(e)} />
+            <input type="button" className="feedback-input" id="button-blue" value="Modifier la catégorie intermédiaire" onClick={(e)=> handlePost(e)} />
             <Link to="/admin/afficher/categories_intermediaires">
-            <input type="button" className="feedback-input" id="button-blue" value="Supprimer categories intermédiares" onClick={() => deletePost()} />
+            <input type="button" className="feedback-input" id="button-blue" value="Supprimer la categorie intermédiaire" onClick={() => deletePost()} />
             </Link>
             </div>
             </div>

@@ -24,6 +24,8 @@ export default function CreateTypeActivity() {
                 .then(response => response.data)
                 .then(data => {
                   setFiltres(data[0].results);
+                  setBesoins_id(data[0].results[0].id)
+
                 });
                 
             }

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import TitleAdmin from './TitleAdmin'
-import Filtres from '../userInterface/Filtres'
 import './CSS/displayEngagementAdmin.css'
 import axios from "axios";
 import { Link } from 'react-router-dom'
@@ -42,7 +40,7 @@ const DisplayCatIntermediairesAdmin = (props) => {
                         {CatIntermediaires.map(elem =>
 
                         { 
-                            return <Link to={`/admin/modifier/categories_intermediaires/${elem.id}`}> <li> <div key={elem.id} onclick={() => handleModify(elem)}>{elem.name}</div> </li></Link>}
+                            return <Link to={`/admin/modifier/categories_intermediaires/${elem.id}`}> <li> <div key={elem.id} onClick={() => handleModify(elem)}>{elem.name}</div> </li></Link>}
                         
                         )}
                         
