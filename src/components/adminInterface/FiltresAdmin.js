@@ -300,7 +300,7 @@ class FiltresAdmin extends Component {
 
 
         <button onClick={this.filtersId}>
-          Rechercher
+          Valider les Filtres
           </button>
 
         <div className='Filtres_selectFilters'>
