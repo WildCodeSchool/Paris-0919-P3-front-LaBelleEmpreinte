@@ -8,6 +8,7 @@ import CreateBesoin from './routes/CreateBesoin'
 import CreateTypeActivity from "./routes/CreateTypeActivity"
 import CreateEngagement from "./routes/CreateEngagement"
 import CreateCategory from './routes/CreateCategory'
+import CreateInitiatives from './routes/CreateInitiatives'
 import CreateCategoryIntermediaire from "./routes/CreateCategoryIntermediaire"
 import CreateObjets from './routes/CreateObjets'
 import Filtres from '../userInterface/Filtres'
@@ -92,6 +93,9 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/admin/creer/besoins">
                     <CreateBesoin />
+                </Route>
+                <Route path="/admin/creer/initiatives">
+                    <CreateInitiatives/>
                 </Route>
                 <Route path="/admin/creer/types_activites">
                     <CreateTypeActivity/>
