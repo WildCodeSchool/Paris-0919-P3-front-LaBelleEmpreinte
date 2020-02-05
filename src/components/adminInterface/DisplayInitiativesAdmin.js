@@ -3,7 +3,8 @@ import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
 import './CSS/displayArticleAdmin.css'
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 const DisplayInitiativesAdmin = (props) => {
     const [Initiative, setInitiative] = useState([])
@@ -12,7 +13,7 @@ const DisplayInitiativesAdmin = (props) => {
     useEffect(() => {
         const getInitiatives = () => {
             axios
-            .get("http://localhost:4000/admin/initiaves")
+            .get("http://localhost:4000/admin/initiatives")
             .then(response => response.data)
             .then(data => {
                 console.log("aaaaaaaa", data)
@@ -26,9 +27,9 @@ const DisplayInitiativesAdmin = (props) => {
     useEffect(() => {
         const loadInitiatives = async () => {
             console.log(props)
-            const url1 = 'http://localhost:4000/user/filtres/articles'
-            const url2 = 'http://localhost:4000/user/filtres/objets/articles'
-            const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
+            const url1 = 'http://localhost:4000/admin/filtres/initiatives'
+            const url2 = 'http://localhost:4000/admin/filtres/objets/initiatives'
+            const url3 = 'http://localhost:4000/admin/filtres/besoins/initiatives'
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
                 console.log('results',result.data)
@@ -63,7 +64,9 @@ const DisplayInitiativesAdmin = (props) => {
         loadInitiatives()
     }, [props])
 
-
+    const handleModify = (e) => {
+        props.modify(e)
+    }
    
 
         return (
@@ -73,12 +76,13 @@ const DisplayInitiativesAdmin = (props) => {
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayArticleAdmin_frame">
                     <div className="displayArticleAdmin_header">
-                        <p>Nom de l'initiatives</p>
+                        <p>Nom de l'initiative</p>
                         
                     </div>
                     <div className="displayArticleAdmin_content">
                         <ul className="displayArticleAdmin_items">
                         {Initiative.map(elem =>
+
                         { 
                             
                             // {console.log("test",elem)}
