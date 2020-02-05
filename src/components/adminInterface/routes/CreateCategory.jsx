@@ -8,10 +8,14 @@ export default function CreateCategory() {
     const [picto, setPicto] = useState()
     const newCat = { categorie, picto }
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/categories_objets/create'
+        const url = `${pathApi}/admin/categories_objets/create`
            axios.post(url, newCat)
         }
 

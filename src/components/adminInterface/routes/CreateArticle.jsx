@@ -71,6 +71,7 @@ export default function CreateArticle(props) {
   if (process.env.NODE_ENV === 'production') {
     pathApi = process.env.REACT_APP_PATH_API_PROD 
   }
+
   // Est censé envoyer les données à la BDD
   const handlePost = async e => {
     e.preventDefault();

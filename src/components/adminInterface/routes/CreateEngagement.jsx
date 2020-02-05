@@ -9,8 +9,13 @@ export default function CreateEngagements() {
     const newEngagements = { engagements, urlPicto }
 
       const handlePost = () => {
-        const url = 'http://localhost:4000/admin/engagements/create'
+        const url = `${pathApi}/admin/engagements/create`
            axios.post(url, newEngagements)
+        }
+
+        let pathApi = process.env.REACT_APP_PATH_API_DEV
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD
         }
 
     return (

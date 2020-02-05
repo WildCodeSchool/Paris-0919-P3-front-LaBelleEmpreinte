@@ -14,6 +14,10 @@ import pictoclock from "../../assets/pictures/alarm-clock.png"
 const ArticleContent = (props) => {
 
     const [isTop, setIsTop] = useState(true)
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -49,7 +53,7 @@ const ArticleContent = (props) => {
     useEffect(() => {
         const loadArticle = async () => {
             const id = props.match.params.id
-            const url = `http://localhost:4000/user/articles/${id}`
+            const url = `${pathApi}/user/articles/${id}`
             const result = await axios.get(url)
             setArticle(result.data[0])
             setLoaded(true)
@@ -60,7 +64,7 @@ const ArticleContent = (props) => {
     useEffect(() => {
         const id = props.match.params.id
         const loadInitiatives = async () => {
-            const url = `http://localhost:4000/user/initiatives/${id}`
+            const url = `${pathApi}/user/initiatives/${id}`
             const result = await axios.get(url)
             setInitiatives(result.data)
             setLoaded2(true)

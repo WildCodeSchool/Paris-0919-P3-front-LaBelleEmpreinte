@@ -89,8 +89,8 @@ export default function ModifyCategoryIntermediaire(props) {
                 }
                 </select></label>
             </div>
-            <input type="button" className="feedback-input" id="button-blue" value="Modifier la catégorie intermédiaire" onClick={(e)=> handlePost(e)} />
             <Link to="/admin/afficher/categories_intermediaires">
+            <input type="button" className="feedback-input" id="button-blue" value="Modifier la catégorie intermédiaire" onClick={(e)=> handlePost(e)} />
             <input type="button" className="feedback-input" id="button-blue" value="Supprimer la categorie intermédiaire" onClick={() => deletePost()} />
             </Link>
             </div>
