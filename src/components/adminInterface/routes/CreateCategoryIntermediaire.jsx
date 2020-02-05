@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../CSS/CreateObjets.css'
+import {Link} from 'react-router-dom'
+
 export default function CreateCategoryIntermediaire() {
 
     const [name, setName] = useState()
@@ -31,13 +33,14 @@ export default function CreateCategoryIntermediaire() {
     }, [])
     console.log('catparent',categories_objets_id)
 console.log('filtres', filtres)
+console.log('name',name)
     return (
         <div className="admincreatearticle">
             <h1>J'ajoute une catégorie intermédiaire</h1>
             <div id="form-main">
                 <div id="form-div">
                     <form className="form" id="form1">
-                        <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onClick={(e) => setName(e.target.value)} /></label>
+                        <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onChange={(e) => setName(e.target.value)} /></label>
                         <p>
                             Pictogramme
                 <input
@@ -54,8 +57,9 @@ console.log('filtres', filtres)
                                 })
                                 }
                             </select></label>
-
+                            
                         <input type="button" className="feedback-input" id="button-blue" value="Créer une catégorie intermédiaire" onClick={handlePost} />
+                        
                     </form>
                 </div>
             </div>

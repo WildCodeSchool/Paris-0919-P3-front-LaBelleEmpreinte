@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../CSS/CreateObjets.css'
 
+
 export default function CreateObjets() {
 
     const [name, setName] = useState()
@@ -58,6 +59,7 @@ export default function CreateObjets() {
                 {/* Il faut faire un map sur l'index [1] du tableau de filtres qu'on récupère, pour afficher toutes les catégories intermédiaires, et onClick setCategories_intermédiaires avec la valeur de l'id de l'élément sur lequel on clique */}
             
             <input className="feedback-input" id="button-blue" type="button" value="Créer un objet" onClick={handlePost} />
+            
             </form>
             </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import '../CSS/CreateObjets.css'
 
+
 export default function CreateCategory() {
 
     const [categorie, setCategorie] = useState()
@@ -30,8 +31,10 @@ export default function CreateCategory() {
                   id="image"
                   placeholder="Image(url)"
                   onChange={(e) => setPicto(e.target.value)}/>
-              </p>            
+              </p>  
+              
             <input type="button" id="button-blue" className="feedback-input" value="Créer une catégorie d'objet" onClick={handlePost} />
+                          
         </form>
         </div>
         </div>

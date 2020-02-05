@@ -70,7 +70,7 @@ export default function ModifyTypeActivity(props) {
             <div id="form-main">
                 <div id="form-div">
                 <form className="form" id="form1"> 
-                <label>Nom du type d'activité : <input className="feedback-input" type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
+                <label>Nom du type d'activité : <input className="feedback-input" value={types_activites} type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
                 <p>
                 Pictogramme
                 <input

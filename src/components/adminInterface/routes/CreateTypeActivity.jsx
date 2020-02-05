@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../CSS/CreateObjets.css'
+import {Link} from 'react-router-dom'
 
 export default function CreateTypeActivity() {
 
@@ -54,8 +55,11 @@ export default function CreateTypeActivity() {
                        return <option value={filtre.id}> {filtre.besoins}</option>
                     })
                 }
-                </select></label>            
+                </select></label>  
+                <Link to="/admin/afficher/types_activites">         
             <input type="button" id="button-blue" className="feedback-input" value="Créer un type d'activité" onClick={handlePost} />
+            </Link>
+       
         </form>
         </div>
         </div>
