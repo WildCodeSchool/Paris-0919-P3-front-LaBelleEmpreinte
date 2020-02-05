@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
 import '../CSS/CreateObjets.css'
+
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
+
 
 export default function CreateTypeActivity() {
 
@@ -78,6 +80,7 @@ export default function CreateTypeActivity() {
                                     onChange={(e) => setPicto(e.target.value)} />
                             </p>
 
+
                             <label> Catégorie intermédiaire associée <select onChange={(e) => setBesoins_id(e.target.value)}>
                                 {filtres.map(filtre => {
                                     return <option value={filtre.id}> {filtre.besoins}</option>
@@ -90,6 +93,7 @@ export default function CreateTypeActivity() {
                 </div>
             </div>
         </>
+
 
     )
 }

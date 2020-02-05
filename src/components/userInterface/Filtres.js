@@ -118,7 +118,7 @@ class Filtres extends Component {
                             {
                               objetsSelected: {
                                 id: categ.id,
-                                name: categ.categorie.replace,
+                                name: categ.categorie,
                                 type: "categories_objets"
                               },
                               isVisibleObjets: !this.state.isVisibleObjets

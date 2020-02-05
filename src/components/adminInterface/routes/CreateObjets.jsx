@@ -5,6 +5,7 @@ import '../CSS/CreateObjets.css'
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 
+
 export default function CreateObjets() {
 
     const [name, setName] = useState()
@@ -77,6 +78,7 @@ export default function CreateObjets() {
                                     onChange={(e) => setPicto(e.target.value)} />
                             </p>
 
+
                             <label> Catégorie intermédiaire associée <select onChange={(e) => setCategories_intermediaires_id(e.target.value)}>
                                 {filtres.map(filtre => {
                                     return <option value={filtre.id}> {filtre.name}</option>
@@ -89,6 +91,7 @@ export default function CreateObjets() {
                         </form>
                     </div>
                 </div>
+
             </div>
         </>
 

@@ -5,6 +5,7 @@ import '../CSS/CreateObjets.css'
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 
+
 export default function CreateEngagements() {
 
     const [engagements, setEngagements] = useState()
@@ -49,6 +50,7 @@ export default function CreateEngagements() {
                     <p>
                         Pictogramme
                 <input
+
                             type="text"
                             className="feedback-input"
                             id="image"
@@ -58,6 +60,7 @@ export default function CreateEngagements() {
                     <input type="button" id="button-blue" className="feedback-input" value="Créer un engagement" onClick={(e) => handlePost(e)} />
                 </div>
             </div>
+
         </div>
         </>
     )

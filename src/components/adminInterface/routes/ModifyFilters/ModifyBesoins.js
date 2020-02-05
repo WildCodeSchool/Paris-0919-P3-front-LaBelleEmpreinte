@@ -111,6 +111,7 @@ export default function ModifyBesoin(props) {
               <input className="feedback-input" type="button" id="button-blue" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
                 <input className="feedback-input" id="button-blue" type="button" value="Supprimer Besoin" onClick={(e) => handleClick()} />
               
+
             </form>
           </div>
         </div>
