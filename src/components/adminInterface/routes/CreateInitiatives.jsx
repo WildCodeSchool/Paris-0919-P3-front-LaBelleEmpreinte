@@ -91,11 +91,16 @@ export default function CreateInitiatives() {
     objets: objets
   };
 
+  let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
+
   // soumet les données à la base de donnée
   const handleSubmit = () => {
     axios
       .post(
-        `http://localhost:4000/admin/initiatives/create`,
+        `${pathApi}/admin/initiatives/create`,
         articleDataForBack
       )
       .then(res => setRes(res));
@@ -116,7 +121,7 @@ export default function CreateInitiatives() {
   useEffect(() => {
     const getEngagements = () => {
         axios
-        .get("http://localhost:4000/admin/engagements")
+        .get(`${pathApi}/admin/engagements`)
         .then(response => response.data)
         .then(data => {
           setEngagements(data);

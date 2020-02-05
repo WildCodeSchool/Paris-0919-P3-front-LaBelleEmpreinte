@@ -38,11 +38,15 @@ export default function ModifyCategoryIntermediaire(props) {
 
     // a checker le chemin ==> nouveau besoin
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
 
         useEffect(() => {
             const getFilters = () => {
                 axios
-                .get("http://localhost:4000/user/objets")
+                .get(`${pathApi}/user/objets`)
                 .then(response => response.data)
                 .then(data => {
                   setFiltres(data[0].results);
@@ -53,13 +57,13 @@ export default function ModifyCategoryIntermediaire(props) {
         }, [])
 
         const handlePost = () => {
-            const url = 'http://localhost:4000/admin/categories_intermediaires/modify'
+            const url = `${pathApi}/admin/categories_intermediaires/modify`
             console.log('modify')
             axios.put(url, newCat)
         }
     
         const deletePost = () => {
-            const url = `http://localhost:4000/admin/categories_intermediaires/${id}`
+            const url = `${pathApi}/admin/categories_intermediaires/${id}`
             axios.delete(url)
         }
  console.log(Elem)
