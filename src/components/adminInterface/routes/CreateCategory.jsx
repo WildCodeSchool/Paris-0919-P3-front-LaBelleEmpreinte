@@ -5,6 +5,7 @@ import '../CSS/CreateObjets.css'
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 
+
 export default function CreateCategory() {
 
     const [categorie, setCategorie] = useState()
@@ -52,6 +53,7 @@ export default function CreateCategory() {
                             <p>
                                 Pictogramme
                 <input
+
                                     type="text"
                                     className="feedback-input"
                                     id="image"
@@ -64,5 +66,6 @@ export default function CreateCategory() {
                 </div>
             </div>
         </>
+
     )
 }

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import '../CSS/CreateObjets.css'
 
+
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 
@@ -38,6 +39,7 @@ export default function CreateCategoryIntermediaire() {
         }
         getFilters()
     }, [])
+
     
     const handleClick = () => {
         setVisible(!visible)
@@ -70,6 +72,7 @@ export default function CreateCategoryIntermediaire() {
                             <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onClick={(e) => setName(e.target.value)} /></label>
                             <p>
                                 Pictogramme
+
                 <input
                                     type="text"
                                     className="feedback-input"
@@ -79,6 +82,7 @@ export default function CreateCategoryIntermediaire() {
                             </p>
                             <label> Catégorie d'objet associée
                     <select onChange={(e) => setCategories_objets_id(e.target.value)}>
+
                                     {filtres.map(filtre => {
                                         return <option value={filtre.id}> {filtre.categorie}</option>
                                     })
@@ -88,6 +92,7 @@ export default function CreateCategoryIntermediaire() {
                             <input type="button" className="feedback-input" id="button-blue" value="Créer une catégorie intermédiaire" onClick={handlePost} />
                         </form>
                     </div>
+
                 </div>
             </div>
 

@@ -389,15 +389,15 @@ export default function CreateInitiatives() {
               </label>
             </p>
             <div className="association">
-          <h2>J'associe mon article à des objets et des besoins</h2>
+          <h2>J'associe mon initiative à des objets et des besoins</h2>
         </div>
         </form>
           </div>
 
         <div>
         <FiltresAdmin filteredItems={getFilters} />
-          <h2>J'associe des engagements à mon initiative</h2>
         </div>
+          <h2>J'associe des engagements à mon initiative</h2>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
             <div className="createArticle-initButton">
