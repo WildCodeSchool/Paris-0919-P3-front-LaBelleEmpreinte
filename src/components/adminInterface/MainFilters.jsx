@@ -26,6 +26,7 @@ import ModifyCategoriesObjets from "./routes/ModifyFilters/ModifyCategoriesObjet
 import ModifyCategoriesIntermediaires from "./routes/ModifyFilters/ModifyCategoriesIntermediaires"
 import ModifyObjets from "./routes/ModifyFilters/ModifyObjets"
 import ModifyEngagements from "./routes/ModifyFilters/ModifyEngagements"
+import ModifyInitiatives from './routes/ModifyInitiatives'
 
 
 import "./CSS/MainFilters.css"
@@ -62,6 +63,7 @@ export default function MainFilters() {
         setArticleModify(e)
     }
 
+
     return (
         <>
             {/* filtres principaux */}
@@ -77,7 +79,7 @@ export default function MainFilters() {
                 {tables ?
                     <select className="mainFilter-selector" onChange={(e) => setCategory(e.target.value)}>
                         {tables.map((item, index) => (
-                            <option key={index} value={item.TABLE_NAME} onChange={(e) => setCategory(e.target.value)}>{item.TABLE_NAME}</option>))}
+                            <option key={index} value={item.table_name} onChange={(e) => setCategory(e.target.value)}>{item.table_name}</option>))}
 
                     </select> : null}
                 {/* bouton link qui va naviguer sur les différentes pages en fonctions des states enregistrés */}
@@ -122,7 +124,7 @@ export default function MainFilters() {
                     <DisplayObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
-                    <Filtres front="admin_initiatives"/>
+                    <Filtres front="admin_initiatives" modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
                     <DisplayCatObjetsAdmin modify={(e)=>handleModify(e)}/>
@@ -161,6 +163,9 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/admin/modifier/engagements/:id">
                     <ModifyEngagements elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/initiatives/:id">
+                    <ModifyInitiatives elem={articleModify}/>
                 </Route>
             </Switch>
         </>

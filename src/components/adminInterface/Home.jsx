@@ -26,7 +26,7 @@ export default function HomeAdmin() {
             localStorage.setItem('myConnection', backRes.auth)
         }
         
-    })
+    }, [])
 
     // state pour le login
     const [email, setEmail] = useState()

@@ -118,7 +118,7 @@ class Filtres extends Component {
                             {
                               objetsSelected: {
                                 id: categ.id,
-                                name: categ.categorie.replace,
+                                name: categ.categorie,
                                 type: "categories_objets"
                               },
                               isVisibleObjets: !this.state.isVisibleObjets
@@ -331,6 +331,7 @@ class Filtres extends Component {
               <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
+                modify={(e) => this.handleModify(e)}
 
               />
               : <DisplayArticles

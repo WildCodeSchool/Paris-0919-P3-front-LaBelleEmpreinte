@@ -53,13 +53,12 @@ export default function ModifyArticles(props) {
   // rend visible/invisible le menu modal
   const [visible, setVisible] = useState(false)
   const [modifVisible, setModifVisible] = useState(false)
-  const [modifCancel, setCancel] = useState(false)
   // reçoit la réponse depuis le back
   const [theRes, setRes] = useState()
   // vérifie que les states ont été loadés
   const [isLoaded, setLoad] = useState(false)
 
-  let loaded = true
+
   const loadStates = () => {
     setTitle(newElem.titre)
     setAuthor(newElem.auteur)
@@ -83,12 +82,16 @@ export default function ModifyArticles(props) {
   }
 
   useEffect(() => {
+    if (date){
+      setDate(date.slice(0,10))
+    }
+  }, [date])
+
+  useEffect(() => {
     setElem(props)
     setNewElem(Elem.elem)
     if (newElem && justChange) {
       loadStates()
-
-    loaded = true
     }
   })
 
@@ -98,10 +101,6 @@ export default function ModifyArticles(props) {
     axios.put(`http://localhost:4000/admin/articles_maj/${newElem.id}`, { titre: title, date: date, auteur: author, contenu: text, publication: isPublished, image: img, image2: img2, minutes_lecture: readingTime, geographie: place })
     .then(res => setRes(res))
     // .then(error())
-  }
-
-  const handleCancel = () => {
-    setCancel(!modifCancel)
   }
 
   const handleSupress = () => {
@@ -114,9 +113,6 @@ export default function ModifyArticles(props) {
 
       if (theRes.statusText === "OK") {
         setModifVisible(true)
-      }
-      else {
-        handleCancel()
       }
     }
   }
@@ -170,16 +166,6 @@ return (
       <ModalBody>
         <div className="menu-modal">
           <Link to="/admin/afficher/articles"><input type="button" value="Confirmer" onClick={() => handleSupress()} /></Link>
-        </div>
-      </ModalBody>
-    </Modal >
-
-    {/* MODAL ERREUR */}
-    < Modal isOpen={modifCancel} toggle={handleCancel} className="" >
-      <ModalHeader toggle={handleCancel}>Une erreur s'est apparue durant l'envoi du formulaire</ModalHeader>
-      <ModalBody>
-        <div className="menu-modal">
-          <Link to="/admin/afficher/articles"><input type="button" value="OK" /></Link>
         </div>
       </ModalBody>
     </Modal >
