@@ -386,18 +386,20 @@ export default function CreateInitiatives() {
                   placeholder="Date des événements"
                   value={dateEvent}
                   onChange={e => setDateEvent(e.target.value)}
-                />
+                  />
               </label>
             </p>
+        </form>
+          </div>
+          </div>
             <div className="association">
           <h2>J'associe mon initiative à des objets et des besoins</h2>
         </div>
-        </form>
-          </div>
 
         <div>
         <FiltresAdmin filteredItems={getFilters} />
         </div>
+        <div>
           <h2>J'associe des engagements à mon initiative</h2>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
@@ -420,6 +422,7 @@ export default function CreateInitiatives() {
               ></img>
             </div>
           ))}
+          </div>
         
 
 
@@ -463,7 +466,6 @@ export default function CreateInitiatives() {
             </div>
           </ModalBody>
         </Modal>
-      </div>
     </div>
   );
 }
