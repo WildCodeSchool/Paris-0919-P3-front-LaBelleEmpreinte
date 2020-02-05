@@ -168,18 +168,16 @@ useEffect(() => {
     getEngagements()
   }, [])
 
-  // useEffect(() => {
-  //   const getInitFilters = () => {
-  //     axios
-  //       .get("http://localhost:4000/admin/initiatives/:id")
-  //       .then(response => response.data)
-  //       .then(data => {
-  //         setUniqueInitiatives(data);
-  //       });
+  // LES FONCTIONS QUI GERENT LES MENUS MODAL
+  const handleModification = () => {
+    axios.put(`http://localhost:4000/admin/initiatives/${newElem.id}`, articleDataForBack)
+    .then(res => setRes(res))
+    // .then(error())
+  }
 
-  //   }
-  //   getInitFilters()
-  // }, [Elem])
+  const handleSupress = () => {
+    axios.delete(`http://localhost:4000/admin/initiatives/${newElem.id}`)
+  }
 
   const getFilters = (a, b, c, d, e) => {
     setCategories_objets(a);
