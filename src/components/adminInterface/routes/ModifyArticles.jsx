@@ -38,13 +38,13 @@ export default function ModifyArticles(props) {
   // vérifie que les states ont été loadés
   const [isLoaded, setLoad] = useState(false)
 
-  let loaded = true
+
   const loadStates = () => {
     setTitle(newElem.titre)
     setAuthor(newElem.auteur)
     setText(newElem.contenu)
     setImg(newElem.image)
-    setDate(newElem.date.slice(0,10))
+    setDate(newElem.date)
     setTime(newElem.minutes_lecture)
     setPlace(newElem.geographie)
     setPublished(newElem.publication)
@@ -62,12 +62,16 @@ export default function ModifyArticles(props) {
   }
 
   useEffect(() => {
+    if (date){
+      setDate(date.slice(0,10))
+    }
+  }, [date])
+
+  useEffect(() => {
     setElem(props)
     setNewElem(Elem.elem)
     if (newElem && justChange) {
       loadStates()
-
-    loaded = true
     }
   })
 

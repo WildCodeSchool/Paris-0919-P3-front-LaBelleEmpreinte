@@ -83,9 +83,11 @@ const DisplayInitiativesAdmin = (props) => {
                         <ul className="displayArticleAdmin_items">
                         {Initiative.map(elem =>
 
-{ 
-    return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div key={elem.id} onClick={()=>handleModify(elem)}>{elem.name}</div> </li></Link>}
-
+                        { 
+                            
+                            // {console.log("test",elem)}
+                            return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
+                        
                         )}
                         
                         </ul>

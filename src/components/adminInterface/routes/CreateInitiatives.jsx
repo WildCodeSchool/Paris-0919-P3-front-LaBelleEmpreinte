@@ -182,8 +182,7 @@ export default function CreateInitiatives() {
     displayUniqueInitiatives();
   }, [engagements]);
 
-  console.log('init', articleDataForBack)
-  console.log(engagements)
+  
   return (
     <div className="admincreatearticle">
       <h1>Je créé une initiative</h1>
@@ -386,19 +385,21 @@ export default function CreateInitiatives() {
                   placeholder="Date des événements"
                   value={dateEvent}
                   onChange={e => setDateEvent(e.target.value)}
-                />
+                  />
               </label>
             </p>
-            <div className="association">
-          <h2>J'associe mon article à des objets et des besoins</h2>
-        </div>
         </form>
           </div>
+          </div>
+            <div className="association">
+          <h2>J'associe mon initiative à des objets et des besoins</h2>
+        </div>
 
         <div>
         <FiltresAdmin filteredItems={getFilters} />
-          <h2>J'associe des engagements à mon initiative</h2>
         </div>
+        <div>
+          <h2>J'associe des engagements à mon initiative</h2>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
             <div className="createArticle-initButton">
@@ -420,6 +421,7 @@ export default function CreateInitiatives() {
               ></img>
             </div>
           ))}
+          </div>
         
 
 
@@ -463,7 +465,6 @@ export default function CreateInitiatives() {
             </div>
           </ModalBody>
         </Modal>
-      </div>
     </div>
   );
 }
