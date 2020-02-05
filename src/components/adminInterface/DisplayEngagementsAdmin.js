@@ -7,11 +7,15 @@ import { Link } from 'react-router-dom'
 const DisplayEngagementAdmin = (props) => {
     const [engagement, setEngagement] = useState([])
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
 
     useEffect(() => {
         const getEngagements = () => {
             axios
-            .get("http://localhost:4000/admin/engagements")
+            .get(`${pathApi}/admin/engagements`)
             .then(response => response.data)
             .then(data => {
               setEngagement(data);
