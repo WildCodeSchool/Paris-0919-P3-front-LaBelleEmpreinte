@@ -402,7 +402,7 @@ export default function CreateInitiatives() {
           <h2>J'associe des engagements à mon initiative</h2>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOn">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
@@ -412,7 +412,7 @@ export default function CreateInitiatives() {
             </div>
           ))}
           {removedInitiative.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOff">
               <p>{init.name}</p>
               <img
                 src={addFilterIcon}
@@ -423,11 +423,6 @@ export default function CreateInitiatives() {
           ))}
           </div>
         
-
-
-
-       
-
 
           
         </div>

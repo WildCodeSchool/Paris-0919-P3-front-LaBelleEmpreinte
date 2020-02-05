@@ -187,12 +187,6 @@
     padding-right: 15px;
 }
 
-.modifyArticle-confirmBox {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid red;
-    width: 525px;
-}
 
 @media only screen and (max-width: 580px) {
     .admincreatearticle #form-div {
