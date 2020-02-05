@@ -182,8 +182,7 @@ export default function CreateInitiatives() {
     displayUniqueInitiatives();
   }, [engagements]);
 
-  console.log('init', articleDataForBack)
-  console.log(engagements)
+  
   return (
     <div className="admincreatearticle">
       <h1>Je créé une initiative</h1>
