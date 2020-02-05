@@ -12,26 +12,26 @@ import addFilterIcon from "./../../../assets/icons/addFilterIcon.png";
 
 export default function CreateInitiatives() {
   // les states pour le back
-  const [name, setName] = useState();
-  const [url, setUrl] = useState();
-  const [adress, setAdress] = useState();
-  const [adressTwo, setAdressTwo] = useState();
-  const [adressThree, setAdressThree] = useState();
-  const [logo, setLogo] = useState();
-  const [phoneOne, setPhoneOne] = useState();
-  const [phoneTwo, setPhoneTwo] = useState();
-  const [phoneThree, setPhoneThree] = useState();
-  const [description, setDescription] = useState();
-  const [contactFirstNameOne, setContactFirstNameOne] = useState();
-  const [contactNameOne, setcontactNameOne] = useState();
-  const [contactMailOne, setContactMailOne] = useState();
-  const [contactPhoneOne, setContactPhoneOne] = useState();
-  const [contactFirstNameTwo, setContactFirstNameTwo] = useState();
-  const [contactNameTwo, setcontactNameTwo] = useState();
-  const [contactMailTwo, setContactMailTwo] = useState();
-  const [contactPhoneTwo, setContactPhoneTwo] = useState();
-  const [lastExchange, setLastExchange] = useState();
-  const [dateEvent, setDateEvent] = useState();
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [adress, setAdress] = useState('');
+  const [adressTwo, setAdressTwo] = useState('');
+  const [adressThree, setAdressThree] = useState('');
+  const [logo, setLogo] = useState('');
+  const [phoneOne, setPhoneOne] = useState('');
+  const [phoneTwo, setPhoneTwo] = useState('');
+  const [phoneThree, setPhoneThree] = useState('');
+  const [description, setDescription] = useState('');
+  const [contactFirstNameOne, setContactFirstNameOne] = useState('');
+  const [contactNameOne, setcontactNameOne] = useState('');
+  const [contactMailOne, setContactMailOne] = useState('');
+  const [contactPhoneOne, setContactPhoneOne] = useState('');
+  const [contactFirstNameTwo, setContactFirstNameTwo] = useState('');
+  const [contactNameTwo, setcontactNameTwo] = useState('');
+  const [contactMailTwo, setContactMailTwo] = useState('');
+  const [contactPhoneTwo, setContactPhoneTwo] = useState('');
+  const [lastExchange, setLastExchange] = useState('');
+  const [dateEvent, setDateEvent] = useState('');
   const [isLabelised, setIsLabelised] = useState(false);
 
   // est visible

@@ -10,28 +10,28 @@ import "../CSS/AdminCreateArticle.css";
 import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
 import addFilterIcon from "./../../../assets/icons/addFilterIcon.png";
 
-export default function CreateInitiatives() {
+export default function CreateInitiatives(props) {
   // les states pour le back
-  const [name, setName] = useState();
-  const [url, setUrl] = useState();
-  const [adress, setAdress] = useState();
-  const [adressTwo, setAdressTwo] = useState();
-  const [adressThree, setAdressThree] = useState();
-  const [logo, setLogo] = useState();
-  const [phoneOne, setPhoneOne] = useState();
-  const [phoneTwo, setPhoneTwo] = useState();
-  const [phoneThree, setPhoneThree] = useState();
-  const [description, setDescription] = useState();
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [adress, setAdress] = useState('');
+  const [adressTwo, setAdressTwo] = useState('');
+  const [adressThree, setAdressThree] = useState('');
+  const [logo, setLogo] = useState('');
+  const [phoneOne, setPhoneOne] = useState('');
+  const [phoneTwo, setPhoneTwo] = useState('');
+  const [phoneThree, setPhoneThree] = useState('');
+  const [description, setDescription] = useState('');
   const [contactFirstNameOne, setContactFirstNameOne] = useState();
-  const [contactNameOne, setcontactNameOne] = useState();
-  const [contactMailOne, setContactMailOne] = useState();
-  const [contactPhoneOne, setContactPhoneOne] = useState();
-  const [contactFirstNameTwo, setContactFirstNameTwo] = useState();
-  const [contactNameTwo, setcontactNameTwo] = useState();
-  const [contactMailTwo, setContactMailTwo] = useState();
-  const [contactPhoneTwo, setContactPhoneTwo] = useState();
-  const [lastExchange, setLastExchange] = useState();
-  const [dateEvent, setDateEvent] = useState();
+  const [contactNameOne, setcontactNameOne] = useState('');
+  const [contactMailOne, setContactMailOne] = useState('');
+  const [contactPhoneOne, setContactPhoneOne] = useState('');
+  const [contactFirstNameTwo, setContactFirstNameTwo] = useState('');
+  const [contactNameTwo, setcontactNameTwo] = useState('');
+  const [contactMailTwo, setContactMailTwo] = useState('');
+  const [contactPhoneTwo, setContactPhoneTwo] = useState('');
+  const [lastExchange, setLastExchange] = useState('');
+  const [dateEvent, setDateEvent] = useState('');
   const [isLabelised, setIsLabelised] = useState(false);
 
   // est visible
@@ -55,7 +55,49 @@ export default function CreateInitiatives() {
   const [uniqueInitiatives, setUniqueInitiatives] = useState([]);
   const [removedInitiative, setRemovedInitiative] = useState([]);
 
-  
+  // setProps
+  const [Elem, setElem] = useState('')
+  // récupère une meilleure version de l'objet envoyé
+  const [newElem, setNewElem] = useState('')
+  //state pour empecher la modification par loadstates (FAUT PAS TOUCHER #ZAMBLA)
+  const [justChange, setChange] = useState(true)
+  const [id, setId] = useState()
+
+  const loadStates = () => {
+    setName(newElem.name)
+    setUrl(newElem.url)
+    setAdress(newElem.adress)
+    setAdressTwo(newElem.adressTwo)
+    setAdressThree(newElem.adressThree)
+    setLogo(newElem.logo)
+    setPhoneOne(newElem.phoneOne)
+    setPhoneTwo(newElem.phoneTwo)
+    setPhoneThree(newElem.phoneThree)
+    setDescription(newElem.description)
+    setContactFirstNameOne(newElem.contactFirstNameOne)
+    setcontactNameOne(newElem.contactNameOne)
+    setContactMailOne(newElem.contactMailOne)
+    setContactPhoneOne(newElem.contactPhoneOne)
+    setContactFirstNameTwo(newElem.contactFirstNameTwo)
+    setcontactNameTwo(newElem.contactNameTwo)
+    setContactMailTwo(newElem.contactMailTwo)
+    setContactPhoneTwo(newElem.contactPhoneTwo)
+    setLastExchange(newElem.lastExchange)
+    setDateEvent(newElem.dateEvent)
+    setIsLabelised(newElem.isLabelised)
+    setId(newElem.id)
+    setChange(false)
+}
+
+useEffect(() => {
+    setElem(props)
+    setNewElem(Elem.elem)
+    if (newElem && justChange) {
+        loadStates()
+    }
+})
+
+
   //MEGA STATE POUR L'ENVOI
   const initiatives = {
     name: name,
@@ -115,16 +157,29 @@ export default function CreateInitiatives() {
   /// récupère tous les engagements au chargement de la page 
   useEffect(() => {
     const getEngagements = () => {
-        axios
+      axios
         .get("http://localhost:4000/admin/engagements")
         .then(response => response.data)
         .then(data => {
           setEngagements(data);
         });
-        
+
     }
     getEngagements()
-}, [])
+  }, [])
+
+  // useEffect(() => {
+  //   const getInitFilters = () => {
+  //     axios
+  //       .get("http://localhost:4000/admin/initiatives/:id")
+  //       .then(response => response.data)
+  //       .then(data => {
+  //         setUniqueInitiatives(data);
+  //       });
+
+  //   }
+  //   getInitFilters()
+  // }, [Elem])
 
   const getFilters = (a, b, c, d, e) => {
     setCategories_objets(a);
@@ -186,7 +241,7 @@ export default function CreateInitiatives() {
   console.log(engagements)
   return (
     <div className="admincreatearticle">
-      <h1>Je créé une initiative</h1>
+      <h1>Je modifie une initiative</h1>
       <div id="form-main">
         <div id="form-div">
           <form className="form" id="form1">
@@ -272,26 +327,26 @@ export default function CreateInitiatives() {
               />
             </p>
             {/* DESCRIPTION */}
-            
-              <h2>Description</h2>
-              <Editor
-                initialValue={description}
-                init={{
-                  height: 500,
-                  menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount"
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
+
+            <h2>Description</h2>
+            <Editor
+              initialValue={description}
+              init={{
+                height: 500,
+                menubar: false,
+                plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table paste code help wordcount"
+                ],
+                toolbar:
+                  "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help"
-                }}
-                onChange={e => setDescription(e.target.getContent())}
-              />
-            
+              }}
+              onChange={e => setDescription(e.target.getContent())}
+            />
+
 
             <p>
               <input
@@ -390,13 +445,13 @@ export default function CreateInitiatives() {
               </label>
             </p>
             <div className="association">
-          <h2>J'associe mon article à des objets et des besoins</h2>
+              <h2>J'associe mon article à des objets et des besoins</h2>
+            </div>
+          </form>
         </div>
-        </form>
-          </div>
 
         <div>
-        <FiltresAdmin filteredItems={getFilters} />
+          <FiltresAdmin filteredItems={getFilters} />
           <h2>J'associe des engagements à mon initiative</h2>
         </div>
         <div className="createArticle-initiatives">
@@ -420,36 +475,36 @@ export default function CreateInitiatives() {
               ></img>
             </div>
           ))}
-        
 
 
 
-       
 
 
-          
+
+
+
         </div>
         <div id="form-main">
           <div id="form-div">
             <form className="form" id="form1">
-            <p className="publication">
-              <label>
-                Mon initiative est labellisée
+              <p className="publication">
+                <label>
+                  Mon initiative est labellisée
                 <input
-                  type="checkbox"
-                  placeholder="Est labélisé"
-                  value={isLabelised}
-                  onChange={e => setIsLabelised(!isLabelised)}
-                />
-              </label>
-            </p>
-            <input
-              type="button"
-              value="ENREGISTRER"
-              id="button-blue"
-              onClick={() => handleSubmit()}
-            />
-             </form>
+                    type="checkbox"
+                    placeholder="Est labélisé"
+                    value={isLabelised}
+                    onChange={e => setIsLabelised(!isLabelised)}
+                  />
+                </label>
+              </p>
+              <input
+                type="button"
+                value="ENREGISTRER"
+                id="button-blue"
+                onClick={() => handleSubmit()}
+              />
+            </form>
           </div>
         </div>
         {/* MODAL DE MODIFICATION */}

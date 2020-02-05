@@ -3,6 +3,8 @@ import TitleAdmin from './TitleAdmin'
 import Filtres from '../userInterface/Filtres'
 import './CSS/displayArticleAdmin.css'
 import axios from "axios";
+import { Link } from 'react-router-dom'
+
 
 const DisplayInitiativesAdmin = (props) => {
     const [Initiative, setInitiative] = useState([])
@@ -62,7 +64,9 @@ const DisplayInitiativesAdmin = (props) => {
         loadInitiatives()
     }, [props])
 
-
+    const handleModify = (e) => {
+        props.modify(e)
+    }
    
 
         return (
@@ -78,11 +82,10 @@ const DisplayInitiativesAdmin = (props) => {
                     <div className="displayArticleAdmin_content">
                         <ul className="displayArticleAdmin_items">
                         {Initiative.map(elem =>
-                        { 
-                            
-                            // {console.log("test",elem)}
-                            return <li> <div className="displayArticleAdmin_title">{elem.name}</div></li>}
-                        
+
+{ 
+    return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div key={elem.id} onClick={()=>handleModify(elem)}>{elem.name}</div> </li></Link>}
+
                         )}
                         
                         </ul>

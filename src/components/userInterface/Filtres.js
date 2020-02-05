@@ -331,6 +331,7 @@ class Filtres extends Component {
               <DisplayInitiativesAdmin
                 besoin={this.state.besoinsSelected}
                 objet={this.state.objetsSelected}
+                modify={(e) => this.handleModify(e)}
 
               />
               : <DisplayArticles
