@@ -66,7 +66,7 @@ export default function ModifyTypeActivity(props) {
     return (
 
         <div className="admincreatearticle">
-            <h1>J'ajoute un type d'activité</h1>
+            <h1>Je modifie un type d'activité</h1>
             <div id="form-main">
                 <div id="form-div">
                 <form className="form" id="form1"> 
@@ -89,15 +89,17 @@ export default function ModifyTypeActivity(props) {
                     })
                 }
                 </select></label>            
-            <input type="button" id="button-blue" className="feedback-input" value="Créer catégorie" onClick={handlePost} />
+
+                <Link to="/admin/afficher/types_activites">
+            <input type="button" id="button-blue" className="feedback-input" value="Modifier le type d'activité" onClick={handlePost} />
+            <input type="button" id="button-blue" className="feedback-input" value="Supprimer le type d'activité" onClick={() => deletePost()} />
+            </Link>  
+
             </form>
             </div>
             </div>
 
-            <input type="button" value="Modifier la Catégorie Intermédiaire" onClick={handlePost} />
-            <Link to="/admin/afficher/types_activites">
-            <input type="button" value="Supprimer la Catégorie Intermédiaire" onClick={() => deletePost()} />
-            </Link>
+            
 
         </div>
         

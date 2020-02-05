@@ -148,6 +148,44 @@
     cursor: pointer;
 }
 
+.createArticle-initiatives {
+    border: 1px solid black;
+    margin: 40px 22%;
+    height: 300px;
+}
+
+.createArticle-initiatives p {
+    margin: 0;
+}
+
+.createArticle-initButtonOn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 97%;
+    height: 40px;
+    margin: 10px;
+    border: 1px solid green;
+    background-color: hsl(120, 100%, 40%);
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
+.createArticle-initButtonOff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 97%;
+    height: 40px;
+    margin: 10px;
+    background-color:  #e3815f;
+    border: hsl(15, 70%, 48%);;
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
 @media only screen and (max-width: 580px) {
     .admincreatearticle #form-div {
         left: 3%;
