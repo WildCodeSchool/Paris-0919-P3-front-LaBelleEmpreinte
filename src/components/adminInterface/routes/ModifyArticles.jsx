@@ -44,7 +44,7 @@ export default function ModifyArticles(props) {
     setAuthor(newElem.auteur)
     setText(newElem.contenu)
     setImg(newElem.image)
-    setDate(newElem.date.slice(0,10))
+    setDate(newElem.date)
     setTime(newElem.minutes_lecture)
     setPlace(newElem.geographie)
     setPublished(newElem.publication)
@@ -60,6 +60,12 @@ export default function ModifyArticles(props) {
   const handleClick = () => {
     setVisible(!visible)
   }
+
+  useEffect(() => {
+    if (date){
+      setDate(date.slice(0,10))
+    }
+  }, [date])
 
   useEffect(() => {
     setElem(props)
