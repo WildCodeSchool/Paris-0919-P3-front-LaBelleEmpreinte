@@ -288,7 +288,7 @@ export default function CreateArticle(props) {
         </div>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOn">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
@@ -298,7 +298,7 @@ export default function CreateArticle(props) {
             </div>
           ))}
           {removedInitiative.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOff">
               <p>{init.name}</p>
               <img
                 src={addFilterIcon}
