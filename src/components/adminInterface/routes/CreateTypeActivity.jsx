@@ -13,14 +13,19 @@ export default function CreateTypeActivity() {
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/types_activites/create'
+        const url = `${pathApi}/admin/types_activites/create`
            axios.post(url, newCat)
+        }
+
+        let pathApi = process.env.REACT_APP_PATH_API_DEV
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD
         }
 
         useEffect(() => {
             const getFilters = () => {
                 axios
-                .get("http://localhost:4000/user/besoins")
+                .get(`${pathApi}/user/besoins")
                 .then(response => response.data)
                 .then(data => {
                   setFiltres(data[0].results);

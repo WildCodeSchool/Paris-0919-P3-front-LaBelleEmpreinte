@@ -23,6 +23,10 @@ export default function ModifyBesoin(props) {
         setId(newElem.id)
         setChange(false)
       }
+      let pathApi = process.env.REACT_APP_PATH_API_DEV
+      if (process.env.NODE_ENV === 'production') {
+        pathApi = process.env.REACT_APP_PATH_API_PROD
+      }
 
     useEffect(() => {
         setElem(props)
@@ -33,12 +37,12 @@ export default function ModifyBesoin(props) {
       })
 
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/besoins/modify'
+        const url = `${pathApi}admin/besoins/modify`
         axios.put(url, newBesoin)
     }
 
     const deletePost = () => {
-        const url = `http://localhost:4000/admin/besoins/${id}`
+        const url = `${pathApi}/admin/besoins/${id}`
         axios.delete(url)
     }
     return (

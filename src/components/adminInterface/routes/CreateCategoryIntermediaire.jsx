@@ -9,17 +9,22 @@ export default function CreateCategoryIntermediaire() {
     const [categories_objets_id, setCategories_objets_id] = useState()
     const newCat = { name, picto, categories_objets_id }
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/categories_intermediaires/create'
+        const url = `${pathApi}/admin/categories_intermediaires/create`
         axios.post(url, newCat, categories_objets_id)
     }
+
 
     useEffect(() => {
         const getFilters = async () => {
             await axios
-                .get("http://localhost:4000/user/objets")
+                .get(`${pathApi}/user/objets`)
                 .then(response => response.data)
                 .then(data => {
                     setFiltres(data[0].results)
