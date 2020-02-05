@@ -173,6 +173,8 @@ export default function CreateArticle(props) {
     setRemovedInitiative(removedInit);
   };
 
+  console.log('article article', articleDataForBack)
+
   return (
     <>
       <Modal isOpen={visible} toggle={handleClick} className="">
@@ -319,7 +321,7 @@ export default function CreateArticle(props) {
                   onChange={() => setPublished(!isPublished)}
                 ></input>
               </p>
-              
+
               <input
                 type="button"
                 value="ENREGISTRER"
