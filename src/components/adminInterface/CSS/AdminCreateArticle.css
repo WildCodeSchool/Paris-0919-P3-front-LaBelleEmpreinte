@@ -30,24 +30,25 @@
 }
 
 .admincreatearticle #form-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    float: left;
     padding-top: 0px;
     margin-bottom: 40px;
 }
 
 .admincreatearticle #form-div {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(191, 170, 143, 0.7);
     padding-left: 35px;
     padding-right: 35px;
     padding-top: 35px;
     padding-bottom: 50px;
     width: 525px;
-    float: left;
     left: 50%;
-    position: relative;
     margin-top: 30px;
-    margin-left: -260px;
 }
 
 .admincreatearticle .feedback-input {
@@ -184,6 +185,13 @@
     border-radius: 25px;
     padding-left: 20px;
     padding-right: 15px;
+}
+
+.modifyArticle-confirmBox {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    width: 525px;
 }
 
 @media only screen and (max-width: 580px) {
