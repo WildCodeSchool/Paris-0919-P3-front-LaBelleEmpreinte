@@ -8,11 +8,15 @@ import { Link } from 'react-router-dom'
 const DisplayCatObjetsAdmin = (props) => {
     const [CatObjets, setCatObjets] = useState([])
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
 
     useEffect(() => {
         const getCatObjets = () => {
             axios
-                .get("http://localhost:4000/admin/categories_objets")
+                .get(`${pathApi}/admin/categories_objets`)
                 .then(response => response.data)
                 .then(data => {
                     setCatObjets(data);

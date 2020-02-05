@@ -33,7 +33,6 @@ export default function ModifyArticles(props) {
   // rend visible/invisible le menu modal
   const [visible, setVisible] = useState(false)
   const [modifVisible, setModifVisible] = useState(false)
-  const [modifCancel, setCancel] = useState(false)
   // reçoit la réponse depuis le back
   const [theRes, setRes] = useState()
   // vérifie que les states ont été loadés
@@ -45,7 +44,7 @@ export default function ModifyArticles(props) {
     setAuthor(newElem.auteur)
     setText(newElem.contenu)
     setImg(newElem.image)
-    setDate(newElem.date)
+    setDate(newElem.date.slice(0,10))
     setTime(newElem.minutes_lecture)
     setPlace(newElem.geographie)
     setPublished(newElem.publication)
@@ -85,10 +84,6 @@ export default function ModifyArticles(props) {
     // .then(error())
   }
 
-  const handleCancel = () => {
-    setCancel(!modifCancel)
-  }
-
   const handleSupress = () => {
     axios.delete(`${pathApi}/admin/articles_maj/${newElem.id}`)
   }
@@ -100,9 +95,6 @@ export default function ModifyArticles(props) {
 
       if (theRes.statusText === "OK") {
         setModifVisible(true)
-      }
-      else {
-        handleCancel()
       }
     }
   }
@@ -127,16 +119,6 @@ return (
       <ModalBody>
         <div className="menu-modal">
           <Link to="/admin/afficher/articles"><input type="button" value="Confirmer" onClick={() => handleSupress()} /></Link>
-        </div>
-      </ModalBody>
-    </Modal >
-
-    {/* MODAL ERREUR */}
-    < Modal isOpen={modifCancel} toggle={handleCancel} className="" >
-      <ModalHeader toggle={handleCancel}>Une erreur s'est apparue durant l'envoi du formulaire</ModalHeader>
-      <ModalBody>
-        <div className="menu-modal">
-          <Link to="/admin/afficher/articles"><input type="button" value="OK" /></Link>
         </div>
       </ModalBody>
     </Modal >

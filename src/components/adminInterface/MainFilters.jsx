@@ -47,9 +47,10 @@ export default function MainFilters() {
 
     const route = `/admin/${action}/${category}`
 
-    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
     if (process.env.NODE_ENV === 'production') {
-      pathApi = process.env.REACT_APP_PATH_API_PROD
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+
     }
 
     // le "componentDidMount" qui fait l'appel à Axios pour le deuxième filtre

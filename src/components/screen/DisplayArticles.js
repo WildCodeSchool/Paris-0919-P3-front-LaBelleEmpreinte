@@ -89,14 +89,14 @@ const DisplayArticles = (props) => {
                     <div className='DisplayArticles-Container'>
                         <p className={lastArticles ? 'DisplayArticles-visiblehead' : 'DisplayArticles-invisiblehead'}>
                             Nos derniers articles
-                            <hr />
+                            {/* <hr /> */}
                         </p>
                         <div className='DisplayArticles-Gallery'>
 
                             {filteredArticles
                                 .map(
                                     (article, index) => (
-                                        <ArticlesItem {...article} />
+                                        <ArticlesItem key={index} {...article} />
                                     ))}
 
                         </div>

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import FiltresAdmin from "../../adminInterface/FiltresAdmin";
 // import tinyMCE
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import "../CSS/AdminCreateArticle.css";
+// icons to add or remove engagements associated to our initiative
+import deleteFilterIcon from "./../../../assets/icons/deleteFilterIcon.png";
+import addFilterIcon from "./../../../assets/icons/addFilterIcon.png";
 
 export default function CreateInitiatives() {
   // les states pour le back
@@ -37,6 +41,7 @@ export default function CreateInitiatives() {
   const [response, setRes] = useState();
 
   // tables intermédiaires
+  const [validateFilters, setValidateFilters] = useState(false);
   const [engagements, setEngagements] = useState([]);
   const [besoins, setBesoins] = useState([]);
   const [objets, setObjets] = useState([]);
@@ -46,6 +51,11 @@ export default function CreateInitiatives() {
     []
   );
 
+  /// state pour les fonctions ///
+  const [uniqueInitiatives, setUniqueInitiatives] = useState([]);
+  const [removedInitiative, setRemovedInitiative] = useState([]);
+
+  
   //MEGA STATE POUR L'ENVOI
   const initiatives = {
     name: name,
@@ -72,7 +82,7 @@ export default function CreateInitiatives() {
   };
 
   const articleDataForBack = {
-    engagements: engagements,
+    engagements: uniqueInitiatives,
     initiatives: initiatives,
     besoins: besoins,
     types_activites: types_activites,
@@ -102,6 +112,78 @@ export default function CreateInitiatives() {
     }
   }, [response]);
 
+  /// récupère tous les engagements au chargement de la page 
+  useEffect(() => {
+    const getEngagements = () => {
+        axios
+        .get("http://localhost:4000/admin/engagements")
+        .then(response => response.data)
+        .then(data => {
+          setEngagements(data);
+        });
+        
+    }
+    getEngagements()
+}, [])
+
+  const getFilters = (a, b, c, d, e) => {
+    setCategories_objets(a);
+    setCategories_intermediaires(b);
+    setObjets(c);
+    setBesoins(d);
+    setTypes_activites(e);
+    setValidateFilters(!validateFilters);
+  };
+
+  const unBind = init => {
+    const removedInit = [...removedInitiative, init];
+    const remainingInit = [...uniqueInitiatives].filter(
+      elem => elem.name != init.name
+    );
+    setUniqueInitiatives(remainingInit);
+    setRemovedInitiative(removedInit);
+  };
+
+  const handleClick = () => {
+    setVisible(!isVisible);
+  };
+
+  const reBind = init => {
+    const addInit = [...uniqueInitiatives, init];
+    const removedInit = [...removedInitiative].filter(
+      elem => elem.name != init.name
+    );
+    setUniqueInitiatives(addInit);
+    setRemovedInitiative(removedInit);
+  };
+
+  useEffect(() => {
+    const displayUniqueInitiatives = () => {
+      const uniqInit = [...uniqueInitiatives];
+      for (let i = 0; i < engagements.length; i++) {
+        if (uniqInit.length === 0) {
+          uniqInit.push({ name: engagements[0].engagements, id: engagements[0].id });
+        } else {
+          let initiative = "";
+          for (let j = 0; j < uniqInit.length; j++) {
+            if (engagements[i].id === uniqInit[j].id) {
+              initiative = null;
+            } else if (initiative != null) {
+              initiative = { name: engagements[i].engagements, id: engagements[i].id };
+            }
+          }
+          if (initiative) {
+            uniqInit.push(initiative);
+          }
+        }
+      }
+      setUniqueInitiatives(uniqInit);
+    };
+    displayUniqueInitiatives();
+  }, [engagements]);
+
+  console.log('init', articleDataForBack)
+  console.log(engagements)
   return (
     <div className="admincreatearticle">
       <h1>Je créé une initiative</h1>
@@ -307,9 +389,52 @@ export default function CreateInitiatives() {
                 />
               </label>
             </p>
+            <div className="association">
+          <h2>J'associe mon article à des objets et des besoins</h2>
+        </div>
+        </form>
+          </div>
+
+        <div>
+        <FiltresAdmin filteredItems={getFilters} />
+          <h2>J'associe des engagements à mon initiative</h2>
+        </div>
+        <div className="createArticle-initiatives">
+          {uniqueInitiatives.map(init => (
+            <div className="createArticle-initButton">
+              <p>{init.name}</p>
+              <img
+                src={deleteFilterIcon}
+                alt="deleteFilterIcon"
+                onClick={() => unBind(init)}
+              ></img>
+            </div>
+          ))}
+          {removedInitiative.map(init => (
+            <div className="createArticle-initButton">
+              <p>{init.name}</p>
+              <img
+                src={addFilterIcon}
+                alt="addFilterIcon"
+                onClick={() => reBind(init)}
+              ></img>
+            </div>
+          ))}
+        
+
+
+
+       
+
+
+          
+        </div>
+        <div id="form-main">
+          <div id="form-div">
+            <form className="form" id="form1">
             <p className="publication">
               <label>
-                Est labelisé
+                Mon initiative est labellisée
                 <input
                   type="checkbox"
                   placeholder="Est labélisé"
@@ -324,7 +449,8 @@ export default function CreateInitiatives() {
               id="button-blue"
               onClick={() => handleSubmit()}
             />
-          </form>
+             </form>
+          </div>
         </div>
         {/* MODAL DE MODIFICATION */}
         <Modal isOpen={isVisible} toggle={handleClickModif} className="">

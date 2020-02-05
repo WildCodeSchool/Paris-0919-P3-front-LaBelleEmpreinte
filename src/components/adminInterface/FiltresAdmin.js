@@ -4,6 +4,11 @@ import menuBurger from '../../assets/icons/menuBurger.png'
 import deleteFilterIcon from '../../assets/icons/deleteFilterIcon.png'
 import "../userInterface/Filtres.css";
 
+let pathApi = process.env.REACT_APP_PATH_API_DEV 
+if (process.env.NODE_ENV === 'production') {
+  pathApi = process.env.REACT_APP_PATH_API_PROD 
+}
+
 //////// Trouver un moyen de n'ajouter qu'une fois dans le state un même filtre //////
 class FiltresAdmin extends Component {
   state = {
@@ -33,7 +38,7 @@ class FiltresAdmin extends Component {
 
   getObjets = () => {
     axios
-      .get("http://localhost:4000/user/objets")
+      .get(`${pathApi}/user/objets`)
       .then(response => response.data)
       .then(data => {
         this.setState({
@@ -44,7 +49,7 @@ class FiltresAdmin extends Component {
 
   getBesoins = () => {
     axios
-      .get("http://localhost:4000/user/besoins")
+      .get(`${pathApi}/user/besoins`)
       .then(response => response.data)
       .then(data => {
         this.setState({
@@ -300,7 +305,7 @@ class FiltresAdmin extends Component {
 
 
         <button onClick={this.filtersId}>
-          Rechercher
+          Valider les Filtres
           </button>
 
         <div className='Filtres_selectFilters'>

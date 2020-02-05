@@ -67,11 +67,11 @@ export default function CreateArticle(props) {
     objets: objets
   };
 
-  let pathApi = process.env.REACT_APP_PATH_API_DEV
-    if (process.env.NODE_ENV === 'production') {
-      pathApi = process.env.REACT_APP_PATH_API_PROD
-    } 
-  
+  let pathApi = process.env.REACT_APP_PATH_API_DEV 
+  if (process.env.NODE_ENV === 'production') {
+    pathApi = process.env.REACT_APP_PATH_API_PROD 
+  }
+
   // Est censé envoyer les données à la BDD
   const handlePost = async e => {
     e.preventDefault();
@@ -177,6 +177,8 @@ export default function CreateArticle(props) {
     setUniqueInitiatives(addInit);
     setRemovedInitiative(removedInit);
   };
+
+  console.log('article article', articleDataForBack)
 
   return (
     <>
@@ -293,7 +295,7 @@ export default function CreateArticle(props) {
         </div>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOn">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
@@ -303,7 +305,7 @@ export default function CreateArticle(props) {
             </div>
           ))}
           {removedInitiative.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOff">
               <p>{init.name}</p>
               <img
                 src={addFilterIcon}
@@ -324,7 +326,7 @@ export default function CreateArticle(props) {
                   onChange={() => setPublished(!isPublished)}
                 ></input>
               </p>
-              
+
               <input
                 type="button"
                 value="ENREGISTRER"
