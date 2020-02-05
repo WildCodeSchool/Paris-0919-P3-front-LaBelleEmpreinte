@@ -86,7 +86,7 @@ const DisplayInitiativesAdmin = (props) => {
                         { 
                             
                             // {console.log("test",elem)}
-                            return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
+                            return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div onClick={() => handleModify(elem)}className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
                         
                         )}
                         
