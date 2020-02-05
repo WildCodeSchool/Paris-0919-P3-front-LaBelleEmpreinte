@@ -28,13 +28,17 @@ export default function HomeAdmin() {
         
     })
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
     // state pour le login
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     //action du login
     const submitInfo = () => {
 
-        axios.post('http://localhost:4000/auth/', { 'email': email, 'password': password })
+        axios.post(`${pathApi}/auth/`, { 'email': email, 'password': password })
             .then(res => setRes(res.data))
 
             if (isAdmin === false) {

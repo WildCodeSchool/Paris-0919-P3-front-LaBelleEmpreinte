@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import TitleAdmin from './TitleAdmin'
-// import Filtres from '../userInterface/Filtres'
+
 import './CSS/displayArticleAdmin.css'
 import axios from "axios";
 import { Link } from 'react-router-dom'
@@ -8,11 +7,15 @@ import { Link } from 'react-router-dom'
 const DisplayArticleAdmin = (props) => {
     const [article, setArticle] = useState([])
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
 
     useEffect(() => {
         const getArticles = () => {
             axios
-            .get("http://localhost:4000/user/articles")
+            .get(`${pathApi}/user/articles`)
             .then(response => response.data)
             .then(data => {
               setArticle(data);
@@ -24,9 +27,9 @@ const DisplayArticleAdmin = (props) => {
 
     useEffect(() => {
         const loadArticles = async () => {
-            const url1 = 'http://localhost:4000/user/filtres/articles'
-            const url2 = 'http://localhost:4000/user/filtres/objets/articles'
-            const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
+            const url1 = `${pathApi}/user/filtres/articles`
+            const url2 = `${pathApi}/user/filtres/objets/articles`
+            const url3 = `${pathApi}/user/filtres/besoins/articles`
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
                 setArticle(result.data)
@@ -44,7 +47,7 @@ const DisplayArticleAdmin = (props) => {
             else {
                 const getArticles = () => {
                     axios
-                    .get("http://localhost:4000/user/articles")
+                    .get("${pathApi}/user/articles")
                     .then(response => response.data)
                     .then(data => {
                       setArticle(data);

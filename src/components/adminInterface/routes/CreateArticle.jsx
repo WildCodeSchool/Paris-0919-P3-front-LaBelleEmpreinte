@@ -67,11 +67,15 @@ export default function CreateArticle(props) {
     objets: objets
   };
 
+  let pathApi = process.env.REACT_APP_PATH_API_DEV 
+  if (process.env.NODE_ENV === 'production') {
+    pathApi = process.env.REACT_APP_PATH_API_PROD 
+  }
   // Est censé envoyer les données à la BDD
   const handlePost = async e => {
     e.preventDefault();
     await getUniqInitIds();
-    const url = "http://localhost:4000/admin/articles/create";
+    const url = `${pathApi}/admin/articles/create`;
     axios.post(url, articleDataForBack).then(res => setRes(res));
   };
 
@@ -83,7 +87,7 @@ export default function CreateArticle(props) {
     setInitiatives([]);
     setRemovedInitiative([]);
     const displayInitiatives = async filter => {
-      const url = "http://localhost:4000/admin/filtre/initiatives";
+      const url = `${pathApi}/admin/filtre/initiatives`;
       filter.map(async item => {
         return await axios
           .post(url, { type: item.type, id: item.id })
