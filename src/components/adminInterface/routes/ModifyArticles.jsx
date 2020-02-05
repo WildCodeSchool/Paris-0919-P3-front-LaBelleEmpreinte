@@ -38,7 +38,7 @@ export default function ModifyArticles(props) {
   // vérifie que les states ont été loadés
   const [isLoaded, setLoad] = useState(false)
 
-  let loaded = true
+
   const loadStates = () => {
     setTitle(newElem.titre)
     setAuthor(newElem.auteur)
@@ -72,8 +72,6 @@ export default function ModifyArticles(props) {
     setNewElem(Elem.elem)
     if (newElem && justChange) {
       loadStates()
-
-    loaded = true
     }
   })
 
