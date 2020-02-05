@@ -1,0 +1,19 @@
+.mainFilters {
+    margin: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainFilter-selector {
+    width: 20vw;
+}
+
+.mainFilter-button {
+    background: #399967;
+    color: black;
+   }
+   
+
+.mainFilter-option {
+    text-align: center;
+}

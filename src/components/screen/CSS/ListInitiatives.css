@@ -1,0 +1,94 @@
+.listinitiatives {
+    margin-top: 50px;
+}
+
+.listinitiatives-containerhead {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-top: 15px;
+    border-left: 1px solid currentColor;
+    font-size: 1.3rem;
+}
+
+.listinitiatives-logo {
+    max-width: 5.5rem;
+    border-radius: 100px;
+}
+
+.listinitiatives-head {
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+.listinitiatives-description {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.listinitiatives-engagementscontainer {
+    margin-left: none;
+}
+
+.listinitiatives-adresses {
+    line-height: 0.5rem;
+}
+
+.listinitiatives-logoengagements {
+    max-height: 4.5rem;
+    margin-right: 10px;
+}
+
+[data-popup] {
+    position: relative;
+    font-weight: normal;
+}
+
+[data-popup]:before, [data-popup]:after {
+    opacity: 0;
+    transform: translate(-50%, 0);
+    transition: 0.15s ease opacity, 0.15s ease transform;
+    will-change: opacity transform;
+    content: "";
+}
+
+[data-popup]:hover:before, [data-popup]:hover:after {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    opacity: 1;
+}
+
+[data-popup]:hover:before {
+    bottom: 100%;
+    padding: 5px 10px;
+    background: rgba(57, 153, 103, 1);
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    content: attr(data-popup);
+    white-space: nowrap;
+}
+
+[data-popup]:hover:after {
+    top: 0;
+    height: 0;
+    width: 0;
+    border: solid transparent;
+    border-top-color: rgba(57, 153, 103, 1);
+    border-width: 5px;
+    content: "";
+}
+
+@media screen and (max-width: 770px) {
+    .listinitiatives-engagementscontainer {
+        margin-left: 30px;
+    }
+    
+    [data-popup]:hover:before {
+        font-size: 12px;
+    }
+}

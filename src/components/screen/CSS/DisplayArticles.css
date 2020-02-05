@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../../assets/fonts/Montserrat-Regular.ttf")
+}
+
+.DisplayArticles-Container {
+  max-width: 93.5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.DisplayArticles-Gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem -1rem;
+  padding-bottom: 3rem;
+  justify-content: flex-start;
+}
+
+.DisplayArticles-visiblehead {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 550;
+  margin-top: 1rem;
+}
+
+.DisplayArticles-invisiblehead {
+  display: none;
+}
+
+@media screen and (max-width: 770px){
+  .DisplayArticles-Gallery {
+    justify-content: center;
+  }
+} 
