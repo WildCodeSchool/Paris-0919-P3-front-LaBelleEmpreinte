@@ -30,9 +30,9 @@ export default function CreateTypeActivity() {
             axios
                 .get("http://localhost:4000/user/besoins")
                 .then(response => response.data)
-                .then(data => {
-                    if (data[0].results.id)
-                    {
+                .then(data => { 
+                    if (data[0]) {
+
                         setFiltres(data[0].results);
                         setBesoins_id(data[0].results[0].id)
 
@@ -43,7 +43,7 @@ export default function CreateTypeActivity() {
         }
         getFilters()
     }, [])
-
+        
 
     //POUR FAIRE APPARAITRE LE MENU MODAL
     const handleClick = () => {

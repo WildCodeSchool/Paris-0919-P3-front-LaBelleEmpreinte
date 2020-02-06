@@ -3,6 +3,7 @@ import FiltresAdmin from "../../adminInterface/FiltresAdmin";
 // import tinyMCE
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import "../CSS/AdminCreateArticle.css";
@@ -30,8 +31,8 @@ export default function CreateInitiatives() {
   const [contactNameTwo, setcontactNameTwo] = useState('');
   const [contactMailTwo, setContactMailTwo] = useState('');
   const [contactPhoneTwo, setContactPhoneTwo] = useState('');
-  const [lastExchange, setLastExchange] = useState('');
-  const [dateEvent, setDateEvent] = useState('');
+  const [lastExchange, setLastExchange] = useState();
+  const [dateEvent, setDateEvent] = useState();
   const [isLabelised, setIsLabelised] = useState(false);
 
   // est visible
@@ -423,8 +424,6 @@ export default function CreateInitiatives() {
           ))}
           </div>
         
-
-          
         </div>
         <div id="form-main">
           <div id="form-div">
@@ -452,11 +451,13 @@ export default function CreateInitiatives() {
         {/* MODAL DE MODIFICATION */}
         <Modal isOpen={isVisible} toggle={handleClickModif} className="">
           <ModalHeader toggle={handleClickModif}>
-            L'article a bien été modifié
+            L'initiative a été créée!
           </ModalHeader>
           <ModalBody>
             <div className="menu-modal">
+              <Link to="/admin/afficher/initiatives">
               <input type="button" value="OK" onClick={handleClickModif} />
+              </Link>
             </div>
           </ModalBody>
         </Modal>

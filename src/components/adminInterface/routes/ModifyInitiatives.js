@@ -137,16 +137,6 @@ export default function CreateInitiatives(props) {
     objets: objets
   };
 
-  // soumet les données à la base de donnée
-  // const handleSubmit = () => {
-  //   axios
-  //     .post(
-  //       `http://localhost:4000/admin/initiatives/create`,
-  //       articleDataForBack
-  //     )
-  //     .then(res => setRes(res));
-  // };
-
   // fait apparaitre ou disparaitre le modal de confirmation d'ajout
   const handleClickModif = () => {
     setVisible(!visible);
@@ -479,7 +469,7 @@ export default function CreateInitiatives(props) {
           </div>
           <div className="createArticle-initiatives">
             {uniqueInitiatives.map(init => (
-              <div className="createArticle-initButton">
+              <div className="createArticle-initButtonOn">
                 <p>{init.name}</p>
                 <img
                   src={deleteFilterIcon}
@@ -489,7 +479,7 @@ export default function CreateInitiatives(props) {
               </div>
             ))}
             {removedInitiative.map(init => (
-              <div className="createArticle-initButton">
+              <div className="createArticle-initButtonOff">
                 <p>{init.name}</p>
                 <img
                   src={addFilterIcon}
