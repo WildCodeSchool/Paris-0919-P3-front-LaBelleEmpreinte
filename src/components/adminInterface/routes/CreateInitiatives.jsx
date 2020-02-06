@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import FiltresAdmin from "../../adminInterface/FiltresAdmin";
-// import tinyMCE
-import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
 // on importe le menu modal
@@ -271,27 +269,9 @@ export default function CreateInitiatives() {
                 onChange={e => setPhoneThree(e.target.value)}
               />
             </p>
-            {/* DESCRIPTION */}
-            
-              <h2>Description</h2>
-              <Editor
-                initialValue={description}
-                init={{
-                  height: 500,
-                  menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount"
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
-             alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help"
-                }}
-                onChange={e => setDescription(e.target.getContent())}
-              />
-            
+            <p>
+              <input type="text" className="feedback-input" value={description} placeholder="Description" onChange={(e)=> setDescription(e.target.value)}/>
+            </p>
 
             <p>
               <input

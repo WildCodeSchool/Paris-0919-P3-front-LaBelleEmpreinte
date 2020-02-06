@@ -53,7 +53,7 @@ export default function CreateInitiatives(props) {
   );
   // rend visible/invisible le menu modal
   const [modifVisible, setModifVisible] = useState(false)
-  
+
 
   /// state pour les fonctions ///
   const [uniqueInitiatives, setUniqueInitiatives] = useState([]);
@@ -340,25 +340,15 @@ export default function CreateInitiatives(props) {
                 />
               </p>
               {/* DESCRIPTION */}
-
-              <h2>Description</h2>
-              <Editor
-                initialValue={description}
-                init={{
-                  height: 500,
-                  menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount"
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
-             alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help"
-                }}
-                onChange={e => setDescription(e.target.getContent())}
-              />
+              <p>
+                <input
+                  type="text"
+                  className="feedback-input"
+                  placeholder="description"
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                />
+              </p>
 
 
               <p>
@@ -506,7 +496,7 @@ export default function CreateInitiatives(props) {
                     />
                   </label>
                 </p>
-                <input type="button" value="MODIFIER" id="button-blue" onClick={() =>handleModification()} />
+                <input type="button" value="MODIFIER" id="button-blue" onClick={() => handleModification()} />
                 {/* <Link to="/admin/afficher/articles"> */}
                 <input type="button" value="SUPPRIMER" id="button-blue" onClick={() => handleClick()} />
               </form>
