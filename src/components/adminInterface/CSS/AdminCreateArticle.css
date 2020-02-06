@@ -153,6 +153,7 @@
     border: 1px solid black;
     margin: 40px 22%;
     height: 300px;
+    overflow-y: auto;
 }
 
 .createArticle-initiatives p {
