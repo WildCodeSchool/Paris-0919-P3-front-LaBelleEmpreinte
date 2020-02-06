@@ -63,7 +63,7 @@ export default function ModifyTypeActivity(props) {
             loadStates()
         }
     })
-
+console.log(Elem)
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
         const url = 'http://localhost:4000/admin/types_activites/modify'
@@ -81,8 +81,13 @@ export default function ModifyTypeActivity(props) {
             axios
                 .get("http://localhost:4000/user/besoins")
                 .then(response => response.data)
-                .then(data => {
-                    setFiltres(data[0].results);
+                .then(data => { 
+                    if (data[0]) {
+
+                        setFiltres(data[0].results);
+
+                    }
+
                 });
 
         }
@@ -116,7 +121,7 @@ export default function ModifyTypeActivity(props) {
                 <div id="form-main">
                     <div id="form-div">
                         <form className="form" id="form1">
-                            <label>Nom du type d'activité : <input className="feedback-input" type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
+                            <label>Nom du type d'activité : <input className="feedback-input" value={types_activites} type="text" onChange={(e) => setTypes_activites(e.target.value)} /></label>
                             <p>
                                 Pictogramme
                 <input

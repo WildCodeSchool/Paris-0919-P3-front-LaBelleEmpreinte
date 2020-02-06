@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const DisplayCatIntermediairesAdmin = (props) => {
     const [CatIntermediaires, setCatIntermediaires] = useState([])
-
+ console.log(CatIntermediaires)
 
     useEffect(() => {
         const getCatIntermediaires = () => {

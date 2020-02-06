@@ -32,7 +32,7 @@ export default function CreateBesoin() {
     return (
         <>
             <Modal isOpen={visible} toggle={handleClick} className="">
-                <ModalHeader toggle={handleClick}>Article créé!</ModalHeader>
+                <ModalHeader toggle={handleClick}>Besoin créé!</ModalHeader>
                 <ModalBody>
                     <div className="menu-modal">
                         <Link to="/admin/afficher/besoins">

@@ -64,7 +64,7 @@ export default function ModifyBesoin(props) {
   const handlePost = () => {
     const url = 'http://localhost:4000/admin/besoins/modify'
     axios.put(url, newBesoin)
-    .then(res=> setRes(res))
+      .then(res => setRes(res))
   }
 
   const deletePost = () => {
@@ -75,17 +75,17 @@ export default function ModifyBesoin(props) {
     <>
       {/* MODAL DE MODIFICATION */}
       < Modal isOpen={modifVisible} toggle={handleClickModif} className="" >
-        <ModalHeader toggle={handleClickModif}>L'objet a bien été modifié</ModalHeader>
+        <ModalHeader toggle={handleClickModif}>Le besoin a bien été modifié</ModalHeader>
         <ModalBody>
           <div className="menu-modal">
-            <Link to="/admin/afficher/besoins"><input type="button" value="OK"/></Link>
+            <Link to="/admin/afficher/besoins"><input type="button" value="OK" /></Link>
           </div>
         </ModalBody>
       </Modal >
 
       {/* MODAL DE SUPPRESSION */}
       < Modal isOpen={visible} toggle={handleClick} className="" >
-        <ModalHeader toggle={handleClick}>Souhaitez vraiment supprimer l'objet'?</ModalHeader>
+        <ModalHeader toggle={handleClick}>Souhaitez vraiment supprimer le besoin?</ModalHeader>
         <ModalBody>
           <div className="menu-modal">
             <Link to="/admin/afficher/besoins"><input type="button" value="Confirmer" onClick={() => deletePost()} /></Link>
@@ -109,8 +109,8 @@ export default function ModifyBesoin(props) {
                   onChange={(e) => setPicto(e.target.value)} />
               </p>
               <input className="feedback-input" type="button" id="button-blue" value="Modifier Besoin" onClick={(e) => handlePost(e)} />
-                <input className="feedback-input" id="button-blue" type="button" value="Supprimer Besoin" onClick={(e) => handleClick()} />
-              
+              <input className="feedback-input" id="button-blue" type="button" value="Supprimer Besoin" onClick={(e) => handleClick()} />
+
 
             </form>
           </div>

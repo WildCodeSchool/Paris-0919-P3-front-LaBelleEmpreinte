@@ -84,7 +84,9 @@ export default function ModifyObjets(props) {
         .get("http://localhost:4000/user/objets")
         .then(response => response.data)
         .then(data => {
-          setFiltres(data[1].results);
+          if (data[1].results) {
+            setFiltres(data[1].results);
+          }
         });
     };
     getFilters();
@@ -93,7 +95,7 @@ export default function ModifyObjets(props) {
     <>
       {/* MODAL DE MODIFICATION */}
       < Modal isOpen={modifVisible} toggle={handleClickModif} className="" >
-        <ModalHeader toggle={handleClickModif}>Le besoin a bien été modifié</ModalHeader>
+        <ModalHeader toggle={handleClickModif}>L'objet a bien été modifié</ModalHeader>
         <ModalBody>
           <div className="menu-modal">
             <Link to="/admin/afficher/objets"><input type="button" value="OK" /></Link>
@@ -103,7 +105,7 @@ export default function ModifyObjets(props) {
 
       {/* MODAL DE SUPPRESSION */}
       < Modal isOpen={visible} toggle={handleClick} className="" >
-        <ModalHeader toggle={handleClick}>Souhaitez vraiment supprimer le besoin?</ModalHeader>
+        <ModalHeader toggle={handleClick}>Souhaitez vraiment supprimer l'objet?</ModalHeader>
         <ModalBody>
           <div className="menu-modal">
             <Link to="/admin/afficher/objets"><input type="button" value="Confirmer" onClick={() => deletePost()} /></Link>

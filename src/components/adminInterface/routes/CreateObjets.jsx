@@ -31,8 +31,10 @@ export default function CreateObjets() {
                 .get("http://localhost:4000/user/objets")
                 .then(response => response.data)
                 .then(data => {
-                    setFiltres(data[1].results);
-                    setCategories_intermediaires_id(data[1].results[0].id)
+                    if (data[1].results[0]) {
+                        setFiltres(data[1].results);
+                        setCategories_intermediaires_id(data[1].results[0].id)
+                    }
                 });
 
         }

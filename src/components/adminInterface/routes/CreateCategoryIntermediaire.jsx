@@ -32,8 +32,10 @@ export default function CreateCategoryIntermediaire() {
                 .get("http://localhost:4000/user/objets")
                 .then(response => response.data)
                 .then(data => {
-                    setFiltres(data[0].results)
-                    setCategories_objets_id(data[0].results[0].id)
+                    if (data[0].results[0]) {
+                        setFiltres(data[0].results)
+                        setCategories_objets_id(data[0].results[0].id)
+                    }
                 })
 
         }
@@ -69,7 +71,7 @@ export default function CreateCategoryIntermediaire() {
                 <div id="form-main">
                     <div id="form-div">
                         <form className="form" id="form1">
-                            <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onClick={(e) => setName(e.target.value)} /></label>
+                            <label>Nom de la catégorie intermédiaire: <input type="text" className="feedback-input" onChange={(e) => setName(e.target.value)} /></label>
                             <p>
                                 Pictogramme
 

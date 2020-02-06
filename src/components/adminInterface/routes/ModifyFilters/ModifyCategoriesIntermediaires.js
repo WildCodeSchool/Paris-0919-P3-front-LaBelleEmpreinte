@@ -74,7 +74,9 @@ export default function ModifyCategoryIntermediaire(props) {
                 .get("http://localhost:4000/user/objets")
                 .then(response => response.data)
                 .then(data => {
-                    setFiltres(data[0].results);
+                    if (data[0].results) {
+                        setFiltres(data[0].results);
+                    }
                 });
 
         }
