@@ -8,7 +8,7 @@ import logo1 from "../../assets/pictures/meow.svg";
 function Header() {
 
   const [visible, setVisible] = useState(false)
-  
+
 
   // fonction pour faire apparaitre le menu burger
   const handleClick = () => {
@@ -44,7 +44,7 @@ function Header() {
             {/* liste des liens */}
             <ul className="navbar-sidebar">
               <li className="navbar-item">
-                <a className="navbar-link " href="/homepage">
+                <a className="navbar-link " href="/https://labelleempreinte.fr/">
                   ACCUEIL
               </a>
                 <div className="navbar-rond"></div>
@@ -53,25 +53,25 @@ function Header() {
               <hr className="navbar-line" />
 
               <li className="navbar-item">
-                <a className="navbar-link" href="/quizz">
-                  QUIZZ & GUIDE
+                <a className="navbar-link" href="https://labelleempreinte.fr/quizz">
+                  GUIDE
               </a>
                 <div className="navbar-rond"></div>
               </li>
 
               <hr className="navbar-line" />
               <li className="navbar-item">
-                <a className="navbar-link" href="/presentation">
-                  PRESENTATION
+                <a className="navbar-link" href="https://labelleempreinte.fr/label">
+                  LABEL
               </a>
-                <div className="navbar-rond"></div>
+                <div className="navbar-rond-orange"></div>
               </li>
 
               <hr className="navbar-line" />
               <li className="navbar-item">
                 <a
                   className="navbar-link navbar-after-red"
-                  href="/moteur-de-recherche"
+                  href="/recherche"
                 >
                   MOTEUR DE <br /> RECHERCHE
               </a>
@@ -81,17 +81,8 @@ function Header() {
               <hr className="navbar-line" />
 
               <li className="navbar-item">
-                <a className="navbar-link after-orange" href="/label">
-                  LABEL
-              </a>
-                <div className="navbar-rond-orange"></div>
-              </li>
-
-              <hr className="navbar-line" />
-
-              <li className="navbar-item">
-                <a className="navbar-link" href="/nous rejoindre">
-                  NOUS <br /> REJOINDRE
+                <a className="navbar-link after-orange" href="https://labelleempreinte.fr/blog">
+                  LA BELLE<br /> GAZETTE
               </a>
                 <div className="navbar-rond"></div>
               </li>
@@ -99,8 +90,8 @@ function Header() {
               <hr className="navbar-line" />
 
               <li className="navbar-item">
-                <a className="navbar-link" href="/blog">
-                  BLOG
+                <a className="navbar-link" href="https://labelleempreinte.fr/presentation">
+                  EQUIPE
               </a>
                 <div className="navbar-rond"></div>
               </li>
@@ -108,20 +99,14 @@ function Header() {
               <hr className="navbar-line" />
 
               <li className="navbar-item">
-                <a className="navbar-link" href="/premier pas">
-                  PREMIER PAS
-              </a>
-                <div className="navbar-rond"></div>
-              </li>
-
-              <hr className="navbar-line" />
-
-              <li className="navbar-item">
-                <a className="navbar-link-pros" href="coin-des-pros">
+                <a style={{ color: '#399967' }} className="navbar-link" href="https://labelleempreinte.fr/coin-des-pros">
                   LE COIN DES <br />PROS
               </a>
                 <div className="navbar-rond"></div>
               </li>
+
+              <hr className="navbar-line" />
+
             </ul>
 
             {/* bouton */}
@@ -131,8 +116,8 @@ function Header() {
               data-target="#newsletterModal"
             >
               <i className="navbar-envelope"></i>
-              <img className="navbar-logo" src={logo1} alt="" height="16" /> La lettre des <br />emplettes
-              responsables
+              <img className="navbar-logo" src={logo1} alt="" height="16" /> Newsletter
+              
               </button>
           </div>
         </ModalBody>

@@ -178,8 +178,6 @@ export default function CreateArticle(props) {
     setRemovedInitiative(removedInit);
   };
 
-  console.log('article article', articleDataForBack)
-
   return (
     <>
       <Modal isOpen={visible} toggle={handleClick} className="">

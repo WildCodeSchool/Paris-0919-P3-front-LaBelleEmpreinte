@@ -3,6 +3,7 @@ import './CSS/displayArticleAdmin.css'
 import axios from "axios";
 import {Link} from 'react-router-dom'
 
+
 const DisplayInitiativesAdmin = (props) => {
     const [Initiative, setInitiative] = useState([])
 
@@ -15,6 +16,7 @@ const DisplayInitiativesAdmin = (props) => {
         const getInitiatives = () => {
             axios
             .get(`${pathApi}/admin/initiaves`)
+
             .then(response => response.data)
             .then(data => {
                 console.log("aaaaaaaa", data)
@@ -31,6 +33,7 @@ const DisplayInitiativesAdmin = (props) => {
             const url1 = `${pathApi}/user/filtres/articles`
             const url2 = `${pathApi}/user/filtres/objets/articles`
             const url3 = `${pathApi}/user/filtres/besoins/articles`
+
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
                 console.log('results',result.data)
@@ -65,7 +68,9 @@ const DisplayInitiativesAdmin = (props) => {
         loadInitiatives()
     }, [props])
 
-
+    const handleModify = (e) => {
+        props.modify(e)
+    }
    
 
         return (
@@ -75,16 +80,18 @@ const DisplayInitiativesAdmin = (props) => {
                 {/* <div><Filtres filtreArticle={this.setFiltreArticle}/></div> */}
                 <div className="displayArticleAdmin_frame">
                     <div className="displayArticleAdmin_header">
-                        <p>Nom de l'initiatives</p>
+                        <p>Nom de l'initiative</p>
                         
                     </div>
                     <div className="displayArticleAdmin_content">
                         <ul className="displayArticleAdmin_items">
                         {Initiative.map(elem =>
+
                         { 
                             
                             // {console.log("test",elem)}
-                            return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
+
+                            return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div onClick={() => handleModify(elem)}className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
                         
                         )}
                         

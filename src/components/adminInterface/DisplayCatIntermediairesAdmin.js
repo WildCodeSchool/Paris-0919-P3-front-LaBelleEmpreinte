@@ -12,6 +12,7 @@ const DisplayCatIntermediairesAdmin = (props) => {
       pathApi = process.env.REACT_APP_PATH_API_PROD 
     }
 
+
     useEffect(() => {
         const getCatIntermediaires = () => {
             axios

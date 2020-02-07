@@ -70,7 +70,7 @@ export default function HomeAdmin() {
         return (
             <>
                 <div className="retour"><Link to='/recherche'>Retour vers le site</Link></div>
-                <Link to="/admin"><div className="déco" onClick={(e) => handleDeconnection()}>Déconnection</div></Link>
+                <Link to="/admin"><div className="déco" onClick={(e) => handleDeconnection()}>Déconnexion</div></Link>
 
                 <div className="admin-Header">
                     <div className="mainTitle">

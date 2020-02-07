@@ -26,6 +26,7 @@ import ModifyCategoriesObjets from "./routes/ModifyFilters/ModifyCategoriesObjet
 import ModifyCategoriesIntermediaires from "./routes/ModifyFilters/ModifyCategoriesIntermediaires"
 import ModifyObjets from "./routes/ModifyFilters/ModifyObjets"
 import ModifyEngagements from "./routes/ModifyFilters/ModifyEngagements"
+import ModifyInitiatives from './routes/ModifyInitiatives'
 
 
 import "./CSS/MainFilters.css"
@@ -66,6 +67,7 @@ export default function MainFilters() {
         
         setArticleModify(e)
     }
+
 
     return (
         <>
@@ -127,7 +129,7 @@ export default function MainFilters() {
                     <DisplayObjetsAdmin modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/initiatives">
-                    <Filtres front="admin_initiatives"/>
+                    <Filtres front="admin_initiatives" modify={(e)=>handleModify(e)}/>
                 </Route>
                 <Route path="/admin/afficher/categories_objets">
                     <DisplayCatObjetsAdmin modify={(e)=>handleModify(e)}/>
@@ -166,6 +168,9 @@ export default function MainFilters() {
                 </Route>
                 <Route path="/admin/modifier/engagements/:id">
                     <ModifyEngagements elem={articleModify}/>
+                </Route>
+                <Route path="/admin/modifier/initiatives/:id">
+                    <ModifyInitiatives elem={articleModify}/>
                 </Route>
             </Switch>
         </>

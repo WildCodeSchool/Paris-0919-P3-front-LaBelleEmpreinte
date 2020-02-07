@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FiltresAdmin from "../../adminInterface/FiltresAdmin";
-// import tinyMCE
-import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 // on importe le menu modal
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import "../CSS/AdminCreateArticle.css";
@@ -12,24 +11,24 @@ import addFilterIcon from "./../../../assets/icons/addFilterIcon.png";
 
 export default function CreateInitiatives() {
   // les states pour le back
-  const [name, setName] = useState();
-  const [url, setUrl] = useState();
-  const [adress, setAdress] = useState();
-  const [adressTwo, setAdressTwo] = useState();
-  const [adressThree, setAdressThree] = useState();
-  const [logo, setLogo] = useState();
-  const [phoneOne, setPhoneOne] = useState();
-  const [phoneTwo, setPhoneTwo] = useState();
-  const [phoneThree, setPhoneThree] = useState();
-  const [description, setDescription] = useState();
-  const [contactFirstNameOne, setContactFirstNameOne] = useState();
-  const [contactNameOne, setcontactNameOne] = useState();
-  const [contactMailOne, setContactMailOne] = useState();
-  const [contactPhoneOne, setContactPhoneOne] = useState();
-  const [contactFirstNameTwo, setContactFirstNameTwo] = useState();
-  const [contactNameTwo, setcontactNameTwo] = useState();
-  const [contactMailTwo, setContactMailTwo] = useState();
-  const [contactPhoneTwo, setContactPhoneTwo] = useState();
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [adress, setAdress] = useState('');
+  const [adressTwo, setAdressTwo] = useState('');
+  const [adressThree, setAdressThree] = useState('');
+  const [logo, setLogo] = useState('');
+  const [phoneOne, setPhoneOne] = useState('');
+  const [phoneTwo, setPhoneTwo] = useState('');
+  const [phoneThree, setPhoneThree] = useState('');
+  const [description, setDescription] = useState('');
+  const [contactFirstNameOne, setContactFirstNameOne] = useState('');
+  const [contactNameOne, setcontactNameOne] = useState('');
+  const [contactMailOne, setContactMailOne] = useState('');
+  const [contactPhoneOne, setContactPhoneOne] = useState('');
+  const [contactFirstNameTwo, setContactFirstNameTwo] = useState('');
+  const [contactNameTwo, setcontactNameTwo] = useState('');
+  const [contactMailTwo, setContactMailTwo] = useState('');
+  const [contactPhoneTwo, setContactPhoneTwo] = useState('');
   const [lastExchange, setLastExchange] = useState();
   const [dateEvent, setDateEvent] = useState();
   const [isLabelised, setIsLabelised] = useState(false);
@@ -187,8 +186,7 @@ export default function CreateInitiatives() {
     displayUniqueInitiatives();
   }, [engagements]);
 
-  console.log('init', articleDataForBack)
-  console.log(engagements)
+  
   return (
     <div className="admincreatearticle">
       <h1>Je créé une initiative</h1>
@@ -276,27 +274,9 @@ export default function CreateInitiatives() {
                 onChange={e => setPhoneThree(e.target.value)}
               />
             </p>
-            {/* DESCRIPTION */}
-            
-              <h2>Description</h2>
-              <Editor
-                initialValue={description}
-                init={{
-                  height: 500,
-                  menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount"
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
-             alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help"
-                }}
-                onChange={e => setDescription(e.target.getContent())}
-              />
-            
+            <p>
+              <input type="text" className="feedback-input" value={description} placeholder="Description" onChange={(e)=> setDescription(e.target.value)}/>
+            </p>
 
             <p>
               <input
@@ -391,22 +371,24 @@ export default function CreateInitiatives() {
                   placeholder="Date des événements"
                   value={dateEvent}
                   onChange={e => setDateEvent(e.target.value)}
-                />
+                  />
               </label>
             </p>
-            <div className="association">
-          <h2>J'associe mon article à des objets et des besoins</h2>
-        </div>
         </form>
           </div>
+          </div>
+            <div className="association">
+          <h2>J'associe mon initiative à des objets et des besoins</h2>
+        </div>
 
         <div>
         <FiltresAdmin filteredItems={getFilters} />
-          <h2>J'associe des engagements à mon initiative</h2>
         </div>
+        <div>
+          <h2>J'associe des engagements à mon initiative</h2>
         <div className="createArticle-initiatives">
           {uniqueInitiatives.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOn">
               <p>{init.name}</p>
               <img
                 src={deleteFilterIcon}
@@ -416,7 +398,7 @@ export default function CreateInitiatives() {
             </div>
           ))}
           {removedInitiative.map(init => (
-            <div className="createArticle-initButton">
+            <div className="createArticle-initButtonOff">
               <p>{init.name}</p>
               <img
                 src={addFilterIcon}
@@ -425,14 +407,8 @@ export default function CreateInitiatives() {
               ></img>
             </div>
           ))}
+          </div>
         
-
-
-
-       
-
-
-          
         </div>
         <div id="form-main">
           <div id="form-div">
@@ -460,15 +436,16 @@ export default function CreateInitiatives() {
         {/* MODAL DE MODIFICATION */}
         <Modal isOpen={isVisible} toggle={handleClickModif} className="">
           <ModalHeader toggle={handleClickModif}>
-            L'article a bien été modifié
+            L'initiative a été créée!
           </ModalHeader>
           <ModalBody>
             <div className="menu-modal">
+              <Link to="/admin/afficher/initiatives">
               <input type="button" value="OK" onClick={handleClickModif} />
+              </Link>
             </div>
           </ModalBody>
         </Modal>
-      </div>
     </div>
   );
 }
