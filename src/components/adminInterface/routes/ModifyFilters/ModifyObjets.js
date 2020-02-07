@@ -60,16 +60,20 @@ export default function ModifyObjets(props) {
 
   // a checker le chemin ==> nouveau besoin
   const handlePost = () => {
-    const url = "http://localhost:4000/admin/objets/modify";
-    axios.put(url, newCat)
-    .then(res=> setRes(res))
+    const url = `${pathApi}/admin/objets/modify`;
+    axios.put(url, newCat);
+
   };
 
   const deletePost = () => {
-    const url = `http://localhost:4000/admin/objets/${id}`;
+    const url = `${pathApi}/admin/objets/${id}`;
     axios.delete(url);
   };
 
+  let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
   useEffect(() => {
     setElem(props);
     setNewElem(Elem.elem);
@@ -81,7 +85,7 @@ export default function ModifyObjets(props) {
   useEffect(() => {
     const getFilters = () => {
       axios
-        .get("http://localhost:4000/user/objets")
+        .get(`${pathApi}/user/objets`)
         .then(response => response.data)
         .then(data => {
           if (data[1].results) {

@@ -9,11 +9,15 @@ import { Link } from 'react-router-dom'
 const DisplayObjetsAdmin = (props) => {
     const [Objets, setObjets] = useState([])
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
 
     useEffect(() => {
         const getObjets = () => {
             axios
-            .get("http://localhost:4000/admin/objets")
+            .get(`${pathApi}/admin/objets`)
             .then(response => response.data)
             .then(data => {
               setObjets(data);

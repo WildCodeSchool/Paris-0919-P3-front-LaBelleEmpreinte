@@ -13,9 +13,14 @@ export default function CreateBesoin() {
     const [response, setResponse]=useState()
     const newBesoin = { besoins, picto }
 
-    const handlePost = () => {
-        const url = 'http://localhost:4000/admin/besoins/create'
-        axios.post(url, newBesoin)
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
+
+      const handlePost = () => {
+        const url = `${pathApi}/admin/besoins/create`
+           axios.post(url, newBesoin)
         .then(res => setResponse(res))
     }
 

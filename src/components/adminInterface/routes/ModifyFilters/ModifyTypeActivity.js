@@ -56,6 +56,11 @@ export default function ModifyTypeActivity(props) {
         setChange(false)
     }
 
+      let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
+
     useEffect(() => {
         setElem(props)
         setNewElem(Elem.elem)
@@ -66,20 +71,20 @@ export default function ModifyTypeActivity(props) {
 console.log(Elem)
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/types_activites/modify'
-        axios.put(url, newCat)
-            .then(res => setRes(res))
-    }
+        const url = `${pathApi}/admin/types_activites/modify`
+           axios.put(url, newCat)
+        }
 
-    const deletePost = () => {
-        const url = `http://localhost:4000/admin/types_activites/${id}`
-        axios.delete(url)
-    }
+        const deletePost = () => {
+            const url = `${pathApi}/admin/types_activites/${id}`
+            axios.delete(url)
+        }
 
-    useEffect(() => {
-        const getFilters = () => {
-            axios
-                .get("http://localhost:4000/user/besoins")
+        useEffect(() => {
+            const getFilters = () => {
+                axios
+                .get(`${pathApi}/user/besoins`)
+
                 .then(response => response.data)
                 .then(data => { 
                     if (data[0]) {

@@ -16,19 +16,27 @@ export default function CreateObjets() {
     const [categories_intermediaires_id, setCategories_intermediaires_id] = useState()
     const newCat = { name, picto, categories_intermediaires_id }
 
-
+let pathApi = process.env.REACT_APP_PATH_API_DEV
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD
+        } 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/objets/create'
-        axios.post(url, newCat)
-        .then(res => setResponse(res))
 
-    }
+        const url = `${pathApi}/admin/objets/create`
+           axios.post(url, newCat)
+                .then(res => setResponse(res))
 
-    useEffect(() => {
-        const getFilters = () => {
-            axios
-                .get("http://localhost:4000/user/objets")
+        }
+
+        
+
+
+        
+        useEffect(() => {
+            const getFilters = () => {
+                axios
+                .get(`${pathApi}/user/objets`)
                 .then(response => response.data)
                 .then(data => {
                     if (data[1].results[0]) {

@@ -52,7 +52,10 @@ export default function ModifyCategory(props) {
         setId(newElem.id)
         setChange(false)
     }
-
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
     useEffect(() => {
         setElem(props)
         setNewElem(Elem.elem)
@@ -64,13 +67,13 @@ export default function ModifyCategory(props) {
 
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/categories_objets/modify'
+        const url = `${pathApi}/admin/categories_objets/modify`
         axios.put(url, newCat)
             .then(res => setRes(res))
     }
 
     const deletePost = () => {
-        const url = `http://localhost:4000/admin/categories_objets/${id}`
+        const url = `${pathApi}/admin/categories_objets/${id}`
         axios.delete(url)
     }
 

@@ -76,10 +76,14 @@ export default function ModifyArticles(props) {
   const handleClickModif = () => {
     setModifVisible(!modifVisible)
   }
-
+  
   const handleClick = () => {
     setVisible(!visible)
   }
+  let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
 
   useEffect(() => {
     if (date){
@@ -95,17 +99,19 @@ export default function ModifyArticles(props) {
     }
   })
 
+
   
   // LES FONCTIONS QUI GERENT LES MENUS MODAL
   const handleModification = () => {
-    axios.put(`http://localhost:4000/admin/articles_maj/${newElem.id}`, { titre: title, date: date, auteur: author, contenu: text, publication: isPublished, image: img, image2: img2, minutes_lecture: readingTime, geographie: place })
+    axios.put(`${pathApi}000/admin/articles_maj/${newElem.id}`, { titre: title, date: date, auteur: author, contenu: text, publication: isPublished, image: img, image2: img2, minutes_lecture: readingTime, geographie: place })
     .then(res => setRes(res))
     // .then(error())
   }
 
   const handleSupress = () => {
-    axios.delete(`http://localhost:4000/admin/articles_maj/${newElem.id}`)
+    axios.delete(`${pathApi}/admin/articles_maj/${newElem.id}`)
   }
+
 
   //affiche la confirmation de modification
   useEffect(() => {

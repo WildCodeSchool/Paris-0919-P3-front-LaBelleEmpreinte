@@ -51,23 +51,29 @@ export default function ModifyBesoin(props) {
     setChange(false)
   }
 
-  useEffect(() => {
-    setElem(props)
-    setNewElem(Elem.elem)
-    if (newElem && justChange) {
-      loadStates()
-    }
-  })
-  const handlePost = () => {
-    const url = 'http://localhost:4000/admin/engagements/modify'
-    axios.put(url, newEngagements)
-    .then(res => setRes(res))
-  }
 
-  const deletePost = () => {
-    const url = `http://localhost:4000/admin/engagements/${id}`
-    axios.delete(url)
-  }
+      let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
+
+      useEffect(() => {
+        setElem(props)
+        setNewElem(Elem.elem)
+        if (newElem &&justChange){
+          loadStates()
+        }
+      })  
+      const handlePost = () => {
+        const url = `${pathApi}/admin/engagements/modify`
+           axios.put(url, newEngagements)
+        }
+
+        const deletePost = () => {
+        const url = `${pathApi}/admin/engagements/${id}`
+            axios.delete(url)
+        }
+
 
   return (
     <>

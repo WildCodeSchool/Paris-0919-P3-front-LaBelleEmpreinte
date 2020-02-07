@@ -11,9 +11,14 @@ const ListInitiatives = props => {
 
     const [loaded3, setLoaded3] = useState(false)
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
+
     useEffect(() => {
         const loadEngagements = async () => {
-            const url = `http://localhost:4000/user/engagements`
+            const url = `${pathApi}/user/engagements`
             const result = await axios.get(url)
             setEngagements(result.data)
             setLoaded3(true)

@@ -67,17 +67,34 @@ export default function ModifyCategoryIntermediaire(props) {
 
     // a checker le chemin ==> nouveau besoin
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    } 
 
-    useEffect(() => {
-        const getFilters = () => {
-            axios
-                .get("http://localhost:4000/user/objets")
+  const handlePost = () => {
+            const url = `${pathApi}/admin/categories_intermediaires/modify`
+            console.log('modify')
+            axios.put(url, newCat)
+        }
+    
+        const deletePost = () => {
+            const url = `${pathApi}/admin/categories_intermediaires/${id}`
+            axios.delete(url)
+        }
+
+        useEffect(() => {
+            const getFilters = () => {
+                axios
+                .get(`${pathApi}/user/objets`)
+
                 .then(response => response.data)
                 .then(data => {
                     if (data[0].results) {
                         setFiltres(data[0].results);
                     }
                 });
+
 
         }
         getFilters()
@@ -125,6 +142,7 @@ export default function ModifyCategoryIntermediaire(props) {
                         <p>
                             Pictogramme
                 <input
+
                                 type="text"
                                 className="feedback-input"
                                 id="image"
@@ -143,6 +161,7 @@ export default function ModifyCategoryIntermediaire(props) {
                     <input type="button" className="feedback-input" id="button-blue" value="Modifier la catégorie intermédiaire" onClick={(e) => handlePost(e)} />
                         <input type="button" className="feedback-input" id="button-blue" value="Supprimer la categorie intermédiaire" onClick={() => handleClick()} />
                 </div>
+
 
             </div>
         </div>

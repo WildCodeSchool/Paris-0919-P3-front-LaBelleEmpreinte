@@ -13,11 +13,16 @@ const DisplayArticles = (props) => {
 
     const [lastArticles, setLastArticles] = useState(false)
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
+
     useEffect(() => {
         const loadArticles = async () => {
-            const url1 = 'http://localhost:4000/user/filtres/articles'
-            const url2 = 'http://localhost:4000/user/filtres/objets/articles'
-            const url3 = 'http://localhost:4000/user/filtres/besoins/articles'
+            const url1 = `${pathApi}/user/filtres/articles`
+            const url2 = `${pathApi}/user/filtres/objets/articles`
+            const url3 = `${pathApi}/user/filtres/besoins/articles`
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 setLoaded(false)
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
@@ -46,7 +51,7 @@ const DisplayArticles = (props) => {
     useEffect(() => {
         const loadArticlesStart = async () => {
             setLoaded(false)
-            const url = 'http://localhost:4000/user/lastarticles'
+            const url = `${pathApi}/user/lastarticles`
             const result = await axios.get(url)
             setLastArticles(true)
             setArticles(result.data)
@@ -60,7 +65,7 @@ const DisplayArticles = (props) => {
             const keyword = props.recherche.submitRecherche            
             if (keyword !== undefined && keyword.length > 0) {
             setLoaded(false)
-            const url = 'http://localhost:4000/user/recherche'
+            const url = `${pathApi}/user/recherche`
             const result = await axios.post(url, { keyword: keyword })
             setLastArticles(false)
             setArticles(result.data)

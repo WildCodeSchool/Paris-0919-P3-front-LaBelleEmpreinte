@@ -20,7 +20,7 @@ export default function DisplayArticles(props) {
             const res = await axios.get(url)
             setObjets(res.data)
         }
-        axiosData(`http://localhost:4000/user/objets`)
+        axiosData(`${pathApi}/user/objets`)
     }
 
     // GET BESOINS
@@ -29,7 +29,12 @@ export default function DisplayArticles(props) {
             const res = await axios.get(url)
             setBesoins(res.data)
         }
-        axiosData(`http://localhost:4000/user/besoins`)
+        axiosData(`${pathApi}/user/besoins`)
+    }
+
+    let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
     }
 
     useEffect(() => {

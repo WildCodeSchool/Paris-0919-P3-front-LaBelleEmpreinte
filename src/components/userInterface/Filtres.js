@@ -8,6 +8,11 @@ import DisplayInitiativesAdmin from "../adminInterface/DisplayInitiativesAdmin";
 import MoteurRecherche from '../screen/MoteurRecherche'
 import "./Filtres.css"
 
+let pathApi = process.env.REACT_APP_PATH_API_DEV
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD
+    }
+
 class Filtres extends Component {
   state = {
     datasObjets: [""],
@@ -41,11 +46,11 @@ class Filtres extends Component {
     this.props.modify(e)
   }
 
-
+  
 
   getObjets = () => {
     axios
-      .get("http://localhost:4000/user/objets")
+      .get(`${pathApi}/user/objets`)
       .then(response => response.data)
       .then(data => {
        console.log('blala', data)
@@ -60,7 +65,7 @@ class Filtres extends Component {
 
   getBesoins = () => {
     axios
-      .get("http://localhost:4000/user/besoins")
+      .get(`${pathApi}/user/besoins`)
       .then(response => response.data)
       .then(data => {
         this.setState({

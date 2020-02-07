@@ -6,12 +6,17 @@ import { Link } from 'react-router-dom'
 
 const DisplayCatIntermediairesAdmin = (props) => {
     const [CatIntermediaires, setCatIntermediaires] = useState([])
- console.log(CatIntermediaires)
+
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
+
 
     useEffect(() => {
         const getCatIntermediaires = () => {
             axios
-            .get("http://localhost:4000/admin/categories_intermediaires")
+            .get(`${pathApi}/admin/categories_intermediaires`)
             .then(response => response.data)
             .then(data => {
               setCatIntermediaires(data);

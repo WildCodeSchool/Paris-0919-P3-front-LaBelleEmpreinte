@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import TitleAdmin from './TitleAdmin'
-import Filtres from '../userInterface/Filtres'
 import './CSS/displayArticleAdmin.css'
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 const DisplayInitiativesAdmin = (props) => {
     const [Initiative, setInitiative] = useState([])
 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
 
     useEffect(() => {
         const getInitiatives = () => {
             axios
-            .get("http://localhost:4000/admin/initiatives")
+            .get(`${pathApi}/admin/initiaves`)
+
             .then(response => response.data)
             .then(data => {
                 console.log("aaaaaaaa", data)
@@ -27,9 +30,10 @@ const DisplayInitiativesAdmin = (props) => {
     useEffect(() => {
         const loadInitiatives = async () => {
             console.log(props)
-            const url1 = 'http://localhost:4000/admin/filtres/initiatives'
-            const url2 = 'http://localhost:4000/admin/filtres/objets/initiatives'
-            const url3 = 'http://localhost:4000/admin/filtres/besoins/initiatives'
+            const url1 = `${pathApi}/user/filtres/articles`
+            const url2 = `${pathApi}/user/filtres/objets/articles`
+            const url3 = `${pathApi}/user/filtres/besoins/articles`
+
             if (props.objet.id !== 0 && props.besoin.id !== 0) {
                 const result = await axios.post(url1, { object: props.objet, besoin: props.besoin })
                 console.log('results',result.data)
@@ -50,7 +54,7 @@ const DisplayInitiativesAdmin = (props) => {
             else {
                 const getInitiatives = () => {
                     axios
-                    .get("http://localhost:4000/admin/initiatives")
+                    .get(`${pathApi}/admin/initiatives`)
                     .then(response => response.data)
                     .then(data => {
                       setInitiative(data);
@@ -86,6 +90,7 @@ const DisplayInitiativesAdmin = (props) => {
                         { 
                             
                             // {console.log("test",elem)}
+
                             return <Link to={`/admin/modifier/initiatives/${elem.id}`}><li> <div onClick={() => handleModify(elem)}className="displayArticleAdmin_title">{elem.name}</div></li></Link> }
                         
                         )}

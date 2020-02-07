@@ -17,18 +17,25 @@ export default function CreateTypeActivity() {
     const [response, setResponse] = useState()
     const newCat = { types_activites, picto, besoins_id }
 
-
+ let pathApi = process.env.REACT_APP_PATH_API_DEV
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD
+        }
+  
     // a checker le chemin ==> nouveau besoin
     const handlePost = () => {
-        const url = 'http://localhost:4000/admin/types_activites/create'
-        axios.post(url, newCat)
-        .then(res => setResponse(res))
-    }
+        const url = `${pathApi}/admin/types_activites/create`
+           axios.post(url, newCat)
+                .then(res => setResponse(res))
 
-    useEffect(() => {
-        const getFilters = () => {
-            axios
-                .get("http://localhost:4000/user/besoins")
+        }
+
+       
+
+        useEffect(() => {
+            const getFilters = () => {
+                axios
+                .get(`${pathApi}/user/besoins")
                 .then(response => response.data)
                 .then(data => { 
                     if (data[0]) {

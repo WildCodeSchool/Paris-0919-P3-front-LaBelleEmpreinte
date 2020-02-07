@@ -24,6 +24,11 @@ export default function ModifyBesoin(props) {
   const [modifVisible, setModifVisible] = useState(false)
   // reçoit la réponse depuis le back
   const [theRes, setRes] = useState()
+  
+  let pathApi = process.env.REACT_APP_PATH_API_DEV
+  if (process.env.NODE_ENV === 'production') {
+    pathApi = process.env.REACT_APP_PATH_API_PROD
+  }
 
   //Pour les modals
   const handleClickModif = () => {
@@ -62,13 +67,13 @@ export default function ModifyBesoin(props) {
   })
 
   const handlePost = () => {
-    const url = 'http://localhost:4000/admin/besoins/modify'
+    const url = `${pathApi}/admin/besoins/modify`
     axios.put(url, newBesoin)
       .then(res => setRes(res))
   }
 
   const deletePost = () => {
-    const url = `http://localhost:4000/admin/besoins/${id}`
+    const url = `${pathApi}/admin/besoins/${id}`
     axios.delete(url)
   }
   return (
