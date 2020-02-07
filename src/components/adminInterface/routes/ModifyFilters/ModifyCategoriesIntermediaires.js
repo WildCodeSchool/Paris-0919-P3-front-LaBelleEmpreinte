@@ -100,18 +100,6 @@ export default function ModifyCategoryIntermediaire(props) {
         getFilters()
     }, [])
 
-    const handlePost = () => {
-        const url = 'http://localhost:4000/admin/categories_intermediaires/modify'
-        console.log('modify')
-        axios.put(url, newCat)
-        .then(res => setRes(res))
-    }
-
-    const deletePost = () => {
-        const url = `http://localhost:4000/admin/categories_intermediaires/${id}`
-        axios.delete(url)
-    }
-
     return (
         <>
         {/* MODAL DE MODIFICATION */}
