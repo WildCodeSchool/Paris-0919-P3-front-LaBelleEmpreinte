@@ -35,7 +35,7 @@ export default function CreateTypeActivity() {
         useEffect(() => {
             const getFilters = () => {
                 axios
-                .get(`${pathApi}/user/besoins")
+                .get(`${pathApi}/user/besoins`)
                 .then(response => response.data)
                 .then(data => { 
                     if (data[0]) {
